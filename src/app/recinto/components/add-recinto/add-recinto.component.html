@@ -1,1 +1,76 @@
-<p>add-recinto works!</p>
+<section>
+  <fieldset>
+    <form action="">
+      <legend>Alta de recinto</legend>
+
+      <!-- Nombre del Recinto -->
+      <div>
+        <label for="nombreRecinto">Nombre del Recinto:</label>
+        <input type="text" id="nombreRecinto" name="nombreRecinto" [(ngModel)]="recinto.nombreRecinto" required>
+      </div>
+
+
+      <!-- Dirección del Recinto -->
+      <div>
+        <label for="calle">Calle:</label>
+        <input type="text" id="calle" name="calle" [(ngModel)]="recinto.direccion.calle" required>
+      </div>
+
+      <div>
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" [(ngModel)]="recinto.direccion.ciudad" required>
+      </div>
+
+      <div>
+        <label for="codigoPostal">Código Postal:</label>
+        <input type="text" id="codigoPostal" name="codigoPostal" [(ngModel)]="recinto.direccion.codigoPostal" required>
+      </div>
+
+      <div>
+        <label for="pais">País:</label>
+        <input type="text" id="pais" name="pais" [(ngModel)]="recinto.direccion.pais" required>
+      </div>
+
+      <!-- URL de la Imagen del Recinto -->
+      <div>
+        <label for="urlImg">URL de la Imagen del Recinto:</label>
+        <input type="text" id="urlImg" name="urlImg" [(ngModel)]="recinto.urlImg" required>
+      </div>
+
+      <!-- URL del Mapa de Sectores -->
+      <div>
+        <label for="urlMapaSectores">URL del Mapa de Sectores:</label>
+        <input type="text" id="urlMapaSectores" name="urlMapaSectores" [(ngModel)]="recinto.urlMapaSectores">
+      </div>
+
+      <!-- Sectores -->
+      <h3>Sectores</h3>
+
+      <button *ngIf="!mostrarFormSector" (click)="mostrarFormularioSector()">Agregar Sector</button>
+
+      <div *ngIf="mostrarFormSector">
+        <div *ngFor="let sector of recinto.sectores; let i = index">
+          <h4>Sector {{ i + 1 }}</h4>
+          <label for="nombreSector-{{i}}">Nombre del Sector:</label>
+          <input type="text" id="nombreSector-{{i}}" name="nombreSector-{{i}}" [(ngModel)]="sector.nombreSector" required>
+
+          <label for="capacidad-{{i}}">Capacidad:</label>
+          <input type="number" id="capacidad-{{i}}" name="capacidad-{{i}}" [(ngModel)]="sector.capacidad" required>
+          <label for="butacasNumeradas-{{i}}">¿Butacas Numeradas?:</label>
+          <input type="checkbox" id="butacasNumeradas-{{i}}" name="butacasNumeradas-{{i}}"
+          [(ngModel)]="sector.numerado">
+
+          <div *ngIf="sector.numerado">
+            <button type="button" (click)="crearButacas()">Agregar Butacas</button>
+          </div>
+
+          <button type="button" (click)="agregarSector()">Aceptar</button>
+        </div>
+
+      </div>
+
+
+
+    </form>
+  </fieldset>
+</section>

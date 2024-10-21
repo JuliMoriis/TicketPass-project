@@ -3,8 +3,9 @@ import { Sector } from "./sector.interface";
 
 export interface Recinto {
   id?: number,
-  nombre: string,
+  nombreRecinto: string,
   direccion: Direccion,
   urlImg: string,
+  urlMapaSectores?: string,
   sectores: Sector[]
 }
