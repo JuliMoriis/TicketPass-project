@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Entrada } from '../../entrada.interface';
 import { Fecha } from '../../fecha.interface';
 import { Evento } from '../../evento.interface';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-evento',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './add-evento.component.html',
   styleUrl: './add-evento.component.css'
 })
@@ -32,6 +33,8 @@ export class AddEventoComponent {
     fecha : [this.fecha]
   }
 
-  
+
+
+
 
 }
