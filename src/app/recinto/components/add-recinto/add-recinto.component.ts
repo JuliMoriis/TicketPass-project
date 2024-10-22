@@ -17,6 +17,8 @@ export class AddRecintoComponent {
 
   mostrarFormSector: boolean = false;
 
+
+
   sector: Sector = {
     nombreSector: '',
     capacidad: 0,
