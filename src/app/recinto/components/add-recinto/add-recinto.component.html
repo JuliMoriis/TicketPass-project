@@ -69,7 +69,13 @@
 
       </div>
 
-
+       <!-- Botón para añadir el recinto -->
+        <div>
+          <ul>
+            <li *ngFor="let sector of recinto.sectores"> {{sector.nombreSector}} </li>
+        </ul>
+      </div>
+      <button (click)="addRecinto()">Agregar Recinto</button>
 
     </form>
   </fieldset>

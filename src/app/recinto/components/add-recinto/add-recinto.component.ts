@@ -1,6 +1,6 @@
 import { Recinto } from './../../recinto.interface';
 import { Asiento } from '../../asiento.interface';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Sector } from '../../sector.interface';
 import { Direccion } from '../../direccion.interface';
 import { FormsModule } from '@angular/forms';
@@ -15,9 +15,19 @@ import { NgFor, NgIf } from '@angular/common';
 })
 export class AddRecintoComponent {
 
+  @Output()
+  emitirRecinto: EventEmitter<Recinto> = new EventEmitter();
+
   mostrarFormSector: boolean = false;
 
+<<<<<<< HEAD
 
+=======
+  asiento: Asiento = {
+    butaca: 0,
+    disponibilidad: true
+  }
+>>>>>>> 99f8f18da5287edbf938639e9ae7a14bf772ea33
 
   sector: Sector = {
     nombreSector: '',
@@ -45,12 +55,10 @@ export class AddRecintoComponent {
   crearButacas () : boolean
   {
     this.sector.asientos= [];
-    for(let i = 1; i<= this.sector.capacidad + 1 ; i++){
-      let asientoSector: Asiento = {
-        butaca: i,
-        disponibilidad: true
-      }
-      this.sector.asientos.push(asientoSector);
+    for(let i = 1; i< this.sector.capacidad + 1 ; i++){
+    console.log(this.sector.capacidad);
+     this.asiento.butaca = i;
+     this.sector.asientos.push({...this.asiento});
     }
 
     if (this.sector.asientos){
@@ -68,7 +76,14 @@ export class AddRecintoComponent {
     if (this.sector.nombreSector && this.sector.capacidad > 0) {
       this.recinto.sectores.push({ ...this.sector });
       alert("Sector agregado correctamente");
-      this.mostrarFormSector= false;
+
+      this.sector = {
+        nombreSector: '',
+        capacidad: 0,
+        numerado: false,
+        asientos: []
+      };
+
     } else {
       alert("Por favor completa todos los campos");
     }
@@ -76,7 +91,26 @@ export class AddRecintoComponent {
 
   mostrarFormularioSector ()
   {
-    this.mostrarFormSector= true;
+    this.mostrarFormSector = true;
+  }
+
+  addRecinto () {
+
+    if (!this.recinto.nombreRecinto || !this.recinto.direccion.calle ||
+      !this.recinto.direccion.ciudad || !this.recinto.direccion.codigoPostal ||
+      !this.recinto.direccion.pais || !this.recinto.urlImg) {
+    alert('Por favor, completa todos los campos del recinto.');
+    return; // Salir de la función si faltan campos
+  }
+
+  for (const sector of this.recinto.sectores) {
+    if (!sector.nombreSector || sector.capacidad <= 0) {
+      alert('Por favor, completa al menos un sector.');
+      return;
+    }
+  }
+      console.log(this.recinto);
+      this.emitirRecinto.emit({...this.recinto}); // envio copia con spread operator.
   }
 
 }
