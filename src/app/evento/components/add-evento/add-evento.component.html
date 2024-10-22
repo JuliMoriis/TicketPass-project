@@ -1,0 +1,53 @@
+<section>
+    <fieldset>
+        <form action="">
+            <legend>Alta de Evento</legend>
+            <!-- Banner del evento -->
+            <div>
+                <label for="bannerEvento"></label>
+               <input type="text" id="bannerEvento" [(ngModel)]="evento.UrlBanner"placeholder="url/banner.com" required>
+            </div>
+
+            <!-- Nombre evento -->
+            <div>
+                <label for="nombreEvento">Nombre del evento:</label>
+               <input type="text" id= "nombreEvento" [(ngModel)]="evento.nombreEvento" required>
+            </div>
+            <!-- Nombre artista / banda -->
+            <div>
+                <label for="nombreArtista-Banda">Artista/Banda:</label>
+               <input type="text" id= "nombreArtista-Banda" [(ngModel)]="evento.artista_banda" required>
+            </div>
+            <!-- Duracion -->
+            <div>
+                <label for="duracion">Duracion:</label>
+               <input type="text" id="duracion" [(ngModel)]="evento.duracion" required>
+            </div>
+            <!-- fechas -->
+
+            <!-- datos de la entrada -->
+             <section>
+                <div>
+                    <label for="seleccionRecinto">Seleccione un recinto</label>
+                    <select name="seleccionRecinto" id="seleccionRecinto">
+                        <option value="nombreRecinto">Recinto 1</option>
+                    </select>
+                 </div>
+                 <div>
+                    <ul>
+                        <li>
+                            sector1 
+                            <label for="precioSector">$</label>
+                            <input type="text" id="precioSector" [(ngModel)]="entrada.precio" required>
+                        </li>
+                    </ul>
+                 </div>
+
+             </section>
+           
+             <button type="button">Agregar</button>
+
+        </form>
+    </fieldset>
+
+</section>
