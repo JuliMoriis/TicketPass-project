@@ -43,6 +43,7 @@
         <input type="text" id="urlMapaSectores" name="urlMapaSectores" [(ngModel)]="recinto.urlMapaSectores">
       </div>
 
+
       <!-- Sectores -->
       <h3>Sectores</h3>
         <div *ngFor="let sector of recinto.sectores; let i = index">
@@ -55,10 +56,6 @@
           <label for="butacasNumeradas-{{i}}">¿Butacas Numeradas?:</label>
           <input type="checkbox" id="butacasNumeradas-{{i}}" name="butacasNumeradas-{{i}}"
           [(ngModel)]="sector.numerado">
-          <!-- Butacas -->
-          <div *ngIf="sector.numerado">
-            <button type="button" (click)="crearButacas(sector)">Agregar Butacas</button>
-          </div>
 
           <button type="button" (click)="agregarSector()">Nuevo Sector</button>
         </div>

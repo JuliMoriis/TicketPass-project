@@ -21,86 +21,94 @@ export class AddRecintoComponent {
   asiento: Asiento = {
     butaca: 0,
     disponibilidad: true
-  }
+  };
 
   sector: Sector = {
     nombreSector: '',
     capacidad: 0,
     numerado: false,
     asientos: []
-  }
+  };
 
-  direccion: Direccion= {
+  recinto: Recinto = {
+    nombreRecinto: '',
+    direccion: { calle: '', numero: 0, ciudad: '', codigoPostal: '', pais: '' },
+    urlImg: '',
+    sectores: [this.sector]
+  };
+
+
+  direccion: Direccion = {
     calle: '',
     numero: 0,
     ciudad: '',
     codigoPostal: '',
     pais: ''
-  }
+  };
 
-  recinto: Recinto = {
-    nombreRecinto: '',
-    direccion: this.direccion,
-    urlImg: '',
-    //urlMapaSectores: '' mapa opcional
-    sectores: [this.sector]
-  }
+  agregarSector() {
+    if (this.sector.nombreSector && this.sector.capacidad > 0) {
+      this.recinto.sectores.push({ ...this.sector });
 
-  crearButacas (sector:Sector) : boolean
-  {
-    sector.asientos= [];
-    for(let i = 1; i< sector.capacidad + 1 ; i++){
-     this.asiento.butaca = i;
-     sector.asientos.push({...this.asiento});
-    }
+      // Reinicia el sector después de agregarlo
+      this.sector = {
+        nombreSector: '',
+        capacidad: 0,
+        numerado: false,
+        asientos: []
+      };
 
-    if (sector.asientos.length > 0){
-      alert('Butacas Generadas');
-      return true;
-    }
-    else
-    {
-      return false;
+      alert('Sector agregado correctamente');
+    } else {
+      alert('Por favor completa todos los campos del sector.');
     }
   }
 
-  agregarSector ()
-  {
 
-      if (this.sector.nombreSector && this.sector.capacidad > 0) {
-        if (this.recinto.sectores.length>=1)
-        {
-          this.recinto.sectores.push({ ...this.sector });
-          alert("Sector agregado correctamente")
-
-        } else {
-          alert("Por favor completa todos los campos");
-        }
-        }
-
-  }
-
-
-  addRecinto () {
-
+  addRecinto() {
     if (!this.recinto.nombreRecinto || !this.recinto.direccion.calle ||
       !this.recinto.direccion.ciudad || !this.recinto.direccion.codigoPostal ||
       !this.recinto.direccion.pais || !this.recinto.urlImg) {
-    alert('Por favor, completa todos los campos del recinto.');
-    return; // Salir de la función si faltan campos
+      alert('Por favor, completa todos los campos del recinto.');
+      return; // Salir de la función si faltan campos
+    }
+
+    for (let sector of this.recinto.sectores) {
+      if (!sector.nombreSector || sector.capacidad <= 0) {
+        alert('Por favor, completa al menos un sector.');
+        return;
+      }
+      else
+      {
+        this.crearButacas(sector);
+      }
+    }
+
+    console.log(this.recinto);
+    this.emitirRecinto.emit({ ...this.recinto }); // Envio copia con spread operator.
   }
 
-  for (const sector of this.recinto.sectores) {
-    if (!sector.nombreSector || sector.capacidad <= 0) {
-      alert('Por favor, completa al menos un sector.');
-      return;
+
+  crearButacas(sector: Sector) {
+    alert('ENTOROOOOOOO');
+    if (sector.numerado === true) {
+      for (let i = 1; i <= sector.capacidad; i++) {
+        let nuevoAsiento: Asiento = {
+          butaca: i,
+          disponibilidad: true // Cambia esto según tu lógica
+        };
+        sector.asientos.push(nuevoAsiento);
+      }
     }
-  }
-      console.log(this.recinto);
-      this.emitirRecinto.emit({...this.recinto}); // envio copia con spread operator.
+    else
+    {
+      sector.asientos= [];
+    }
   }
 
 }
+
+
 
 
 
