@@ -51,12 +51,7 @@ export class AddRecintoComponent {
       this.recinto.sectores.push({ ...this.sector });
 
       // Reinicia el sector después de agregarlo
-      this.sector = {
-        nombreSector: '',
-        capacidad: 0,
-        numerado: false,
-        asientos: []
-      };
+       this.sector.asientos= [];
 
       alert('Sector agregado correctamente');
     } else {
