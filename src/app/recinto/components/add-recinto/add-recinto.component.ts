@@ -20,14 +20,10 @@ export class AddRecintoComponent {
 
   mostrarFormSector: boolean = false;
 
-<<<<<<< HEAD
-
-=======
   asiento: Asiento = {
     butaca: 0,
     disponibilidad: true
   }
->>>>>>> 99f8f18da5287edbf938639e9ae7a14bf772ea33
 
   sector: Sector = {
     nombreSector: '',
