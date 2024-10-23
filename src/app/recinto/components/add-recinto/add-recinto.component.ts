@@ -1,19 +1,23 @@
-import { Recinto } from './../../recinto.interface';
-import { Asiento } from '../../asiento.interface';
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Sector } from '../../sector.interface';
-import { Direccion } from '../../direccion.interface';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
+import { RecintoService } from '../../../services/recintos.service'; // Asegúrate de que la ruta sea correcta
+import { Recinto } from './../../recinto.interface';
+import { Asiento } from '../../asiento.interface';
+import { Sector } from '../../sector.interface';
+import { Direccion } from '../../direccion.interface';
 
 @Component({
   selector: 'app-add-recinto',
   standalone: true,
-  imports: [FormsModule, NgFor, NgIf],
+  imports: [FormsModule, NgFor, NgIf], // Asegúrate de que esté aquí
   templateUrl: './add-recinto.component.html',
-  styleUrl: './add-recinto.component.css'
+  styleUrls: ['./add-recinto.component.css'] // Asegúrate de que sea 'styleUrls'
 })
+
 export class AddRecintoComponent {
+
+  recintoService = inject(RecintoService);
 
   @Output()
   emitirRecinto: EventEmitter<Recinto> = new EventEmitter();
@@ -81,11 +85,22 @@ export class AddRecintoComponent {
 
     console.log(this.recinto);
     this.emitirRecinto.emit({ ...this.recinto }); // Envio copia con spread operator.
+
+    this.recintoService.postRecintos(this.recinto).subscribe(
+      {
+        next: ()=> {
+          console.log('recinto agregado');
+        },
+        error: (err)=> {
+          alert('Error al agregar el recinto: ' + err.message);
+          console.error('Error:', err);
+        }
+      }
+    )
   }
 
 
   crearButacas(sector: Sector) {
-    alert('ENTOROOOOOOO');
     if (sector.numerado === true) {
       for (let i = 1; i <= sector.capacidad; i++) {
         let nuevoAsiento: Asiento = {

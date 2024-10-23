@@ -1,6 +1,12 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root', // Esto asegura que el servicio esté disponible en toda la aplicación
+})
+
 export class SpotifyService {
   private clientId: string = '73aa9d0997c34a3498d9b89d9559a6e0';
   private clientSecret: string = '8a62a32938734c8299cbc4fbf51d4499';
