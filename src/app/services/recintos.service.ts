@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Recinto } from '../recinto/recinto.interface';
+import { Recinto } from '../recinto/interfaces/recinto.interface';
 
 @Injectable({
   providedIn: 'root', // Asegúrate de que el servicio esté disponible en toda la aplicación

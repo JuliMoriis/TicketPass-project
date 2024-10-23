@@ -2,10 +2,10 @@ import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
 import { RecintoService } from '../../../services/recintos.service'; // Asegúrate de que la ruta sea correcta
-import { Recinto } from './../../recinto.interface';
-import { Asiento } from '../../asiento.interface';
-import { Sector } from '../../sector.interface';
-import { Direccion } from '../../direccion.interface';
+import { Recinto } from '../../interfaces/recinto.interface';
+import { Asiento } from '../../interfaces/asiento.interface';
+import { Sector } from '../../interfaces/sector.interface';
+import { Direccion } from '../../interfaces/direccion.interface';
 
 @Component({
   selector: 'app-add-recinto',

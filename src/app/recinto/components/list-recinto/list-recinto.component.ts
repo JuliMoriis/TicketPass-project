@@ -1,6 +1,6 @@
 import { RecintoService } from './../../../services/recintos.service';
 import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
-import { Recinto } from '../../recinto.interface';
+import { Recinto } from '../../interfaces/recinto.interface';
 import { AddRecintoComponent } from '../add-recinto/add-recinto.component';
 
 @Component({
@@ -35,6 +35,6 @@ export class ListRecintoComponent implements OnInit{
   }
 
   addListaRecinto (recinto: Recinto){
-    this.listaRecintos.push(recinto);
+    this.listaRecintos.push({...recinto});
   }
 }

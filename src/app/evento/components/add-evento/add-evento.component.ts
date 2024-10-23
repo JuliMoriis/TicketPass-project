@@ -1,12 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Entrada } from '../../entrada.interface';
-import { Fecha } from '../../fecha.interface';
-import { Evento } from '../../evento.interface';
+import { Entrada } from '../../interfaces/entrada.interface';
+import { Fecha } from '../../interfaces/fecha.interface';
+import { Evento } from '../../interfaces/evento.interface';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RecintoService } from '../../../services/recintos.service';
-import { Recinto } from '../../../recinto/recinto.interface';
+import { Recinto } from '../../../recinto/interfaces/recinto.interface';
 import { NgFor } from '@angular/common';
-import { Sector } from '../../../recinto/sector.interface';
+import { Sector } from '../../../recinto/interfaces/sector.interface';
 
 @Component({
   selector: 'app-add-evento',

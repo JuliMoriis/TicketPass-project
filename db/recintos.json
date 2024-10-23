@@ -144,6 +144,33 @@
       ],
       "urlMapaSectores": "urlll2",
       "id": 2
+    },
+    {
+      "nombreRecinto": "luna park",
+      "direccion": {
+        "calle": "calle3",
+        "numero": 0,
+        "ciudad": "city",
+        "codigoPostal": "111",
+        "pais": "arg"
+      },
+      "urlImg": "aaa",
+      "sectores": [
+        {
+          "nombreSector": "campo luna",
+          "capacidad": 7000,
+          "numerado": false,
+          "asientos": []
+        },
+        {
+          "nombreSector": "campo trasero",
+          "capacidad": 2000,
+          "numerado": false,
+          "asientos": []
+        }
+      ],
+      "urlMapaSectores": "bbb",
+      "id": 3
     }
   ]
 }
