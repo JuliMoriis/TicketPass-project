@@ -5,23 +5,23 @@
             <!-- Banner del evento -->
             <div>
                 <label for="bannerEvento"></label>
-               <input type="text" id="bannerEvento" [(ngModel)]="evento.UrlBanner"placeholder="url/banner.com" required>
+               <input type="text" id="bannerEvento" [(ngModel)]="evento.UrlBanner" [ngModelOptions]="{standalone: true}" placeholder="url/banner.com" required>
             </div>
 
             <!-- Nombre evento -->
             <div>
                 <label for="nombreEvento">Nombre del evento:</label>
-               <input type="text" id= "nombreEvento" [(ngModel)]="evento.nombreEvento" required>
+               <input type="text" id= "nombreEvento" [(ngModel)]="evento.nombreEvento" [ngModelOptions]="{standalone: true}" required>
             </div>
             <!-- Nombre artista / banda -->
             <div>
                 <label for="nombreArtista-Banda">Artista/Banda:</label>
-               <input type="text" id= "nombreArtista-Banda" [(ngModel)]="evento.artista_banda" required>
+               <input type="text" id= "nombreArtista-Banda" [(ngModel)]="evento.artista_banda" [ngModelOptions]="{standalone: true}" required>
             </div>
             <!-- Duracion -->
             <div>
                 <label for="duracion">Duracion:</label>
-               <input type="text" id="duracion" [(ngModel)]="evento.duracion" required>
+               <input type="text" id="duracion" [(ngModel)]="evento.duracion" [ngModelOptions]="{standalone: true}" required>
             </div>
             <!-- fechas -->
 
@@ -30,21 +30,24 @@
                 <div>
                     <label for="seleccionRecinto">Seleccione un recinto</label>
                     <select name="seleccionRecinto" id="seleccionRecinto">
-                        <option value="nombreRecinto">Recinto 1</option>
+                      @for (item of listadoRecintos; track $index)
+                      {
+                        <option value="nombreRecinto">{{item.nombreRecinto}}</option>
+                      }
                     </select>
                  </div>
                  <div>
                     <ul>
                         <li>
-                            sector1 
+                            sector1
                             <label for="precioSector">$</label>
-                            <input type="text" id="precioSector" [(ngModel)]="entrada.precio" required>
+                            <input type="text" id="precioSector" [(ngModel)]="entrada.precio" [ngModelOptions]="{standalone: true}" required>
                         </li>
                     </ul>
                  </div>
 
              </section>
-           
+
              <button type="button">Agregar</button>
 
         </form>

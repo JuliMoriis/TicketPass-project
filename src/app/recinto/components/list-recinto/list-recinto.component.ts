@@ -1,5 +1,5 @@
 import { RecintoService } from './../../../services/recintos.service';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { Recinto } from '../../recinto.interface';
 import { AddRecintoComponent } from '../add-recinto/add-recinto.component';
 
