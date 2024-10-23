@@ -67,6 +67,83 @@
       ],
       "urlMapaSectores": "url2",
       "id": 1
+    },
+    {
+      "nombreRecinto": "movistar arena",
+      "direccion": {
+        "calle": "calle2",
+        "numero": 0,
+        "ciudad": "bsas",
+        "codigoPostal": "222",
+        "pais": "arg"
+      },
+      "urlImg": "urllll",
+      "sectores": [
+        {
+          "nombreSector": "platea alta",
+          "capacidad": 7,
+          "numerado": true,
+          "asientos": [
+            {
+              "butaca": 1,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 2,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 3,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 4,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 5,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 6,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 7,
+              "disponibilidad": true
+            }
+          ]
+        },
+        {
+          "nombreSector": "platea baja",
+          "capacidad": 5,
+          "numerado": true,
+          "asientos": [
+            {
+              "butaca": 1,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 2,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 3,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 4,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 5,
+              "disponibilidad": true
+            }
+          ]
+        }
+      ],
+      "urlMapaSectores": "urlll2",
+      "id": 2
     }
   ]
 }
