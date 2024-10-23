@@ -18,8 +18,6 @@ export class AddRecintoComponent {
   @Output()
   emitirRecinto: EventEmitter<Recinto> = new EventEmitter();
 
-  mostrarFormSector: boolean = false;
-
   asiento: Asiento = {
     butaca: 0,
     disponibilidad: true
@@ -48,16 +46,15 @@ export class AddRecintoComponent {
     sectores: [this.sector]
   }
 
-  crearButacas () : boolean
+  crearButacas (sector:Sector) : boolean
   {
-    this.sector.asientos= [];
-    for(let i = 1; i< this.sector.capacidad + 1 ; i++){
-    console.log(this.sector.capacidad);
+    sector.asientos= [];
+    for(let i = 1; i< sector.capacidad + 1 ; i++){
      this.asiento.butaca = i;
-     this.sector.asientos.push({...this.asiento});
+     sector.asientos.push({...this.asiento});
     }
 
-    if (this.sector.asientos){
+    if (sector.asientos.length > 0){
       alert('Butacas Generadas');
       return true;
     }
@@ -69,26 +66,20 @@ export class AddRecintoComponent {
 
   agregarSector ()
   {
-    if (this.sector.nombreSector && this.sector.capacidad > 0) {
-      this.recinto.sectores.push({ ...this.sector });
-      alert("Sector agregado correctamente");
 
-      this.sector = {
-        nombreSector: '',
-        capacidad: 0,
-        numerado: false,
-        asientos: []
-      };
+      if (this.sector.nombreSector && this.sector.capacidad > 0) {
+        if (this.recinto.sectores.length>=1)
+        {
+          this.recinto.sectores.push({ ...this.sector });
+          alert("Sector agregado correctamente")
 
-    } else {
-      alert("Por favor completa todos los campos");
-    }
+        } else {
+          alert("Por favor completa todos los campos");
+        }
+        }
+
   }
 
-  mostrarFormularioSector ()
-  {
-    this.mostrarFormSector = true;
-  }
 
   addRecinto () {
 

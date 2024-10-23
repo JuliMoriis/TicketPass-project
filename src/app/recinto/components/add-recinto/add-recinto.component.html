@@ -45,10 +45,6 @@
 
       <!-- Sectores -->
       <h3>Sectores</h3>
-
-      <button *ngIf="!mostrarFormSector" (click)="mostrarFormularioSector()">Agregar Sector</button>
-
-      <div *ngIf="mostrarFormSector">
         <div *ngFor="let sector of recinto.sectores; let i = index">
           <h4>Sector {{ i + 1 }}</h4>
           <label for="nombreSector-{{i}}">Nombre del Sector:</label>
@@ -59,15 +55,13 @@
           <label for="butacasNumeradas-{{i}}">¿Butacas Numeradas?:</label>
           <input type="checkbox" id="butacasNumeradas-{{i}}" name="butacasNumeradas-{{i}}"
           [(ngModel)]="sector.numerado">
-
+          <!-- Butacas -->
           <div *ngIf="sector.numerado">
-            <button type="button" (click)="crearButacas()">Agregar Butacas</button>
+            <button type="button" (click)="crearButacas(sector)">Agregar Butacas</button>
           </div>
 
-          <button type="button" (click)="agregarSector()">Aceptar</button>
+          <button type="button" (click)="agregarSector()">Nuevo Sector</button>
         </div>
-
-      </div>
 
        <!-- Botón para añadir el recinto -->
         <div>
