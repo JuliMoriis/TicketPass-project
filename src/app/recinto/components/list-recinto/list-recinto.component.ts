@@ -10,5 +10,9 @@ import { AddRecintoComponent } from '../add-recinto/add-recinto.component';
   styleUrl: './list-recinto.component.css'
 })
 export class ListRecintoComponent {
+  listaRecintos: Recinto[] = [];
 
+  addListaRecinto (recinto: Recinto){
+    this.listaRecintos.push(recinto);
+  }
 }
