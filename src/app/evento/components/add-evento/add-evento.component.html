@@ -21,32 +21,34 @@
             <!-- Duracion -->
             <div>
                 <label for="duracion">Duracion:</label>
-               <input type="text" id="duracion" [(ngModel)]="evento.duracion" [ngModelOptions]="{standalone: true}" required>
+               <input type="time" id="duracion" [(ngModel)]="evento.duracion" [ngModelOptions]="{standalone: true}" required>
             </div>
             <!-- fechas -->
+            <div>
+              <label for="fecha">Fecha:</label>
+             <input type="date" id="fecha" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
+          </div>
 
             <!-- datos de la entrada -->
-             <section>
-                <div>
-                    <label for="seleccionRecinto">Seleccione un recinto</label>
-                    <select name="seleccionRecinto" id="seleccionRecinto">
-                      @for (item of listadoRecintos; track $index)
-                      {
-                        <option value="nombreRecinto">{{item.nombreRecinto}}</option>
-                      }
-                    </select>
-                 </div>
-                 <div>
-                    <ul>
-                        <li>
-                            sector1
-                            <label for="precioSector">$</label>
-                            <input type="text" id="precioSector" [(ngModel)]="entrada.precio" [ngModelOptions]="{standalone: true}" required>
-                        </li>
-                    </ul>
-                 </div>
-
-             </section>
+            <section>
+              <div>
+                <label for="seleccionRecinto">Seleccione un recinto</label>
+                <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)">
+                  <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
+                    {{ recinto.nombreRecinto }}
+                  </option>
+                </select>
+              </div>
+              <div>
+                <ul>
+                  <li *ngFor="let sector of sectoresRecinto">
+                    {{ sector.nombreSector }}
+                    <label for="precioSector">$</label>
+                    <input type="text" id="precioSector" [(ngModel)]="entrada.precio" [ngModelOptions]="{standalone: true}" required>
+                  </li>
+                </ul>
+              </div>
+            </section>
 
              <button type="button">Agregar</button>
 
