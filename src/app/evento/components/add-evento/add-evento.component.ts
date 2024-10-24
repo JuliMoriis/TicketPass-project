@@ -27,6 +27,7 @@ export class AddEventoComponent implements OnInit{
     sector_id: 1,
     precio: 0,
     disponibles: 0,
+    asientos: []
   }
 
   fecha: Fecha = {
@@ -72,6 +73,9 @@ export class AddEventoComponent implements OnInit{
     {
       console.log("se ecnontro");
       this.sectoresRecinto= recintoEncontrado.sectores;
+
+      this.rellenarEntradas(this.sectoresRecinto);
+
     }
     else {
       console.log("no se encontro");
@@ -80,11 +84,39 @@ export class AddEventoComponent implements OnInit{
 
   }
 
+  rellenarEntradas (sectores: Sector[])
+  {
+    for (const sector of sectores) {
+      //crea una entrada por sector
+      const entradaNueva: Entrada = {
+        sector_id: 1,
+        precio: 0,
+        disponibles: 0,
+        asientos: []
+      }
 
+      if (sector.id) {
+       //cargar datos generales (id, capacidad)
+        if (sector.numerado) {
+          //cargar el array de butacas
+        }
+      }
+      //VER COMO HACER EL PUSH EN TODAS LAS FECHAS QUE HAYA
+    }
 
+  }
 
+  buscarNombreSector(idSector: number): string {
+    const sector = this.sectoresRecinto.find(sector => sector.id === idSector);
+    if (sector)
+      return sector?.nombreSector;
+    else
+      return "Nan"
+  }
 
-
-
+  addEvento ()
+  {
+    //aca va el emit
+  }
 
 }
