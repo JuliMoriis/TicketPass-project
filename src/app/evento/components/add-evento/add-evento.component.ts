@@ -1,12 +1,12 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { Entrada } from '../../interfaces/entrada.interface';
-import { Fecha } from '../../interfaces/fecha.interface';
-import { Evento } from '../../interfaces/evento.interface';
-import { FormsModule, NgForm } from '@angular/forms';
-import { RecintoService } from '../../../services/recintos.service';
-import { Recinto } from '../../../recinto/interfaces/recinto.interface';
 import { NgFor } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Recinto } from '../../../recinto/interfaces/recinto.interface';
 import { Sector } from '../../../recinto/interfaces/sector.interface';
+import { RecintoService } from '../../../services/recintos.service';
+import { Entrada } from '../../interfaces/entrada.interface';
+import { Evento } from '../../interfaces/evento.interface';
+import { Fecha } from '../../interfaces/fecha.interface';
 
 @Component({
   selector: 'app-add-evento',
@@ -66,7 +66,7 @@ export class AddEventoComponent implements OnInit{
   seleccionRecinto (event: any)
   {
     this.evento.recinto_id= event.target.value;
-    const recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id === Number(event.target.value));
+    const recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id ===this.evento.recinto_id);
     console.log(recintoEncontrado);
     if (recintoEncontrado && recintoEncontrado.sectores)
     {
@@ -75,7 +75,7 @@ export class AddEventoComponent implements OnInit{
     }
     else {
       console.log("no se encontro");
-      this.sectoresRecinto = []; // Asegurarse de que esté vacío si no hay sectores
+      this.sectoresRecinto = []; 
     }
 
   }
