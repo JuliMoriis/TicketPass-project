@@ -66,7 +66,7 @@ export class AddEventoComponent implements OnInit{
   //Le pasa todos los datos al evento segun el recinto MENOS EL PRECIO
   seleccionRecinto (event: any)
   {
-    this.evento.recinto_id= event.target.value;
+    this.evento.recinto_id= Number(event.target.value);
     const recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id ===this.evento.recinto_id);
     console.log(recintoEncontrado);
     if (recintoEncontrado && recintoEncontrado.sectores)
@@ -79,7 +79,7 @@ export class AddEventoComponent implements OnInit{
     }
     else {
       console.log("no se encontro");
-      this.sectoresRecinto = []; 
+      this.sectoresRecinto = [];
     }
 
   }
@@ -88,7 +88,7 @@ export class AddEventoComponent implements OnInit{
   {
     for (const sector of sectores) {
       //crea una entrada por sector
-      const entradaNueva: Entrada = {
+      let entradaNueva: Entrada = {
         sector_id: 1,
         precio: 0,
         disponibles: 0,
@@ -96,22 +96,40 @@ export class AddEventoComponent implements OnInit{
       }
 
       if (sector.id) {
-       //cargar datos generales (id, capacidad)
+        entradaNueva.sector_id= sector.id;
+        entradaNueva.disponibles= sector.capacidad;
+
         if (sector.numerado) {
-          //cargar el array de butacas
+          entradaNueva.asientos = sector.asientos;
         }
       }
-      //VER COMO HACER EL PUSH EN TODAS LAS FECHAS QUE HAYA
+      //carga las mismas entradas en todas las fechas
+      for (let fecha of this.evento.fecha) {
+        const entrada = fecha.entradas.find(entrada => entrada.sector_id === sector.id);
+        if (!entrada) {
+          fecha.entradas.push(entradaNueva);
+        }
+      }
     }
-
   }
 
   buscarNombreSector(idSector: number): string {
-    const sector = this.sectoresRecinto.find(sector => sector.id === idSector);
+    console.log(this.evento);
+    const sector = this.sectoresRecinto.find(sector => sector.id === Number(idSector));
     if (sector)
-      return sector?.nombreSector;
+    {
+      const nombreSector: string = sector?.nombreSector;
+      return nombreSector;
+    }
     else
-      return "Nan"
+    {
+      return "Sector no encontrado"
+    }
+  }
+
+  addFecha ()
+  {
+    this.evento.fecha.push({...this.fecha});
   }
 
   addEvento ()

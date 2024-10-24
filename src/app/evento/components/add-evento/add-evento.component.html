@@ -15,6 +15,7 @@
         <input type="text" id="nombreEvento" [(ngModel)]="evento.nombreEvento" [ngModelOptions]="{standalone: true}"
           required>
       </div>
+
       <!-- Nombre artista / banda -->
       <div>
         <label for="nombreArtista-Banda">Artista/Banda:</label>
@@ -29,19 +30,24 @@
       </div>
 
 
-      <!-- Fechas -->
-      <div>
+      <!-- Datos de las fechas -->
+       <div>
         @for (item of evento.fecha; track $index){ <!-- ver si este for funciona -->
-        <div>
-          <label for="fecha">Fecha:</label>
-          <input type="date" id="fecha" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
-        </div>
-        <div>
-          <label for="horario">Horario:</label>
-          <input type="time" id="horario" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
-        </div>
+          <div>
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
+          </div>
+          <div>
+            <label for="horario">Horario:</label>
+            <input type="time" id="horario" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
+          </div>
 
-        <!-- datos de la entrada -->
+          <button (click)="addFecha()">Nueva fecha</button>
+        }
+       </div>
+
+      <!-- Datos de las entradas -->
+       <div>
         <section>
           <div>
             <label for="seleccionRecinto">Seleccione un recinto</label>
@@ -54,18 +60,20 @@
 
           <div>
             <ul>
-              @for (item of fecha.entradas; track $index){  <!-- ??? que hay que iterar -->
+              @for (item of fecha.entradas; track $index){ <!-- ??? que hay que iterar -->
               <li>
                 {{buscarNombreSector(item.sector_id)}}
-                <label for="precioSector">$</label>  <!-- deberia ponerle precio a cada ENTRADA (osea por sector) -->
+                <label for="precioSector">$</label> <!-- deberia ponerle precio a cada ENTRADA (osea por sector) -->
                 <input type="text" id="precioSector" [(ngModel)]="entrada.precio" [ngModelOptions]="{standalone: true}"
                   required>
               </li>
-            }
+              }
             </ul>
           </div>
         </section>
-
-        }
       </div>
+
+
+    </form>
+  </fieldset>
 </section>
