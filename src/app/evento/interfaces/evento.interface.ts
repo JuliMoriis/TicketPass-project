@@ -1,4 +1,4 @@
-import { Entrada } from "./entrada.interface";
+import { Fecha } from "./fecha.interface";
 
 export interface Evento {
     id?: number,
@@ -7,5 +7,5 @@ export interface Evento {
     duracion: string,
     UrlBanner: string,
     recinto_id: number,
-    entradas: Entrada[]
+    fechas: Fecha[]
 }

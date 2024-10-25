@@ -26,17 +26,17 @@ export class AddEventoComponent implements OnInit{
   listadoRecintos: Recinto[] = [];
   sectoresRecinto: Sector[]= [];
 
+  entrada: Entrada = {
+    nombreSector: '',
+    precio: 0,
+    disponibles: 0,
+    asientos: []
+  }
+
   fecha: Fecha = {
     fecha: new Date(),
     hora: '',
-  }
-
-  entrada: Entrada = {
-    sector_id: 1,
-    precio: 0,
-    disponibles: 0,
-    fechas: [this.fecha],
-    asientos: []
+    entradas: []
   }
 
   evento: Evento ={
@@ -45,7 +45,7 @@ export class AddEventoComponent implements OnInit{
     duracion:'',
     UrlBanner:'',
     recinto_id: 1,
-    entradas: []
+    fechas: []
   }
 
   ngOnInit(): void {
@@ -66,76 +66,76 @@ export class AddEventoComponent implements OnInit{
     )
   }
 
-  //le pasa todos los datos al evento segun el recinto MENOS EL PRECIO
-  seleccionRecinto (event: any)
-  {
-    const idSeleccionado = Number(event.target.value);
+ //le pasa todos los datos al evento segun el recinto MENOS EL PRECIO
+ seleccionRecinto (event: any)
+ {
+   const idSeleccionado = Number(event.target.value);
 
-    this.evento.recinto_id= idSeleccionado;
+   this.evento.recinto_id= idSeleccionado;
 
-    let recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id == idSeleccionado);
+   let recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id == idSeleccionado);
 
-    console.log(recintoEncontrado);
+   console.log(recintoEncontrado);
 
-    if (recintoEncontrado && recintoEncontrado.sectores)
-    {
-      console.log("se ecnontro");
-      this.sectoresRecinto= recintoEncontrado.sectores;
-      this.rellenarEntradas(this.sectoresRecinto);
-      console.log(this.evento.entradas);
-    }
-    else {
-      console.log("no se encontro");
-      this.sectoresRecinto = [];
-    }
+   if (recintoEncontrado && recintoEncontrado.sectores)
+   {
+     console.log("se encontro el recinto");
+     this.sectoresRecinto= recintoEncontrado.sectores;
+     this.rellenarEntradas(this.sectoresRecinto);
+   }
+   else {
+     console.log("no se encontro el recinto");
+     this.sectoresRecinto = [];
+   }
 
-  }
+ }
 
-  rellenarEntradas (sectores: Sector[])
-  {
-    for (const sector of sectores) {
-      console.log(sector);
-      if (sector.id) {
-        this.entrada.sector_id= sector.id;
-        this.entrada.disponibles= sector.capacidad;
 
-        if (sector.numerado) {
-          this.entrada.asientos = sector.asientos;
-        }
-      }
+ rellenarEntradas (sectores: Sector[])
+ {
+   for (const sector of sectores) {
+     console.log(sector);
+     if (sector.id) {
+       this.entrada.nombreSector= sector.nombreSector;
+       this.entrada.disponibles= sector.capacidad;
 
-      this.evento.entradas.push({...this.entrada});
-    }
-  }
+       if (sector.numerado) {
+         this.entrada.asientos = sector.asientos;
+       }
+     }
 
-  buscarNombreSector(idSector: number): string {
+     //VER ACA COMO RELLENAR EN TODAS LAS FECHAS
+     this.fecha.entradas.push({...this.entrada});
+   }
+ }
 
-    console.log("entro a func ");
+ //NO LO DEBERIAMOS NECESITAR?
+ // buscarNombreSector(idSector: number): string {
 
-    const sector = this.sectoresRecinto.find(sector => sector.id == idSector);
-    if (sector)
-    {
-      console.log("holaaa");
-      const nombreSector: string = sector.nombreSector;
-      return nombreSector;
-    }
-    else
-    {
-      return "Sector no encontrado"
-    }
-  }
+ //   console.log("entro a func ");
 
-  addFecha ()
-  {
-    if (this.fecha.fecha && this.fecha.hora) {
-      for (let entrada of this.evento.entradas) {
-        entrada.fechas.push({...this.fecha})
-      }
-      alert('Sector agregado correctamente');
-    } else {
-      alert('Por favor completa todos los campos del sector.');
-    }
-  }
+ //   const sector = this.sectoresRecinto.find(sector => sector.id == idSector);
+ //   if (sector)
+ //   {
+ //     console.log("holaaa");
+ //     const nombreSector: string = sector.nombreSector;
+ //     return nombreSector;
+ //   }
+ //   else
+ //   {
+ //     return "Sector no encontrado"
+ //   }
+ // }
+
+ addFecha ()
+ {
+   if (this.fecha.fecha && this.fecha.hora) {
+     this.evento.fechas.push({...this.fecha})
+     alert('Sector agregado correctamente');
+   } else {
+     alert('Por favor completa todos los campos del sector.');
+   }
+ }
 
   addEvento ()
   {

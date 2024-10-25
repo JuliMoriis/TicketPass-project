@@ -29,45 +29,46 @@
         <input type="time" id="duracion" [(ngModel)]="evento.duracion" [ngModelOptions]="{standalone: true}" required>
       </div>
 
-      <!-- Datos de las entradas -->
+     <!-- Datos de las fechas -->
+     <div *ngFor="let fecha of evento.fechas; let i = index">
+      <h4>Fecha {{ i + 1 }}</h4>
       <div>
-        <section>
-          <div>
-            <label for="seleccionRecinto">Seleccione un recinto</label>
-            <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)">
-              <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
-                {{ recinto.nombreRecinto }}
-              </option>
-            </select>
-          </div>
-
-          <div>
-            <ul>
-              <li *ngFor="let entrada of evento.entradas">
-                {{buscarNombreSector(entrada.sector_id)}}
-                <label for="precioSector-{{ entrada.sector_id }}">$</label>
-                <input type="text" id="precioSector-{{ entrada.sector_id }}" [(ngModel)]="entrada.precio"
-                  [ngModelOptions]="{standalone: true}" required>
-              </li>
-            </ul>
-          </div>
-        </section>
+        <label for="fecha-{{i}}">Fecha:</label>
+        <input type="date" id="fecha-{{i}}" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
       </div>
-
-
-      <!-- Datos de las fechas -->
-      <div *ngFor="let fecha of entrada.fechas; let i = index">
-        <h4>Fecha {{ i + 1 }}</h4>
-        <div>
-          <label for="fecha-{{i}}">Fecha:</label>
-          <input type="date" id="fecha-{{i}}" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
-        </div>
-        <div>
-          <label for="horario-{{i}}">Horario:</label>
-          <input type="time" id="horario-{{i}}" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
-        </div>
-        <button type="button" (click)="addFecha()">Nueva Fecha</button>
+      <div>
+        <label for="horario-{{i}}">Horario:</label>
+        <input type="time" id="horario-{{i}}" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
       </div>
+      <button type="button" (click)="addFecha()">Nueva Fecha</button>
+    </div>
+
+    <!-- Datos de las entradas -->
+    <div>
+      <section>
+        <div>
+          <label for="seleccionRecinto">Seleccione un recinto</label>
+          <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)">
+            <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
+              {{ recinto.nombreRecinto }}
+            </option>
+          </select>
+        </div>
+
+        <div>
+          <ul>
+            <!-- COMO RECORRO ACA LAS ENTRADAS DE TODAS LAS FECHAS -->
+             <!-- ver si recorrer una sola fecha y en el add entrada en otra fecha rellenar -->
+            <li *ngFor="let entrada of fecha.entradas">
+              {{entrada.nombreSector}}
+              <label for="precioSector-{{ entrada.nombreSector }}">$</label>
+              <input type="text" id="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
+                [ngModelOptions]="{standalone: true}" required>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
 
       <!--Boton agregar evento-->
       <button type="button" (click)="addEvento()">Agregar Evento</button>

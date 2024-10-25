@@ -3,10 +3,8 @@ import { Fecha } from "./fecha.interface";
 
 export interface Entrada{
     id?: number,
-    sector_id: number,
+    nombreSector: string,
     precio: number,
     disponibles:number,
     asientos: Asiento[]
-    fechas: Fecha[]
-
 }
