@@ -49,6 +49,7 @@
         <div>
           <label for="seleccionRecinto">Seleccione un recinto</label>
           <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)">
+            <option value="" disabled selected>Recintos</option>
             <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
               {{ recinto.nombreRecinto }}
             </option>
@@ -72,7 +73,6 @@
 
       <!--Boton agregar evento-->
       <button type="button" (click)="addEvento()">Agregar Evento</button>
-
     </form>
   </fieldset>
 </section>

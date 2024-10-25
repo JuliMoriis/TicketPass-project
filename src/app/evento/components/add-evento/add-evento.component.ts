@@ -7,6 +7,7 @@ import { RecintoService } from '../../../services/recintos.service';
 import { Entrada } from '../../interfaces/entrada.interface';
 import { Evento } from '../../interfaces/evento.interface';
 import { Fecha } from '../../interfaces/fecha.interface';
+import { ElementSchemaRegistry } from '@angular/compiler';
 
 @Component({
   selector: 'app-add-evento',
@@ -45,7 +46,7 @@ export class AddEventoComponent implements OnInit{
     duracion:'',
     UrlBanner:'',
     recinto_id: 1,
-    fechas: []
+    fechas: [this.fecha]
   }
 
   ngOnInit(): void {
@@ -73,6 +74,8 @@ export class AddEventoComponent implements OnInit{
 
    this.evento.recinto_id= idSeleccionado;
 
+   if (!idSeleccionado) return;
+
    let recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id == idSeleccionado);
 
    console.log(recintoEncontrado);
@@ -81,6 +84,7 @@ export class AddEventoComponent implements OnInit{
    {
      console.log("se encontro el recinto");
      this.sectoresRecinto= recintoEncontrado.sectores;
+     this.fecha.entradas = [];
      this.rellenarEntradas(this.sectoresRecinto);
    }
    else {
@@ -95,37 +99,18 @@ export class AddEventoComponent implements OnInit{
  {
    for (const sector of sectores) {
      console.log(sector);
-     if (sector.id) {
        this.entrada.nombreSector= sector.nombreSector;
        this.entrada.disponibles= sector.capacidad;
 
        if (sector.numerado) {
          this.entrada.asientos = sector.asientos;
        }
-     }
 
      //VER ACA COMO RELLENAR EN TODAS LAS FECHAS
      this.fecha.entradas.push({...this.entrada});
    }
+
  }
-
- //NO LO DEBERIAMOS NECESITAR?
- // buscarNombreSector(idSector: number): string {
-
- //   console.log("entro a func ");
-
- //   const sector = this.sectoresRecinto.find(sector => sector.id == idSector);
- //   if (sector)
- //   {
- //     console.log("holaaa");
- //     const nombreSector: string = sector.nombreSector;
- //     return nombreSector;
- //   }
- //   else
- //   {
- //     return "Sector no encontrado"
- //   }
- // }
 
  addFecha ()
  {
@@ -139,6 +124,23 @@ export class AddEventoComponent implements OnInit{
 
   addEvento ()
   {
+    let entradasCargadas : Entrada[] = [];
+
+    //rellena todas las fechas con las mismas entradas
+    for (const fecha of this.evento.fechas) {
+      if(fecha.entradas.length >0)
+      {
+        entradasCargadas = fecha.entradas;
+      }
+    }
+
+    for (const fecha of this.evento.fechas) {
+      if(fecha.entradas.length === 0)
+      {
+        fecha.entradas = entradasCargadas;
+      }
+    }
+
     console.log(this.evento);
     this.emitirEvento.emit({...this.evento});
   }
