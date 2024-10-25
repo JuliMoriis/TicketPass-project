@@ -1,5 +1,20 @@
 {
-    
-        "usuarios": []
-    
+  "usuarios": [
+    {
+      "id": "d779",
+      "nombre": "Julia",
+      "apellido": "Moris",
+      "telefono": "444",
+      "email": "julymoris2@gmail.com",
+      "direccion": {
+        "calle": "Zacagnini",
+        "numero": 444,
+        "ciudad": "Mar del Plata",
+        "codigoPostal": "7600",
+        "pais": "Argentina"
+      },
+      "nombreUsuario": "julimoris",
+      "contrasenia": "12345678"
+    }
+  ]
 }
