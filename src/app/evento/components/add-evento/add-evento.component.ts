@@ -1,14 +1,13 @@
 import { NgFor } from '@angular/common';
-import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Recinto } from '../../../recinto/interfaces/recinto.interface';
 import { Sector } from '../../../recinto/interfaces/sector.interface';
+import { EventoService } from '../../../services/evento.service';
 import { RecintoService } from '../../../services/recintos.service';
 import { Entrada } from '../../interfaces/entrada.interface';
 import { Evento } from '../../interfaces/evento.interface';
 import { Fecha } from '../../interfaces/fecha.interface';
-import { ElementSchemaRegistry } from '@angular/compiler';
-import { EventoService } from '../../../services/evento.service';
 
 @Component({
   selector: 'app-add-evento',
@@ -19,9 +18,6 @@ import { EventoService } from '../../../services/evento.service';
 })
 
 export class AddEventoComponent implements OnInit{
-
-  @Output()
-  emitirEvento: EventEmitter<Evento> = new EventEmitter();
 
   recintosService= inject (RecintoService);
   eventosService= inject(EventoService);
@@ -144,8 +140,6 @@ export class AddEventoComponent implements OnInit{
     }
 
     console.log(this.evento);
-    this.emitirEvento.emit({...this.evento});
-
     this.guardarEventosJSON();
 
 

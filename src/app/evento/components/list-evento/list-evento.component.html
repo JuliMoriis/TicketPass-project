@@ -1,8 +1,10 @@
-<app-add-evento (emitirEvento)="addListaEvento($event)"></app-add-evento>
 <section>
   <ul>
+    <!--aca en lista eventos hay q ver si esta habilitada la fila-->
+    <!--agregar en evento (en cada fecha) si fila habilitada true false-->
     @for (item of listaEventos; track $index){
-      <li>Evento: {{item.nombreEvento}} creado!</li>
+      <ol>{{item.nombreEvento}} </ol>
+      <button>Comprar entradas</button> <!--depsues de esto te muestra las fechas, apretas una e ingresas a la fila-->
     }
   </ul>
 </section>

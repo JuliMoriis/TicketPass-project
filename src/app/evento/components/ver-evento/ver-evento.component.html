@@ -7,14 +7,18 @@
   <ul>
     <h2>Eventos cargados</h2>
     @for (item of listaEventos; track $index){
-      <li>
-      <button type="button" (click)="verEvento(item)">{{item.nombreEvento}}</button>
-    </li>
+      <ol>
+        {{item.nombreEvento}}
+      <button type="button" (click)="verEvento(item)">Detalles</button>
+      <button>Habilitar fila</button>
+    </ol>
   }
   </ul>
   </section>
 
   <div *ngIf="eventoSeleccionado">
+    <button>Editar</button>
+    <button>Eliminar evento</button>
     <h2>Detalle del Evento</h2>
     <form>
       <label>
