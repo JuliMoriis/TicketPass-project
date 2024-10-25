@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { Usuario } from '../usuario/interfaces/usuario.interface';
-import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,13 +21,10 @@ export class UsuarioService{
    return this.http.post<Usuario>(this.urlBase, usuario);
   }
 
-  //verificar que el usuario no se repita
-  verificarNombreUsuario(usuarioNombre: string): Observable<boolean> {
-    //transforma promesa en observable
-    return this.getUsuarios().pipe(
-      map(usuarios => usuarios.some(usuario => usuario.nombreUsuario === usuarioNombre))
+  getNombresUsuarios(): Observable<string[]> {
+    return this.http.get<any[]>(this.urlBase).pipe(
+      map(usuarios => usuarios.map(usuario => usuario.nombreUsuario)) 
     );
   }
-  
 
 }

@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { AbstractControl, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from '../../interfaces/usuario.interface';
 
@@ -11,12 +11,32 @@ import { Usuario } from '../../interfaces/usuario.interface';
   templateUrl: './add-usuario.component.html',
   styleUrl: './add-usuario.component.css'
 })
-export class AddUsuarioComponent {
+export class AddUsuarioComponent implements OnInit{
+
+  nombresUsuario: string[] = [];
+  usuarioExistente= false;
 
   fb = inject(FormBuilder);
-
   usuariosService = inject(UsuarioService);
 
+  ngOnInit(): void {
+      this.listarNombreUsuario();
+  }
+
+  listarNombreUsuario ()
+  {
+    this.usuariosService.getNombresUsuarios().subscribe(
+      {
+        next: (nombreUsuario: string[])=>{
+          this.nombresUsuario= nombreUsuario;
+          console.log(nombreUsuario);
+        },
+        error: (err)=> {
+          console.error('Error al levantar nombres de usuario:', err);
+        }
+      }
+    )
+  }
 
   formularioUsuario = this.fb.nonNullable.group({
     nombre:['',[Validators.required]],
@@ -34,15 +54,6 @@ export class AddUsuarioComponent {
     contrasenia:['', [Validators.required, Validators.minLength(8)]]
   })
 
-/*   validarUsuario(control: AbstractControl): void {
-    this.usuariosService.verificarNombreUsuario(control.value).subscribe((existe) => {
-      if (existe) {
-        control.setErrors({ encontrado: true });
-      } else {
-        control.setErrors(null);
-      }
-    });
-  } */
 
   guardarUsuarioJSON(usuario: Usuario) {
     this.usuariosService.postUsuario(usuario).subscribe({
@@ -56,14 +67,27 @@ export class AddUsuarioComponent {
     });
   }
 
-  // Función para agregar el usuario
+  // función para agregar el usuario
   addUsuario() {
+
     if (this.formularioUsuario.invalid) {
-      console.warn('Formulario inválido');
+      console.log('Formulario inválido');
       return;
     }
 
-    const usuario: Usuario = this.formularioUsuario.getRawValue(); // Tipado correcto
-    this.guardarUsuarioJSON(usuario);
+    const usuario: Usuario = this.formularioUsuario.getRawValue();
+    const usuarioEncontrado = this.nombresUsuario.find(nombre => nombre === usuario.nombreUsuario);
+
+    if (usuarioEncontrado)
+    {
+      this.usuarioExistente= true;
+      alert("El nombre de usuario ya esta en uso!");
+      //ver en css poner en rojo el campo usuario
+    }
+    else
+    {
+      this.guardarUsuarioJSON(usuario);
+    }
+
   }
 }
