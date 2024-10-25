@@ -12,55 +12,92 @@
                     </div>
                 }
                 <label for="apellidoUsuario">Apellido:</label>
-                <input type="text" id="apellidoUsuario" formControName = "apellido"/>
+                <input type="text" id="apellidoUsuario" formControlName = "apellido"/>
                 @if (formularioUsuario.controls['apellido'].getError('required')){
                     <div>
                         Complete el campo
                     </div>
                 }
                 <label for="telefonoUsuario">Telefono:</label>
-                <input type="tel" id="telefonoUsuario" formControName = "telefono"/>
+                <input type="tel" id="telefonoUsuario" formControlName = "telefono"/>
                 @if (formularioUsuario.controls['telefono'].getError('required')){
                     <div>
                         Complete el campo
                     </div>
                 }
                 <label for="emailUsuario">Email:</label>
-                <input type="email" id="emailUsuario" formControName = "email"/>
-                @if (formularioUsuario.controls['email'].getError('email') && formularioUsuario.controls['email'].getError('required')){
+                <input type="text" id="emailUsuario" formControlName = "email"/>
+                @if (formularioUsuario.controls['email'].getError('required') || formularioUsuario.controls['email'].getError('email') ){
                     <div>
-                        Mail incorrecto
+                        Complete el campo o verifique que sea un mail valido
                     </div>
                 }
-
-                <div>
+                <div formGroupName="direccion">
                     <h4>Direccion</h4>
                     <label for="calleUsuario">Calle:</label>
-                    <input type="text" id="calleUsuario" formControName = "calle">
+                    <input type="text" id="calleUsuario" formControlName = "calle">
+                    @if (formularioUsuario.get('direccion.calle')?.getError('required')){
+                        <div>
+                            Complete el campo
+                        </div>
+                    }
+                    
 
                     <label for="numeroUsuario">Numero:</label>
-                    <input type="number" id="numeroUsuario" formControName = "numero">
-
+                    <input type="number" id="numeroUsuario" formControlName = "numero">
+                    @if (formularioUsuario.get('direccion.numero')?.getError('required')){
+                        <div>
+                            Complete el campo
+                        </div>
+                    }
                     <label for="ciudadUsuario">Ciudad:</label>
-                    <input type="text" id="ciudadUsuario" formControName = "ciudad">
-
+                    <input type="text" id="ciudadUsuario" formControlName = "ciudad">
+                    @if (formularioUsuario.get('direccion.ciudad')?.getError('required')){
+                        <div>
+                            Complete el campo
+                        </div>
+                    }
                     <label for="codigoPostalUsuario">Codigo postal:</label>
-                    <input type="text" id="codigoPostalUsuario" formControName = "codigoPostal">
-
+                    <input type="text" id="codigoPostalUsuario" formControlName = "codigoPostal">
+                    @if (formularioUsuario.get('direccion.codigoPostal')?.getError('required')){
+                        <div>
+                            Complete el campo
+                        </div>
+                    }
                     <label for="paisUsuario">Pais:</label>
-                    <input type="text" id="paisUsuario" formControName = "pais">
-
+                    <input type="text" id="paisUsuario" formControlName = "pais">
+                    @if (formularioUsuario.get('direccion.pais')?.getError('required')){
+                        <div>
+                            Complete el campo
+                        </div>
+                    }
                 </div>
             <div>
                 <h4>Datos de la cuenta</h4> 
                 <label for="usuarioDeUsuario">Nombre de Usuario:</label>
-                <input type="text" id="usuarioDeUsuario" formControName = "nombreUsuario">
+                <input type="text" id="usuarioDeUsuario" formControlName = "nombreUsuario">
+                @if (formularioUsuario.controls['nombreUsuario'].getError('required') || formularioUsuario.controls['nombreUsuario'].getError('minLength')){
+                    <div>
+                      Verifique el nombre de usuario, debe contener mas de 3 caracteres
+                    </div>
+                }
+                <!-- @if (formularioUsuario.controls['nombreUsuario'].hasError('encontrado')) {
+                    <div>
+                        El nombre de usuario ya exite, intente nuevamente
+                    </div>
+                } -->
 
                 <label for="contraseniaUsuario">Contraseña:</label>
-                <input type="password" id="contraseniaUsuario" formControName = "contrasenia">
+                <input type="password" id="contraseniaUsuario" formControlName = "contrasenia">
+                @if (formularioUsuario.controls['contrasenia'].getError('required') || formularioUsuario.controls['contrasenia'].getError('minLength')){
+                    <div>
+                      Verifique la contraseña, debe contener mas de 8 caracteres
+                    </div>
+                }
 
             </div>
             </div>
+            <button type="submit">Registrarse</button>
 
         </form>
     </fieldset>

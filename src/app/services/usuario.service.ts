@@ -21,18 +21,13 @@ export class UsuarioService{
    return this.http.post<Usuario>(this.urlBase, usuario);
   }
 
-  verificarNombreUsuario (nombreUsuario: string): Promise<boolean>
-  {
-
-    return this.getUsuarios().toPromise().then()
+  //verificar que el usuario no se repita
+  verificarNombreUsuario(usuarioNombre: string): Observable<boolean> {
+    //transforma promesa en observable
+    return this.getUsuarios().pipe(
+      map(usuarios => usuarios.some(usuario => usuario.nombreUsuario === usuarioNombre))
+    );
   }
-
-  // checkUsernameExists(username: string): Observable<boolean> {
-  //   //transforma promesa en observable
-  //   return this.getUsuarios().pipe(
-  //     map(usuarios => usuarios.some(usuario => usuario))
-  //   )
-  // }
-
+  
 
 }
