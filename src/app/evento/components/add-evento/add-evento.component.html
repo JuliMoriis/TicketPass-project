@@ -29,25 +29,8 @@
         <input type="time" id="duracion" [(ngModel)]="evento.duracion" [ngModelOptions]="{standalone: true}" required>
       </div>
 
-
-      <!-- Datos de las fechas -->
-       <div>
-        @for (item of evento.fecha; track $index){ <!-- ver si este for funciona -->
-          <div>
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
-          </div>
-          <div>
-            <label for="horario">Horario:</label>
-            <input type="time" id="horario" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
-          </div>
-
-          <button (click)="addFecha()">Nueva fecha</button>
-        }
-       </div>
-
       <!-- Datos de las entradas -->
-       <div>
+      <div>
         <section>
           <div>
             <label for="seleccionRecinto">Seleccione un recinto</label>
@@ -60,19 +43,31 @@
 
           <div>
             <ul>
-              @for (item of fecha.entradas; track $index){ <!-- ??? que hay que iterar -->
-              <li>
-                {{buscarNombreSector(item.sector_id)}}
-                <label for="precioSector">$</label> <!-- deberia ponerle precio a cada ENTRADA (osea por sector) -->
-                <input type="text" id="precioSector" [(ngModel)]="entrada.precio" [ngModelOptions]="{standalone: true}"
-                  required>
+              <li *ngFor="let entrada of evento.entradas">
+                {{buscarNombreSector(entrada.sector_id)}}
+                <label for="precioSector-{{ entrada.sector_id }}">$</label>
+                <input type="text" id="precioSector-{{ entrada.sector_id }}" [(ngModel)]="entrada.precio"
+                  [ngModelOptions]="{standalone: true}" required>
               </li>
-              }
             </ul>
           </div>
         </section>
       </div>
 
+
+      <!-- Datos de las fechas -->
+      <div *ngFor="let fecha of entrada.fechas; let i = index">
+        <h4>Fecha {{ i + 1 }}</h4>
+        <div>
+          <label for="fecha-{{i}}">Fecha:</label>
+          <input type="date" id="fecha-{{i}}" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
+        </div>
+        <div>
+          <label for="horario-{{i}}">Horario:</label>
+          <input type="time" id="horario-{{i}}" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
+        </div>
+        <button type="button" (click)="addFecha()">Nueva Fecha</button>
+      </div>
 
     </form>
   </fieldset>

@@ -171,27 +171,6 @@
       ],
       "urlMapaSectores": "bbb",
       "id": "3"
-    },
-    {
-      "id": "1b2c",
-      "nombreRecinto": "velez",
-      "direccion": {
-        "calle": "sss",
-        "numero": 0,
-        "ciudad": "arg",
-        "codigoPostal": "700",
-        "pais": "asd"
-      },
-      "urlImg": "ddd",
-      "sectores": [
-        {
-          "nombreSector": "uno",
-          "capacidad": 6,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "urlMapaSectores": "DDD"
     }
   ]
 }
