@@ -1,0 +1,43 @@
+
+  <section>
+    <div class="header">
+      <button class="boton-addEvento" [routerLink]="['/add-eventos']">Agregar Evento</button>
+    </div>
+
+  <ul>
+    <h2>Eventos cargados</h2>
+    @for (item of listaEventos; track $index){
+      <li>
+      <button type="button" (click)="verEvento(item)">{{item.nombreEvento}}</button>
+    </li>
+  }
+  </ul>
+  </section>
+
+  <div *ngIf="eventoSeleccionado">
+    <h2>Detalle del Evento</h2>
+    <form>
+      <label>
+        Nombre del Evento:
+        <input type="text" [(ngModel)]="eventoSeleccionado.nombreEvento" name="nombreEvento" readonly />
+      </label>
+      <br>
+      <label>
+        Artista/Banda:
+        <input type="text" [(ngModel)]="eventoSeleccionado.artista_banda" name="artista_banda" readonly />
+      </label>
+      <br>
+      <div>
+        Fechas y Hora de comienzo del evento:
+        <div *ngFor="let fecha of eventoSeleccionado.fechas" class="fecha">
+          <input type="text" [value]="fecha.fecha" name="fechas" readonly />
+          <input type="text" [value]="fecha.hora" name="hora" readonly />
+        </div>
+        <label>
+          Duración del evento en horas:
+          <input type="text" [(ngModel)]="eventoSeleccionado.duracion" name="duracion" readonly />
+        </label>
+        <br>
+      </div>
+    </form>
+  </div>
