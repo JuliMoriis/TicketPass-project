@@ -1,0 +1,8 @@
+<app-add-evento (emitirEvento)="addListaEvento($event)"></app-add-evento>
+<section>
+  <ul>
+    @for (item of listaEventos; track $index){
+      <li>{{item.nombreEvento}}</li>
+    }
+  </ul>
+</section>

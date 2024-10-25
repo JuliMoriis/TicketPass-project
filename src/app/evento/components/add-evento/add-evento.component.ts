@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Recinto } from '../../../recinto/interfaces/recinto.interface';
 import { Sector } from '../../../recinto/interfaces/sector.interface';
@@ -17,6 +17,9 @@ import { Fecha } from '../../interfaces/fecha.interface';
 })
 
 export class AddEventoComponent implements OnInit{
+
+  @Output()
+  emitirEvento: EventEmitter<Evento> = new EventEmitter();
 
   recintosService= inject (RecintoService);
 
@@ -136,7 +139,8 @@ export class AddEventoComponent implements OnInit{
 
   addEvento ()
   {
-    //aca va el emit
+    console.log(this.evento);
+    this.emitirEvento.emit({...this.evento});
   }
 
 }
