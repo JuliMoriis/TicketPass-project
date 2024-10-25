@@ -1,1 +1,67 @@
-<p>add-usuario works!</p>
+<section>
+    <fieldset>
+        <legend>Registrarse</legend>
+        <form [formGroup]="formularioUsuario"(ngSubmit)="addUsuario()">
+            <div>
+                <h3>Informacion del Usuario</h3>
+                <label for="nombreUsuario">Nombre: </label>
+                <input type="text" id="nombreUsuario" formControlName = "nombre" />
+                @if (formularioUsuario.controls['nombre'].getError('required')){
+                    <div>
+                        Complete el campo
+                    </div>
+                }
+                <label for="apellidoUsuario">Apellido:</label>
+                <input type="text" id="apellidoUsuario" formControName = "apellido"/>
+                @if (formularioUsuario.controls['apellido'].getError('required')){
+                    <div>
+                        Complete el campo
+                    </div>
+                }
+                <label for="telefonoUsuario">Telefono:</label>
+                <input type="tel" id="telefonoUsuario" formControName = "telefono"/>
+                @if (formularioUsuario.controls['telefono'].getError('required')){
+                    <div>
+                        Complete el campo
+                    </div>
+                }
+                <label for="emailUsuario">Email:</label>
+                <input type="email" id="emailUsuario" formControName = "email"/>
+                @if (formularioUsuario.controls['email'].getError('email') && formularioUsuario.controls['email'].getError('required')){
+                    <div>
+                        Mail incorrecto
+                    </div>
+                }
+
+                <div>
+                    <h4>Direccion</h4>
+                    <label for="calleUsuario">Calle:</label>
+                    <input type="text" id="calleUsuario" formControName = "calle">
+
+                    <label for="numeroUsuario">Numero:</label>
+                    <input type="number" id="numeroUsuario" formControName = "numero">
+
+                    <label for="ciudadUsuario">Ciudad:</label>
+                    <input type="text" id="ciudadUsuario" formControName = "ciudad">
+
+                    <label for="codigoPostalUsuario">Codigo postal:</label>
+                    <input type="text" id="codigoPostalUsuario" formControName = "codigoPostal">
+
+                    <label for="paisUsuario">Pais:</label>
+                    <input type="text" id="paisUsuario" formControName = "pais">
+
+                </div>
+            <div>
+                <h4>Datos de la cuenta</h4> 
+                <label for="usuarioDeUsuario">Nombre de Usuario:</label>
+                <input type="text" id="usuarioDeUsuario" formControName = "nombreUsuario">
+
+                <label for="contraseniaUsuario">Contraseña:</label>
+                <input type="password" id="contraseniaUsuario" formControName = "contrasenia">
+
+            </div>
+            </div>
+
+        </form>
+    </fieldset>
+</section>
