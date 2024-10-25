@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   })
 
   export class EventoService {
-    urlBase: string = 'http://localhost:3000/eventos'
+    urlBase: string = 'http://localhost:3001/eventos'
     constructor (private http: HttpClient ){};
 
     getEventos() : Observable <Evento[]>{
@@ -17,7 +17,6 @@ import { Observable } from 'rxjs';
 
     postEvento (evento: Evento){
      return this.http.post<Evento>(this.urlBase, evento);
-
     }
 
   }

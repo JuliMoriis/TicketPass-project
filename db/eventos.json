@@ -1,1 +1,160 @@
-{}
+{
+  "eventos": [
+    {
+      "nombreEvento": "love on tour",
+      "artista_banda": "harry styles",
+      "duracion": "02:00",
+      "UrlBanner": "url",
+      "recinto_id": 1,
+      "fechas": [
+        {
+          "fecha": "2024-11-11",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "campo vip",
+              "precio": "120000",
+              "disponibles": 25000,
+              "asientos": []
+            },
+            {
+              "nombreSector": "platea preferencial",
+              "precio": "150000",
+              "disponibles": 10,
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "fecha": "2024-11-12",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "campo vip",
+              "precio": "120000",
+              "disponibles": 25000,
+              "asientos": []
+            },
+            {
+              "nombreSector": "platea preferencial",
+              "precio": "150000",
+              "disponibles": 10,
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "id": 1
+    },
+    {
+      "nombreEvento": "eras tour",
+      "artista_banda": "taylor swift",
+      "duracion": "04:00",
+      "UrlBanner": "url2",
+      "recinto_id": 3,
+      "fechas": [
+        {
+          "fecha": "2024-12-24",
+          "hora": "08:00",
+          "entradas": [
+            {
+              "nombreSector": "campo luna",
+              "precio": "30000",
+              "disponibles": 7000,
+              "asientos": []
+            },
+            {
+              "nombreSector": "campo trasero",
+              "precio": "15000",
+              "disponibles": 2000,
+              "asientos": []
+            }
+          ]
+        }
+      ],
+      "id": 2
+    }
+  ]
+}

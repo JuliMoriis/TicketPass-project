@@ -8,6 +8,7 @@ import { Entrada } from '../../interfaces/entrada.interface';
 import { Evento } from '../../interfaces/evento.interface';
 import { Fecha } from '../../interfaces/fecha.interface';
 import { ElementSchemaRegistry } from '@angular/compiler';
+import { EventoService } from '../../../services/evento.service';
 
 @Component({
   selector: 'app-add-evento',
@@ -23,6 +24,7 @@ export class AddEventoComponent implements OnInit{
   emitirEvento: EventEmitter<Evento> = new EventEmitter();
 
   recintosService= inject (RecintoService);
+  eventosService= inject(EventoService);
 
   listadoRecintos: Recinto[] = [];
   sectoresRecinto: Sector[]= [];
@@ -143,6 +145,25 @@ export class AddEventoComponent implements OnInit{
 
     console.log(this.evento);
     this.emitirEvento.emit({...this.evento});
+
+    this.guardarEventosJSON();
+
+
+  }
+
+  guardarEventosJSON ()
+  {
+    this.eventosService.postEvento(this.evento).subscribe(
+      {
+        next: ()=> {
+          console.log('evento agregado');
+        },
+        error: (err)=> {
+          alert('Error al agregar el evento: ' + err.message);
+          console.error('Error:', err);
+        }
+      }
+    )
   }
 
 }

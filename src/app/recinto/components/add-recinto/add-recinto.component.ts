@@ -63,6 +63,22 @@ export class AddRecintoComponent {
     }
   }
 
+  crearButacas(sector: Sector) {
+    if (sector.numerado === true) {
+      for (let i = 1; i <= sector.capacidad; i++) {
+        let nuevoAsiento: Asiento = {
+          butaca: i,
+          disponibilidad: true // Cambia esto según tu lógica
+        };
+        sector.asientos.push(nuevoAsiento);
+      }
+    }
+    else
+    {
+      sector.asientos= [];
+    }
+  }
+
 
   addRecinto() {
     if (!this.recinto.nombreRecinto || !this.recinto.direccion.calle ||
@@ -99,22 +115,6 @@ export class AddRecintoComponent {
     )
   }
 
-
-  crearButacas(sector: Sector) {
-    if (sector.numerado === true) {
-      for (let i = 1; i <= sector.capacidad; i++) {
-        let nuevoAsiento: Asiento = {
-          butaca: i,
-          disponibilidad: true // Cambia esto según tu lógica
-        };
-        sector.asientos.push(nuevoAsiento);
-      }
-    }
-    else
-    {
-      sector.asientos= [];
-    }
-  }
 
 }
 
