@@ -6,11 +6,12 @@ import { RecintoPageComponent } from "./recinto/pages/recinto-page/recinto-page.
 import { AddEventoComponent } from './evento/components/add-evento/add-evento.component';
 import { EventoPageComponent } from "./evento/pages/evento-page/evento-page.component";
 import { ListEventoComponent } from './evento/components/list-evento/list-evento.component';
+import { UsuarioPageComponent } from './usuario/pages/usuario-page/usuario-page.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AddRecintoComponent, ListRecintoComponent, RecintoPageComponent, AddEventoComponent, EventoPageComponent, ListEventoComponent],
+  imports: [RouterOutlet, AddRecintoComponent, ListRecintoComponent, RecintoPageComponent, AddEventoComponent, EventoPageComponent, ListEventoComponent, UsuarioPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

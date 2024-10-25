@@ -6,5 +6,7 @@ export interface Usuario{
     apellido: string,
     telefono: number,
     email: string,
-    direccion : Direccion
+    direccion : Direccion,
+    nombreUsuario: string,
+    contrasenia:string
 }
