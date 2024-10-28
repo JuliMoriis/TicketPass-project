@@ -1,36 +1,4 @@
 {
   "usuarios": [
-    {
-      "id": "d779",
-      "nombre": "Julia",
-      "apellido": "Moris",
-      "telefono": "444",
-      "email": "julymoris2@gmail.com",
-      "direccion": {
-        "calle": "Zacagnini",
-        "numero": 444,
-        "ciudad": "Mar del Plata",
-        "codigoPostal": "7600",
-        "pais": "Argentina"
-      },
-      "nombreUsuario": "julimoris",
-      "contrasenia": "12345678"
-    },
-    {
-      "nombre": "emilia",
-      "apellido": "maldonado",
-      "telefono": "2236349903",
-      "email": "m.emiliamaldo@gmail.com",
-      "direccion": {
-        "calle": "guido",
-        "numero": 2278,
-        "ciudad": "mar del plata",
-        "codigoPostal": "7600",
-        "pais": "argentina"
-      },
-      "nombreUsuario": "emiliamaldo",
-      "contrasenia": "aaaaaaaa",
-      "id": "sKIbZbV"
-    }
   ]
 }
