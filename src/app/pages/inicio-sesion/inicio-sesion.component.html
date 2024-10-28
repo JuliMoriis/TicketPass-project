@@ -1,1 +1,18 @@
 <p>inicio-sesion works!</p>
+<section>
+    <fieldset>
+        <legend>Inicio de Sesion</legend>
+        <form #formInicioSesion="ngForm" (ngSubmit)="iniciarSesion(formInicioSesion)">
+            <label for="user">Usuario:</label>
+            <input type="text" id="user" name="user" ngModel required>
+            <div *ngIf="formInicioSesion.controls['user']?.invalid && formInicioSesion.controls['user']?.touched"> Debe ingresar su usuario</div>
+
+            <label for="passwordIS">Constraseña:</label>
+            <input type="password" id="passwordIS" name="passwordIS" ngModel required >
+            <div *ngIf="formInicioSesion.controls['passwordIS']?.invalid && formInicioSesion.controls['passwordIS']?.touched">Debe ingresar su contraseña</div>
+            <button type="submit" [disabled]="formInicioSesion.invalid">Iniciar sesion</button>
+        </form>
+
+        <a routerLink="registrarse">Todavia no tenes cuenta? Registrate haciendo click</a>
+    </fieldset>
+</section>

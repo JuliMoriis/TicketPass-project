@@ -5,6 +5,8 @@ import { VerEventoComponent } from './evento/components/ver-evento/ver-evento.co
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { ClientePageComponent } from './pages/cliente-page/cliente-page.component';
 import { RecintoPageComponent } from './recinto/pages/recinto-page/recinto-page.component';
+import { InicioSesionComponent } from './pages/inicio-sesion/inicio-sesion.component';
+import { AddUsuarioComponent } from './usuario/component/add-usuario/add-usuario.component';
 
 export const routes: Routes = [
   { path: 'admin', component: AdminPageComponent}, // pagina admin
@@ -13,5 +15,7 @@ export const routes: Routes = [
   { path: 'list-eventos', component: ListEventoComponent},
   { path: 'add-recinto', component: RecintoPageComponent},
   { path: 'cliente', component: ClientePageComponent},
+  { path: '', component: InicioSesionComponent},
+  { path: 'registrarse', component: AddUsuarioComponent},
 
 ];
