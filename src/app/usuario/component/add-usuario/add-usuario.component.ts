@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Route, Router, RouterModule } from '@angular/router';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from '../../interfaces/usuario.interface';
 
@@ -7,14 +8,15 @@ import { Usuario } from '../../interfaces/usuario.interface';
 @Component({
   selector: 'app-add-usuario',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './add-usuario.component.html',
   styleUrl: './add-usuario.component.css'
 })
 export class AddUsuarioComponent implements OnInit{
 
+  constructor(private router: Router) {};
+
   nombresUsuario: string[] = [];
-  usuarioExistente= false;
 
   fb = inject(FormBuilder);
   usuariosService = inject(UsuarioService);
@@ -25,11 +27,13 @@ export class AddUsuarioComponent implements OnInit{
 
   listarNombreUsuario ()
   {
-    this.usuariosService.getNombresUsuarios().subscribe(
+    this.usuariosService.getUsuarios().subscribe(
       {
-        next: (nombreUsuario: string[])=>{
-          this.nombresUsuario= nombreUsuario;
-          console.log(nombreUsuario);
+        next: (usuarios: Usuario[])=>{
+          
+          usuarios.forEach(usuario => {
+            this.nombresUsuario.push(usuario.nombreUsuario)
+          });
         },
         error: (err)=> {
           console.error('Error al levantar nombres de usuario:', err);
@@ -77,18 +81,22 @@ export class AddUsuarioComponent implements OnInit{
     }
 
     const usuario: Usuario = this.formularioUsuario.getRawValue();
-    const usuarioEncontrado = this.nombresUsuario.find(nombre => nombre === usuario.nombreUsuario);
-
+    const usuarioEncontrado = this.nombresUsuario.find(nombre => nombre == usuario.nombreUsuario);
+    console.log(usuarioEncontrado);
     if (usuarioEncontrado)
     {
-      this.usuarioExistente= true;
       alert("El nombre de usuario ya esta en uso!");
       //ver en css poner en rojo el campo usuario
     }
     else
     {
+      alert('usuario registrado con exito');
       this.guardarUsuarioJSON(usuario);
     }
 
+  }
+
+  inicSesionRout(){
+    this.router.navigate([''])
   }
 }

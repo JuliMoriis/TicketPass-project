@@ -1,4 +1,39 @@
 {
   "usuarios": [
+    {
+      "id": "0364",
+      "nombre": "Julia",
+      "apellido": "Moris",
+      "telefono": "2233067856",
+      "email": "julymoris2@gmail.com",
+      "direccion": {
+        "calle": "Zacagnini",
+        "numero": 7265,
+        "ciudad": "Mar del Plata",
+        "codigoPostal": "7600",
+        "pais": "Argentina"
+      },
+      "nombreUsuario": "julimoris",
+      "contrasenia": "juli1234",
+      "tipo": 2
+    },
+    {
+      "id": "1111",
+      "nombre": "Administrador",
+      "apellido": "De TicketPass",
+      "telefono": "1111111111",
+      "email": "adminTP@gmail.com",
+      "direccion": {
+        "calle": "Zacagnini",
+        "numero": 7265,
+        "ciudad": "Mar del Plata",
+        "codigoPostal": "7600",
+        "pais": "Argentina"
+      },
+      "nombreUsuario": "admin",
+      "contrasenia": "adminutn2024",
+      "tipo": 1
+    }
+    
   ]
 }

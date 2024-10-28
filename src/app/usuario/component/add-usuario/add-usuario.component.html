@@ -81,11 +81,7 @@
                       Verifique el nombre de usuario, debe contener mas de 3 caracteres
                     </div>
                 }
-                <!-- @if (formularioUsuario.controls['nombreUsuario'].hasError('encontrado')) {
-                    <div>
-                        El nombre de usuario ya exite, intente nuevamente
-                    </div>
-                } -->
+         
 
                 <label for="contraseniaUsuario">Contraseña:</label>
                 <input type="password" id="contraseniaUsuario" formControlName = "contrasenia">
@@ -97,7 +93,8 @@
 
             </div>
             </div>
-            <button type="submit">Registrarse</button>
+            
+            <button type="submit" (click)="inicSesionRout()">Registrarse</button>
 
         </form>
     </fieldset>

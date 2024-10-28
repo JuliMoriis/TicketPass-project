@@ -45,7 +45,7 @@ export class InicioSesionComponent implements OnInit{
     );
   }
 
-  exiteUsuario(nombreUsuarioForm: string, contraseniaForm: string): boolean {
+  existeUsuario(nombreUsuarioForm: string, contraseniaForm: string): boolean {
     return this.usuariosDB.some(userDB =>
       userDB.nombreUsuarioDB === nombreUsuarioForm && userDB.contraseniaDB === contraseniaForm
     );
@@ -67,13 +67,13 @@ export class InicioSesionComponent implements OnInit{
 
     if (form.valid) {
 
-      if (this.exiteUsuario(form.value.user, form.value.passwordIS)) {
+      if (this.existeUsuario(form.value.usuarioForm, form.value.contraseniaForm)) {
         let tipoEncontrado= this.encontrarTipo(form.value.usuarioForm);
         console.log(tipoEncontrado);
-        if (tipoEncontrado == 2){
+        if (tipoEncontrado == 1){
           this.router.navigate(["admin"]);
         }
-        else if (tipoEncontrado == 1){
+        else if (tipoEncontrado == 2){
           alert("hola cliente")
         }
 
