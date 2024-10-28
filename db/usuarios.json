@@ -33,7 +33,40 @@
       "nombreUsuario": "admin",
       "contrasenia": "adminutn2024",
       "tipo": 1
+    },
+    {
+      "nombre": "Emilia",
+      "apellido": "Maldonado",
+      "telefono": "1111",
+      "email": "m.emiliamaldo@gmail.com",
+      "direccion": {
+        "calle": "Guido",
+        "numero": 2278,
+        "ciudad": "Mar del Plata",
+        "codigoPostal": "7600",
+        "pais": "Argentina"
+      },
+      "nombreUsuario": "emiliamaldo",
+      "contrasenia": "utnmdp2024",
+      "tipo": 2,
+      "id": "OaQpsna"
+    },
+    {
+      "nombre": "Lara",
+      "apellido": "Diaz",
+      "telefono": "2235487284",
+      "email": "laradiaz@gmail.com",
+      "direccion": {
+        "calle": "Colon",
+        "numero": 2222,
+        "ciudad": "Mar del Plata",
+        "codigoPostal": "7600",
+        "pais": "Argentina"
+      },
+      "nombreUsuario": "laradiaz",
+      "contrasenia": "utnmdp2024",
+      "tipo": 2,
+      "id": "6U--AuG"
     }
-    
   ]
 }

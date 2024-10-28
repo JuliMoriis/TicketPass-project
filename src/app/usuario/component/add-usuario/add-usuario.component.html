@@ -41,7 +41,7 @@
                             Complete el campo
                         </div>
                     }
-                    
+
 
                     <label for="numeroUsuario">Numero:</label>
                     <input type="number" id="numeroUsuario" formControlName = "numero">
@@ -73,7 +73,7 @@
                     }
                 </div>
             <div>
-                <h4>Datos de la cuenta</h4> 
+                <h4>Datos de la cuenta</h4>
                 <label for="usuarioDeUsuario">Nombre de Usuario:</label>
                 <input type="text" id="usuarioDeUsuario" formControlName = "nombreUsuario">
                 @if (formularioUsuario.controls['nombreUsuario'].getError('required') || formularioUsuario.controls['nombreUsuario'].getError('minLength')){
@@ -81,7 +81,7 @@
                       Verifique el nombre de usuario, debe contener mas de 3 caracteres
                     </div>
                 }
-         
+
 
                 <label for="contraseniaUsuario">Contraseña:</label>
                 <input type="password" id="contraseniaUsuario" formControlName = "contrasenia">
@@ -93,9 +93,7 @@
 
             </div>
             </div>
-            
-            <button type="submit" (click)="inicSesionRout()">Registrarse</button>
-
+            <button type="submit">Registrarse</button>
         </form>
     </fieldset>
 </section>

@@ -21,10 +21,11 @@ export class UsuarioService{
    return this.http.post<Usuario>(this.urlBase, usuario);
   }
 
-  getNombresUsuarios(): Observable<string[]> {
-    return this.http.get<any[]>(this.urlBase).pipe(
-      map(usuarios => usuarios.map(usuario => usuario.nombreUsuario)) 
-    );
+  getUsuariosById (id: string | null){
+    return this.http.get<Usuario[]>(`${this.urlBase}/${id}`);
   }
+
+
+
 
 }

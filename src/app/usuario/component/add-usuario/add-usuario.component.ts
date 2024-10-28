@@ -14,7 +14,7 @@ import { Usuario } from '../../interfaces/usuario.interface';
 })
 export class AddUsuarioComponent implements OnInit{
 
-  constructor(private router: Router) {};
+  constructor(private router: Router){}
 
   nombresUsuario: string[] = [];
 
@@ -23,6 +23,7 @@ export class AddUsuarioComponent implements OnInit{
 
   ngOnInit(): void {
       this.listarNombreUsuario();
+      console.log(this.nombresUsuario);
   }
 
   listarNombreUsuario ()
@@ -30,7 +31,7 @@ export class AddUsuarioComponent implements OnInit{
     this.usuariosService.getUsuarios().subscribe(
       {
         next: (usuarios: Usuario[])=>{
-          
+
           usuarios.forEach(usuario => {
             this.nombresUsuario.push(usuario.nombreUsuario)
           });
@@ -74,7 +75,6 @@ export class AddUsuarioComponent implements OnInit{
 
   // función para agregar el usuario
   addUsuario() {
-
     if (this.formularioUsuario.invalid) {
       console.log('Formulario inválido');
       return;
@@ -92,11 +92,10 @@ export class AddUsuarioComponent implements OnInit{
     {
       alert('usuario registrado con exito');
       this.guardarUsuarioJSON(usuario);
+      this.router.navigate(['/'])
     }
 
   }
 
-  inicSesionRout(){
-    this.router.navigate([''])
-  }
+
 }
