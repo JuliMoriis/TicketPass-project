@@ -35,7 +35,8 @@ export class AddEventoComponent implements OnInit{
   fecha: Fecha = {
     fecha: new Date(),
     hora: '',
-    entradas: []
+    entradas: [],
+    habilitado:0
   }
 
   evento: Evento ={
@@ -44,7 +45,8 @@ export class AddEventoComponent implements OnInit{
     duracion:'',
     UrlBanner:'',
     recinto_id: 1,
-    fechas: [this.fecha]
+    fechas: [this.fecha],
+    alta: 1
   }
 
   ngOnInit(): void {

@@ -51,7 +51,8 @@ export class AddUsuarioComponent implements OnInit{
       pais:['',[Validators.required]]
     }),
     nombreUsuario:['',[Validators.required, Validators.minLength(3)]],
-    contrasenia:['', [Validators.required, Validators.minLength(8)]]
+    contrasenia:['', [Validators.required, Validators.minLength(8)]],
+    tipo:[2, [Validators.required]]
   })
 
 

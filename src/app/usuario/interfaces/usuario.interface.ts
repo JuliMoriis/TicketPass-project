@@ -8,5 +8,7 @@ export interface Usuario{
     email: string,
     direccion : Direccion,
     nombreUsuario: string,
-    contrasenia:string
+    contrasenia:string,
+    tipo:number  /* 1 admin, 2 cliente */ 
+
 }

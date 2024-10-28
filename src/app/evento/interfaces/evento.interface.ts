@@ -7,5 +7,6 @@ export interface Evento {
     duracion: string,
     UrlBanner: string,
     recinto_id: number,
-    fechas: Fecha[]
+    fechas: Fecha[],
+    alta: number  /*1 habilitado, cuado se elimina en 0  */
 }
