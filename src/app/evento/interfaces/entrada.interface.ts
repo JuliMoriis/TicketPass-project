@@ -2,7 +2,7 @@ import { Asiento } from "../../recinto/interfaces/asiento.interface";
 import { Fecha } from "./fecha.interface";
 
 export interface Entrada{
-    id?: number,
+    id?: string,
     nombreSector: string,
     precio: number,
     disponibles:number,

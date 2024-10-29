@@ -1,7 +1,7 @@
 import { Entrada } from "./entrada.interface"
 
 export interface Fecha {
-    id?: number,
+    id?: string,
     fecha : Date,
     hora : string,
     entradas: Entrada[]

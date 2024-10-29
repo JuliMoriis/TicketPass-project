@@ -2,7 +2,7 @@ import { Direccion } from "./direccion.interface";
 import { Sector } from "./sector.interface";
 
 export interface Recinto {
-  id?: number,
+  id?: string,
   nombreRecinto: string,
   direccion: Direccion,
   urlImg: string,
