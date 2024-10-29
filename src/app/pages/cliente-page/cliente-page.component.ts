@@ -38,8 +38,6 @@ export class ClientePageComponent implements OnInit{
         console.log("ID no encontrado en los parámetros de la ruta.");
       }
     });
-
-
   }
 }
 

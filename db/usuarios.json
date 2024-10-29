@@ -16,6 +16,25 @@
       "contrasenia": "utnmdp2024",
       "tipo": 2,
       "id": 1
+    },
+    {
+      "nombre": "Administrador",
+      "apellido": "De TicketPass",
+      "telefono": "1111",
+      "email": "administrador@gmail.com",
+      "direccion": {
+        "calle": "Guido",
+        "numero": 222,
+        "ciudad": "Mar del Plata",
+        "codigoPostal": "7600",
+        "pais": "Argentina"
+      },
+      "nombreUsuario": "administrador",
+      "contrasenia": "utnmdp2024",
+      "tipo": 1,
+      "id": 4610388041556482
     }
+
+
   ]
 }

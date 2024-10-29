@@ -40,7 +40,7 @@ export class InicioSesionComponent implements OnInit{
   }
 
   existeUsuario(nombreUsuarioForm: string, contraseniaForm: string): Usuario | undefined{
-    return this.usuariosDB.find(user => user.nombreUsuario == nombreUsuarioForm )
+    return this.usuariosDB.find(user => user.nombreUsuario == nombreUsuarioForm  && contraseniaForm == user.contrasenia)
   }
 
   iniciarSesion(form: NgForm){
@@ -50,7 +50,7 @@ export class InicioSesionComponent implements OnInit{
       let user = this.existeUsuario(form.value.usuarioForm, form.value.contraseniaForm)
       if (user) {
         if (user.tipo == 1){
-          this.router.navigate(["admin"]);
+          this.router.navigate(["administrador", user.id]);
         }
         else if (user.tipo == 2){
           this.router.navigate(["usuarios", user.id])

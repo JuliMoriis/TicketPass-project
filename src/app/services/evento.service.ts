@@ -19,6 +19,10 @@ import { Observable } from 'rxjs';
      return this.http.post<Evento>(this.urlBase, evento);
     }
 
+    getEventosById(id: string | null): Observable<Evento> {
+      return this.http.get<Evento>(`${this.urlBase}/${id}`);
+    }
+
   }
 
 

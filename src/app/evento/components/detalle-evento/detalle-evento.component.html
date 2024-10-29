@@ -1,0 +1,31 @@
+
+<section>
+  @if (eventoSeleccionado){
+    <h2>Detalle del Evento</h2>
+    <p> Nombre del Evento: {{eventoSeleccionado.nombreEvento}} </p>
+    <p>Artista/Banda: {{eventoSeleccionado.artista_banda}} </p>
+    <p>Duración del evento en horas: {{eventoSeleccionado.duracion}} </p>
+
+      <p>Fechas y Hora de comienzo del evento:</p>
+      <div *ngFor="let fecha of eventoSeleccionado.fechas" class="fecha">
+       <p>Fecha: {{fecha.fecha}}</p>
+       <p>Hora: {{fecha.hora}}</p>
+       </div>
+  }
+
+  <div *ngIf="usuario?.tipo ==  2">
+    <button>Entrar a la fila</button>
+  </div>
+
+  <div *ngIf="usuario?.tipo ==  1">
+    <button>Editar evento</button>
+    <button>Elimar evento</button>
+    <button>Habilitar fila</button>
+  </div>
+
+
+
+</section>
+
+
+

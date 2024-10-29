@@ -33,7 +33,6 @@ export class FiltrarEventoComponent implements OnInit {
   obtenerEventos(): void {
     this.eventoService.getEventos().subscribe((eventos) => {
       this.eventos = eventos;
-      this.resultados = eventos;
     });
   }
 
@@ -44,6 +43,8 @@ export class FiltrarEventoComponent implements OnInit {
   }
 
   filtrarEventos(): void {
+    this.resultados = []
+
     let busq = this.busqueda.toLowerCase();
     let recintoEncontrado: Recinto | undefined;
     recintoEncontrado= this.recintos.find((recinto) =>
@@ -55,7 +56,6 @@ export class FiltrarEventoComponent implements OnInit {
         evento.artista_banda.toLowerCase().includes(busq) ||
         ((recintoEncontrado) && evento.recinto_id == recintoEncontrado.id)
       );
-
     });
 
     console.log(this.resultados);
