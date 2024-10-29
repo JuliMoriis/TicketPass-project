@@ -16,6 +16,5 @@ export const routes: Routes = [
   { path: 'add-recinto', component: RecintoPageComponent},
   { path: 'cliente/:id', component: ClientePageComponent},
   { path: '', component: InicioSesionComponent},
-  { path: 'registrarse', component: AddUsuarioComponent},
-
+  { path: 'registrarse', component: AddUsuarioComponent}
 ];

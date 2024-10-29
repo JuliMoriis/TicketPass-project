@@ -21,6 +21,8 @@ export class UsuarioService{
    return this.http.post<Usuario>(this.urlBase, usuario);
   }
 
+
+
   getUsuariosById (id: string | null){
     return this.http.get<Usuario[]>(`${this.urlBase}/${id}`);
   }
