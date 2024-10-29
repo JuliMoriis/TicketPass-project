@@ -1,7 +1,7 @@
 import { Fecha } from "./fecha.interface";
 
 export interface Evento {
-    id?: number,
+    id?: string,
     nombreEvento: string,
     artista_banda: string,
     duracion: string,

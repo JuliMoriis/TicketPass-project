@@ -1,7 +1,7 @@
 import { Asiento } from "./asiento.interface";
 
 export interface Sector {
-  id?: number,
+  id?: string,
   nombreSector: string,
   capacidad: number,
   numerado: boolean,

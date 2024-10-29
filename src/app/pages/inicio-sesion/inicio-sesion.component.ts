@@ -22,7 +22,7 @@ export class InicioSesionComponent implements OnInit{
     this.getusersDB();
   }
 
-  usuariosDB: { nombreUsuarioDB: string, contraseniaDB: string, tipoDB: number }[] = [];
+  usuariosDB: { nombreUsuarioDB: string, contraseniaDB: string, tipoDB: number, idUserDB: string | undefined }[] = [];
 
   submitted = false;
 
@@ -34,7 +34,8 @@ export class InicioSesionComponent implements OnInit{
             this.usuariosDB.push({
               nombreUsuarioDB: user.nombreUsuario, // Asegúrate de que "user.user" y "user.password" sean los nombres correctos en tu modelo
               contraseniaDB: user.contrasenia,
-              tipoDB: user.tipo
+              tipoDB: user.tipo,
+              idUserDB : user.id
             });
           });
         },
@@ -45,11 +46,10 @@ export class InicioSesionComponent implements OnInit{
     );
   }
 
-  existeUsuario(nombreUsuarioForm: string, contraseniaForm: string): boolean {
-    return this.usuariosDB.some(userDB =>
-      userDB.nombreUsuarioDB === nombreUsuarioForm && userDB.contraseniaDB === contraseniaForm
-    );
+  existeUsuario(nombreUsuarioForm: string, contraseniaForm: string): any {
+    return this.usuariosDB.filter(user => user.nombreUsuarioDB == nombreUsuarioForm )
   }
+
 
   encontrarTipo(nombreUsuarioForm: string): number {
     let tipoEncontrado = 0;
@@ -67,14 +67,13 @@ export class InicioSesionComponent implements OnInit{
 
     if (form.valid) {
 
-      if (this.existeUsuario(form.value.usuarioForm, form.value.contraseniaForm)) {
-        let tipoEncontrado= this.encontrarTipo(form.value.usuarioForm);
-        console.log(tipoEncontrado);
-        if (tipoEncontrado == 1){
+      let user = this.existeUsuario(form.value.usuarioForm, form.value.contraseniaForm)
+      if (user) {
+        if (user.tipoDB == 1){
           this.router.navigate(["admin"]);
         }
-        else if (tipoEncontrado == 2){
-          alert("hola cliente")
+        else if (user.tipoDB == 2){
+          this.router.navigate(["cliente", user.idUserDB])
         }
 
       } else {

@@ -16,13 +16,14 @@ export class ClientePageComponent implements OnInit{
   active = inject(ActivatedRoute)
 
   ngOnInit(): void {
+
       this.active.paramMap.subscribe(param => {
         return this.userService.getUsuariosById(param.get('id')).subscribe({
           next : ()=>{
             this.id = param.get('id')
           },
           error : ()=> {
-
+            
           }
         });
       })

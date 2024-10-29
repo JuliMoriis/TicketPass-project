@@ -1,5 +1,5 @@
 export interface Direccion {
-  id?: number,
+  id?: string,
   calle: string,
   numero: number,
   ciudad: string,

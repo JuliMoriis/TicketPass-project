@@ -1,5 +1,5 @@
 export interface Asiento {
-  id?: number,
+  id?: string,
   butaca: number,
   disponibilidad: boolean
 }
