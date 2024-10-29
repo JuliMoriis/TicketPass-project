@@ -1,4 +1,21 @@
 {
   "usuarios": [
+    {
+      "nombre": "Emilia",
+      "apellido": "Maldonado",
+      "telefono": "1111",
+      "email": "m.emiliamaldo@gmail.com",
+      "direccion": {
+        "calle": "Guido",
+        "numero": 222,
+        "ciudad": "Mar del Plata",
+        "codigoPostal": "7600",
+        "pais": "Argentina"
+      },
+      "nombreUsuario": "emiliamaldo",
+      "contrasenia": "utnmdp2024",
+      "tipo": 2,
+      "id": 1
+    }
   ]
 }

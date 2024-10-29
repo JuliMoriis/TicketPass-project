@@ -14,7 +14,7 @@ export const routes: Routes = [
   { path: 'add-eventos', component: AddEventoComponent},
   { path: 'list-eventos', component: ListEventoComponent},
   { path: 'add-recinto', component: RecintoPageComponent},
-  { path: 'cliente/:id', component: ClientePageComponent},
+  { path: 'usuarios/:id', component: ClientePageComponent},
   { path: '', component: InicioSesionComponent},
   { path: 'registrarse', component: AddUsuarioComponent}
 ];

@@ -22,7 +22,7 @@ export class InicioSesionComponent implements OnInit{
     this.getusersDB();
   }
 
-  usuariosDB: { nombreUsuarioDB: string, contraseniaDB: string, tipoDB: number, idUserDB: string | undefined }[] = [];
+  usuariosDB: Usuario [] = [];
 
   submitted = false;
 
@@ -30,14 +30,7 @@ export class InicioSesionComponent implements OnInit{
     this.userService.getUsuarios().subscribe(
       {
         next: (users: Usuario[]) => {
-          users.forEach(user => {
-            this.usuariosDB.push({
-              nombreUsuarioDB: user.nombreUsuario, // Asegúrate de que "user.user" y "user.password" sean los nombres correctos en tu modelo
-              contraseniaDB: user.contrasenia,
-              tipoDB: user.tipo,
-              idUserDB : user.id
-            });
-          });
+          this.usuariosDB = users;
         },
         error: (e: Error) => {
           console.log(e.message);
@@ -46,21 +39,8 @@ export class InicioSesionComponent implements OnInit{
     );
   }
 
-  existeUsuario(nombreUsuarioForm: string, contraseniaForm: string): any {
-    return this.usuariosDB.filter(user => user.nombreUsuarioDB == nombreUsuarioForm )
-  }
-
-
-  encontrarTipo(nombreUsuarioForm: string): number {
-    let tipoEncontrado = 0;
-    this.usuariosDB.forEach(user => {
-      if (user.nombreUsuarioDB == nombreUsuarioForm)
-      {
-        tipoEncontrado= user.tipoDB;
-      }
-    });
-
-    return tipoEncontrado;
+  existeUsuario(nombreUsuarioForm: string, contraseniaForm: string): Usuario | undefined{
+    return this.usuariosDB.find(user => user.nombreUsuario == nombreUsuarioForm )
   }
 
   iniciarSesion(form: NgForm){
@@ -69,11 +49,11 @@ export class InicioSesionComponent implements OnInit{
 
       let user = this.existeUsuario(form.value.usuarioForm, form.value.contraseniaForm)
       if (user) {
-        if (user.tipoDB == 1){
+        if (user.tipo == 1){
           this.router.navigate(["admin"]);
         }
-        else if (user.tipoDB == 2){
-          this.router.navigate(["cliente", user.idUserDB])
+        else if (user.tipo == 2){
+          this.router.navigate(["usuarios", user.id])
         }
 
       } else {
