@@ -7,6 +7,7 @@ import { ClientePageComponent } from './pages/cliente-page/cliente-page.componen
 import { RecintoPageComponent } from './recinto/pages/recinto-page/recinto-page.component';
 import { InicioSesionComponent } from './pages/inicio-sesion/inicio-sesion.component';
 import { AddUsuarioComponent } from './usuario/component/add-usuario/add-usuario.component';
+import { FiltrarEventoComponent } from './evento/components/filtrar-eventos/filtrar-eventos.component';
 
 export const routes: Routes = [
   { path: 'admin', component: AdminPageComponent}, // pagina admin
@@ -17,5 +18,6 @@ export const routes: Routes = [
   { path: 'cliente/:id', component: ClientePageComponent},
   { path: '', component: InicioSesionComponent},
   { path: 'registrarse', component: AddUsuarioComponent},
+  { path: 'buscar-evento', component: FiltrarEventoComponent}
 
 ];

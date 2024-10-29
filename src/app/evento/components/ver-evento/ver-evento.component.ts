@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Evento } from '../../interfaces/evento.interface';
 import { EventoService } from '../../../services/evento.service';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +17,7 @@ export class VerEventoComponent{
   eventosService= inject(EventoService);
   listaEventos: Evento [] = [];
   eventoSeleccionado: Evento | null = null;
+  @Input() evento!: Evento;
 
   ngOnInit(): void {
      this.listarEventos();
@@ -40,5 +41,6 @@ export class VerEventoComponent{
     this.eventoSeleccionado = evento; // Almacena el evento seleccionado
     console.log("Evento seleccionado:", evento);
   }
+
 }
 
