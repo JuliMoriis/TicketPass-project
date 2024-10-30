@@ -8,6 +8,8 @@ import { InicioSesionComponent } from './pages/inicio-sesion/inicio-sesion.compo
 import { AddUsuarioComponent } from './usuario/component/add-usuario/add-usuario.component';
 import { FiltrarEventoComponent } from './evento/components/filtrar-eventos/filtrar-eventos.component';
 import { DetalleEventoComponent } from './evento/components/detalle-evento/detalle-evento.component';
+import { AddCompraComponent } from './compra/components/add-compra/add-compra.component';
+import { ManejoFilaComponent } from './fila/components/manejo-fila/manejo-fila.component';
 
 export const routes: Routes = [
   { path: 'administrador/:id', component: AdminPageComponent}, // aca va el id tamb
@@ -19,4 +21,6 @@ export const routes: Routes = [
   { path: '', component: InicioSesionComponent},
   { path: 'registrarse', component: AddUsuarioComponent},
   { path: 'buscar-evento', component: FiltrarEventoComponent},
+  { path: 'elegir-entrada/:userId/:idEvento/:fecha', component: AddCompraComponent},
+  { path: 'fila/:userId/:idEvento/:fecha', component: ManejoFilaComponent}
 ];

@@ -1,16 +1,16 @@
 import { Fecha } from './../../evento/interfaces/fecha.interface';
 export interface Compra {
   id?: string,
-  fecha: Date,
+  fechaDeCompra: Date,
   cliente: {
-    idCliente: string,
+    idCliente?: string,
     nombre: string,
     email: string
   },
   evento: {
-    idEvento: string,
+    idEvento?: string,
     nombreEvento: string,
-    fechaEvento: Date
+    fechaEvento: Date | null
   },
   entrada: {
     sector: string,

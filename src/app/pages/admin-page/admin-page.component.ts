@@ -13,6 +13,7 @@ import { ListEventoComponent } from '../../evento/components/list-evento/list-ev
   templateUrl: './admin-page.component.html',
   styleUrl: './admin-page.component.css'
 })
+
 export class AdminPageComponent {
 
   id: string | null = ''
