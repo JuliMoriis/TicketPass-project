@@ -14,8 +14,10 @@ export interface Compra {
   },
   entrada: {
     sector: string,
-    butaca?: number
+    butaca?: number,
+    precioUnitario: number
   },
+  cantidad: number,
   precioTotal: number,
   estado: boolean
 }

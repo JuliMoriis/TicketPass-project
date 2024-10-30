@@ -2,26 +2,33 @@
 <h3>Aca esta la foto de los sectores</h3>
 <section>
   <fieldset>
-    @if (evento?.fechas) {
-      @for(fecha of evento?.fechas; track $index){
+    <ul *ngIf="evento?.fechas">
+      <li *ngFor="let fecha of evento?.fechas">
         <ul>
-        @for(entrada of fecha.entradas; track $index){
-          <li>
-            <input type="checkbox" id="sectorSeleccionado" name="sectorSeleccionado">
-            {{entrada.nombreSector}}
+          <li *ngFor="let entrada of fecha.entradas">
+            <input
+              type="radio"
+              id="sectorSeleccionado"
+              name="sectorSeleccionado"
+              [(ngModel)]="sectorSeleccionado"
+              [value]="entrada.nombreSector"
+              (change)="asignarSectorYPrecio(entrada)" 
+            />
+            <label>{{entrada.nombreSector}}</label>
           </li>
-        }
-      </ul>
-      }
+        </ul>
+      </li>
+    </ul>
 
-      <h4>Cantidad</h4>
-      <select name="Cantidad" id="Cantidad">
-        <option value="" disabled selected >0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
-    }
+    <h4>Cantidad</h4>
+    <select [(ngModel)]="compra.cantidad">
+      <option *ngFor="let num of [1,2,3,4]" [value]="num">{{num}}</option>
+    </select>
+
+    <button (click)="comprarEntrada()">Comprar entrada</button>
+    
+
+
+    <div *ngIf="mensaje" class="mensaje">{{ mensaje }}</div>
   </fieldset>
 </section>

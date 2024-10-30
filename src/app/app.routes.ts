@@ -11,6 +11,7 @@ import { DetalleEventoComponent } from './evento/components/detalle-evento/detal
 import { AddCompraComponent } from './compra/components/add-compra/add-compra.component';
 import { ManejoFilaComponent } from './fila/components/manejo-fila/manejo-fila.component';
 
+
 export const routes: Routes = [
   { path: 'administrador/:id', component: AdminPageComponent}, // aca va el id tamb
   { path: 'add-eventos', component: AddEventoComponent},
@@ -22,5 +23,6 @@ export const routes: Routes = [
   { path: 'registrarse', component: AddUsuarioComponent},
   { path: 'buscar-evento', component: FiltrarEventoComponent},
   { path: 'elegir-entrada/:userId/:idEvento/:fecha', component: AddCompraComponent},
-  { path: 'fila/:userId/:idEvento/:fecha', component: ManejoFilaComponent}
+  { path: 'fila/:userId/:idEvento/:fecha', component: ManejoFilaComponent},
+  { path: '', redirectTo: '/comprar-entrada', pathMatch: 'full' }
 ];
