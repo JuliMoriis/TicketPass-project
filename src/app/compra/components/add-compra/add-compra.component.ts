@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { EventoService } from '../../../services/evento.service';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Compra } from '../../interfaces/compra.interface';
+import { Fecha } from '../../../evento/interfaces/fecha.interface';
+import { Entrada } from '../../../evento/interfaces/entrada.interface';
 
 @Component({
   selector: 'app-add-compra',
@@ -31,12 +33,13 @@ export class AddCompraComponent implements OnInit{
   precioTotal: 0,
   estado: false
   }
-  //usuario: Usuario | undefined
-  //evento: Evento | undefined
-  //fecha: Date | undefined
+
+  evento?: Evento
+
   active = inject (ActivatedRoute)
   userService = inject(UsuarioService)
   eventoService = inject(EventoService)
+
 
 ngOnInit(): void {
 
@@ -60,11 +63,21 @@ ngOnInit(): void {
       next: (eventoEncontrado: Evento) => {
         this.compra.evento.idEvento = eventoEncontrado.id
         this.compra.evento.nombreEvento = eventoEncontrado.nombreEvento
-        this.compra.evento.fechaEvento = fechaParam ? new Date(fechaParam + "T00:00:00Z") : null;
-          if (this.compra.evento.fechaEvento) {
-            const formattedDate = this.compra.evento.fechaEvento.toISOString().slice(0, 10);
-            console.log("Fecha formateada:", formattedDate);
-          }
+
+        const fechaFiltrada = eventoEncontrado.fechas.find((fecha: Fecha) => {
+          const formattedFechaParam = new Date(fechaParam! + "T00:00:00Z").toISOString().slice(0, 10);
+          return new Date(fecha.fecha).toISOString().slice(0, 10) === formattedFechaParam;
+        });
+
+        if (fechaFiltrada) {
+          this.evento = {
+            ...eventoEncontrado,
+            fechas: [fechaFiltrada]  // Solo la fecha que queremos
+          };
+          console.log("Evento con fecha específica:", this.evento);
+        } else {
+          console.log("Fecha no encontrada en el array de fechas del evento.");
+        }
       },
       error: (e: Error) => {
         console.log(e.message);
@@ -72,8 +85,8 @@ ngOnInit(): void {
     })
   })
 }
-}
 
+}
 
 
 
