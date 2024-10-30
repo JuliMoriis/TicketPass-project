@@ -1,1 +1,27 @@
-<p>add-compra works!</p>
+<h1>Comprar entrada</h1>
+<h3>Aca esta la foto de los sectores</h3>
+<section>
+  <fieldset>
+    @if (evento?.fechas) {
+      @for(fecha of evento?.fechas; track $index){
+        <ul>
+        @for(entrada of fecha.entradas; track $index){
+          <li>
+            <input type="checkbox" id="sectorSeleccionado" name="sectorSeleccionado">
+            {{entrada.nombreSector}}
+          </li>
+        }
+      </ul>
+      }
+
+      <h4>Cantidad</h4>
+      <select name="Cantidad" id="Cantidad">
+        <option value="" disabled selected >0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    }
+  </fieldset>
+</section>
