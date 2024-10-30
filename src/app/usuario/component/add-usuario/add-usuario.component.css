@@ -1,0 +1,19 @@
+input{
+    width:200px;
+    padding: 5px 15px;
+    margin: 5px;
+    box-sizing:content-box;
+    border-color:#36173d;
+    border-radius:40px;
+}
+
+fieldset{
+    width: 1000px;
+   justify-self: center;
+    padding: 20px 40px;
+ 
+}
+
+section .head {
+    box-sizing:border-box;
+}
