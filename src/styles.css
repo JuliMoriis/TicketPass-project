@@ -5,14 +5,14 @@
 }
 
 body{
-    background:#fffffa;
+    background:#eeeeee;
 }
 
 header{
     width:100%;
     overflow:hidden;
     background:#36173d;
-    margin: bottom 20px;;
+  
 }
 
 .wrapper {

@@ -5,15 +5,23 @@ input{
     box-sizing:content-box;
     border-color:#36173d;
     border-radius:40px;
+    background-color: #eeeeee;
 }
 
 fieldset{
     width: 1000px;
    justify-self: center;
     padding: 20px 40px;
+    border-radius:40px;
+    margin: 15px;
+    background-color: white;
  
 }
 
-section .head {
-    box-sizing:border-box;
+
+
+.divreg {
+    background-color: white;
+    margin:0px;
+    padding: 40px;
 }
