@@ -1,5 +1,3 @@
-
-
 input{
     width:200px;
     padding: 5px 15px;
@@ -11,18 +9,81 @@ input{
 }
 
 fieldset{
-    width: 1000px;
+   
+    width: 500px;
    justify-self: center;
     padding: 20px 40px;
     border-radius:40px;
     margin: 15px;
     background-color: white;
- 
+
 }
 
-.divreg {
-    
-    background-color: white;
+.divreg {   /*  */
     margin-top: 60px;
     padding: 40px;
 }
+
+h2{
+
+    margin-top:20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 30px;
+    box-sizing:content-box;
+    border-radius: 45px;
+    padding: 10px 50px;
+    background-color: #36173d;
+    color: white;
+    /* width: 150px; */
+}
+
+h4{
+ 
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600; 
+    color: #36173d;
+}
+
+label{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 100; 
+}
+
+button{
+    background-color: #36173d;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin:1px;
+    color: white;
+    padding: 9px 15px;
+    border-radius: 45px;
+    border-color:#36173d;
+    -webkit-transition:all 500ms ease;
+    -o-transition:all 500ms ease;
+    transition:all 500ms ease;
+    margin-bottom: 20px;
+}
+
+
+button:hover{
+    background:#ff4845;
+    border-color: #ff4845;
+    border-radius:45px;
+}
+
+.container{  /* posicion del submit */
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+}
+.divAvisos{   /* style de los avisos de campos */
+    color: #686767;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+

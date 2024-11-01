@@ -48,6 +48,7 @@ nav a {
 
 nav a:hover{
     background:#ff4845;
+    color: white;
     border-radius:45px;
 }
 
@@ -59,19 +60,22 @@ nav a:hover{
 }
 
 button{
+    background-color: #36173d;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     margin:1px;
-    color: #36173d;
+    color: white;
     padding: 9px 15px;
     border-radius: 45px;
+    border-color: #36173d;
     -webkit-transition:all 500ms ease;
     -o-transition:all 500ms ease;
     transition:all 500ms ease;
 }
 button:hover{
     background:#ff4845;
+    border-color: #ff4845;
     border-radius:45px;
 }
 
@@ -85,7 +89,7 @@ button:hover{
 
 label{
     font-family:Arial, Helvetica, sans-serif;
-    font-weight: 600; 
+    font-weight: 100; 
 }
 
 .divAvisos{
