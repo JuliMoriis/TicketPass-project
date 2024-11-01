@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "recintosdb" : "json-server db/recintos.json",
+    "eventosdb" : "json-server db/eventos.json --port 3001",
+    "usuariosdb" : "json-server db/usuarios.json --port 3002",
+    "comprasdb" : "json-server db/compras.json --port 3003"
   },
   "private": true,
   "dependencies": {
