@@ -1,8 +1,8 @@
 
 input{
-    width:200px;
+    width:250px;
     padding: 5px 15px;
-    margin: 5px;
+    margin: 10px;
     box-sizing:content-box;
     border-color:#36173d;
     border-radius:40px;
@@ -25,22 +25,22 @@ fieldset{
     color: #36173d;
 }
 
-.container{
+.containerA{
     display: flex;
     flex-direction:column;
     align-items:center;
     justify-content: center;
 }
 
-
 nav a {
     margin: 1px;
     color: #36173d;
-    text-decoration:none;
-    padding: 10px 20px;
+    text-decoration:solid;
+    padding: 9px 9px;
     line-height:normal;
     font-size: 15px;
-    font-weight:bold;
+    font-weight:100;
+    font-family: Arial, Helvetica, sans-serif;
     -webkit-transition:all 500ms ease;
     -o-transition:all 500ms ease;
     transition:all 500ms ease;
@@ -48,5 +48,58 @@ nav a {
 
 nav a:hover{
     background:#ff4845;
+    color: white;
     border-radius:45px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button{
+    background-color: #36173d;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin:1px;
+    color: white;
+    padding: 9px 15px;
+    border-radius: 45px;
+    border-color: #36173d;
+    -webkit-transition:all 500ms ease;
+    -o-transition:all 500ms ease;
+    transition:all 500ms ease;
+}
+button:hover{
+    background:#ff4845;
+    border-color: #ff4845;
+    border-radius:45px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+label{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 100; 
+}
+
+.divAvisos{
+    color: #686767;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
 }

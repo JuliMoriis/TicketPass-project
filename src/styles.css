@@ -21,8 +21,10 @@ header{
     margin:auto;
     overflow:hidden;
 }
+
 header .logo {
     color:white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 50px;
     line-height: 100px;
     float:left;
@@ -34,13 +36,15 @@ header nav {
 }
 
 header nav a {
+    font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
     color: #fff;
     text-decoration:none;
     padding: 10px 20px;
     line-height:normal;
     font-size: 15px;
-    font-weight:bold;
+    font-weight:100;
+    border-radius:50px;
     -webkit-transition:all 500ms ease;
     -o-transition:all 500ms ease;
     transition:all 500ms ease;
