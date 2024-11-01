@@ -12,7 +12,7 @@
               name="sectorSeleccionado"
               [(ngModel)]="sectorSeleccionado"
               [value]="entrada.nombreSector"
-              (change)="asignarSectorYPrecio(entrada)" 
+              (change)="asignarSectorYPrecio(entrada)"
             />
             <label>{{entrada.nombreSector}}</label>
           </li>
@@ -21,13 +21,13 @@
     </ul>
 
     <h4>Cantidad</h4>
+
+    <!--ver verificaciones-->
     <select [(ngModel)]="compra.cantidad">
       <option *ngFor="let num of [1,2,3,4]" [value]="num">{{num}}</option>
     </select>
 
     <button (click)="comprarEntrada()">Comprar entrada</button>
-    
-
 
     <div *ngIf="mensaje" class="mensaje">{{ mensaje }}</div>
   </fieldset>
