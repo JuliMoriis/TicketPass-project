@@ -1,18 +1,28 @@
-<p>inicio-sesion works!</p>
-<section>
-    <fieldset>
-        <legend>Inicio de Sesion</legend>
+<br>
+<div class="divreg"><h2>Inicio de sesion</h2></div>
+<br>
         <form #formInicioSesion="ngForm" (ngSubmit)="iniciarSesion(formInicioSesion)">
-            <label for="usuarioForm">Usuario:</label>
-            <input type="text" id="usuarioForm" name="usuarioForm" ngModel required>
-            <div *ngIf="formInicioSesion.controls['usuarioForm']?.invalid && formInicioSesion.controls['usuarioForm']?.touched"> Debe ingresar su usuario</div>
+            <fieldset>
+                
+                <label for="usuarioForm">Usuario</label>
+                <br>
+                <input type="text" id="usuarioForm" name="usuarioForm" ngModel required>
+                <div *ngIf="formInicioSesion.controls['usuarioForm']?.invalid && formInicioSesion.controls['usuarioForm']?.touched"> Debe ingresar su usuario</div>
+    <br>
+                <label for="contraseniaForm">Constraseña</label>
+                <br>
+                <input type="password" id="contraseniaForm" name="contraseniaForm" ngModel required >
+                <div *ngIf="formInicioSesion.controls['contraseniaForm']?.invalid && formInicioSesion.controls['contraseniaForm']?.touched">Debe ingresar su contraseña</div>
+<br>
+<br>
 
-            <label for="contraseniaForm">Constraseña:</label>
-            <input type="password" id="contraseniaForm" name="contraseniaForm" ngModel required >
-            <div *ngIf="formInicioSesion.controls['contraseniaForm']?.invalid && formInicioSesion.controls['contraseniaForm']?.touched">Debe ingresar su contraseña</div>
-            <button type="submit" [disabled]="formInicioSesion.invalid">Iniciar sesion</button>
+                <button  type="submit" [disabled]="formInicioSesion.invalid">Iniciar sesion</button>
+            </fieldset>
         </form>
+<br>
+<div class="container">
+    <nav>
+        <a routerLink="registrarse">Todavia no tenes cuenta? Registrate haciendo click aca</a>
+    </nav>
+</div>
 
-        <a routerLink="registrarse">Todavia no tenes cuenta? Registrate haciendo click</a>
-    </fieldset>
-</section>
