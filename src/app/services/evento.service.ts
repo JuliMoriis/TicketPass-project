@@ -26,6 +26,8 @@ import { Observable } from 'rxjs';
     putEvento (id: string | null, evento: Evento): Observable<Evento> {
       return this.http.put<Evento>(`${this.urlBase}/${id}`, evento);
     }
+
+
   }
 
 

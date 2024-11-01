@@ -2,33 +2,35 @@
 <h3>Aca esta la foto de los sectores</h3>
 <section>
   <fieldset>
-    <ul *ngIf="evento?.fechas">
-      <li *ngFor="let fecha of evento?.fechas">
+    @if(fechaSeleccionada.entradas){
         <ul>
-          <li *ngFor="let entrada of fecha.entradas">
-            <input
-              type="radio"
-              id="sectorSeleccionado"
-              name="sectorSeleccionado"
-              [(ngModel)]="sectorSeleccionado"
-              [value]="entrada.nombreSector"
-              (change)="asignarSectorYPrecio(entrada)"
-            />
+          <li *ngFor="let entrada of fechaSeleccionada.entradas">
+            <input type="radio" id="sectorSeleccionado" name="sectorSeleccionado" [(ngModel)]="sectorSeleccionado"
+              [value]="entrada.nombreSector" (change)="asignarSectorYPrecio(entrada)" />
             <label>{{entrada.nombreSector}}</label>
+            <p>${{entrada.precio}}</p>
           </li>
         </ul>
-      </li>
-    </ul>
+    }
+
 
     <h4>Cantidad</h4>
 
-    <!--ver verificaciones-->
-    <select [(ngModel)]="compra.cantidad">
-      <option *ngFor="let num of [1,2,3,4]" [value]="num">{{num}}</option>
+    <select [(ngModel)]="compra.cantidad" (change)="actualizarTotalPrecio()">
+      <option value="" disabled selected>Seleccionar cantidad</option>
+      <option value="1" *ngIf="asientosDisponibles >= 1">1</option>
+      <option value="2" *ngIf="asientosDisponibles >= 2">2</option>
+      <option value="3" *ngIf="asientosDisponibles >= 3">3</option>
+      <option value="4" *ngIf="asientosDisponibles >= 4">4</option>
     </select>
+
+
+    <div *ngIf="sectorSeleccionado">
+      <p>{{sectorSeleccionado}} X{{compra.cantidad}} ${{compra.precioTotal}}</p>
+    </div>
+
 
     <button (click)="comprarEntrada()">Comprar entrada</button>
 
-    <div *ngIf="mensaje" class="mensaje">{{ mensaje }}</div>
   </fieldset>
 </section>

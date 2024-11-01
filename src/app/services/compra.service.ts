@@ -8,7 +8,7 @@ import { Compra } from '../compra/interfaces/compra.interface';
   })
 
   export class CompraService {
-    urlBase: string = ''
+    urlBase: string = 'http://localhost:3003/compras'
     constructor (private http: HttpClient ){};
 
     getCompras() : Observable <Compra[]>{
@@ -18,7 +18,5 @@ import { Compra } from '../compra/interfaces/compra.interface';
     postCompras (compra: Compra): Observable<Compra>{
      return this.http.post<Compra>(this.urlBase, compra);
     }
-
-
 
   }

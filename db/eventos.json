@@ -14,21 +14,21 @@
             {
               "nombreSector": "campo vip",
               "precio": "120000",
-              "disponibles": 25000,
+              "disponibles": 24999,
               "asientos": []
             },
             {
               "nombreSector": "platea preferencial",
               "precio": "150000",
-              "disponibles": 10,
+              "disponibles": 8,
               "asientos": [
                 {
                   "butaca": 1,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 2,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 3,
