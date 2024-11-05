@@ -1,19 +1,22 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ListEventoComponent } from '../../evento/components/list-evento/list-evento.component';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../usuario/interfaces/usuario.interface';
+import { PageEventosListComponent } from '../../evento/pages/page-eventos-list/page-eventos-list.component';
+import { FiltrarEventoComponent } from '../../evento/components/filtrar-eventos/filtrar-eventos.component';
 
 @Component({
   selector: 'app-cliente-page',
   standalone: true,
-  imports: [RouterLink, ListEventoComponent],
+  imports: [RouterLink, ListEventoComponent, FiltrarEventoComponent],
   templateUrl: './cliente-page.component.html',
   styleUrl: './cliente-page.component.css'
 })
 export class ClientePageComponent implements OnInit{
 
   id: string | null = ''
+
 
   userService = inject(UsuarioService)
   active = inject(ActivatedRoute)

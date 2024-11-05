@@ -27,7 +27,7 @@ export class AdminPageComponent {
 
     this.active.paramMap.subscribe(param => {
       this.id = param.get('id');
-      console.log("ID obtenido de la ruta:", this.id); // Verifica que `id` es correcto
+      console.log("ID obtenido de la ruta:", this.id); 
       if (this.id) {
         this.userService.getUsuariosById(this.id).subscribe({
           next: (userDB: Usuario) => {

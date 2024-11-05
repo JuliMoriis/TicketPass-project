@@ -1,26 +1,21 @@
 <div>
   <input
     type="text"
+    name="input-busqueda"
     [(ngModel)]="busqueda"
     (input)="filtrarEventos()"
     placeholder="Buscar eventos..."
   />
 
-
-  <button (click)="mostrarBusqueda ()">Buscar</button>
-
-  <div *ngIf="mostrarResultados">
-
-    <div *ngIf="resultados.length === 0">No se encontraron eventos.</div>
-
-  <ul *ngIf="resultados.length > 0">
-    <li *ngFor="let evento of resultados">
-      {{ evento.nombreEvento }} -
-      {{ evento.artista_banda }}
-    </li>
-  </ul> 
-
+  <div *ngIf="mostrarResultados && resultados.length > 0" class="busqueda">
+    <ul>
+      <li *ngFor="let evento of resultados" [routerLink]="['/detalle-evento' , idUsuario ,evento.id]">
+          {{ evento.nombreEvento }} - {{ evento.artista_banda }}
+      </li>
+    </ul>
   </div>
 
-  
+  <div *ngIf="mostrarResultados && resultados.length === 0" class="busqueda">
+    <div>No se encontraron eventos.</div>
+  </div>
 </div>

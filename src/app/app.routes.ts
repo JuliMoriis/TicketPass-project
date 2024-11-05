@@ -11,15 +11,15 @@ import { AddCompraComponent } from './compra/components/add-compra/add-compra.co
 import { ManejoFilaComponent } from './fila/components/manejo-fila/manejo-fila.component';
 import { CompraPageComponent } from './compra/pages/compra-page/compra-page.component';
 import { PageDetalleEventoComponent } from './evento/pages/page-detalle-evento/page-detalle-evento.component';
-import { PageAgregarEventoComponent } from './evento/pages/page-agregar-evento/page-agregar-evento.component';
 import { PageEventosListComponent } from './evento/pages/page-eventos-list/page-eventos-list.component';
 import { PageAddRecintoComponent } from './recinto/pages/page-add-recinto/page-add-recinto.component';
 import { PageRegistroUsuarioComponent } from './usuario/pages/page-registro-usuario/page-registro-usuario.component';
+import { PageAddEventoComponent } from './evento/pages/page-add-evento/page-add-evento.component';
 
 
 export const routes: Routes = [
   { path: 'administrador/:id', component: AdminPageComponent}, 
-  { path: 'add-eventos', component: PageAgregarEventoComponent},
+  { path: 'add-eventos', component: PageAddEventoComponent},
   { path: 'detalle-evento/:userId/:id', component: PageDetalleEventoComponent},
   { path: 'list-eventos', component: PageEventosListComponent},
   { path: 'add-recinto', component: PageAddRecintoComponent},
