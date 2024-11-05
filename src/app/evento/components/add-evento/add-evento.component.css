@@ -1,0 +1,161 @@
+input{
+    width:200px;
+    padding: 5px 15px;
+    margin: 5px;
+    box-sizing:content-box;
+    border-color:#fa8331;
+    border-radius:40px;
+    background-color: #eeeeee;
+}
+
+.container{  /* posicion del submit */
+    display: flex;
+    justify-content:flex-end;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.divreg {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin: 100px auto 10px auto;
+    padding: 20px 40px;
+    background-color: #fa8331;
+    border-radius:40px;
+    width:90%;
+}
+
+h2{
+
+    margin-top:0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 30px;
+    color: white;
+    /* width: 150px; */
+}
+
+button{
+    background-color: #36173d;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin:1px;
+    color: white;
+    padding: 9px 15px;
+    border-radius: 45px;
+    border-color:#36173d;
+    -webkit-transition:all 500ms ease;
+    -o-transition:all 500ms ease;
+    transition:all 500ms ease;
+    margin-bottom: 20px;
+    margin-right:80px;
+}
+
+button:hover{
+    background:#fa8331;
+    border-color: #fa8331;
+    border-radius:45px;
+    color: #36173d;
+}
+
+label{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 100; 
+}
+
+.inputBanner{
+    margin-top:0px;
+    margin-right:10px;
+    padding:5px;
+    border-radius: 40px;
+    background-color: #eeeeee;
+    border:1px solid #fa8331;
+}
+h4{
+ 
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600; 
+    color: #36173d;
+
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    margin-bottom:20px;
+
+}
+
+
+.fieldEvento{
+    width: 50%;
+    padding: 20px;
+    border-radius:40px;
+    background-color: white;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    margin-left:80px;
+}
+
+.fieldRecinto{
+    width: 35%; 
+    padding: 40px ;
+    border-radius: 40px;
+    background-color: white;
+    box-sizing: border-box;
+    margin-bottom: 15px;  
+    margin-right:80px;
+}
+
+.fieldFecha{
+    width: 50%;
+     padding: 20px ;
+     border-radius:40px;
+     background-color: white;
+     box-sizing: border-box;
+     margin-bottom: 15px;
+     margin-left:80px;
+}
+
+.fielset-container{
+display: block;
+margin-top: 10px;
+}
+
+select {
+    width:200px;
+    padding: 5px 15px;
+    background-color: #36173d;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin:1px;
+    color: white;
+    border-radius: 45px;
+    border-color:#36173d;
+    -webkit-transition:all 500ms ease;
+    -o-transition:all 500ms ease;
+    transition:all 500ms ease;
+    margin-bottom: 20px;
+    margin-right:80px;
+}
+ 
+ select:hover {
+    background-color: #fa8331; 
+    border-color: #fa8331;
+    color:#36173d; 
+} 
+
+h5{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600; 
+    color: #36173d;
+}
+
+
+
+
+
