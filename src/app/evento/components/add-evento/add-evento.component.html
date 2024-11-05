@@ -1,13 +1,7 @@
 <section>
   <fieldset>
     <form action="">
-
-      @if(eventoIn){
-        <legend>Editar evento</legend>
-      }
-      @if(!eventoIn){
-        <legend>Alta de Evento</legend>
-      }
+      <legend>Alta de Evento</legend>
       <!-- Banner del evento -->
       <div>
         <label for="bannerEvento"></label>
@@ -39,54 +33,35 @@
      <div *ngFor="let fecha of evento.fechas; let i = index">
       <h4>Fecha {{ i + 1 }}</h4>
       <div>
-        <label for="fecha-{{i}}">Fecha:</label>
-        <input type="date" id="fecha-{{i}}" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
-      </div>
-      <div>
-        <label for="horario-{{i}}">Horario:</label>
-        <input type="time" id="horario-{{i}}" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
-      </div>
-      <button type="button" (click)="addFecha()">Nueva Fecha</button>
-    </div>
-
-    <!-- Datos de las entradas -->
-    <div>
-      <section>
-        <div>
-          <label for="seleccionRecinto">Seleccione un recinto</label>
-          <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)">
-            <option value="" disabled selected>Recintos</option>
-            <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
+        <h4>Seleccione recinto</h4>
+        <label for="seleccionRecinto"></label>
+        <br>
+        <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)">
+           <option value="" disabled selected>Recintos</option>
+           <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
+            <br>
               {{ recinto.nombreRecinto }}
-            </option>
-          </select>
-        </div>
+          </option>
+        </select>
+      </div>
 
-        <div>
-          <ul>
-            <!-- COMO RECORRO ACA LAS ENTRADAS DE TODAS LAS FECHAS -->
-             <!-- ver si recorrer una sola fecha y en el add entrada en otra fecha rellenar -->
-            <li *ngFor="let entrada of fecha.entradas">
-              {{entrada.nombreSector}}
-              <label for="precioSector-{{ entrada.nombreSector }}">$</label>
-              <input type="text" id="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
-                [ngModelOptions]="{standalone: true}" required>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </div>
+      <div>
+        <ul>
+          <li *ngFor="let entrada of fecha.entradas">
+            <h5>{{entrada.nombreSector}}</h5>
 
-      <!--Boton agregar y editar evento-->
+            <label for="precioSector-{{ entrada.nombreSector }}">$</label>
+            <input type="text" id="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
+              [ngModelOptions]="{standalone: true}" required>
+          </li>
+        </ul>
+      </div>
 
-      @if(eventoIn){
-        <button type="'button" (click)="emitUpdate()">Editar evento</button>
-      }
-      @if(!eventoIn)
-      {
-        <button type="button" (click)="addEvento()">Agregar Evento</button>
-      }
+    </fieldset> <!-- ACA TERMINA SELECCIONE RECINTO -->
+</div>
 
+      <!--Boton agregar evento-->
+      <button type="button" (click)="addEvento()">Agregar Evento</button>
     </form>
-  </fieldset>
-</section>
+
+

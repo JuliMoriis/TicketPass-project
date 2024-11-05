@@ -5,11 +5,12 @@ import { Recinto } from '../../../recinto/interfaces/recinto.interface';
 import { RecintoService } from '../../../services/recintos.service';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-filtrar-eventos',
   standalone: true,
-  imports: [FormsModule, NgFor, NgIf],
+  imports: [FormsModule, NgFor, NgIf, RouterModule],
   templateUrl: './filtrar-eventos.component.html',
   styleUrl: './filtrar-eventos.component.css'
 })
@@ -19,6 +20,11 @@ export class FiltrarEventoComponent implements OnInit {
   resultados: Evento[] = [];
   busqueda: string = '';
   recintos: Recinto[] = [];
+
+  @Input()
+  idUsuario: string | null = ""
+
+  mostrarResultados= false;
 
   constructor(
     private eventoService: EventoService,
@@ -43,22 +49,33 @@ export class FiltrarEventoComponent implements OnInit {
   }
 
   filtrarEventos(): void {
-    this.resultados = []
 
+    if (this.busqueda.trim() === '') {
+      this.resultados = [];
+      this.mostrarResultados = false;
+      return;
+    }
+  
     let busq = this.busqueda.toLowerCase();
     let recintoEncontrado: Recinto | undefined;
-    recintoEncontrado= this.recintos.find((recinto) =>
-      recinto.nombreRecinto.toLowerCase().includes(busq));
-
+    recintoEncontrado = this.recintos.find((recinto) =>
+      recinto.nombreRecinto.toLowerCase().includes(busq)
+    );
+  
     this.resultados = this.eventos.filter((evento) => {
       return (
         evento.nombreEvento.toLowerCase().includes(busq) ||
         evento.artista_banda.toLowerCase().includes(busq) ||
-        ((recintoEncontrado) && evento.recinto_id == recintoEncontrado.id)
+        (recintoEncontrado && evento.recinto_id === recintoEncontrado.id)
       );
     });
+  
+    this.mostrarResultados = true; 
+  }
 
-    console.log(this.resultados);
+  mostrarBusqueda ()
+  {
+    this.mostrarResultados= !this.mostrarResultados
   }
 
 

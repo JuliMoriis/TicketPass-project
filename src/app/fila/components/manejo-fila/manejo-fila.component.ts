@@ -1,52 +1,148 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Component, OnInit, ViewChild, ElementRef, inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { Usuario } from '../../../usuario/interfaces/usuario.interface';
 import { Evento } from '../../../evento/interfaces/evento.interface';
+import { SpotifyService } from '../../../services/spotify.service';
 import { UsuarioService } from '../../../services/usuario.service';
 import { EventoService } from '../../../services/evento.service';
+import { Cliente } from '../../../usuario/interfaces/cliente.interface';
 
 @Component({
   selector: 'app-manejo-fila',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './manejo-fila.component.html',
-  styleUrl: './manejo-fila.component.css'
+  styleUrl: './manejo-fila.component.css'  
 })
-export class ManejoFilaComponent implements OnInit{
 
-  usuario: Usuario | undefined
-  evento: Evento | undefined
-  fecha: string | null = ''
-  active = inject (ActivatedRoute)
-  userService = inject(UsuarioService)
-  eventoService = inject(EventoService)
+export class ManejoFilaComponent implements OnInit {
 
-ngOnInit(): void {
-  this.active.paramMap.subscribe(param => {
-    const userId = param.get("userId");
-    const eventoId = param.get("idEvento");
-    const fechaParam = param.get("fecha");
+  spotifyService = inject(SpotifyService);
+  canciones: any[] = []; 
+  cancionSeleccionada: any = null; 
+  @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>; //reproduccion automatica
 
-    this.fecha = fechaParam
+  usuario: Usuario | undefined;
+  evento: Evento | undefined;
+  fecha: string | null = '';
+  active = inject(ActivatedRoute);
+  userService = inject(UsuarioService);
+  eventoService = inject(EventoService);
 
-    this.userService.getUsuariosById(userId).subscribe({
-      next: (usuarioEncontrado: Usuario) => {
-        this.usuario = usuarioEncontrado;
-      },
-      error: (e: Error) => {
-        console.log(e.message);
-      }
-    })
+  constructor(private router: Router) { }
 
-    this.eventoService.getEventosById(eventoId).subscribe({
-      next: (eventoEncontrado: Evento) => {
-        this.evento = eventoEncontrado;
-      },
-      error: (e: Error) => {
-        console.log(e.message);
-      }
-    })
-  })
+  ngOnInit(): void {
+    this.active.paramMap.subscribe(param => {
+      const userId = param.get("userId");
+      const eventoId = param.get("idEvento");
+      const fechaParam = param.get("fecha");
+      this.fecha = fechaParam;
+
+      this.userService.getUsuariosById(userId).subscribe({
+        next: (usuarioEncontrado: Usuario) => {
+          this.usuario = usuarioEncontrado;
+        },
+        error: (e: Error) => {
+          console.log(e.message);
+        }
+      });
+
+      this.eventoService.getEventosById(eventoId).subscribe({
+        next: (eventoEncontrado: Evento) => {
+          this.evento = eventoEncontrado;
+        },
+        error: (e: Error) => {
+          console.log(e.message);
+        }
+      });
+    });
+  }
+
+  fila: Cliente[] = [];
+  turnoActual: number = 1;
+
+  agregarCliente(nombre: string) {
+    const nuevoCliente: Cliente = {
+      id: this.fila.length + 1,
+      nombre,
+      turno: this.turnoActual++,
+      haComprado: false,
+      estado: 'Esperando en la fila' 
+    };
+    this.fila.push(nuevoCliente);
+    this.iniciarCompra(nuevoCliente);
+  }
+
+  iniciarCompra(cliente: Cliente) {
+    const tiempoEspera = Math.floor(Math.random() * (45000 - 2000 + 1)) + 2000;
+
+    setTimeout(() => {
+      cliente.haComprado = true;
+      cliente.estado = 'Entro a comprar entrada';
+      console.log(cliente.estado);
+      this.router.navigate(["elegir-entrada", this.usuario?.id, this.evento?.id, this.fecha]);
+    }, tiempoEspera);
+
+    //mientras espera el time out  
+    this.levantarCanciones()
+   
+  }
+
+  levantarCanciones (){
+    if (this.evento?.artista_banda) {
+      this.spotifyService.getCanciones(this.evento.artista_banda).subscribe({
+        next: (canciones) => {
+          console.log('Canciones obtenidas:', canciones);
+          this.canciones = canciones.tracks.items;
+
+          if (this.canciones.length > 0) {
+            this.seleccionarCancionAleatoria();
+          }
+        },
+
+        error: (e: Error) => {
+          console.error('Error al obtener canciones de Spotify:', e);
+        }
+      });
+    } else {
+      console.log('El evento no tiene un artista asociado.');
+    }
+  }
+
+  reproducir() {
+    if (this.cancionSeleccionada && this.audioPlayer) {
+        const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
+        audio.onended = null; //CANCION TERMINADA
+
+        audio.src = this.cancionSeleccionada.preview_url;
+
+        audio.pause();
+        audio.currentTime = 0;
+
+        audio.play().then(() => { //reproduce
+            console.log('Reproduciendo:', this.cancionSeleccionada.name);
+        }).catch(e => console.error('Error al intentar reproducir:', e));
+
+        // Configurar el evento onended
+        audio.onended = () => {
+            console.log('La canción ha terminado, seleccionando otra...');
+            this.seleccionarCancionAleatoria(); 
+        };
+    }
+}
+
+seleccionarCancionAleatoria() {
+    if (this.canciones.length > 0) {
+        const indiceAleatorio = Math.floor(Math.random() * this.canciones.length);
+        this.cancionSeleccionada = this.canciones[indiceAleatorio];
+        setTimeout(() => {
+            this.reproducir();
+        }, 100); 
+    } else {
+        console.log('No hay canciones disponibles para reproducir.');
+    }
 }
 
 }

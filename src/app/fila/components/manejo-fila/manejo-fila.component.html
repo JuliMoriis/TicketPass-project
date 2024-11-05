@@ -1,2 +1,27 @@
-<h1>ESTAS EN LA FILA !!!!</h1>
-<a [routerLink]="['/elegir-entrada', usuario?.id, evento?.id, fecha]" >Ir a comprar</a>
+<!--<h1>ESTAS EN LA FILA !!!!</h1>
+<a [routerLink]="['/elegir-entrada', usuario?.id, evento?.id, fecha]" >Ir a comprar</a>-->
+
+
+<div *ngIf="usuario">
+    <h2>Ingrese a la fila</h2>
+    <button type="button" (click)="agregarCliente(usuario.nombre)">Ingresar</button>
+    <ul>
+      <li *ngFor="let cliente of fila">
+        {{ cliente.turno }} - {{ cliente.nombre }} - {{ cliente.estado }}
+      </li>
+    </ul>
+</div>
+
+<div *ngIf="cancionSeleccionada" class="song-preview">
+    <div class="song-info">
+        <img [src]="cancionSeleccionada.album.images[0].url" alt="Portada del álbum" class="album-cover" />
+        <div class="text-info">
+            <h3>{{ cancionSeleccionada.name }}</h3>
+            <p class="artist">{{ cancionSeleccionada.artists[0].name }}</p>
+        </div>
+    </div>
+    <audio #audioPlayer controls autoplay>
+        <source [src]="cancionSeleccionada?.preview_url" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+</div>
