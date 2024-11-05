@@ -6,15 +6,21 @@
     placeholder="Buscar eventos..."
   />
 
-  <button>Buscar</button>
 
-  <div *ngIf="resultados.length === 0">No se encontraron eventos.</div>
+  <button (click)="mostrarBusqueda ()">Buscar</button>
 
-  <!-- <ul *ngIf="resultados.length > 0">
+  <div *ngIf="mostrarResultados">
+
+    <div *ngIf="resultados.length === 0">No se encontraron eventos.</div>
+
+  <ul *ngIf="resultados.length > 0">
     <li *ngFor="let evento of resultados">
       {{ evento.nombreEvento }} -
       {{ evento.artista_banda }}
     </li>
-  </ul> -->
+  </ul> 
 
+  </div>
+
+  
 </div>

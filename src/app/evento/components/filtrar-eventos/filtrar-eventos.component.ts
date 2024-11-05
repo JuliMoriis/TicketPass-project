@@ -20,6 +20,8 @@ export class FiltrarEventoComponent implements OnInit {
   busqueda: string = '';
   recintos: Recinto[] = [];
 
+  mostrarResultados= false;
+
   constructor(
     private eventoService: EventoService,
     private recintoService: RecintoService
@@ -59,6 +61,11 @@ export class FiltrarEventoComponent implements OnInit {
     });
 
     console.log(this.resultados);
+  }
+
+  mostrarBusqueda ()
+  {
+    this.mostrarResultados= !this.mostrarResultados
   }
 
 
