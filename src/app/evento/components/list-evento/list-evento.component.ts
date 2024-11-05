@@ -15,8 +15,6 @@ export class ListEventoComponent implements OnInit{
 
   @Input() userId: string | null = '';
 
-  //getbyid
-
   eventosService= inject(EventoService);
   listaEventos: Evento [] = [];
 
