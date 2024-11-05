@@ -2,11 +2,13 @@
   <ul>
     <!--aca en lista eventos hay q ver si esta habilitada la fila-->
     <!--agregar en evento (en cada fecha) si fila habilitada true false-->
-    @for (evento of listaEventos; track $index){
-      <ol>{{evento.nombreEvento}} </ol>
+      @for (evento of listaEventos; track $index){
+        @if (evento.alta === 1) {
+          <ol>{{evento.nombreEvento}} </ol>
 
-      <button type="button" [routerLink]="['/detalle-evento', userId, evento.id]">Ver Detalle</button>
+          <button type="button" [routerLink]="['/detalle-evento', userId, evento.id]">Ver Detalle</button>
 
-    }
+        }
+      }
   </ul>
 </section>

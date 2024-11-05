@@ -23,8 +23,12 @@ import { Observable } from 'rxjs';
       return this.http.get<Evento>(`${this.urlBase}/${id}`);
     }
 
-    putEvento (id: string | null, evento: Evento): Observable<Evento> {
+    putEvento (id: string | undefined, evento: Evento): Observable<Evento> {
       return this.http.put<Evento>(`${this.urlBase}/${id}`, evento);
+    }
+
+    deshabilitarEvento(id: string | undefined, valor: number): Observable<Evento>{
+      return this.http.patch<Evento>(`${this.urlBase}/${id}`, { alta: valor });
     }
 
 

@@ -3,13 +3,14 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { EventoService } from '../../../services/evento.service';
 import { Evento } from '../../interfaces/evento.interface';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { UsuarioService } from '../../../services/usuario.service';
+import { AddEventoComponent } from "../add-evento/add-evento.component";
 
 @Component({
   selector: 'app-detalle-evento',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, AddEventoComponent],
   templateUrl: './detalle-evento.component.html',
   styleUrl: './detalle-evento.component.css'
 })
@@ -17,6 +18,7 @@ export class DetalleEventoComponent implements OnInit{
 
   eventosService= inject(EventoService);
   userService= inject(UsuarioService);
+  isEditing = false;
 
   eventoSeleccionado: Evento | undefined;
   usuario: Usuario | undefined;
@@ -25,6 +27,8 @@ export class DetalleEventoComponent implements OnInit{
   userId: string | null = ''
 
   active = inject(ActivatedRoute)
+
+  constructor(private router: Router){}
 
   ngOnInit(): void {
 
@@ -58,6 +62,37 @@ export class DetalleEventoComponent implements OnInit{
         console.log("ID de usuario no encontrado en los parámetros de la ruta.");
       }
     });
+  }
+
+  changeEdit() {
+    this.isEditing = !this.isEditing;
+    console.log(this.eventoSeleccionado?.alta);
+  }
+
+  updateEventos(evento: Evento){
+    this.eventosService.putEvento(evento?.id, evento).subscribe({
+      next:()=>{
+        alert("Evento actualizado correctamente.")
+      },
+      error:(e: Error)=>{
+        console.log(e.message);
+      }
+    })
+  }
+
+   darDeBaja(){
+    if(this.eventoSeleccionado && this.eventoSeleccionado.alta === 1)
+    {
+      this.eventosService.deshabilitarEvento(this.eventoSeleccionado.id, 0).subscribe({
+        next:()=>{
+          alert("Evento deshabilitado")
+          this.router.navigate(['administrador', this.usuario?.id])
+        },
+        error:(e: Error)=>{
+          console.log(e.message);
+        }
+      })
+    }
   }
 
 }

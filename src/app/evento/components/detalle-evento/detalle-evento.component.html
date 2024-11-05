@@ -1,24 +1,28 @@
 
 <section>
-  @if (eventoSeleccionado){
+  @if (eventoSeleccionado?.alta === 1){
     <h2>Detalle del Evento</h2>
-    <p> Nombre del Evento: {{eventoSeleccionado.nombreEvento}} </p>
-    <p>Artista/Banda: {{eventoSeleccionado.artista_banda}} </p>
-    <p>Duración del evento en horas: {{eventoSeleccionado.duracion}} </p>
+    <p> Nombre del Evento: {{eventoSeleccionado?.nombreEvento}} </p>
+    <p>Artista/Banda: {{eventoSeleccionado?.artista_banda}} </p>
+    <p>Duración del evento en horas: {{eventoSeleccionado?.duracion}} </p>
 
       <p>Fechas y Hora de comienzo del evento:</p>
-      <div *ngFor="let fecha of eventoSeleccionado.fechas" class="fecha">
+      <div *ngFor="let fecha of eventoSeleccionado?.fechas" class="fecha">
        <p>Fecha: {{fecha.fecha}}</p>
        <p>Hora: {{fecha.hora}}</p>
        <div *ngIf="usuario?.tipo ==  2">
-        <button type="button" [routerLink]="['/fila', usuario?.id, eventoSeleccionado.id, fecha.fecha]">Entrar a la fila</button>
+        <button type="button" [routerLink]="['/fila', usuario?.id, eventoSeleccionado?.id, fecha.fecha]">Entrar a la fila</button>
       </div>
        </div>
   }
 
   <div *ngIf="usuario?.tipo ==  1">
-    <button>Editar evento</button>
-    <button>Eliminar evento</button>
+    <button (click)="changeEdit()">Editar evento</button>
+    @if(isEditing){
+      <app-add-evento [eventoIn]="eventoSeleccionado" (updateEvento)="updateEventos($event)"></app-add-evento>
+    }
+
+    <button (click)="darDeBaja()">Eliminar evento</button>
     <button>Habilitar fila</button>
   </div>
 

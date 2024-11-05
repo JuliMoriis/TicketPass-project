@@ -1,7 +1,13 @@
 <section>
   <fieldset>
     <form action="">
-      <legend>Alta de Evento</legend>
+
+      @if(eventoIn){
+        <legend>Editar evento</legend>
+      }
+      @if(!eventoIn){
+        <legend>Alta de Evento</legend>
+      }
       <!-- Banner del evento -->
       <div>
         <label for="bannerEvento"></label>
@@ -71,8 +77,16 @@
       </section>
     </div>
 
-      <!--Boton agregar evento-->
-      <button type="button" (click)="addEvento()">Agregar Evento</button>
+      <!--Boton agregar y editar evento-->
+
+      @if(eventoIn){
+        <button type="'button" (click)="emitUpdate()">Editar evento</button>
+      }
+      @if(!eventoIn)
+      {
+        <button type="button" (click)="addEvento()">Agregar Evento</button>
+      }
+
     </form>
   </fieldset>
 </section>

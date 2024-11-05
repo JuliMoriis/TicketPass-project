@@ -67,7 +67,7 @@
           ]
         },
         {
-          "fecha": "2024-11-12",
+          "fecha": "2024-11-14",
           "hora": "21:00",
           "entradas": [
             {
@@ -126,6 +126,7 @@
           ]
         }
       ],
+      "alta": 1,
       "id": 1
     },
     {
@@ -154,7 +155,38 @@
           ]
         }
       ],
+      "alta": 1,
       "id": 2
+    },
+    {
+      "nombreEvento": "prueba",
+      "artista_banda": "prueba",
+      "duracion": "02:00",
+      "UrlBanner": "banner",
+      "recinto_id": 3,
+      "fechas": [
+        {
+          "fecha": "2023-12-15",
+          "hora": "19:00",
+          "entradas": [
+            {
+              "nombreSector": "campo luna",
+              "precio": "15000",
+              "disponibles": 7000,
+              "asientos": []
+            },
+            {
+              "nombreSector": "campo trasero",
+              "precio": "15000",
+              "disponibles": 2000,
+              "asientos": []
+            }
+          ],
+          "habilitado": 0
+        }
+      ],
+      "alta": 0,
+      "id": 3
     }
   ]
 }

@@ -1,0 +1,10 @@
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  top: 410px; /* Ajusta esta distancia hacia abajo dentro del formulario */
+  right: 10px;
+  cursor: pointer;
+}

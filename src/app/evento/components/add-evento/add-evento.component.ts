@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Recinto } from '../../../recinto/interfaces/recinto.interface';
 import { Sector } from '../../../recinto/interfaces/sector.interface';
@@ -18,6 +18,14 @@ import { Fecha } from '../../interfaces/fecha.interface';
 })
 
 export class AddEventoComponent implements OnInit{
+
+  @Input()
+  eventoIn?: Evento; // undefined si no pongo editar
+
+  @Output()
+  updateEvento: EventEmitter <Evento> = new EventEmitter()
+
+  flag: boolean = false; // Controla la visibilidad del formulario
 
   recintosService= inject (RecintoService);
   eventosService= inject(EventoService);
@@ -51,6 +59,10 @@ export class AddEventoComponent implements OnInit{
 
   ngOnInit(): void {
     this.levantarRecintos();
+
+    if (this.eventoIn) {
+      this.evento = { ...this.eventoIn };
+    }
   }
 
   levantarRecintos ()
@@ -149,6 +161,7 @@ export class AddEventoComponent implements OnInit{
 
   guardarEventosJSON ()
   {
+    console.log("Evento que se enviará:", this.evento);
     this.eventosService.postEvento(this.evento).subscribe(
       {
         next: ()=> {
@@ -160,6 +173,10 @@ export class AddEventoComponent implements OnInit{
         }
       }
     )
+  }
+
+  emitUpdate(){
+    this.updateEvento.emit(this.evento)
   }
 
 }
