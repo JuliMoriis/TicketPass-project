@@ -1,78 +1,93 @@
-<section>
-  <fieldset>
-    <form action="">
-      <legend>Alta de Evento</legend>
-      <!-- Banner del evento -->
-      <div>
-        <label for="bannerEvento"></label>
-        <input type="text" id="bannerEvento" [(ngModel)]="evento.UrlBanner" [ngModelOptions]="{standalone: true}"
-          placeholder="url/banner.com" required>
-      </div>
+<br>
+<form action="">
+<!-- BANNER E INPUT DEL BANNER -->
+<div class="divreg"><h2>Agregar Evento</h2>
+  <div class="inputBanner">
+      <label for="bannerEvento"></label>
+      <input type="text" id="bannerEvento" [(ngModel)]="evento.UrlBanner" [ngModelOptions]="{standalone: true}"
+        placeholder="url/banner.com" required>
+  </div>
+</div>
+  
+<div class="fielset-container">
+<div class="flex-container">
+  <fieldset class="fieldEvento"> <!--FIELDSET EVENTO -->
+    <br>
+          <h4>Datos del evento</h4>
+    <br>
+          <label for="nombreEvento">Nombre del evento</label>
+    <br>
+          <input type="text" id="nombreEvento" [(ngModel)]="evento.nombreEvento" [ngModelOptions]="{standalone: true}" required>
+    <br>
+          <label for="nombreArtista-Banda">Artista/Banda</label>
+    <br>
+          <input type="text" id="nombreArtista-Banda" [(ngModel)]="evento.artista_banda" [ngModelOptions]="{standalone: true}" required>
+    <br>
+          <label for="duracion">Duracion</label>
+    <br>
+          <input type="time" id="duracion" [(ngModel)]="evento.duracion" [ngModelOptions]="{standalone: true}" required>
+       
+ 
+      </fieldset > <!-- FIN DE FIELDSETEVENTO -->
 
-      <!-- Nombre evento -->
+     
+     <fieldset class="fieldRecinto"> <!-- SELECCIONE RECINTO -->
       <div>
-        <label for="nombreEvento">Nombre del evento:</label>
-        <input type="text" id="nombreEvento" [(ngModel)]="evento.nombreEvento" [ngModelOptions]="{standalone: true}"
-          required>
-      </div>
-
-      <!-- Nombre artista / banda -->
-      <div>
-        <label for="nombreArtista-Banda">Artista/Banda:</label>
-        <input type="text" id="nombreArtista-Banda" [(ngModel)]="evento.artista_banda"
-          [ngModelOptions]="{standalone: true}" required>
-      </div>
-
-      <!-- Duracion -->
-      <div>
-        <label for="duracion">Duracion:</label>
-        <input type="time" id="duracion" [(ngModel)]="evento.duracion" [ngModelOptions]="{standalone: true}" required>
-      </div>
-
-     <!-- Datos de las fechas -->
-     <div *ngFor="let fecha of evento.fechas; let i = index">
-      <h4>Fecha {{ i + 1 }}</h4>
-      <div>
-        <label for="fecha-{{i}}">Fecha:</label>
-        <input type="date" id="fecha-{{i}}" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
-      </div>
-      <div>
-        <label for="horario-{{i}}">Horario:</label>
-        <input type="time" id="horario-{{i}}" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
-      </div>
-      <button type="button" (click)="addFecha()">Nueva Fecha</button>
-    </div>
-
-    <!-- Datos de las entradas -->
-    <div>
-      <section>
-        <div>
-          <label for="seleccionRecinto">Seleccione un recinto</label>
-          <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)">
-            <option value="" disabled selected>Recintos</option>
-            <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
+        <h4>Seleccione recinto</h4>
+        <label for="seleccionRecinto"></label>
+        <br>
+        <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)">
+           <option value="" disabled selected>Recintos</option>
+           <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
+            <br>
               {{ recinto.nombreRecinto }}
-            </option>
-          </select>
-        </div>
+          </option>
+        </select>
+      </div>
 
-        <div>
-          <ul>
-            <!-- COMO RECORRO ACA LAS ENTRADAS DE TODAS LAS FECHAS -->
-             <!-- ver si recorrer una sola fecha y en el add entrada en otra fecha rellenar -->
-            <li *ngFor="let entrada of fecha.entradas">
-              {{entrada.nombreSector}}
-              <label for="precioSector-{{ entrada.nombreSector }}">$</label>
-              <input type="text" id="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
-                [ngModelOptions]="{standalone: true}" required>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </div>
+      <div>
+        <ul>
+          <li *ngFor="let entrada of fecha.entradas">
+            <h5>{{entrada.nombreSector}}</h5>
 
-      <!--Boton agregar evento-->
-      <button type="button" (click)="addEvento()">Agregar Evento</button>
+            <label for="precioSector-{{ entrada.nombreSector }}">$</label>
+            <input type="text" id="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
+              [ngModelOptions]="{standalone: true}" required>
+          </li>
+        </ul>
+      </div>
+
+    </fieldset> <!-- ACA TERMINA SELECCIONE RECINTO -->
+</div>
+
+    <fieldset class="fieldFecha"> <!-- FIELDSET FECHA -->
+           
+      <div *ngFor="let fecha of evento.fechas; let i = index">
+       <br>
+              <h4>Fecha {{ i + 1 }}</h4>
+       <br>   
+          <label for="fecha-{{i}}">Fecha</label>
+         
+          <input type="date" id="fecha-{{i}}" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
+        
+          <label for="horario-{{i}}">Horario</label>
+         
+          <input type="time" id="horario-{{i}}" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
+        
+        <button type="button" (click)="addFecha()">Nueva Fecha</button>
+    
+    </div><!-- fin del div de *ngFor -->
+            
+    </fieldset> <!-- FIN FIELDSET FECHA -->  
+
+</div> <!--FIN DEL FIELDSER-CONTAINER--> 
+      
+
+   <!-- BOTON DE AGREGAR -->
+      <div class="container">
+        <button type="button" (click)="addEvento()">Agregar Evento</button>
+      </div>
+     
     </form>
-  </fieldset>
-</section>
+
+
