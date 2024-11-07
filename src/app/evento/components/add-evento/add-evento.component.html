@@ -32,7 +32,6 @@
      <!-- Datos de las fechas -->
      <div *ngFor="let fecha of evento.fechas; let i = index">
       <h4>Fecha {{ i + 1 }}</h4>
-      <div>
         <h4>Seleccione recinto</h4>
         <label for="seleccionRecinto"></label>
         <br>
@@ -57,11 +56,12 @@
         </ul>
       </div>
 
-    </fieldset> <!-- ACA TERMINA SELECCIONE RECINTO -->
-</div>
 
-      <!--Boton agregar evento-->
-      <button type="button" (click)="addEvento()">Agregar Evento</button>
     </form>
+    </fieldset> <!-- ACA TERMINA SELECCIONE RECINTO -->
+    <!--Boton agregar evento-->
+      <button type="button" (click)="addEvento()">Agregar Evento</button>
+      
+</section>
 
 
