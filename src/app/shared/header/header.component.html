@@ -1,0 +1,58 @@
+<header>
+  <div class="wrapper">
+    <div class="logo">TicketPass</div>
+
+    <div *ngIf="tipoUsuario === 1">
+      <!-- Menú para el Administrador -->
+      <nav>
+        <button (click)="menuDesplegable()" class="menu-button">&#9776;</button>
+
+        <div class="menu" [class.open]="verMenu">
+          <ul>
+            <li><a [routerLink]="['/administrador' , idUsuario]">Menu</a></li>
+            <li><a routerLink="add-eventos">Cargar evento</a></li>
+            <li><a href="#opcion2">Ver eventos registrados</a></li>
+            <li><a routerLink="recintos">Ver recintos</a></li>
+            <li><a href="#opcion3">Ver compras</a></li>
+          </ul>
+        </div>
+
+        <a href="#" (click)="cerrarSesion()">Cerrar sesión</a>
+      </nav>
+    </div>
+
+    <div *ngIf="tipoUsuario === 2">
+      <!-- Menú para el Usuario -->
+      <nav>
+        <a href="#">Mi perfil</a>
+        <a href="#">Mis Entradas</a>
+        <a href="#" (click)="cerrarSesion()">Cerrar sesión</a>
+      </nav>
+    </div>
+
+    <div *ngIf="tipoUsuario === null">
+      <!-- Menú para los usuarios no logueados -->
+      <nav>
+        <a routerLink="">Iniciar sesión</a>
+        <a routerLink="/registrarse">Registrarse</a>
+      </nav>
+    </div>
+
+  </div>
+
+  <!-- Botón para abrir/cerrar el menú desplegable
+  <button (click)="menuDesplegable()" class="menu-button">&#9776;</button>
+
+
+  <div *ngIf="verMenu" class="menu-desplegable">
+    <nav>
+      <a href="#">Opción 1</a>
+      <a href="#">Opción 2</a>
+      <a href="#">Opción 3</a>
+    </nav>
+  </div>
+
+  <button *ngIf="isLoggedIn" (click)="cerrarSesion()">Cerrar sesión</button> -->
+
+</header>
+

@@ -5,11 +5,12 @@ import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../usuario/interfaces/usuario.interface';
 import { PageEventosListComponent } from '../../evento/pages/page-eventos-list/page-eventos-list.component';
 import { FiltrarEventoComponent } from '../../evento/components/filtrar-eventos/filtrar-eventos.component';
+import { HeaderComponent } from '../../shared/header/header.component';
 
 @Component({
   selector: 'app-cliente-page',
   standalone: true,
-  imports: [RouterLink, ListEventoComponent, FiltrarEventoComponent],
+  imports: [RouterLink, ListEventoComponent, FiltrarEventoComponent, HeaderComponent],
   templateUrl: './cliente-page.component.html',
   styleUrl: './cliente-page.component.css'
 })

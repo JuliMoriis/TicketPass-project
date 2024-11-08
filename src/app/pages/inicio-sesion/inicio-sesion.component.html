@@ -1,3 +1,4 @@
+
 <br>
 <div class="divreg"><h2>Inicio de sesion</h2></div>
 <br>
@@ -5,9 +6,9 @@
             <fieldset>
              <div class="form-group">
                 <label for="usuarioForm">Usuario</label>
-           
+
                 <input type="text" id="usuarioForm" name="usuarioForm" ngModel required>
-                <div class="divAvisos" *ngIf="formInicioSesion.controls['usuarioForm']?.invalid && formInicioSesion.controls['usuarioForm']?.touched" > 
+                <div class="divAvisos" *ngIf="formInicioSesion.controls['usuarioForm']?.invalid && formInicioSesion.controls['usuarioForm']?.touched" >
                      Debe ingresar su usuario
                 </div>
 
@@ -15,17 +16,17 @@
      <br>
         <div class="form-group">
             <label for="contraseniaForm">Constraseña</label>
-            
+
             <input type="password" id="contraseniaForm" name="contraseniaForm" ngModel required >
             <div class="divAvisos" *ngIf="formInicioSesion.controls['contraseniaForm']?.invalid && formInicioSesion.controls['contraseniaForm']?.touched">
                 Debe ingresar su contraseña
             </div>
 
         </div>
-                
-             
+
+
 <br>
-<div class="container">    
+<div class="container">
   <button  type="submit" [disabled]="formInicioSesion.invalid">Iniciar sesion</button>
 </div>
             </fieldset>

@@ -16,8 +16,16 @@ export class RecintoService {
     return this.http.get<Recinto[]>(this.urlBase);
    }
 
+   getRecintoById (id : number | null): Observable <Recinto> {
+    return this.http.get<Recinto>(`${this.urlBase}/${id}`)
+   }
+
    postRecintos(recinto: Recinto){
     return this.http.post<Recinto>(this.urlBase, recinto);
+   }
+
+   putRecinto (id: number | null, recinto: Recinto): Observable<Recinto>{
+    return this.http.put<Recinto>(`${this.urlBase}/${id}`, recinto)
    }
 
 }

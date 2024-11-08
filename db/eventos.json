@@ -20,7 +20,7 @@
             {
               "nombreSector": "platea preferencial",
               "precio": "150000",
-              "disponibles": 8,
+              "disponibles": 6,
               "asientos": [
                 {
                   "butaca": 1,
@@ -32,11 +32,11 @@
                 },
                 {
                   "butaca": 3,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 4,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 5,

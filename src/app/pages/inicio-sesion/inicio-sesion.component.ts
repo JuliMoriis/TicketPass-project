@@ -4,6 +4,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../usuario/interfaces/usuario.interface';
+import { Autenticacion } from '../../services/autenticacion.service';
+
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -12,9 +14,12 @@ import { Usuario } from '../../usuario/interfaces/usuario.interface';
   templateUrl: './inicio-sesion.component.html',
   styleUrl: './inicio-sesion.component.css'
 })
+
 export class InicioSesionComponent implements OnInit{
 
   constructor (private router: Router){}
+
+  private auth = inject(Autenticacion);
 
   userService = inject(UsuarioService);
 
@@ -49,11 +54,16 @@ export class InicioSesionComponent implements OnInit{
 
       let user = this.existeUsuario(form.value.usuarioForm, form.value.contraseniaForm)
       if (user) {
+
         if (user.tipo == 1){
           this.router.navigate(["administrador", user.id]);
+          if(user.id)
+          this.auth.login(1, user.id)
         }
         else if (user.tipo == 2){
           this.router.navigate(["usuarios", user.id])
+          if(user.id)
+          this.auth.login(2, user.id)
         }
 
       } else {
