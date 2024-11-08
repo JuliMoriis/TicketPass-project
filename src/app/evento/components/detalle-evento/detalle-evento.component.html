@@ -14,6 +14,7 @@
         <button type="button"
         [disabled]="fecha.disponibilidadTotal==0 || fecha.habilitado == 0"
         [routerLink]="['/fila', usuario?.id, eventoSeleccionado?.id, fecha.fecha]">Entrar a la fila</button>
+        <div *ngIf="fecha.disponibilidadTotal==0">Evento SOLD OUT</div>
       </div>
        </div>
   }
