@@ -68,10 +68,12 @@
             </div>
 
             <option value="" disabled selected>Recintos</option>
-            <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id" *ngIf="recinto.alta">
-              <br>
-              {{ recinto.nombreRecinto }}
-            </option>
+            <ng-container *ngFor="let recinto of listadoRecintos">
+              <option *ngIf="recinto.alta" [value]="recinto.id">
+                <br>
+                {{ recinto.nombreRecinto }}
+              </option>
+            </ng-container>
           </select>
         </div>
 
