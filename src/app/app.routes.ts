@@ -12,6 +12,7 @@ import { PageRegistroUsuarioComponent } from './usuario/pages/page-registro-usua
 import { PageAddEventoComponent } from './evento/pages/page-add-evento/page-add-evento.component';
 import { PageRecintosListComponent } from './recinto/pages/page-recintos-list/page-recintos-list.component';
 import { PageDetalleComponent } from './recinto/pages/page-detalle/page-detalle.component';
+import { PageVerPerfilComponent } from './usuario/pages/page-ver-perfil/page-ver-perfil.component';
 
 
 export const routes: Routes = [
@@ -28,5 +29,6 @@ export const routes: Routes = [
   { path: 'fila/:userId/:idEvento/:fecha', component: ManejoFilaComponent},
   { path: 'recintos', component: PageRecintosListComponent},
   { path: 'recintos/:id', component: PageDetalleComponent},
+  { path: 'perfil/:id', component: PageVerPerfilComponent},
   { path: '', redirectTo: '/comprar-entrada', pathMatch: 'full' }
 ];

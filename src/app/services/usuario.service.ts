@@ -25,4 +25,8 @@ export class UsuarioService{
     return this.http.get<Usuario>(`${this.urlBase}/${id}`);
   }
 
+  putUsuario (id: string | null, usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(`${this.urlBase}/${id}` , usuario)
+  }
+
 }

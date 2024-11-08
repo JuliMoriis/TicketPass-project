@@ -1,10 +1,11 @@
 
-<h2>{{usuario.nombre}} {{usuario.apellido}}</h2>
+@if (usuario){
+    <h2>{{usuario.nombre}} {{usuario.apellido}}</h2>
 <fieldset>
     <ul>
         <li>Nombre de usuario: {{usuario.nombreUsuario}}</li>
         <li>Telefono: {{usuario.telefono}}</li>
-        <li>Mail: {{usuario.mail}}</li>
+        <li>Mail: {{usuario.email}}</li>
         <li>Direccion: </li>
         <ul>
             <li>{{usuario.direccion.calle}} {{usuario.direccion.numero}}</li>
@@ -13,3 +14,13 @@
     </ul>
 
 </fieldset>
+
+<button type="button" (click)="mostrarEditar()">Editar Perfil</button>
+
+<div *ngIf="abrirForm">
+    <h3>Editar perfil</h3>
+    <app-editar-usuario [usuarioRecibido]="usuario"></app-editar-usuario>
+</div>
+}
+
+

@@ -22,9 +22,9 @@
     </div>
 
     <div *ngIf="tipoUsuario === 2">
-      <!-- Menú para el Usuario -->
+      <!-- Menú para el Cliente -->
       <nav>
-        <a href="#">Mi perfil</a>
+        <a [routerLink]="['/perfil' , idUsuario]" >Mi perfil</a>
         <a href="#">Mis Entradas</a>
         <a href="#" (click)="cerrarSesion()">Cerrar sesión</a>
       </nav>

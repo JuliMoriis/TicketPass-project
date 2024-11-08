@@ -1,7 +1,7 @@
 {
   "usuarios": [
     {
-      "nombre": "Emilia",
+      "nombre": "Emi",
       "apellido": "Maldonado",
       "telefono": "1111",
       "email": "m.emiliamaldo@gmail.com",
@@ -34,7 +34,5 @@
       "tipo": 1,
       "id": 4610388041556482
     }
-
-
   ]
 }
