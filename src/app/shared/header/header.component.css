@@ -1,7 +1,8 @@
 header{
+  position: fixed;
   width:100%;
   overflow:hidden;
-  background:#36173d;
+  background:#36173d89;
 }
 
 .wrapper {
@@ -9,6 +10,7 @@ header{
   max-width: 1000px;
   margin: auto;
   display: flex;
+  overflow: hidden;
   justify-content: space-between;
   align-items: center;
 }
@@ -44,7 +46,7 @@ header nav a {
 }
 
 header nav a:hover{
-  background:#ff4845;
+  background:#ff484589;
   border-radius:50px;
 }
 

@@ -1,133 +1,131 @@
-<br>
-   <div class="divreg"><h2>Registrarse</h2></div>
-    
-        <form [formGroup]="formularioUsuario"(ngSubmit)="addUsuario()">
-           
-                <fieldset>
-                    <h4>Informacion del Usuario</h4>
-                    <br>
-                    <label for="nombreUsuario">Nombre </label>
-                        <br>
-                     <input type="text" id="nombreUsuario" formControlName = "nombre" />
+<body>
+    <div class="wrapper">
+        <form [formGroup]="formularioUsuario"(ngSubmit)="addUsuario()">    
+            <h2>Registrarse</h2>
+            <h4>Informacion del Usuario</h4>
+            <div class="input-field">
+                <input type="text" id="nombreUsuario" formControlName = "nombre" />
                      @if (formularioUsuario.controls['nombre'].getError('required') && formularioUsuario.controls['nombre'].touched){
                          <div class="divAvisos">
-                             Complete el campo
+                            Complete el campo
                          </div>
                      }
-                     <br>
-                     <label for="apellidoUsuario">Apellido</label>
-                     <br>
-                     <input type="text" id="apellidoUsuario" formControlName = "apellido"/>
-                     @if (formularioUsuario.controls['apellido'].getError('required') && formularioUsuario.controls['apellido'].touched){
+                <label for="nombreUsuario">Nombre </label>
+            </div>
+
+            <div class="input-field">
+                <input type="text" id="apellidoUsuario" formControlName = "apellido"/>
+                    @if (formularioUsuario.controls['apellido'].getError('required') && formularioUsuario.controls['apellido'].touched){
                         <div class="divAvisos">
-                             Complete el campo
-                         </div> 
-                     }
-                <br>
-                     <label for="telefonoUsuario">Telefono</label>
-                     <br>
-                     <input type="tel" id="telefonoUsuario" formControlName = "telefono"/>
-                     @if (formularioUsuario.controls['telefono'].getError('required') && formularioUsuario.controls['telefono'].touched){
+                            Complete el campo
+                        </div> 
+                    }
+                <label for="apellidoUsuario">Apellido</label>
+            </div>
+
+            <div class="input-field">
+                <input type="tel" id="telefonoUsuario" formControlName = "telefono"/>
+                    @if (formularioUsuario.controls['telefono'].getError('required') && formularioUsuario.controls['telefono'].touched){
                         <div class="divAvisos">
-                             Complete el campo
-                         </div>
-                        
-                     }
-                  <br>
-                     <label for="emailUsuario">Email</label>
-                     <br>
-                     <input type="text" id="emailUsuario" formControlName = "email" placeholder="mail@ejemplo.com"/>
-                     @if ((formularioUsuario.controls['email'].getError('required') || formularioUsuario.controls['email'].getError('email')) && formularioUsuario.controls['email'].touched){
+                            Complete el campo
+                        </div>
+                    }
+                <label for="telefonoUsuario">Telefono</label>
+            </div>
+
+            <div class="input-field">
+                <input type="text" id="emailUsuario" formControlName = "email" placeholder="mail@ejemplo.com"/>
+                    @if ((formularioUsuario.controls['email'].getError('required') || formularioUsuario.controls['email'].getError('email')) && formularioUsuario.controls['email'].touched){
                         <div class="divAvisos">
-                             Complete el campo o verifique que sea un mail valido
-                         </div>
-                     }
-             
-                </fieldset>
-           
-       
-            
-                <fieldset >
-                    <div formGroupName="direccion">
-                        <h4>Direccion</h4>
-                        <br>
-                            <label for="calleUsuario">Calle</label>
-                            <br>
-                            <input type="text" id="calleUsuario" formControlName = "calle">
-                            @if (formularioUsuario.get('direccion.calle')?.getError('required') && formularioUsuario.get('direccion.calle')?.touched){
-                                <div class="divAvisos">
-                                    Complete el campo
-                                </div>
-                            }
-                            <br>
-                            <label for="numeroUsuario">Numero</label>
-                            <br>
-                            <input type="number" id="numeroUsuario" formControlName = "numero">
-                            @if (formularioUsuario.get('direccion.numero')?.getError('required') && formularioUsuario.get('direccion.numero')?.touched){
-                                <div class="divAvisos">
-                                    Complete el campo
-                                </div>
-                            }
-                        
-                        
-                            <br>
-                            <label for="ciudadUsuario">Ciudad</label>
-                            <br>
-                            <input type="text" id="ciudadUsuario" formControlName = "ciudad">
-                            @if (formularioUsuario.get('direccion.ciudad')?.getError('required') && formularioUsuario.get('direccion.ciudad')?.touched){
-                                <div class="divAvisos">
-                                    Complete el campo
-                                </div>
-                            }
-                            <br>
-                            <label for="codigoPostalUsuario">Codigo postal</label>
-                            <br>
-                            <input type="text" id="codigoPostalUsuario" formControlName = "codigoPostal">
-                            @if (formularioUsuario.get('direccion.codigoPostal')?.getError('required') && formularioUsuario.get('direccion.codigoPostal')?.touched){
-                                <div class="divAvisos">
-                                    Complete el campo
-                                </div>
-                            }
-                            <br>
-                            <label for="paisUsuario">Pais</label>
-                            <br>
-                            <input type="text" id="paisUsuario" formControlName = "pais">
-                            @if (formularioUsuario.get('direccion.pais')?.getError('required') && formularioUsuario.get('direccion.pais')?.touched){
-                                <div class="divAvisos">
-                                    Complete el campo
-                                </div>
-                            }
-                        
-                    </div>
-                </fieldset>
-    
-      
-         
-            <fieldset>
-                <h4>Datos de la cuenta</h4>
-                <br>
-                <label for="usuarioDeUsuario">Nombre de Usuario</label>
-                <br>
-                <input type="text" id="usuarioDeUsuario" formControlName = "nombreUsuario">
-                @if ((formularioUsuario.controls['nombreUsuario'].getError('required') || formularioUsuario.controls['nombreUsuario'].getError('minLength')) && formularioUsuario.controls['nombreUsuario'].touched){
-                    <div class="divAvisos">
-                      El nombre de usuario debe contener mas de 3 caracteres
-                    </div>
-                }
-<br>
-                <label for="contraseniaUsuario">Contraseña</label>
-                <br>
-                <input type="password" id="contraseniaUsuario" formControlName = "contrasenia">
-                @if ((formularioUsuario.controls['contrasenia'].getError('required') || formularioUsuario.controls['contrasenia'].getError('minLength')) && formularioUsuario.controls['contrasenia'].touched){
-                    <div class="divAvisos">
-                      La contraseña, debe contener mas de 8 caracteres
-                    </div>
-                }
-            </fieldset>
-        
-            <div class="container">
-                <button type="submit">Registrarse</button>
+                            Complete el campo o verifique que sea un mail valido
+                        </div>
+                    }
+                <label for="emailUsuario">Email</label>
             </div>
          
-        </form>
+            <div formGroupName="direccion">
+                <h4>Direccion</h4>
 
+                <div class="input-field">
+                    <input type="text" id="calleUsuario" formControlName = "calle">
+                        @if (formularioUsuario.get('direccion.calle')?.getError('required') && formularioUsuario.get('direccion.calle')?.touched){
+                            <div class="divAvisos">
+                                Complete el campo
+                            </div>
+                        }
+                    <label for="calleUsuario">Calle</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="number" id="numeroUsuario" formControlName = "numero">
+                        @if (formularioUsuario.get('direccion.numero')?.getError('required') && formularioUsuario.get('direccion.numero')?.touched){
+                            <div class="divAvisos">
+                                 Complete el campo
+                            </div>
+                    }
+                    <label for="numeroUsuario">Numero</label>
+                </div>
+                    
+                <div class="input-field">
+                    <input type="text" id="ciudadUsuario" formControlName = "ciudad">
+                        @if (formularioUsuario.get('direccion.ciudad')?.getError('required') && formularioUsuario.get('direccion.ciudad')?.touched){
+                            <div class="divAvisos">
+                                 Complete el campo
+                             </div>
+                         }
+                    <label for="ciudadUsuario">Ciudad</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" id="codigoPostalUsuario" formControlName = "codigoPostal">
+                    @if (formularioUsuario.get('direccion.codigoPostal')?.getError('required') && formularioUsuario.get('direccion.codigoPostal')?.touched){
+                        <div class="divAvisos">
+                            Complete el campo
+                        </div>
+                    }
+                    <label for="codigoPostalUsuario">Codigo postal</label>
+                </div>  
+             
+                <div class="input-field">
+                    <input type="text" id="paisUsuario" formControlName = "pais">
+                    @if (formularioUsuario.get('direccion.pais')?.getError('required') && formularioUsuario.get('direccion.pais')?.touched){
+                        <div class="divAvisos">
+                            Complete el campo
+                        </div>
+                    }
+                    <label for="paisUsuario">Pais</label>
+                </div>        
+            </div>
+       
+        <h4>Datos de la cuenta</h4>
+        <div class="input-field">
+            <input type="text" id="usuarioDeUsuario" formControlName = "nombreUsuario">
+            @if ((formularioUsuario.controls['nombreUsuario'].getError('required') || formularioUsuario.controls['nombreUsuario'].getError('minLength')) && formularioUsuario.controls['nombreUsuario'].touched){
+                <div class="divAvisos">
+                  El nombre de usuario debe contener mas de 3 caracteres
+                </div>
+            }
+            <label for="usuarioDeUsuario">Nombre de Usuario</label>
+        </div>
+      
+        <div class="input-field">
+            <input type="password" id="contraseniaUsuario" formControlName = "contrasenia">
+            @if ((formularioUsuario.controls['contrasenia'].getError('required') || formularioUsuario.controls['contrasenia'].getError('minLength')) && formularioUsuario.controls['contrasenia'].touched){
+                <div class="divAvisos">
+                  La contraseña, debe contener mas de 8 caracteres
+                </div>
+            }
+            <label for="contraseniaUsuario">Contraseña</label>
+        </div>
+       
+   
+        <button type="submit">Registrarse</button>
+<div class="sesion">
+<a routerLink="">Ya tenes una cuenta? Inicia sesion haciendo click aca</a>
+</div>
+</form>
+    </div>
+    
+</body>
+        
+  
