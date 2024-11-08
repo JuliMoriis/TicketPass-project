@@ -1,0 +1,22 @@
+<div>
+    <input
+      type="text"
+      name="input-busqueda"
+      [(ngModel)]="busqueda"
+      (input)="filtrarRecintos()"
+      placeholder="Buscar recintos..."
+    />
+  
+    <div *ngIf="mostrarResultados && resultados.length > 0" class="busqueda">
+      <ul>
+        <li *ngFor="let recinto of resultados" [routerLink]="['/recintos', recinto.id]">
+          {{ recinto.nombreRecinto }} - {{ recinto.direccion.ciudad }}, {{ recinto.direccion.calle }}
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="mostrarResultados && resultados.length === 0" class="busqueda">
+      <div>No se encontraron recintos.</div>
+    </div>
+  </div>
+  
