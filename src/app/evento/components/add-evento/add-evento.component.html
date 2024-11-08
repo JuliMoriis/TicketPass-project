@@ -68,7 +68,7 @@
             </div>
 
             <option value="" disabled selected>Recintos</option>
-            <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
+            <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id" *ngIf="recinto.alta">
               <br>
               {{ recinto.nombreRecinto }}
             </option>

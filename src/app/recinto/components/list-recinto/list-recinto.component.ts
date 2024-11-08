@@ -37,4 +37,18 @@ export class ListRecintoComponent implements OnInit{
   addListaRecinto (recinto: Recinto){
     this.listaRecintos.push({...recinto});
   }
+
+  habilitarDeshabilitar (recinto: Recinto)
+  {
+    recinto.alta = !recinto.alta;
+    if (recinto.id)
+    this.recintosService.putRecinto(recinto.id, recinto).subscribe({
+        next: ()=> {
+          console.log("cambio en alta de recinto con exito");
+        },
+        error : (e: Error)=> {
+          console.log(e.message);
+        }
+  })
+  }
 }

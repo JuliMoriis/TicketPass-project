@@ -9,5 +9,5 @@ export interface Recinto {
   urlMapaSectores?: string,
   capacidadTotal: number,
   sectores: Sector[],
-  alta: number
+  alta: boolean
 }

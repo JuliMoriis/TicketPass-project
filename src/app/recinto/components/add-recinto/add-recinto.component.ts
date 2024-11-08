@@ -54,7 +54,7 @@ export class AddRecintoComponent implements OnInit {
     urlImg: '',
     capacidadTotal: 0,
     sectores: [],
-    alta: 1
+    alta: true
   };
 
 

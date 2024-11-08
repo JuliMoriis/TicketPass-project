@@ -3,6 +3,10 @@
     @for (item of listaRecintos; track $index){
       <li>{{item.nombreRecinto}}</li>
       <button [routerLink]="['/recintos' , item.id]" >Ver mas</button>
+      <div ></div>
+      <button (click)="habilitarDeshabilitar(item)">
+        {{ item.habilitado ? 'Deshabilitar' : 'Habilitar' }} recinto
+      </button>
     }
   </ul>
 </section>
