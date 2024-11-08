@@ -7,11 +7,15 @@
         <input type="text" id="nombreRecinto" name="nombreRecinto" [(ngModel)]="recinto.nombreRecinto" required>
       </div>
 
-
       <!-- Dirección del Recinto -->
       <div>
         <label for="calle">Calle:</label>
         <input type="text" id="calle" name="calle" [(ngModel)]="recinto.direccion.calle" required>
+      </div>
+
+      <div>
+        <label for="numero">Numero:</label>
+        <input type="number" id="nunero" name="numero" [(ngModel)]="recinto.direccion.numero" required>
       </div>
 
       <div>
@@ -42,29 +46,33 @@
       </div>
 
 
-      <!-- Sectores -->
-      <h3>Sectores</h3>
-        <div *ngFor="let sector of recinto.sectores; let i = index">
-          <h4>Sector {{ i + 1 }}</h4>
-          <label for="nombreSector-{{i}}">Nombre del Sector:</label>
-          <input type="text" id="nombreSector-{{i}}" name="nombreSector-{{i}}" [(ngModel)]="sector.nombreSector" required>
+      <div>
+        <!-- Sectores -->
+        <label for="nombreSector">Nombre del Sector:</label>
+        <input type="text" id="nombreSector" name="nombreSector" [(ngModel)]="sector.nombreSector" required>
 
-          <label for="capacidad-{{i}}">Capacidad:</label>
-          <input type="number" id="capacidad-{{i}}" name="capacidad-{{i}}" [(ngModel)]="sector.capacidad" required>
-          <label for="butacasNumeradas-{{i}}">¿Butacas Numeradas?:</label>
-          <input type="checkbox" id="butacasNumeradas-{{i}}" name="butacasNumeradas-{{i}}"
-          [(ngModel)]="sector.numerado">
+        <label for="capacidad">Capacidad:</label>
+        <input type="number" id="capacidad" name="capacidad" [(ngModel)]="sector.capacidad" required>
+        <label for="butacasNumeradas">¿Butacas Numeradas?:</label>
+        <input type="checkbox" id="butacasNumeradas" name="butacasNumeradas"
+        [(ngModel)]="sector.numerado">
 
-          <button type="button" (click)="agregarSector()">Nuevo Sector</button>
+        <button type="button" (click)="agregarSector()">Agregar sector</button>
+
+        @for (sector of sectoresTemp; track $index) {
+          {{sector.nombreSector}}
+          <button (click)="eliminarSector ($index)">Eliminar</button>
+        }
+
+        <div *ngIf="recintoRecibido">
+          @for (sector of recinto.sectores; track $index) {
+            {{sector.nombreSector}}
+            <button (click)="eliminarSectorEdit ($index)">Eliminar</button>
+          }
         </div>
 
-       <!-- Botón para añadir el recinto -->
-        <div>
-          <ul>
-            <li *ngFor="let sector of recinto.sectores"> {{sector.nombreSector}} </li>
-        </ul>
-      </div>
-      <button (click)="addRecinto()">Agregar Recinto</button>
+      <button (click)="addRecinto()">Enviar</button>
+    </div>
 
     </form>
   </fieldset>

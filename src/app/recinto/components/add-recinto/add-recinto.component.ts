@@ -1,26 +1,40 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RecintoService } from '../../../services/recintos.service'; // Asegúrate de que la ruta sea correcta
 import { Recinto } from '../../interfaces/recinto.interface';
 import { Asiento } from '../../interfaces/asiento.interface';
 import { Sector } from '../../interfaces/sector.interface';
 import { Direccion } from '../../interfaces/direccion.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-recinto',
   standalone: true,
-  imports: [FormsModule, NgFor, NgIf], // Asegúrate de que esté aquí
+  imports: [FormsModule, CommonModule], // Asegúrate de que esté aquí
   templateUrl: './add-recinto.component.html',
   styleUrls: ['./add-recinto.component.css'] // Asegúrate de que sea 'styleUrls'
 })
 
-export class AddRecintoComponent {
+export class AddRecintoComponent implements OnInit{
+
+  constructor(private router: Router){}
 
   recintoService = inject(RecintoService);
 
+  @Input()
+  recintoRecibido?: Recinto
+
+  ngOnInit(): void {
+    if (this.recintoRecibido){
+      this.recinto= this.recintoRecibido
+    }
+  }
+
   @Output()
   emitirRecinto: EventEmitter<Recinto> = new EventEmitter();
+
+  sectoresTemp : Sector[] = []
 
   asiento: Asiento = {
     butaca: 0,
@@ -38,7 +52,7 @@ export class AddRecintoComponent {
     nombreRecinto: '',
     direccion: { calle: '', numero: 0, ciudad: '', codigoPostal: '', pais: '' },
     urlImg: '',
-    sectores: [this.sector]
+    sectores: []
   };
 
 
@@ -52,15 +66,26 @@ export class AddRecintoComponent {
 
   agregarSector() {
     if (this.sector.nombreSector && this.sector.capacidad > 0) {
-      this.recinto.sectores.push({ ...this.sector });
 
-      // Reinicia el sector después de agregarlo
-       this.sector.asientos= [];
+      this.sectoresTemp.push(this.sector);
 
-      alert('Sector agregado correctamente');
+      this.sector = {
+        nombreSector: '',
+        capacidad: 0,
+        numerado: false,
+        asientos: []
+      };
     } else {
       alert('Por favor completa todos los campos del sector.');
     }
+  }
+
+  eliminarSector(pos: number){
+    this.sectoresTemp.slice(pos, 1);
+  }
+
+  eliminarSectorEdit(pos: number){
+    this.recinto.sectores.slice(pos, 1);
   }
 
   crearButacas(sector: Sector) {
@@ -85,8 +110,10 @@ export class AddRecintoComponent {
       !this.recinto.direccion.ciudad || !this.recinto.direccion.codigoPostal ||
       !this.recinto.direccion.pais || !this.recinto.urlImg) {
       alert('Por favor, completa todos los campos del recinto.');
-      return; // Salir de la función si faltan campos
+      return;
     }
+
+    this.recinto.sectores = this.sectoresTemp;
 
     for (let sector of this.recinto.sectores) {
       if (!sector.nombreSector || sector.capacidad <= 0) {
@@ -95,17 +122,32 @@ export class AddRecintoComponent {
       }
       else
       {
+        //faltan validaciones
         this.crearButacas(sector);
       }
     }
 
+    //FALTAN VALIDAICONES !!!!!!!!!!!!!!!!!!!!!!!!!!
     console.log(this.recinto);
-    this.emitirRecinto.emit({ ...this.recinto }); // Envio copia con spread operator.
+    if (this.recintoRecibido){
+      this.editRecinto()
+      alert('Recinto editado con exito')
+    }
+    else
+    {
+      this.postRecinto()
+      alert('Recinto agregado con exito')
+    }
 
+  }
+
+  postRecinto ()
+  {
     this.recintoService.postRecintos(this.recinto).subscribe(
       {
         next: ()=> {
           console.log('recinto agregado');
+          this.router.navigate(['list-eventos'])
         },
         error: (err)=> {
           alert('Error al agregar el recinto: ' + err.message);
@@ -113,6 +155,24 @@ export class AddRecintoComponent {
         }
       }
     )
+  }
+
+  editRecinto ()
+  {
+    if(this.recinto.id)
+    this.recintoService.putRecinto(this.recinto.id, this.recinto).subscribe(
+      {
+        next: ()=> {
+          console.log('recinto editado');
+          this.router.navigate(['list-eventos'])
+        },
+        error: (err)=> {
+          alert('Error al agregar el recinto: ' + err.message);
+          console.error('Error:', err);
+        }
+      }
+    )
+
   }
 
 

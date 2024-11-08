@@ -118,6 +118,31 @@
       "precioTotal": 150000,
       "estado": false,
       "id": 5
+    },
+    {
+      "fechaDeCompra": "2024-11-07T21:39:29.225Z",
+      "cliente": {
+        "nombre": "Emilia",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "love on tour",
+        "fechaEvento": "2024-11-11",
+        "idEvento": 1
+      },
+      "entrada": {
+        "sector": "platea preferencial",
+        "precioUnitario": "150000",
+        "butaca": [
+          3,
+          4
+        ]
+      },
+      "cantidad": "2",
+      "precioTotal": 300000,
+      "estado": false,
+      "id": 6
     }
   ]
 }

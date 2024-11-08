@@ -1,11 +1,12 @@
 import { RecintoService } from './../../../services/recintos.service';
 import { Component, inject, OnInit, Output } from '@angular/core';
 import { Recinto } from '../../interfaces/recinto.interface';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-list-recinto',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './list-recinto.component.html',
   styleUrl: './list-recinto.component.css'
 })

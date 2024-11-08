@@ -1,0 +1,32 @@
+@if (recinto) {
+
+  <h2>{{recinto.nombreRecinto}}</h2>
+
+  <p>Deberia ir la imagen por algun lado</p>
+
+  <ul>
+    <li>Direccion:
+      <ul>
+        <li>  {{recinto.direccion.calle}}</li>
+        <li>  {{recinto.direccion.numero}}</li>
+        <li>  {{recinto.direccion.pais}}</li>
+      </ul>
+    </li>
+    <li>Sectores:
+      <ol>
+       <div *ngFor="let sector of recinto.sectores">
+        <li>{{sector.nombreSector}}</li>
+        <li>Capacidad: {{sector.capacidad}}</li>
+        <li>Numerado? {{sector.numerado}}</li>
+        </div>
+      </ol>
+    </li>
+  </ul>
+
+  <button (click)="mostrarForm()">Editar</button>
+  <div *ngIf="mostrarEditar">
+    <h3>Editar recinto</h3>
+    <app-add-recinto [recintoRecibido]="recinto"></app-add-recinto>
+  </div>
+
+}

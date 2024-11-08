@@ -2,6 +2,7 @@
   <ul>
     @for (item of listaRecintos; track $index){
       <li>{{item.nombreRecinto}}</li>
+      <button [routerLink]="['/recintos' , item.id]" >Ver mas</button>
     }
   </ul>
 </section>

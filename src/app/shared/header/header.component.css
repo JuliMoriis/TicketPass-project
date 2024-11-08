@@ -1,0 +1,115 @@
+header{
+  width:100%;
+  overflow:hidden;
+  background:#36173d;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  color:white;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+  line-height: 100px;
+  float:left;
+}
+
+header nav {
+  display: flex;
+  gap: 15px;
+  float: right;
+  line-height:100px;
+}
+
+header nav a {
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+  color: #fff;
+  text-decoration:none;
+  padding: 10px 20px;
+  line-height:normal;
+  font-size: 15px;
+  font-weight:100;
+  border-radius:50px;
+  -webkit-transition:all 500ms ease;
+  -o-transition:all 500ms ease;
+  transition:all 500ms ease;
+}
+
+header nav a:hover{
+  background:#ff4845;
+  border-radius:50px;
+}
+
+
+/* Estilo para el botón del menú */
+.menu-button {
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1002;
+  /* position: absolute; */
+  top: 20px;
+  left: 20px;
+}
+
+
+.menu {
+  position: fixed;
+  right: -250px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #36173d;
+  color: white;
+  transition: right 0.3s ease;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+
+.menu.open {
+  right: 0;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 20px;
+  border-bottom: 1px solid #b0b0b0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu li:last-child {
+  border-bottom: none;
+}
+
+/* Estilo de los enlaces dentro del menú */
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background 0.3s, color 0.3s;
+  display: block;
+  padding: 10px;
+}
+
+.menu a:hover {
+  background-color: #5a2a57;
+  color: #f4f4f4;
+  padding-left: 15px;
+}
