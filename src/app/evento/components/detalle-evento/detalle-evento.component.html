@@ -11,7 +11,9 @@
        <p>Fecha: {{fecha.fecha}}</p>
        <p>Hora: {{fecha.hora}}</p>
        <div *ngIf="usuario?.tipo ==  2">
-        <button type="button" [routerLink]="['/fila', usuario?.id, eventoSeleccionado?.id, fecha.fecha]">Entrar a la fila</button>
+        <button type="button"
+        [disabled]="fecha.disponibilidadTotal==0 || fecha.habilitado == 0"
+        [routerLink]="['/fila', usuario?.id, eventoSeleccionado?.id, fecha.fecha]">Entrar a la fila</button>
       </div>
        </div>
   }
