@@ -1,40 +1,52 @@
 
-<br>
-<div class="divreg"><h2>Inicio de sesion</h2></div>
-<br>
-        <form #formInicioSesion="ngForm" (ngSubmit)="iniciarSesion(formInicioSesion)">
-            <fieldset>
-             <div class="form-group">
-                <label for="usuarioForm">Usuario</label>
+<body>
+    <div class="wrapper">
 
-                <input type="text" id="usuarioForm" name="usuarioForm" ngModel required>
+        <form #formInicioSesion="ngForm" (ngSubmit)="iniciarSesion(formInicioSesion)">
+            <h2>TicketPass</h2>
+            <h4>Inicio de sesion</h4>
+        <div class="input-field">
+            <input type="text" id="usuarioForm" name="usuarioForm" ngModel required>
+            <label for="usuarioForm">Usuario</label>
                 <div class="divAvisos" *ngIf="formInicioSesion.controls['usuarioForm']?.invalid && formInicioSesion.controls['usuarioForm']?.touched" >
                      Debe ingresar su usuario
                 </div>
-
-             </div>
-     <br>
-        <div class="form-group">
-            <label for="contraseniaForm">Constraseña</label>
-
+        </div>
+                    
+        <div class="input-field">
             <input type="password" id="contraseniaForm" name="contraseniaForm" ngModel required >
+            <label for="contraseniaForm">Constraseña</label>
             <div class="divAvisos" *ngIf="formInicioSesion.controls['contraseniaForm']?.invalid && formInicioSesion.controls['contraseniaForm']?.touched">
                 Debe ingresar su contraseña
             </div>
-
         </div>
-
-
-<br>
-<div class="container">
-  <button  type="submit" [disabled]="formInicioSesion.invalid">Iniciar sesion</button>
-</div>
-            </fieldset>
+        <button  type="submit" [disabled]="formInicioSesion.invalid">Iniciar sesion</button>
+    
+        <div class="registro">
+      <a routerLink="registrarse">Todavia no tenes cuenta? Registrate haciendo click aca</a>
+        </div>
         </form>
-<br>
-<div class="containerA">
-    <nav>
-        <a routerLink="registrarse">Todavia no tenes cuenta? Registrate haciendo click aca</a>
-    </nav>
-</div>
+    </div>
+</body>
+
+
+
+            
+  
+        
+            
+
+           
+
+       
+
+
+
+
+   
+       
+   
+
+
+
 

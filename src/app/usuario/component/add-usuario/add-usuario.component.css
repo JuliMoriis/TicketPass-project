@@ -1,89 +1,136 @@
-input{
-    width:200px;
-    padding: 5px 15px;
-    margin: 5px;
-    box-sizing:content-box;
-    border-color:#36173d;
-    border-radius:40px;
-    background-color: #eeeeee;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
-
-fieldset{
-   
-    width: 500px;
-   justify-self: center;
-    padding: 20px 40px;
-    border-radius:40px;
-    margin: 15px;
-    background-color: white;
-
-}
-
-.divreg {   /*  */
-    margin-top: 60px;
-    padding: 40px;
-}
-
-h2{
-
-    margin-top:20px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 100;
-    font-size: 30px;
-    box-sizing:content-box;
-    border-radius: 45px;
-    padding: 10px 50px;
-    background-color: #36173d;
-    color: white;
-    /* width: 150px; */
-}
-
-h4{
  
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight: 600; 
-    color: #36173d;
+body{
+    width: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    min-height:100vh;
+    padding: 0 10px;
+    color:white;
 }
 
-label{
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight: 100; 
+body::before{
+    content:"";
+    position: absolute;
+    width:100%;
+    height:180%;
+    background:url("C:/Users/User/Documents/GitHub/TicketPass-project/src/app/imagenes/audiencia-background.jpg")
+    #000;
+    background-position: center;
+    background-size:auto;
+    z-index:-1 ;
+}
+.wrapper{
+    margin-top:50px;
+    width:470px;
+    border-radius:8px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #ffffff80;
+    backdrop-filter: blur(8px);
+}
+form{
+    display: flex;
+    flex-direction: column;
+
+}
+h2{
+    font-size: 2.5em;
+    margin-bottom:20px;
+    color:#fff;
+}
+
+.input-field{
+    position: relative;
+    border-bottom:2px solid #ccc;
+    margin: 15px 0;
+}
+
+.input-field label{
+    position: absolute;
+    color:#fff;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+    font-size:16px;
+    pointer-events:none;
+    transition: 0.15s ease;
+}
+
+.input-field input{
+    width:100%;
+    height:40px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.input-field input:focus~label,
+.input-field input:valid~label{
+    font-size: 0.8rem;
+    top:10px;
+    transform: translateY(-120%);
+}
+
+.wrapper a {
+ color: #efefef;
+ text-decoration: underline;
 }
 
 button{
-    background-color: #36173d;
+    background:#36173d89;
+    color:#fff;
+    font-weight:600px;
     font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    margin:1px;
-    color: white;
-    padding: 9px 15px;
-    border-radius: 45px;
-    border-color:#36173d;
-    -webkit-transition:all 500ms ease;
-    -o-transition:all 500ms ease;
-    transition:all 500ms ease;
-    margin-bottom: 20px;
+    border:none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size:16px;
+    border:2px solid transparent;
 }
-
-
 button:hover{
-    background:#ff4845;
-    border-color: #ff4845;
-    border-radius:45px;
+    background:#ff484589;   
+    border-radius:5px;
+
 }
 
-.container{  /* posicion del submit */
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    width: 100%;
+.sesion{
+    text-align: center;
+    margin-top:30px;
+    color: #fff;
 }
-.divAvisos{   /* style de los avisos de campos */
-    color: #686767;
+.divAvisos{
+
+    color: #ccc;
     font-weight: 100;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
+    font-size: 16px;
 }
+
+input::placeholder{
+    color: #ccc;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
 
 
