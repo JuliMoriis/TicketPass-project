@@ -4,7 +4,7 @@ import { AddUsuarioComponent } from '../add-usuario/add-usuario.component';
 @Component({
   selector: 'app-list-usuario',
   standalone: true,
-  imports: [AddUsuarioComponent],
+  imports: [],
   templateUrl: './list-usuario.component.html',
   styleUrl: './list-usuario.component.css'
 })
