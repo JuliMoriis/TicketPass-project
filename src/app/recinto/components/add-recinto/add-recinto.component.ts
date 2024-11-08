@@ -53,7 +53,8 @@ export class AddRecintoComponent implements OnInit {
     direccion: { calle: '', numero: 0, ciudad: '', codigoPostal: '', pais: '' },
     urlImg: '',
     capacidadTotal: 0,
-    sectores: []
+    sectores: [],
+    alta: 1
   };
 
 

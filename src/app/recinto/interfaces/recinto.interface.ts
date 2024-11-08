@@ -8,5 +8,6 @@ export interface Recinto {
   urlImg: string,
   urlMapaSectores?: string,
   capacidadTotal: number,
-  sectores: Sector[]
+  sectores: Sector[],
+  alta: number
 }
