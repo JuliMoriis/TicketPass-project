@@ -1,6 +1,6 @@
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Recinto } from '../../../recinto/interfaces/recinto.interface';
 import { Sector } from '../../../recinto/interfaces/sector.interface';
 import { EventoService } from '../../../services/evento.service';
@@ -12,7 +12,7 @@ import { Fecha } from '../../interfaces/fecha.interface';
 @Component({
   selector: 'app-add-evento',
   standalone: true,
-  imports: [FormsModule, NgFor],
+  imports: [FormsModule, NgFor, CommonModule],
   templateUrl: './add-evento.component.html',
   styleUrl: './add-evento.component.css'
 })
@@ -26,12 +26,25 @@ export class AddEventoComponent implements OnInit{
   updateEvento: EventEmitter <Evento> = new EventEmitter()
 
   flag: boolean = false; // Controla la visibilidad del formulario
+  fechaAgregada= false;
 
   recintosService= inject (RecintoService);
   eventosService= inject(EventoService);
 
   listadoRecintos: Recinto[] = [];
   sectoresRecinto: Sector[]= [];
+
+
+  mostrarFormularioFecha = false;
+
+  nuevaFecha: Fecha = {
+    fecha: new Date(),
+    hora: '',
+    entradas: [],
+    disponibilidadTotal: 0,
+    habilitado: 0
+  };
+
 
   entrada: Entrada = {
     nombreSector: '',
@@ -44,6 +57,7 @@ export class AddEventoComponent implements OnInit{
     fecha: new Date(),
     hora: '',
     entradas: [],
+    disponibilidadTotal : 0,
     habilitado:0
   }
 
@@ -53,7 +67,7 @@ export class AddEventoComponent implements OnInit{
     duracion:'',
     UrlBanner:'',
     recinto_id: 1,
-    fechas: [this.fecha],
+    fechas: [],
     alta: 1
   }
 
@@ -80,62 +94,101 @@ export class AddEventoComponent implements OnInit{
   }
 
  //le pasa todos los datos al evento segun el recinto MENOS EL PRECIO
- seleccionRecinto (event: any)
- {
-   const idSeleccionado = Number(event.target.value);
 
-   this.evento.recinto_id= idSeleccionado;
+ seleccionRecinto(event: any) {
+  const idSeleccionado = Number(event.target.value);
+  this.evento.recinto_id = idSeleccionado;
 
-   if (!idSeleccionado) return;
+  if (!idSeleccionado) return;
 
-   let recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id == idSeleccionado);
+  const recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id === idSeleccionado);
 
-   console.log(recintoEncontrado);
+  if (recintoEncontrado && recintoEncontrado.sectores) {
+    console.log("Se encontró el recinto");
 
-   if (recintoEncontrado && recintoEncontrado.sectores)
-   {
-     console.log("se encontro el recinto");
-     this.sectoresRecinto= recintoEncontrado.sectores;
-     this.fecha.entradas = [];
-     this.rellenarEntradas(this.sectoresRecinto);
-   }
-   else {
-     console.log("no se encontro el recinto");
-     this.sectoresRecinto = [];
-   }
+    this.sectoresRecinto = recintoEncontrado.sectores;
 
- }
+    // Encuentra la última fecha añadida
+    const ultimaFecha = this.evento.fechas[this.evento.fechas.length - 1];
+
+    if (ultimaFecha) {
+      ultimaFecha.disponibilidadTotal = recintoEncontrado.capacidadTotal;
+      ultimaFecha.entradas = []; // Limpia las entradas anteriores
+      this.rellenarEntradas(this.sectoresRecinto, ultimaFecha);
+    } else {
+      console.log("No hay una fecha actual para actualizar");
+    }
+  } else {
+    console.log("No se encontró el recinto");
+    this.sectoresRecinto = [];
+  }
+}
 
 
- rellenarEntradas (sectores: Sector[])
- {
-   for (const sector of sectores) {
-     console.log(sector);
-       this.entrada.nombreSector= sector.nombreSector;
-       this.entrada.disponibles= sector.capacidad;
+rellenarEntradas(sectores: Sector[], fechaActual: any) {
+  for (const sector of sectores) {
+    const nuevaEntrada = {
+      nombreSector: sector.nombreSector,
+      disponibles: sector.capacidad,
+      precio: 0, // Puedes ajustar esto según tu lógica
+      asientos: sector.numerado ? sector.asientos : []
+    };
 
-       if (sector.numerado) {
-         this.entrada.asientos = sector.asientos;
-       }
+    // Añade la nueva entrada a la fecha actual
+    fechaActual.entradas.push(nuevaEntrada);
+  }
+}
 
-     //VER ACA COMO RELLENAR EN TODAS LAS FECHAS
-     this.fecha.entradas.push({...this.entrada});
-   }
 
- }
+ aceptarFecha() {
+  if (this.nuevaFecha.fecha && this.nuevaFecha.hora) {
+    this.evento.fechas.push({ ...this.nuevaFecha });
+    this.mostrarFormularioFecha = false;
+    this.nuevaFecha = {
+      fecha: new Date(),
+      hora: '',
+      entradas: [],
+      disponibilidadTotal: 0,
+      habilitado: 0
+    };
+    alert('Fecha agregada correctamente');
 
- addFecha ()
- {
-   if (this.fecha.fecha && this.fecha.hora) {
-     this.evento.fechas.push({...this.fecha})
-     alert('Sector agregado correctamente');
-   } else {
-     alert('Por favor completa todos los campos del sector.');
-   }
- }
+    if (this.evento.fechas.length > 0){
+      this.fechaAgregada = true;
 
-  addEvento ()
+    }
+  } else {
+    alert('Por favor completa todos los campos de la fecha.');
+  }
+}
+
+//  addFecha ()
+//  {
+//    if (this.fecha.fecha && this.fecha.hora) {
+//      this.evento.fechas.push(this.fecha)
+
+//      this.fechaAgregada = this.evento.fechas.length > 0;
+
+
+//      this.fecha = {
+//       fecha: new Date(),
+//       hora: '',
+//       entradas: [],
+//       disponibilidadTotal : 0,
+//       habilitado:0
+//     }
+//      alert('Fecha agregada correctamente');
+
+//    } else {
+//      alert('Por favor completa todos los campos del sector.');
+//    }
+//  }
+
+  addEvento (formulario: NgForm)
   {
+
+    if (formulario.invalid)return;
+    
     let entradasCargadas : Entrada[] = [];
 
     //rellena todas las fechas con las mismas entradas
@@ -166,6 +219,7 @@ export class AddEventoComponent implements OnInit{
       {
         next: ()=> {
           console.log('evento agregado');
+          alert('Evento agregado con exito')
         },
         error: (err)=> {
           alert('Error al agregar el evento: ' + err.message);
@@ -175,7 +229,8 @@ export class AddEventoComponent implements OnInit{
     )
   }
 
-  emitUpdate(){
+  emitUpdate(formulario: NgForm){
+    if (formulario.invalid)return;
     this.updateEvento.emit(this.evento)
   }
 

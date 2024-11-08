@@ -48,6 +48,7 @@ export class AddCompraComponent implements OnInit {
     fecha : new Date(),
     hora : '',
     entradas: [],
+    disponibilidadTotal : 0 ,
     habilitado: 1  /* 1 fila habilitada 0 no se puede entrar a la fila */
 }
 
@@ -143,6 +144,8 @@ export class AddCompraComponent implements OnInit {
           //restamos disponibilidad en fecha elegida en ese sector
           entrada.disponibles = entrada.disponibles - this.compra.cantidad;
 
+          //actualiza el stock total (nuevo) !!!!!!!!!!!!!!!
+          this.fechaSeleccionada.disponibilidadTotal = this.fechaSeleccionada.disponibilidadTotal - this.compra.cantidad;
           console.log(this.evento);
 
         }

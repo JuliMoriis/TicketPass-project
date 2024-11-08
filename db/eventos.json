@@ -1,10 +1,10 @@
 {
   "eventos": [
     {
-      "nombreEvento": "love on tour",
-      "artista_banda": "harry styles",
+      "nombreEvento": "Love On Tour",
+      "artista_banda": "Harry Styles",
       "duracion": "02:00",
-      "UrlBanner": "url",
+      "UrlBanner": "",
       "recinto_id": 1,
       "fechas": [
         {
@@ -12,31 +12,37 @@
           "hora": "21:00",
           "entradas": [
             {
-              "nombreSector": "campo vip",
+              "nombreSector": "Campo Vip",
+              "disponibles": 15000,
               "precio": "120000",
-              "disponibles": 24999,
               "asientos": []
             },
             {
-              "nombreSector": "platea preferencial",
-              "precio": "150000",
-              "disponibles": 6,
+              "nombreSector": "Campo ",
+              "disponibles": 20000,
+              "precio": "63000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Platea",
+              "disponibles": 10,
+              "precio": "90000",
               "asientos": [
                 {
                   "butaca": 1,
-                  "disponibilidad": false
+                  "disponibilidad": true
                 },
                 {
                   "butaca": 2,
-                  "disponibilidad": false
+                  "disponibilidad": true
                 },
                 {
                   "butaca": 3,
-                  "disponibilidad": false
+                  "disponibilidad": true
                 },
                 {
                   "butaca": 4,
-                  "disponibilidad": false
+                  "disponibilidad": true
                 },
                 {
                   "butaca": 5,
@@ -63,23 +69,37 @@
                   "disponibilidad": true
                 }
               ]
+            },
+            {
+              "nombreSector": "sector prueba",
+              "disponibles": 0,
+              "precio": "120",
+              "asientos": []
             }
-          ]
+          ],
+          "disponibilidadTotal": 0,
+          "habilitado": 0
         },
         {
-          "fecha": "2024-11-14",
+          "fecha": "2024-11-13",
           "hora": "21:00",
           "entradas": [
             {
-              "nombreSector": "campo vip",
+              "nombreSector": "Campo Vip",
+              "disponibles": 15000,
               "precio": "120000",
-              "disponibles": 25000,
               "asientos": []
             },
             {
-              "nombreSector": "platea preferencial",
-              "precio": "150000",
+              "nombreSector": "Campo ",
+              "disponibles": 20000,
+              "precio": "62000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Platea",
               "disponibles": 10,
+              "precio": "90000",
               "asientos": [
                 {
                   "butaca": 1,
@@ -122,71 +142,177 @@
                   "disponibilidad": true
                 }
               ]
+            },
+            {
+              "nombreSector": "sector prueba",
+              "disponibles": 0,
+              "precio": "123",
+              "asientos": []
             }
-          ]
+          ],
+          "disponibilidadTotal": 35010,
+          "habilitado": 0
         }
       ],
       "alta": 1,
       "id": 1
     },
     {
-      "nombreEvento": "eras tour",
-      "artista_banda": "taylor swift",
+      "nombreEvento": "The Eras Tour",
+      "artista_banda": "Taylor Swift",
       "duracion": "04:00",
-      "UrlBanner": "url2",
-      "recinto_id": 3,
+      "UrlBanner": "urltaylor",
+      "recinto_id": 1,
       "fechas": [
         {
-          "fecha": "2024-12-24",
-          "hora": "08:00",
+          "fecha": "2025-01-21",
+          "hora": "21:00",
           "entradas": [
             {
-              "nombreSector": "campo luna",
-              "precio": "30000",
-              "disponibles": 7000,
+              "nombreSector": "Campo Vip",
+              "disponibles": 15000,
+              "precio": "24000",
               "asientos": []
             },
             {
-              "nombreSector": "campo trasero",
-              "precio": "15000",
-              "disponibles": 2000,
+              "nombreSector": "Campo ",
+              "disponibles": 20000,
+              "precio": "20000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Platea",
+              "disponibles": 10,
+              "precio": "19000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "sector prueba",
+              "disponibles": 0,
+              "precio": "200",
               "asientos": []
             }
-          ]
+          ],
+          "disponibilidadTotal": 0,
+          "habilitado": 0
+        },
+        {
+          "fecha": "2025-01-22",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "Campo Vip",
+              "disponibles": 15000,
+              "precio": "24000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo ",
+              "disponibles": 20000,
+              "precio": "20000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Platea",
+              "disponibles": 10,
+              "precio": "19000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "sector prueba",
+              "disponibles": 0,
+              "precio": "200",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 35010,
+          "habilitado": 0
         }
       ],
       "alta": 1,
       "id": 2
-    },
-    {
-      "nombreEvento": "prueba",
-      "artista_banda": "prueba",
-      "duracion": "02:00",
-      "UrlBanner": "banner",
-      "recinto_id": 3,
-      "fechas": [
-        {
-          "fecha": "2023-12-15",
-          "hora": "19:00",
-          "entradas": [
-            {
-              "nombreSector": "campo luna",
-              "precio": "15000",
-              "disponibles": 7000,
-              "asientos": []
-            },
-            {
-              "nombreSector": "campo trasero",
-              "precio": "15000",
-              "disponibles": 2000,
-              "asientos": []
-            }
-          ],
-          "habilitado": 0
-        }
-      ],
-      "alta": 0,
-      "id": 3
     }
   ]
 }

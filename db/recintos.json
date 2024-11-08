@@ -1,4 +1,120 @@
 {
   "recintos": [
+    {
+      "nombreRecinto": "Estadio River Plate",
+      "direccion": {
+        "calle": "Av. Pres. Figueroa Alcorta",
+        "numero": 7591,
+        "ciudad": "Buenos Aires",
+        "codigoPostal": "C1428",
+        "pais": "Argentina"
+      },
+      "urlImg": "https://turismo.buenosaires.gob.ar/sites/turismo/files/estadio_river_plate_1200_belgrano.jpg",
+      "capacidadTotal": 35010,
+      "sectores": [
+        {
+          "nombreSector": "Campo Vip",
+          "capacidad": 15000,
+          "numerado": false,
+          "asientos": []
+        },
+        {
+          "nombreSector": "Campo ",
+          "capacidad": 20000,
+          "numerado": false,
+          "asientos": []
+        },
+        {
+          "nombreSector": "Platea",
+          "capacidad": 10,
+          "numerado": true,
+          "asientos": [
+            {
+              "butaca": 1,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 2,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 3,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 4,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 5,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 6,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 7,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 8,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 9,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 10,
+              "disponibilidad": true
+            }
+          ]
+        },
+        {
+          "nombreSector": "sector prueba",
+          "capacidad": 0,
+          "numerado": false,
+          "asientos": []
+        }
+      ],
+      "urlMapaSectores": "url mapa",
+      "id": 1
+    },
+    {
+      "nombreRecinto": "Luna Park",
+      "direccion": {
+        "calle": "Colon",
+        "numero": 2233,
+        "ciudad": "Buenos Aires",
+        "codigoPostal": "C1428",
+        "pais": "Argentina"
+      },
+      "urlImg": "url1",
+      "capacidadTotal": 3,
+      "sectores": [
+        {
+          "nombreSector": "Platea popular",
+          "capacidad": 3,
+          "numerado": true,
+          "asientos": [
+            {
+              "butaca": 1,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 2,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 3,
+              "disponibilidad": true
+            }
+          ]
+        }
+      ],
+      "urlMapaSectores": "url2",
+      "id": 2
+    }
   ]
 }

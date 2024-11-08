@@ -1,148 +1,51 @@
 {
   "compras": [
     {
-      "fechaDeCompra": "2024-11-01T17:12:09.632Z",
+      "fechaDeCompra": "2024-11-08T15:58:19.296Z",
       "cliente": {
         "nombre": "Emilia",
         "email": "m.emiliamaldo@gmail.com",
         "idCliente": 1
       },
       "evento": {
-        "nombreEvento": "love on tour",
-        "fechaEvento": "2024-11-01T17:12:09.632Z",
+        "nombreEvento": "Love On Tour",
+        "fechaEvento": "2024-12-12",
         "idEvento": 1
       },
       "entrada": {
-        "sector": "platea preferencial",
-        "precioUnitario": "150000",
-        "butaca": [
-          1
-        ]
-      },
-      "cantidad": 1,
-      "precioTotal": 150000,
-      "estado": false,
-      "id": 1
-    },
-    {
-      "fechaDeCompra": "2024-11-01T17:14:13.964Z",
-      "cliente": {
-        "nombre": "Emilia",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "love on tour",
-        "fechaEvento": "2024-11-01T17:14:13.964Z",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "platea preferencial",
-        "precioUnitario": "150000",
+        "sector": "Platea",
+        "precioUnitario": "500000",
         "butaca": [
           1,
           2
         ]
       },
       "cantidad": "2",
-      "precioTotal": 300000,
+      "precioTotal": 1000000,
       "estado": false,
-      "id": 2
+      "id": 1
     },
     {
-      "fechaDeCompra": "2024-11-01T17:15:41.013Z",
+      "fechaDeCompra": "2024-11-08T16:02:08.250Z",
       "cliente": {
         "nombre": "Emilia",
         "email": "m.emiliamaldo@gmail.com",
         "idCliente": 1
       },
       "evento": {
-        "nombreEvento": "love on tour",
-        "fechaEvento": "2024-11-01T17:15:41.013Z",
+        "nombreEvento": "Love On Tour",
+        "fechaEvento": "2024-12-12",
         "idEvento": 1
       },
       "entrada": {
-        "sector": "platea preferencial",
-        "precioUnitario": "150000",
-        "butaca": [
-          1
-        ]
-      },
-      "cantidad": 1,
-      "precioTotal": 150000,
-      "estado": false,
-      "id": 3
-    },
-    {
-      "fechaDeCompra": "2024-11-01T17:23:38.429Z",
-      "cliente": {
-        "nombre": "Emilia",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "love on tour",
-        "fechaEvento": "2024-11-01T17:23:38.429Z",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "campo vip",
+        "sector": "Campo Vip",
         "precioUnitario": "120000",
         "butaca": []
       },
       "cantidad": 1,
       "precioTotal": 120000,
       "estado": false,
-      "id": 4
-    },
-    {
-      "fechaDeCompra": "2024-11-01T17:31:48.529Z",
-      "cliente": {
-        "nombre": "Emilia",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "love on tour",
-        "fechaEvento": "2024-11-01T17:31:48.529Z",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "platea preferencial",
-        "precioUnitario": "150000",
-        "butaca": [
-          2
-        ]
-      },
-      "cantidad": 1,
-      "precioTotal": 150000,
-      "estado": false,
-      "id": 5
-    },
-    {
-      "fechaDeCompra": "2024-11-07T21:39:29.225Z",
-      "cliente": {
-        "nombre": "Emilia",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "love on tour",
-        "fechaEvento": "2024-11-11",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "platea preferencial",
-        "precioUnitario": "150000",
-        "butaca": [
-          3,
-          4
-        ]
-      },
-      "cantidad": "2",
-      "precioTotal": 300000,
-      "estado": false,
-      "id": 6
+      "id": 2
     }
   ]
 }

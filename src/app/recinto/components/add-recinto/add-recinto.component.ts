@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RecintoService } from '../../../services/recintos.service'; // Asegúrate de que la ruta sea correcta
 import { Recinto } from '../../interfaces/recinto.interface';
@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-recinto',
   standalone: true,
-  imports: [FormsModule, CommonModule], // Asegúrate de que esté aquí
+  imports: [FormsModule, CommonModule],
   templateUrl: './add-recinto.component.html',
-  styleUrls: ['./add-recinto.component.css'] // Asegúrate de que sea 'styleUrls'
+  styleUrls: ['./add-recinto.component.css']
 })
 
-export class AddRecintoComponent implements OnInit{
+export class AddRecintoComponent implements OnInit {
 
-  constructor(private router: Router){}
+  constructor(private router: Router) { }
 
   recintoService = inject(RecintoService);
 
@@ -26,15 +26,15 @@ export class AddRecintoComponent implements OnInit{
   recintoRecibido?: Recinto
 
   ngOnInit(): void {
-    if (this.recintoRecibido){
-      this.recinto= this.recintoRecibido
+    if (this.recintoRecibido) {
+      this.recinto = this.recintoRecibido
     }
   }
 
   @Output()
   emitirRecinto: EventEmitter<Recinto> = new EventEmitter();
 
-  sectoresTemp : Sector[] = []
+  sectoresTemp: Sector[] = []
 
   asiento: Asiento = {
     butaca: 0,
@@ -52,6 +52,7 @@ export class AddRecintoComponent implements OnInit{
     nombreRecinto: '',
     direccion: { calle: '', numero: 0, ciudad: '', codigoPostal: '', pais: '' },
     urlImg: '',
+    capacidadTotal: 0,
     sectores: []
   };
 
@@ -77,14 +78,27 @@ export class AddRecintoComponent implements OnInit{
       };
     } else {
       alert('Por favor completa todos los campos del sector.');
-    }
   }
 
-  eliminarSector(pos: number){
+  }
+
+  agregarSectorEdit() {
+      this.recintoRecibido?.sectores.push(this.sector);
+
+      this.sector = {
+        nombreSector: '',
+        capacidad: 0,
+        numerado: false,
+        asientos: []
+      };
+
+  }
+
+  eliminarSector(pos: number) {
     this.sectoresTemp.slice(pos, 1);
   }
 
-  eliminarSectorEdit(pos: number){
+  eliminarSectorEdit(pos: number) {
     this.recinto.sectores.slice(pos, 1);
   }
 
@@ -98,58 +112,54 @@ export class AddRecintoComponent implements OnInit{
         sector.asientos.push(nuevoAsiento);
       }
     }
-    else
-    {
-      sector.asientos= [];
+    else {
+      sector.asientos = [];
     }
   }
 
+  capacidadTotalCalculo(): number {
+    const capacidadTotal = this.recinto.sectores.reduce((acumulador, sector) => acumulador + sector.capacidad, 0);
+    return capacidadTotal;
+  }
 
-  addRecinto() {
-    if (!this.recinto.nombreRecinto || !this.recinto.direccion.calle ||
-      !this.recinto.direccion.ciudad || !this.recinto.direccion.codigoPostal ||
-      !this.recinto.direccion.pais || !this.recinto.urlImg) {
-      alert('Por favor, completa todos los campos del recinto.');
-      return;
-    }
+  addRecinto(formulario: NgForm) {
 
-    this.recinto.sectores = this.sectoresTemp;
+    if (formulario.invalid) return;
 
-    for (let sector of this.recinto.sectores) {
-      if (!sector.nombreSector || sector.capacidad <= 0) {
-        alert('Por favor, completa al menos un sector.');
-        return;
-      }
-      else
-      {
-        //faltan validaciones
-        this.crearButacas(sector);
-      }
-    }
-
-    //FALTAN VALIDAICONES !!!!!!!!!!!!!!!!!!!!!!!!!!
-    console.log(this.recinto);
-    if (this.recintoRecibido){
+    if (this.recintoRecibido)
+    {
       this.editRecinto()
       alert('Recinto editado con exito')
     }
+
+
     else
     {
-      this.postRecinto()
-      alert('Recinto agregado con exito')
+      for (let sector of this.recinto.sectores) {
+        console.log('entor al for');
+        if (!sector.nombreSector || sector.capacidad <= 0) {
+          alert('Por favor, completa al menos un sector.');
+          return;
+        }
+
+            this.crearButacas(sector);
+            this.recinto.capacidadTotal = this.capacidadTotalCalculo()
+            this.postRecinto()
+            alert('Recinto agregado con exito')
+      }
     }
 
   }
 
-  postRecinto ()
-  {
+  postRecinto() {
     this.recintoService.postRecintos(this.recinto).subscribe(
       {
-        next: ()=> {
+        next: () => {
           console.log('recinto agregado');
-          this.router.navigate(['list-eventos'])
+          alert('Recinto agregado con exito!')
+          this.router.navigate(['recintos'])
         },
-        error: (err)=> {
+        error: (err) => {
           alert('Error al agregar el recinto: ' + err.message);
           console.error('Error:', err);
         }
@@ -157,21 +167,21 @@ export class AddRecintoComponent implements OnInit{
     )
   }
 
-  editRecinto ()
-  {
-    if(this.recinto.id)
-    this.recintoService.putRecinto(this.recinto.id, this.recinto).subscribe(
-      {
-        next: ()=> {
-          console.log('recinto editado');
-          this.router.navigate(['list-eventos'])
-        },
-        error: (err)=> {
-          alert('Error al agregar el recinto: ' + err.message);
-          console.error('Error:', err);
+  editRecinto() {
+    if (this.recinto.id)
+      this.recintoService.putRecinto(this.recinto.id, this.recinto).subscribe(
+        {
+          next: () => {
+            console.log('recinto editado');
+            alert('Recinto editado con exito!')
+            this.router.navigate(['recintos'])
+          },
+          error: (err) => {
+            alert('Error al agregar el recinto: ' + err.message);
+            console.error('Error:', err);
+          }
         }
-      }
-    )
+      )
 
   }
 

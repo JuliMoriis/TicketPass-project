@@ -1,63 +1,91 @@
 <section>
   <fieldset>
-    <form action="">
+    <form #formulario="ngForm" (ngSubmit)="addRecinto(formulario)">
       <!-- Nombre del Recinto -->
       <div>
         <label for="nombreRecinto">Nombre del Recinto:</label>
         <input type="text" id="nombreRecinto" name="nombreRecinto" [(ngModel)]="recinto.nombreRecinto" required>
+        <div *ngIf="formulario.controls['nombreRecinto']?.invalid && formulario.controls['nombreRecinto']?.touched">
+          Debe completar este campo
+        </div>
       </div>
 
       <!-- Dirección del Recinto -->
       <div>
         <label for="calle">Calle:</label>
         <input type="text" id="calle" name="calle" [(ngModel)]="recinto.direccion.calle" required>
+        <div *ngIf="formulario.controls['calle']?.invalid && formulario.controls['calle']?.touched">
+          Debe completar este campo
+        </div>
       </div>
 
       <div>
+        <!-- puede no tener -->
         <label for="numero">Numero:</label>
-        <input type="number" id="nunero" name="numero" [(ngModel)]="recinto.direccion.numero" required>
+        <input type="number" id="nunero" name="numero" [(ngModel)]="recinto.direccion.numero">
       </div>
 
       <div>
         <label for="ciudad">Ciudad:</label>
         <input type="text" id="ciudad" name="ciudad" [(ngModel)]="recinto.direccion.ciudad" required>
+        <div *ngIf="formulario.controls['ciudad']?.invalid && formulario.controls['ciudad']?.touched">
+          Debe completar este campo
+        </div>
       </div>
 
       <div>
         <label for="codigoPostal">Código Postal:</label>
         <input type="text" id="codigoPostal" name="codigoPostal" [(ngModel)]="recinto.direccion.codigoPostal" required>
+        <div *ngIf="formulario.controls['codigoPostal']?.invalid && formulario.controls['codigoPostal']?.touched">
+          Debe completar este campo
+        </div>
       </div>
 
       <div>
         <label for="pais">País:</label>
         <input type="text" id="pais" name="pais" [(ngModel)]="recinto.direccion.pais" required>
+        <div *ngIf="formulario.controls['pais']?.invalid && formulario.controls['pais']?.touched">
+          Debe completar este campo
+        </div>
       </div>
 
       <!-- URL de la Imagen del Recinto -->
       <div>
         <label for="urlImg">URL de la Imagen del Recinto:</label>
-        <input type="text" id="urlImg" name="urlImg" [(ngModel)]="recinto.urlImg" required>
+        <input type="url" id="urlImg" name="urlImg" [(ngModel)]="recinto.urlImg" required>
+        <div *ngIf="formulario.controls['urlImg']?.invalid && formulario.controls['urlImg']?.touched">
+          Debe completar este campo
+        </div>
       </div>
 
       <!-- URL del Mapa de Sectores -->
       <div>
         <label for="urlMapaSectores">URL del Mapa de Sectores:</label>
-        <input type="text" id="urlMapaSectores" name="urlMapaSectores" [(ngModel)]="recinto.urlMapaSectores">
+        <input type="url" id="urlMapaSectores" name="urlMapaSectores" [(ngModel)]="recinto.urlMapaSectores" required>
+        <div *ngIf="formulario.controls['urlMapaSectores']?.invalid && formulario.controls['urlMapaSectores']?.touched">
+          Debe completar este campo
+        </div>
       </div>
 
 
       <div>
         <!-- Sectores -->
         <label for="nombreSector">Nombre del Sector:</label>
-        <input type="text" id="nombreSector" name="nombreSector" [(ngModel)]="sector.nombreSector" required>
+        <input type="text" id="nombreSector" name="nombreSector" [(ngModel)]="sector.nombreSector" >
 
         <label for="capacidad">Capacidad:</label>
-        <input type="number" id="capacidad" name="capacidad" [(ngModel)]="sector.capacidad" required>
+        <input type="number" id="capacidad" name="capacidad" [(ngModel)]="sector.capacidad" >
         <label for="butacasNumeradas">¿Butacas Numeradas?:</label>
         <input type="checkbox" id="butacasNumeradas" name="butacasNumeradas"
         [(ngModel)]="sector.numerado">
 
-        <button type="button" (click)="agregarSector()">Agregar sector</button>
+        <div *ngIf="!recintoRecibido">
+          <button type="button" (click)="agregarSector()">Agregar sector</button>
+        </div>
+
+        <div *ngIf="recintoRecibido">
+          <button type="button" (click)="agregarSectorEdit()">Agregar sector</button>
+        </div>
 
         @for (sector of sectoresTemp; track $index) {
           {{sector.nombreSector}}
@@ -71,9 +99,10 @@
           }
         </div>
 
-      <button (click)="addRecinto()">Enviar</button>
-    </div>
 
+      </div>
+
+      <button type="submit" [disabled]="formulario.invalid">Enviar</button>
     </form>
   </fieldset>
 </section>

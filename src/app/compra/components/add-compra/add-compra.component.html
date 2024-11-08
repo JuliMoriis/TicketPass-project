@@ -3,16 +3,20 @@
 <section>
   <fieldset>
     @if(fechaSeleccionada.entradas){
-        <ul>
-          <li *ngFor="let entrada of fechaSeleccionada.entradas">
-            <input type="radio" id="sectorSeleccionado" name="sectorSeleccionado" [(ngModel)]="sectorSeleccionado"
-              [value]="entrada.nombreSector" (change)="asignarSectorYPrecio(entrada)" />
-            <label>{{entrada.nombreSector}}</label>
-            <p>${{entrada.precio}}</p>
-          </li>
-        </ul>
+      <ul>
+        <li *ngFor="let entrada of fechaSeleccionada.entradas">
+          <input type="radio"
+                 id="sectorSeleccionado"
+                 name="sectorSeleccionado"
+                 [(ngModel)]="sectorSeleccionado"
+                 [value]="entrada.nombreSector"
+                 (change)="asignarSectorYPrecio(entrada)"
+                 [disabled]="entrada.disponibles === 0" />
+          <label>{{entrada.nombreSector}}</label>
+          <p>${{entrada.precio}}</p>
+        </li>
+      </ul>
     }
-
 
     <h4>Cantidad</h4>
 
