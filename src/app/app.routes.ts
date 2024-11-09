@@ -13,6 +13,7 @@ import { PageAddEventoComponent } from './evento/pages/page-add-evento/page-add-
 import { PageRecintosListComponent } from './recinto/pages/page-recintos-list/page-recintos-list.component';
 import { PageDetalleComponent } from './recinto/pages/page-detalle/page-detalle.component';
 import { PageVerPerfilComponent } from './usuario/pages/page-ver-perfil/page-ver-perfil.component';
+import { PageListAdminComponent } from './evento/pages/page-list-admin/page-list-admin.component';
 
 
 export const routes: Routes = [
@@ -30,5 +31,6 @@ export const routes: Routes = [
   { path: 'recintos', component: PageRecintosListComponent},
   { path: 'recintos/:id', component: PageDetalleComponent},
   { path: 'perfil/:id', component: PageVerPerfilComponent},
+  { path: 'eventos-administrador/:id', component: PageListAdminComponent},
   { path: '', redirectTo: '/comprar-entrada', pathMatch: 'full' }
 ];

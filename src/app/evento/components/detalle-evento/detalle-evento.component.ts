@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { UsuarioService } from '../../../services/usuario.service';
 import { AddEventoComponent } from "../add-evento/add-evento.component";
+import { Fecha } from '../../interfaces/fecha.interface';
 
 @Component({
   selector: 'app-detalle-evento',
@@ -92,6 +93,28 @@ export class DetalleEventoComponent implements OnInit{
           console.log(e.message);
         }
       })
+    }
+  }
+
+  cambiarEstadoFila(fecha: Fecha) {
+
+    const fechaActualizar = this.eventoSeleccionado?.fechas.find(f => f.fecha === fecha.fecha);
+
+    if (fechaActualizar) {
+      // Toggle the habilitado status
+      fechaActualizar.habilitado = fechaActualizar.habilitado === 1 ? 0 : 1;
+
+      if (this.eventoSeleccionado)
+      this.eventosService.putEvento(this.eventoSeleccionado.id, this.eventoSeleccionado).subscribe({
+        next: () => {
+          console.log('Evento actualizado con éxito');
+        },
+        error: (e: Error) => {
+          console.error('Error al actualizar el evento:', e.message);
+        }
+      });
+    } else {
+      console.error('Fecha no encontrada en eventoSeleccionado');
     }
   }
 

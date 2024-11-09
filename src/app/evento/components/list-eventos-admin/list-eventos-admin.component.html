@@ -1,0 +1,17 @@
+<section>
+  <ul>
+    @for (evento of listaEventos; track $index){
+    @if (evento.alta === 1) {
+    <ol>{{evento.nombreEvento}} </ol>
+
+      <button type="button" (click)="cambioAlta(evento)">
+        {{ evento.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
+      </button>
+
+    <button type="button" [routerLink]="['/detalle-evento', userId, evento.id]">Ver Detalle</button>
+    }
+    }
+  </ul>
+</section>
+
+

@@ -78,7 +78,7 @@
             }
           ],
           "disponibilidadTotal": 0,
-          "habilitado": 0
+          "habilitado": 1
         },
         {
           "fecha": "2024-11-13",
@@ -151,7 +151,7 @@
             }
           ],
           "disponibilidadTotal": 35010,
-          "habilitado": 0
+          "habilitado": 1
         }
       ],
       "alta": 1,
@@ -313,6 +313,71 @@
       ],
       "alta": 1,
       "id": 2
+    },
+    {
+      "nombreEvento": "duki",
+      "artista_banda": "duki",
+      "duracion": "01:30",
+      "UrlBanner": "",
+      "recinto_id": 2,
+      "fechas": [
+        {
+          "fecha": "2024-12-25",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": "24000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ],
+          "disponibilidadTotal": 3,
+          "habilitado": 1
+        },
+        {
+          "fecha": "2024-12-26",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": "24000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ],
+          "disponibilidadTotal": 3,
+          "habilitado": 0
+        }
+      ],
+      "alta": 1,
+      "id": 3
     }
   ]
 }
