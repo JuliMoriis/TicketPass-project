@@ -4,14 +4,14 @@ import { map, switchMap, catchError } from "rxjs/operators";
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root', // Esto asegura que el servicio esté disponible en toda la aplicación
+  providedIn: 'root',
 })
 export class SpotifyService {
   private clientId: string = '73aa9d0997c34a3498d9b89d9559a6e0';
   private clientSecret: string = '8a62a32938734c8299cbc4fbf51d4499';
   private tokenUrl: string = 'https://accounts.spotify.com/api/token';
   private baseURL: string = 'https://api.spotify.com/v1';
-  private accessToken: string = ''; // Inicialízalo como una cadena vacía
+  private accessToken: string = '';
 
 
   constructor(private http: HttpClient) {}
@@ -19,16 +19,16 @@ export class SpotifyService {
   private getAccessToken(): Observable<string> {
     const body = new URLSearchParams();
     body.set('grant_type', 'client_credentials');
-  
+
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + btoa(`${this.clientId}:${this.clientSecret}`),
       'Content-Type': 'application/x-www-form-urlencoded'
     });
-  
+
     return this.http.post<any>(this.tokenUrl, body.toString(), { headers }).pipe(
       map(response => {
         this.accessToken = response.access_token;
-        return this.accessToken; 
+        return this.accessToken;
       }),
       catchError(err => {
         console.error('Error al obtener el token de acceso:', err);
@@ -40,7 +40,6 @@ export class SpotifyService {
   getCanciones(artista: string): Observable<any> {
     return this.getAccessToken().pipe(
       switchMap(() => {
-        // Asegúrate de que accessToken no sea null aquí
         if (!this.accessToken) {
           return throwError(() => new Error('Token de acceso no disponible.'));
         }
@@ -48,12 +47,12 @@ export class SpotifyService {
       }),
       catchError(err => {
         console.error('Error al obtener canciones:', err);
-        return of(null); // Retorna null en caso de error
+        return of(null);
       })
     );
   }
-  
-  // Método auxiliar para solicitar las canciones
+
+
   private requestCanciones(artista: string): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.accessToken}`
@@ -62,5 +61,5 @@ export class SpotifyService {
     return this.http.get<any>(url, { headers });
   }
 
-  
+
 }

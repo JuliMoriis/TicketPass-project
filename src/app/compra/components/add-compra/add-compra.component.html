@@ -37,4 +37,8 @@
     <button (click)="comprarEntrada()">Comprar entrada</button>
 
   </fieldset>
+
+  <div *ngIf="mostrarPago && compraCompletaJson">
+    <app-pago [compra]="compraCompletaJson"></app-pago>
+  </div>
 </section>

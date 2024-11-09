@@ -10,11 +10,12 @@ import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from '../../../usuario/interfaces/usuario.interface';
 import { Compra } from '../../interfaces/compra.interface';
 import { CompraService } from '../../../services/compra.service';
+import { PagoComponent } from '../../pages/pago/pago.component';
 
 @Component({
   selector: 'app-add-compra',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterModule],
+  imports: [FormsModule, CommonModule, RouterModule, PagoComponent],
   templateUrl: './add-compra.component.html',
   styleUrl: './add-compra.component.css'
 })
@@ -22,6 +23,10 @@ import { CompraService } from '../../../services/compra.service';
 export class AddCompraComponent implements OnInit {
 
   constructor(private router: Router) { }
+
+  mostrarPago = false ;
+  compraCompletaJson ?: Compra
+
 
   compra: Compra = {
     fechaDeCompra: new Date(),
@@ -120,14 +125,7 @@ export class AddCompraComponent implements OnInit {
   }
 
   comprarEntrada() {
-    this.actualizarStockEntradas()
     this.postCompra()
-    this.editarEvento()
-  }
-
-
-  mostrarMensajeExito() {
-    this.mensaje = '¡Compra exitosa! Gracias por tu compra.';
   }
 
 
@@ -168,9 +166,12 @@ export class AddCompraComponent implements OnInit {
 
   postCompra() {
     this.compraService.postCompras(this.compra).subscribe({
-      next: () => {
-        alert("Gracias por realizar tu compra!")
-        this.router.navigate(["usuarios", this.compra.cliente.idCliente])
+      next: (compraCargada : Compra) => {
+        console.log("compra cargada");
+        this.compraCompletaJson = compraCargada
+        this.mostrarPago = true;
+        this.actualizarStockEntradas()
+        this.editarEvento()
       },
       error: (e: Error) => {
         console.log(e.message);

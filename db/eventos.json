@@ -86,48 +86,48 @@
           "entradas": [
             {
               "nombreSector": "Campo Vip",
-              "disponibles": 15000,
+              "disponibles": 14995,
               "precio": "120000",
               "asientos": []
             },
             {
               "nombreSector": "Campo ",
-              "disponibles": 20000,
+              "disponibles": 19997,
               "precio": "62000",
               "asientos": []
             },
             {
               "nombreSector": "Platea",
-              "disponibles": 10,
+              "disponibles": 3,
               "precio": "90000",
               "asientos": [
                 {
                   "butaca": 1,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 2,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 3,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 4,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 5,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 6,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 7,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 8,
@@ -150,7 +150,7 @@
               "asientos": []
             }
           ],
-          "disponibilidadTotal": 35010,
+          "disponibilidadTotal": 34995,
           "habilitado": 1
         }
       ],
