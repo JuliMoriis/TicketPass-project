@@ -1,15 +1,19 @@
-<section>
-  <ul>
-    @for (evento of listaEventos; track $index){
-    <ol>{{evento.nombreEvento}} </ol>
+<section class="seccion-eventos">
+  <ul class="lista-eventos">
+    @for (evento of listaEventos; track $index) {
+      <li class="item-evento">
+        <span class="nombre-evento">{{ evento.nombreEvento }}</span>
 
-      <button type="button" (click)="cambioAlta(evento)">
-        {{ evento.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
-      </button>
+        <div class="contenedor-botones">
+          <button type="button" class="boton-accion" (click)="cambioAlta(evento)">
+            {{ evento.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
+          </button>
 
-    <button type="button" [routerLink]="['/detalle-evento', userId, evento.id]">Ver Detalle</button>
+          <button type="button" class="boton-detalle" [routerLink]="['/detalle-evento', userId, evento.id]">
+            Ver Detalle
+          </button>
+        </div>
+      </li>
     }
   </ul>
 </section>
-
-
