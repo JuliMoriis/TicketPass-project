@@ -1,0 +1,10 @@
+<section>
+  <ul>
+      @for (evento of listaEventos; track $index){
+          <ol>{{evento.nombreEvento}} </ol>
+
+          <button type="button" [routerLink]="['/detalle-evento', userId, evento.id]">Ver Detalle</button>
+
+        }
+  </ul>
+</section>

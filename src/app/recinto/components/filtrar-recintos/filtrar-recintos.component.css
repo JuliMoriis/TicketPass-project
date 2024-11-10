@@ -1,0 +1,26 @@
+.busqueda {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100; 
+  }
+  
+  .busqueda ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .busqueda li {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .busqueda li:hover {
+    background-color: #f0f0f0;
+  }
+  

@@ -6,6 +6,7 @@ import { RecintoService } from '../../../services/recintos.service';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Autenticacion } from '../../../services/autenticacion.service';
 
 @Component({
   selector: 'app-filtrar-eventos',
@@ -21,6 +22,9 @@ export class FiltrarEventoComponent implements OnInit {
   busqueda: string = '';
   recintos: Recinto[] = [];
 
+  tipoUsuario: number | null = null;
+  eventosClientes : Evento [] = [] //solo los que tienen alta 1
+
   @Input()
   idUsuario: string | null = ""
 
@@ -28,18 +32,28 @@ export class FiltrarEventoComponent implements OnInit {
 
   constructor(
     private eventoService: EventoService,
-    private recintoService: RecintoService
+    private recintoService: RecintoService,
+    private authService: Autenticacion,
   ) {}
 
   ngOnInit(): void {
     this.obtenerEventos();
     this.obtenerRecintos();
+
+    this.authService.userType.subscribe((userType) => {
+      this.tipoUsuario = userType;
+    });
   }
 
   obtenerEventos(): void {
     this.eventoService.getEventos().subscribe((eventos) => {
       this.eventos = eventos;
+      this.eventosCliente(eventos)
     });
+  }
+
+  eventosCliente (eventos: Evento[]) {
+    this.eventosClientes = eventos.filter(evento => evento.alta == 1); 
   }
 
   obtenerRecintos(): void {
@@ -61,15 +75,28 @@ export class FiltrarEventoComponent implements OnInit {
     recintoEncontrado = this.recintos.find((recinto) =>
       recinto.nombreRecinto.toLowerCase().includes(busq)
     );
-  
-    this.resultados = this.eventos.filter((evento) => {
-      return (
-        evento.nombreEvento.toLowerCase().includes(busq) ||
-        evento.artista_banda.toLowerCase().includes(busq) ||
-        (recintoEncontrado && evento.recinto_id === recintoEncontrado.id)
-      );
-    });
-  
+
+    if (this.tipoUsuario==1) //admin (puede ver todos)
+    {
+      this.resultados = this.eventos.filter((evento) => {
+        return (
+          evento.nombreEvento.toLowerCase().includes(busq) ||
+          evento.artista_banda.toLowerCase().includes(busq) ||
+          (recintoEncontrado && evento.recinto_id === recintoEncontrado.id)
+        );
+      });
+    }
+    else //cliente 
+    {
+      this.resultados = this.eventosClientes.filter((evento) => {
+        return (
+          evento.nombreEvento.toLowerCase().includes(busq) ||
+          evento.artista_banda.toLowerCase().includes(busq) ||
+          (recintoEncontrado && evento.recinto_id === recintoEncontrado.id)
+        );
+      });
+    }
+
     this.mostrarResultados = true; 
   }
 

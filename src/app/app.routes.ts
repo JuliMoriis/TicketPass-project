@@ -12,6 +12,9 @@ import { PageRegistroUsuarioComponent } from './usuario/pages/page-registro-usua
 import { PageAddEventoComponent } from './evento/pages/page-add-evento/page-add-evento.component';
 import { PageRecintosListComponent } from './recinto/pages/page-recintos-list/page-recintos-list.component';
 import { PageDetalleComponent } from './recinto/pages/page-detalle/page-detalle.component';
+import { PageVerPerfilComponent } from './usuario/pages/page-ver-perfil/page-ver-perfil.component';
+import { PageListAdminComponent } from './evento/pages/page-list-admin/page-list-admin.component';
+import { ListDeshabilitadosAdminComponent } from './evento/components/list-deshabilitados-admin/list-deshabilitados-admin.component';
 
 
 export const routes: Routes = [
@@ -28,5 +31,8 @@ export const routes: Routes = [
   { path: 'fila/:userId/:idEvento/:fecha', component: ManejoFilaComponent},
   { path: 'recintos', component: PageRecintosListComponent},
   { path: 'recintos/:id', component: PageDetalleComponent},
-  { path: '', redirectTo: '/comprar-entrada', pathMatch: 'full' }
+  { path: 'perfil/:id', component: PageVerPerfilComponent},
+  { path: 'eventos-administrador/:id', component: PageListAdminComponent},
+  { path: '', redirectTo: '/comprar-entrada', pathMatch: 'full' },
+  { path: 'eventos-deshabilitados/:id', component: ListDeshabilitadosAdminComponent}
 ];

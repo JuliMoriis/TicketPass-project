@@ -6,8 +6,11 @@
 <nav>
     <ul>
         <li>
-            <a routerLink="ver-evento">Ver todos los eventos</a>
+            <a routerLink="ver-evento">Eventos habilitados</a>
         </li>
+        <li>
+          <a [routerLink]="['/eventos-administrador', id]">Ver todos los eventos</a>
+      </li>
         <li>
             <a routerLink="/add-eventos">Cargar evento</a>
         </li>

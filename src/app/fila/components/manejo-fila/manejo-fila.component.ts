@@ -112,24 +112,25 @@ export class ManejoFilaComponent implements OnInit {
   }
 
   reproducir() {
-    if (this.cancionSeleccionada && this.audioPlayer) {
+    if (this.cancionSeleccionada && this.cancionSeleccionada.preview_url && this.audioPlayer) {
         const audio: HTMLAudioElement = this.audioPlayer.nativeElement;
-        audio.onended = null; //CANCION TERMINADA
+        audio.onended = null; // CANCION TERMINADA
 
         audio.src = this.cancionSeleccionada.preview_url;
 
         audio.pause();
         audio.currentTime = 0;
 
-        audio.play().then(() => { //reproduce
+        audio.play().then(() => { // reproduce
             console.log('Reproduciendo:', this.cancionSeleccionada.name);
         }).catch(e => console.error('Error al intentar reproducir:', e));
 
-        // Configurar el evento onended
         audio.onended = () => {
             console.log('La canción ha terminado, seleccionando otra...');
             this.seleccionarCancionAleatoria(); 
         };
+    } else {
+        console.error('No hay URL de previsualización disponible para esta canción.');
     }
 }
 

@@ -1,51 +1,139 @@
 {
   "compras": [
     {
-      "fechaDeCompra": "2024-11-08T15:58:19.296Z",
+      "fechaDeCompra": "2024-11-10T00:46:01.290Z",
       "cliente": {
-        "nombre": "Emilia",
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "ricky martin",
+        "fechaEvento": "2024-11-11",
+        "idEvento": 4
+      },
+      "entrada": {
+        "sector": "Platea",
+        "precioUnitario": "30",
+        "butaca": []
+      },
+      "cantidad": "4",
+      "precioTotal": 120,
+      "estado": true,
+      "id": 1
+    },
+    {
+      "fechaDeCompra": "2024-11-10T00:48:43.493Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "ricky martin",
+        "fechaEvento": "2024-11-11",
+        "idEvento": 4
+      },
+      "entrada": {
+        "sector": "Platea",
+        "precioUnitario": "30",
+        "butaca": []
+      },
+      "cantidad": "4",
+      "precioTotal": 120,
+      "estado": true,
+      "id": 2
+    },
+    {
+      "fechaDeCompra": "2024-11-10T00:49:59.998Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "ricky martin",
+        "fechaEvento": "2024-11-11",
+        "idEvento": 4
+      },
+      "entrada": {
+        "sector": "Platea",
+        "precioUnitario": "30",
+        "butaca": []
+      },
+      "cantidad": "2",
+      "precioTotal": 60,
+      "estado": true,
+      "id": 3
+    },
+    {
+      "fechaDeCompra": "2024-11-10T00:53:29.031Z",
+      "cliente": {
+        "nombre": "Emi",
         "email": "m.emiliamaldo@gmail.com",
         "idCliente": 1
       },
       "evento": {
         "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-12-12",
+        "fechaEvento": "2024-11-13",
         "idEvento": 1
       },
       "entrada": {
         "sector": "Platea",
-        "precioUnitario": "500000",
+        "precioUnitario": "90000",
+        "butaca": []
+      },
+      "cantidad": "2",
+      "precioTotal": 180000,
+      "estado": true,
+      "id": 4
+    },
+    {
+      "fechaDeCompra": "2024-11-10T00:56:49.122Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "Love On Tour",
+        "fechaEvento": "2024-11-13",
+        "idEvento": 1
+      },
+      "entrada": {
+        "sector": "Platea",
+        "precioUnitario": "90000",
+        "butaca": []
+      },
+      "cantidad": 1,
+      "precioTotal": 90000,
+      "estado": false,
+      "id": 5
+    },
+    {
+      "fechaDeCompra": "2024-11-10T01:02:01.791Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "sabrina carpenter",
+        "fechaEvento": "2025-06-04",
+        "idEvento": 5
+      },
+      "entrada": {
+        "sector": "Platea",
+        "precioUnitario": "30",
         "butaca": [
           1,
           2
         ]
       },
       "cantidad": "2",
-      "precioTotal": 1000000,
-      "estado": false,
-      "id": 1
-    },
-    {
-      "fechaDeCompra": "2024-11-08T16:02:08.250Z",
-      "cliente": {
-        "nombre": "Emilia",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-12-12",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "Campo Vip",
-        "precioUnitario": "120000",
-        "butaca": []
-      },
-      "cantidad": 1,
-      "precioTotal": 120000,
-      "estado": false,
-      "id": 2
+      "precioTotal": 60,
+      "estado": true,
+      "id": 6
     }
   ]
 }

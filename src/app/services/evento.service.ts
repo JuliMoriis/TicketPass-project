@@ -4,7 +4,7 @@ import { Evento } from '../evento/interfaces/evento.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root', // Asegúrate de que el servicio esté disponible en toda la aplicación
+    providedIn: 'root', 
   })
 
   export class EventoService {

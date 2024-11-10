@@ -10,11 +10,12 @@ import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from '../../../usuario/interfaces/usuario.interface';
 import { Compra } from '../../interfaces/compra.interface';
 import { CompraService } from '../../../services/compra.service';
+import { PagoComponent } from '../../pages/pago/pago.component';
 
 @Component({
   selector: 'app-add-compra',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterModule],
+  imports: [FormsModule, CommonModule, RouterModule, PagoComponent],
   templateUrl: './add-compra.component.html',
   styleUrl: './add-compra.component.css'
 })
@@ -22,6 +23,10 @@ import { CompraService } from '../../../services/compra.service';
 export class AddCompraComponent implements OnInit {
 
   constructor(private router: Router) { }
+
+  mostrarPago = false ;
+  compraCompletaJson ?: Compra
+
 
   compra: Compra = {
     fechaDeCompra: new Date(),
@@ -119,16 +124,16 @@ export class AddCompraComponent implements OnInit {
     this.compra.precioTotal = this.compra.cantidad * this.compra.entrada.precioUnitario;
   }
 
+
+  ////////////////////////////////////////////////////////////////
+
   comprarEntrada() {
     this.actualizarStockEntradas()
-    this.postCompra()
     this.editarEvento()
+    this.postCompra()
   }
 
-
-  mostrarMensajeExito() {
-    this.mensaje = '¡Compra exitosa! Gracias por tu compra.';
-  }
+  /////////////////////////////////////////////////////////////
 
 
   actualizarStockEntradas() {
@@ -159,18 +164,20 @@ export class AddCompraComponent implements OnInit {
     entrada.asientos.forEach(asiento => {
 
       if (asiento.disponibilidad == true && i <= cantidad) {
-        this.compra.entrada.butaca?.push(asiento.butaca)
+        this.compra.entrada.butaca?.push(asiento.butaca) //ESTO NO FUNCIONA
         asiento.disponibilidad = false;
         i++;
       }
+
     });
   }
 
   postCompra() {
     this.compraService.postCompras(this.compra).subscribe({
-      next: () => {
-        alert("Gracias por realizar tu compra!")
-        this.router.navigate(["usuarios", this.compra.cliente.idCliente])
+      next: (compraCargada : Compra) => {
+        console.log("compra cargada");
+        this.compraCompletaJson = compraCargada
+        this.mostrarPago = true;
       },
       error: (e: Error) => {
         console.log(e.message);

@@ -79,6 +79,7 @@
         }
       ],
       "urlMapaSectores": "url mapa",
+      "alta" : true,
       "id": 1
     },
     {
@@ -114,6 +115,7 @@
         }
       ],
       "urlMapaSectores": "url2",
+       "alta" : true,
       "id": 2
     }
   ]

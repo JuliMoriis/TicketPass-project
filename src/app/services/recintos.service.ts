@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Recinto } from '../recinto/interfaces/recinto.interface';
 
 @Injectable({
-  providedIn: 'root', // Asegúrate de que el servicio esté disponible en toda la aplicación
+  providedIn: 'root', 
 })
 
 export class RecintoService {

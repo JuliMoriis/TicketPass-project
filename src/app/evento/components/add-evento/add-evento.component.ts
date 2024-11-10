@@ -84,7 +84,7 @@ export class AddEventoComponent implements OnInit{
     this.recintosService.getRecintos().subscribe(
       {
         next: (recintos: Recinto[])=>{
-          this.listadoRecintos= recintos;
+          this.listadoRecintos = recintos.filter(recinto => recinto.alta == true)
         },
         error: (err)=> {
           console.error('Error al levantar recintos:', err);
@@ -108,12 +108,12 @@ export class AddEventoComponent implements OnInit{
 
     this.sectoresRecinto = recintoEncontrado.sectores;
 
-    // Encuentra la última fecha añadida
+    // Encuentra la última fecha
     const ultimaFecha = this.evento.fechas[this.evento.fechas.length - 1];
 
     if (ultimaFecha) {
       ultimaFecha.disponibilidadTotal = recintoEncontrado.capacidadTotal;
-      ultimaFecha.entradas = []; // Limpia las entradas anteriores
+      ultimaFecha.entradas = [];
       this.rellenarEntradas(this.sectoresRecinto, ultimaFecha);
     } else {
       console.log("No hay una fecha actual para actualizar");
@@ -130,11 +130,11 @@ rellenarEntradas(sectores: Sector[], fechaActual: any) {
     const nuevaEntrada = {
       nombreSector: sector.nombreSector,
       disponibles: sector.capacidad,
-      precio: 0, // Puedes ajustar esto según tu lógica
+      precio: 0,
       asientos: sector.numerado ? sector.asientos : []
     };
 
-    // Añade la nueva entrada a la fecha actual
+
     fechaActual.entradas.push(nuevaEntrada);
   }
 }
@@ -188,14 +188,16 @@ rellenarEntradas(sectores: Sector[], fechaActual: any) {
   {
 
     if (formulario.invalid)return;
-    
+
     let entradasCargadas : Entrada[] = [];
+    let disponibilidad : number = 0
 
     //rellena todas las fechas con las mismas entradas
     for (const fecha of this.evento.fechas) {
       if(fecha.entradas.length >0)
       {
         entradasCargadas = fecha.entradas;
+        disponibilidad = fecha.disponibilidadTotal;
       }
     }
 
@@ -203,6 +205,7 @@ rellenarEntradas(sectores: Sector[], fechaActual: any) {
       if(fecha.entradas.length === 0)
       {
         fecha.entradas = entradasCargadas;
+        fecha.disponibilidadTotal = disponibilidad;
       }
     }
 

@@ -12,28 +12,24 @@ export class Autenticacion {
 
   constructor() {}
 
-  // Obtener el estado de 'isLoggedIn' desde localStorage
   private getIsLoggedIn(): boolean {
     return localStorage.getItem('isLoggedIn') === 'true';
   }
 
-  // Obtener el tipo de usuario desde localStorage
   private getUserType(): number | null {
     const userType = localStorage.getItem('userType');
     return userType ? +userType : null;
   }
 
-  // Obtener el estado de 'isLoggedIn' como un observable
   get isLoggedIn() {
     return this.isLoggedInSubject.asObservable();
   }
 
-  // Obtener el tipo de usuario como un observable
   get userType() {
     return this.userTypeSubject.asObservable();
   }
 
-  // Actualizar el estado de sesión
+
   login(userType: number, idUsuario: string) {
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('userType', userType.toString());
@@ -42,7 +38,6 @@ export class Autenticacion {
     this.userIdSubject.next(idUsuario);
   }
 
-  // Cerrar sesión
   logout() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userType');

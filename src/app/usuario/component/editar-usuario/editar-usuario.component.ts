@@ -1,23 +1,19 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import {Router, RouterModule} from '@angular/router';
-import { UsuarioService } from '../../../services/usuario.service';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { Usuario } from '../../interfaces/usuario.interface';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UsuarioService } from '../../../services/usuario.service';
 import { CommonModule } from '@angular/common';
 
-
-
 @Component({
-  selector: 'app-add-usuario',
+  selector: 'app-editar-usuario',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule, CommonModule],
-  templateUrl: './add-usuario.component.html',
-  styleUrl: './add-usuario.component.css'
+  imports: [ReactiveFormsModule, CommonModule],
+  templateUrl: './editar-usuario.component.html',
+  styleUrl: './editar-usuario.component.css'
 })
-export class AddUsuarioComponent implements OnInit{
+export class EditarUsuarioComponent implements OnInit{
 
-  constructor(private router: Router){}
-
+  @Input()
   usuarioRecibido?: Usuario
 
   nombresUsuario: string[] = [];
@@ -28,6 +24,7 @@ export class AddUsuarioComponent implements OnInit{
   ngOnInit(): void {
       this.listarNombreUsuario();
       console.log(this.nombresUsuario);
+      
       if(this.usuarioRecibido)
       {
         this.formularioUsuario.setValue({
@@ -85,31 +82,24 @@ export class AddUsuarioComponent implements OnInit{
   })
 
 
-  guardarUsuarioJSON(usuario: Usuario) {
-    this.usuariosService.postUsuario(usuario).subscribe({
-      next: () => {
-        console.log('Usuario agregado exitosamente');
-      },
-      error: (err) => {
-        alert('Error al agregar el usuario: ' + err.message);
-        console.error('Error:', err);
-      }
-    });
-  }
-
+ 
   editarUsuario (usuario: Usuario){
-    if (usuario.id)
-    this.usuariosService.putUsuario(usuario.id, usuario).subscribe({
-      next : ()=> {
-       alert("Usuario editado con exito")
-      }, 
-      error: (e:Error)=> {
-        console.log(e.message);
-      }
-    })
+    if (this.usuarioRecibido){
+
+      if(this.usuarioRecibido.id)
+      this.usuariosService.putUsuario(this.usuarioRecibido.id, usuario).subscribe({
+        next : ()=> {
+         alert("Usuario editado con exito")
+        }, 
+        error: (e:Error)=> {
+          console.log(e.message);
+        }
+      })
+    }
+     
+ 
   }
 
-  // función para agregar el usuario
   addUsuario() {
     if (this.formularioUsuario.invalid) {
       console.log('Formulario inválido');
@@ -119,27 +109,17 @@ export class AddUsuarioComponent implements OnInit{
     const usuario: Usuario = this.formularioUsuario.getRawValue();
     const usuarioEncontrado = this.nombresUsuario.find(nombre => nombre == usuario.nombreUsuario);
     console.log(usuarioEncontrado);
-    if (usuarioEncontrado)
+    if (usuarioEncontrado && usuarioEncontrado!=this.usuarioRecibido?.nombreUsuario)
     {
       alert("El nombre de usuario ya esta en uso!");
-      //ver en css poner en rojo el campo usuario
     }
     else
     {
-      if (this.usuarioRecibido)
-      {
         this.editarUsuario(usuario)
-      }
-      else
-      {
-        alert('usuario registrado con exito');
-        this.guardarUsuarioJSON(usuario);
-        this.router.navigate(['/'])
-      }
-    
     }
 
   }
+
 
 
 }

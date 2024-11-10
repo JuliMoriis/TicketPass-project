@@ -11,7 +11,7 @@
           <ul>
             <li><a [routerLink]="['/administrador' , idUsuario]">Menu</a></li>
             <li><a routerLink="add-eventos">Cargar evento</a></li>
-            <li><a href="#opcion2">Ver eventos registrados</a></li>
+            <li><a [routerLink]="['/eventos-administrador', idUsuario]">Ver eventos registrados</a></li>
             <li><a routerLink="recintos">Ver recintos</a></li>
             <li><a href="#opcion3">Ver compras</a></li>
           </ul>
@@ -22,9 +22,9 @@
     </div>
 
     <div *ngIf="tipoUsuario === 2">
-      <!-- Menú para el Usuario -->
+      <!-- Menú para el Cliente -->
       <nav>
-        <a href="#">Mi perfil</a>
+        <a [routerLink]="['/perfil' , idUsuario]" >Mi perfil</a>
         <a href="#">Mis Entradas</a>
         <a href="#" (click)="cerrarSesion()">Cerrar sesión</a>
       </nav>

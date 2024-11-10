@@ -1,7 +1,10 @@
 <body>
     <div class="wrapper">
         <form [formGroup]="formularioUsuario"(ngSubmit)="addUsuario()">    
-            <h2>Registrarse</h2>
+            <div *ngIf="!usuarioRecibido">
+                <h2>Registrarse</h2>
+            </div>
+     
             <h4>Informacion del Usuario</h4>
             <div class="input-field">
                 <input type="text" id="nombreUsuario" formControlName = "nombre" />
