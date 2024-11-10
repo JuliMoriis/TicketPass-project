@@ -1,0 +1,10 @@
+<section>
+  @for (usuario of listaUsuarios; track $index) {
+    @if(usuario.tipo === 2){
+      <li>
+        {{usuario.nombreUsuario}}
+      </li>
+      <button type="button" [routerLink]="['/ver-detalle-usuario', adminId, usuario.id]">Ver detalle</button>
+    }
+  }
+</section>

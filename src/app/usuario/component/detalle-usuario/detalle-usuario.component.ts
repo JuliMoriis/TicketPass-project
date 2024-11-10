@@ -22,10 +22,12 @@ export class DetalleUsuarioComponent {
 
   usuario?: Usuario
   userId: string | null = null
+  adminId: string | null = null;
 
   ngOnInit(): void {
 
     this.active.paramMap.subscribe(param => {
+      this.adminId = param.get("adminId");
       const userId = param.get("id");
 
       this.userService.getUsuariosById(userId).subscribe({
@@ -37,7 +39,7 @@ export class DetalleUsuarioComponent {
         }
       })
 
-  }) 
+  })
 }
 
 mostrarEditar ()
