@@ -1,32 +1,39 @@
 @if (recinto) {
+  <div class="divreg">
+    <h2>{{recinto.nombreRecinto}}</h2>
+  </div>
 
-  <h2>{{recinto.nombreRecinto}}</h2>
+   <img class="containerImgRecinto" *ngIf="recinto.urlImg" [src]="recinto.urlImg" alt="Imagen del recinto" > 
 
-  <p>Deberia ir la imagen por algun lado</p>
-
-  <ul>
-    <li>Direccion:
-      <ul>
-        <li>  {{recinto.direccion.calle}}</li>
-        <li>  {{recinto.direccion.numero}}</li>
-        <li>  {{recinto.direccion.pais}}</li>
-      </ul>
-    </li>
-    <li>Sectores:
-      <ol>
-       <div *ngFor="let sector of recinto.sectores">
-        <li>{{sector.nombreSector}}</li>
-        <li>Capacidad: {{sector.capacidad}}</li>
-        <li>Numerado? {{sector.numerado}}</li>
+ <div class="wrapper">
+  
+    <h4 class="h4direc">Direccion</h4>
+       <div class="detalles" >
+        {{recinto.direccion.calle}}-
+        {{recinto.direccion.numero}},
+        {{recinto.direccion.pais}}
+       </div>
+  
+   
+    <h4 class="h4direc">Sectores</h4>
+    
+       <div class="detalles" *ngFor="let sector of recinto.sectores">
+        <h5>{{sector.nombreSector}}</h5>
+        Capacidad {{sector.capacidad}} -
+        Numerado: {{sector.numerado}}
         </div>
-      </ol>
-    </li>
-  </ul>
-
+    
+   
+  
+ </div>
+ 
+<div class="botonContainer">
   <button (click)="mostrarForm()">Editar</button>
   <div *ngIf="mostrarEditar">
     <h3>Editar recinto</h3>
     <app-add-recinto [recintoRecibido]="recinto"></app-add-recinto>
   </div>
+</div>
+ 
 
 }
