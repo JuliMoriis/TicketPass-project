@@ -3,37 +3,27 @@
     <h2>{{recinto.nombreRecinto}}</h2>
   </div>
 
-   <img class="containerImgRecinto" *ngIf="recinto.urlImg" [src]="recinto.urlImg" alt="Imagen del recinto" > 
+  <img class="containerImgRecinto" *ngIf="recinto.urlImg" [src]="recinto.urlImg" alt="Imagen del recinto">
 
- <div class="wrapper">
-  
-    <h4 class="h4direc">Direccion</h4>
-       <div class="detalles" >
-        {{recinto.direccion.calle}}-
-        {{recinto.direccion.numero}},
-        {{recinto.direccion.pais}}
-       </div>
-  
-   
-    <h4 class="h4direc">Sectores</h4>
-    
-       <div class="detalles" *ngFor="let sector of recinto.sectores">
-        <h5>{{sector.nombreSector}}</h5>
-        Capacidad {{sector.capacidad}} -
-        Numerado: {{sector.numerado}}
-        </div>
-    
-   
-  
- </div>
- 
-<div class="botonContainer">
-  <button (click)="mostrarForm()">Editar</button>
-  <div *ngIf="mostrarEditar">
-    <h3>Editar recinto</h3>
-    <app-add-recinto [recintoRecibido]="recinto"></app-add-recinto>
+  <!-- Contenedor con estilo para los datos -->
+  <div class="wrapper datos-recinto">
+    <h4 class="titulo-seccion">Dirección</h4>
+    <div class="detalles">
+      {{recinto.direccion.calle}}- {{recinto.direccion.numero}}, {{recinto.direccion.pais}}
+    </div>
+
+    <h4 class="titulo-seccion">Sectores</h4>
+    <div *ngFor="let sector of recinto.sectores" class="detalles">
+      <h5>{{sector.nombreSector}}</h5>
+      Capacidad {{sector.capacidad}} - Numerado: {{sector.numerado}}
+    </div>
   </div>
-</div>
- 
 
+  <div class="botonContainer">
+    <button (click)="mostrarForm()">Editar</button>
+    <div *ngIf="mostrarEditar">
+      <h3>Editar recinto</h3>
+      <app-add-recinto [recintoRecibido]="recinto"></app-add-recinto>
+    </div>
+  </div>
 }
