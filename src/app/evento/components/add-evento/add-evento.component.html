@@ -12,11 +12,11 @@
       <label for="bannerEvento"></label>
       <input class="input-url" type="text" id="bannerEvento" name="bannerEvento" [(ngModel)]="evento.UrlBanner" [ngModelOptions]="{standalone: true}"
         placeholder="url/banner.com" required>
-        <div *ngIf="formulario.controls['bannerEvento']?.invalid && formulario.controls['bannerEvento']?.touched ">
+        <div class="divAvisos" *ngIf="formulario.controls['bannerEvento']?.invalid && formulario.controls['bannerEvento']?.touched ">
           Debe completar el campo
         </div>
     </div>
-  </div>
+  </div> 
 
   <div class="fielset-container">
     <div class="flex-container">
@@ -27,7 +27,7 @@
         <div class="input-field">
           <input type="text" id="nombreEvento" name="nombreEvento" [(ngModel)]="evento.nombreEvento" [ngModelOptions]="{standalone: true}"
           required>
-          <div *ngIf="formulario.controls['nombreEvento']?.invalid && formulario.controls['nombreEvento']?.touched ">
+          <div class="divAvisos" *ngIf="formulario.controls['nombreEvento']?.invalid && formulario.controls['nombreEvento']?.touched ">
             Debe completar el campo
           </div>
           <label for="nombreEvento">Nombre del evento</label>
@@ -36,7 +36,7 @@
         <div  class="input-field">
           <input type="text" id="nombreArtista-Banda" name="nombreArtista-Banda" [(ngModel)]="evento.artista_banda"
           [ngModelOptions]="{standalone: true}" required>
-          <div *ngIf="formulario.controls['nombreArtista-Banda']?.invalid && formulario.controls['nombreArtista-Banda']?.touched ">
+          <div class="divAvisos" *ngIf="formulario.controls['nombreArtista-Banda']?.invalid && formulario.controls['nombreArtista-Banda']?.touched ">
             Debe completar el campo
           </div>
           <label for="nombreArtista-Banda">Artista/Banda</label>
@@ -45,7 +45,7 @@
       <div  class="input-field">
         <input type="time" id="duracion" name="duracion" [(ngModel)]="evento.duracion" [ngModelOptions]="{standalone: true}" required>
 
-        <div *ngIf="formulario.controls['duracion']?.invalid && formulario.controls['duracion']?.touched ">
+        <div class="divAvisos" *ngIf="formulario.controls['duracion']?.invalid && formulario.controls['duracion']?.touched ">
           Debe completar el campo
         </div>
         <label for="duracion">Duracion</label>
@@ -60,7 +60,7 @@
           <br>
           <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)" [disabled]="!fechaAgregada || eventoIn" required>
 
-            <div *ngIf="formulario.controls['seleccionRecinto']?.invalid && formulario.controls['seleccionRecinto']?.touched ">
+            <div class="divAvisos" *ngIf="formulario.controls['seleccionRecinto']?.invalid && formulario.controls['seleccionRecinto']?.touched ">
               Debe seleccionar un recinto
             </div>
 
@@ -87,7 +87,7 @@
                   <input type="text" id="precioSector-{{ entrada.nombreSector }}" name="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
                   [ngModelOptions]="{standalone: true}" required>
 
-                  <div *ngIf="formulario.controls['precioSector-{{ entrada.nombreSector }}']?.invalid && formulario.controls['precioSector-{{ entrada.nombreSector }}']?.touched ">
+                  <div class="divAvisos" *ngIf="formulario.controls['precioSector-{{ entrada.nombreSector }}']?.invalid && formulario.controls['precioSector-{{ entrada.nombreSector }}']?.touched ">
                     Debe completar el campo
                   </div>
                   <label for="precioSector-{{ entrada.nombreSector }}">$</label>

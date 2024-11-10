@@ -5,7 +5,7 @@
    
     <div class="input-field">
       <input type="text" id="nombreRecinto" name="nombreRecinto" [(ngModel)]="recinto.nombreRecinto" required>
-      <div *ngIf="formulario.controls['nombreRecinto']?.invalid && formulario.controls['nombreRecinto']?.touched">
+      <div class="divAvisos" *ngIf="formulario.controls['nombreRecinto']?.invalid && formulario.controls['nombreRecinto']?.touched">
         Debe completar este campo
       </div>
       <label for="nombreRecinto">Nombre del Recinto</label>
@@ -14,7 +14,7 @@
   
     <div class="input-field">
       <input type="text" id="calle" name="calle" [(ngModel)]="recinto.direccion.calle" required>
-      <div *ngIf="formulario.controls['calle']?.invalid && formulario.controls['calle']?.touched">
+      <div class="divAvisos" *ngIf="formulario.controls['calle']?.invalid && formulario.controls['calle']?.touched">
         Debe completar este campo
       </div>
       <label for="calle">Calle</label>
@@ -22,7 +22,7 @@
     
     <div class="input-field">
      <input type="number" id="numero" name="numero" [(ngModel)]="recinto.direccion.numero" required>
-     <div *ngIf="formulario.controls['numero']?.invalid && formulario.controls['numero']?.touched ">
+     <div class="divAvisos" *ngIf="formulario.controls['numero']?.invalid && formulario.controls['numero']?.touched ">
       Debe completar este campo
      </div>
      <label for="numero">Numero</label>
@@ -30,7 +30,7 @@
 
     <div class="input-field">
       <input type="text" id="ciudad" name="ciudad" [(ngModel)]="recinto.direccion.ciudad" required>
-      <div *ngIf="formulario.controls['ciudad']?.invalid && formulario.controls['ciudad']?.touched">
+      <div class="divAvisos" *ngIf="formulario.controls['ciudad']?.invalid && formulario.controls['ciudad']?.touched">
         Debe completar este campo
       </div>
       <label for="ciudad">Ciudad</label>
@@ -38,7 +38,7 @@
 
     <div  class="input-field">
       <input type="text" id="codigoPostal" name="codigoPostal" [(ngModel)]="recinto.direccion.codigoPostal" required>
-      <div *ngIf="formulario.controls['codigoPostal']?.invalid && formulario.controls['codigoPostal']?.touched">
+      <div class="divAvisos" *ngIf="formulario.controls['codigoPostal']?.invalid && formulario.controls['codigoPostal']?.touched">
         Debe completar este campo
       </div>
       <label for="codigoPostal">Código Postal</label>
@@ -46,7 +46,7 @@
 
     <div  class="input-field">
       <input type="text" id="pais" name="pais" [(ngModel)]="recinto.direccion.pais" required>
-      <div *ngIf="formulario.controls['pais']?.invalid && formulario.controls['pais']?.touched">
+      <div class="divAvisos" *ngIf="formulario.controls['pais']?.invalid && formulario.controls['pais']?.touched">
         Debe completar este campo
       </div>
       <label for="pais">País</label>
@@ -54,8 +54,8 @@
 
 
     <div  class="input-field">    
-      <input type="text" id="urlImg" name="urlImg" [(ngModel)]="recinto.urlImg" required>
-      <div *ngIf="formulario.controls['urlImg']?.invalid && formulario.controls['urlImg']?.touched">
+      <input type="url" id="urlImg" name="urlImg" [(ngModel)]="recinto.urlImg" required>
+      <div class="divAvisos" *ngIf="formulario.controls['urlImg']?.invalid && formulario.controls['urlImg']?.touched">
         Debe completar este campo
       </div>
       <label for="urlImg">URL de la Imagen del Recinto</label>
@@ -63,8 +63,8 @@
 
 
     <div  class="input-field">     
-      <input type="text" id="urlMapaSectores" name="urlMapaSectores" [(ngModel)]="recinto.urlMapaSectores" required>
-      <div *ngIf="formulario.controls['urlMapaSectores']?.invalid && formulario.controls['urlMapaSectores']?.touched">
+      <input type="url" id="urlMapaSectores" name="urlMapaSectores" [(ngModel)]="recinto.urlMapaSectores" required>
+      <div class="divAvisos" *ngIf="formulario.controls['urlMapaSectores']?.invalid && formulario.controls['urlMapaSectores']?.touched">
         Debe completar este campo
       </div>
       <label for="urlMapaSectores">URL del Mapa de Sectores</label>
@@ -72,7 +72,7 @@
 
 <div class="input-field">
   <input type="text" id="nombreSector" name="nombreSector" [(ngModel)]="sector.nombreSector" required >
-  <div *ngIf="formulario.controls['nombreSector']?.invalid && formulario.controls['nombreSector']?.touched ">
+  <div class="divAvisos" *ngIf="formulario.controls['nombreSector']?.invalid && formulario.controls['nombreSector']?.touched ">
     Debe completar este campo
   </div>
   <label for="nombreSector">Nombre del Sector</label>
@@ -81,7 +81,7 @@
     
      <div class="input-field" >
       <input type="number" id="capacidad" name="capacidad" [(ngModel)]="sector.capacidad" required>
-      <div *ngIf="formulario.controls['capacidad']?.invalid && formulario.controls['capacidad']?.touched">
+      <div class="divAvisos" *ngIf="formulario.controls['capacidad']?.invalid && formulario.controls['capacidad']?.touched">
         Debe completar este campo
       </div>
       <label for="capacidad">Capacidad</label>
