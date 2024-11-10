@@ -1,26 +1,31 @@
+@if (usuario) {
+  <section class="seccion-perfil">
+    <div class="perfil-header">
+      <h2 class="titulo-perfil">{{usuario.nombre}} {{usuario.apellido}}</h2>
+      <p class="subtitulo-perfil">Bienvenido a tu perfil</p>
+    </div>
 
-@if (usuario){
-    <h2>{{usuario.nombre}} {{usuario.apellido}}</h2>
-<fieldset>
-    <ul>
-        <li>Nombre de usuario: {{usuario.nombreUsuario}}</li>
-        <li>Telefono: {{usuario.telefono}}</li>
-        <li>Mail: {{usuario.email}}</li>
-        <li>Direccion: </li>
-        <ul>
+    <fieldset class="informacion-perfil">
+      <ul class="lista-perfil">
+        <li class="detalle"><strong>Nombre de usuario:</strong> {{usuario.nombreUsuario}}</li>
+        <li class="detalle"><strong>Teléfono:</strong> {{usuario.telefono}}</li>
+        <li class="detalle"><strong>Email:</strong> {{usuario.email}}</li>
+        <li class="detalle"><strong>Dirección:</strong>
+          <ul class="direccion">
             <li>{{usuario.direccion.calle}} {{usuario.direccion.numero}}</li>
             <li>{{usuario.direccion.ciudad}}, {{usuario.direccion.pais}}</li>
-        </ul>
-    </ul>
+          </ul>
+        </li>
+      </ul>
+    </fieldset>
 
-</fieldset>
+    <div class="acciones">
+      <button class="boton-editar" type="button" (click)="mostrarEditar()">Editar Perfil</button>
+    </div>
 
-<button type="button" (click)="mostrarEditar()">Editar Perfil</button>
-
-<div *ngIf="abrirForm">
-    <h3>Editar perfil</h3>
-    <app-editar-usuario [usuarioRecibido]="usuario"></app-editar-usuario>
-</div>
+    <div *ngIf="abrirForm" class="formulario-editar">
+      <h3 class="titulo-editar">Editar Perfil</h3>
+      <app-editar-usuario [usuarioRecibido]="usuario"></app-editar-usuario>
+    </div>
+  </section>
 }
-
-

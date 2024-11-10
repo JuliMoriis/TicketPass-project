@@ -154,7 +154,7 @@
           "habilitado": 1
         }
       ],
-      "alta": 1,
+      "alta": 0,
       "id": 1
     },
     {
@@ -978,10 +978,735 @@
           "entradas": [],
           "disponibilidadTotal": 0,
           "habilitado": 0
+        },
+        {
+          "fecha": "0555-05-05",
+          "hora": "05:55",
+          "entradas": [],
+          "disponibilidadTotal": 0,
+          "habilitado": 0
         }
       ],
       "alta": 0,
       "id": 9
+    },
+    {
+      "nombreEvento": "NUEVO",
+      "artista_banda": "NUEVO",
+      "duracion": "10:00",
+      "UrlBanner": "33333",
+      "recinto_id": 2,
+      "fechas": [
+        {
+          "fecha": "0333-03-31",
+          "hora": "03:33",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": "03",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 10,
+              "precio": "0333",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 11,
+              "precio": "0333",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector probando",
+              "disponibles": 12,
+              "precio": "0333",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 36,
+          "habilitado": 0
+        },
+        {
+          "fecha": "0222-02-22",
+          "hora": "22:22",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": 0,
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 10,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 11,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector probando",
+              "disponibles": 12,
+              "precio": 0,
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 36,
+          "habilitado": 0
+        },
+        {
+          "fecha": "0055-05-05",
+          "hora": "05:55",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": 0,
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 10,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 11,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector probando",
+              "disponibles": 12,
+              "precio": 0,
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 36,
+          "habilitado": 0
+        },
+        {
+          "fecha": "0333-03-31",
+          "hora": "03:33",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": 0,
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 10,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 11,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector probando",
+              "disponibles": 12,
+              "precio": 0,
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 36,
+          "habilitado": 0
+        }
+      ],
+      "alta": 0,
+      "id": 10
+    },
+    {
+      "nombreEvento": "VER PRECIOP",
+      "artista_banda": "4444",
+      "duracion": "04:44",
+      "UrlBanner": "77777777777777",
+      "recinto_id": 2,
+      "fechas": [
+        {
+          "fecha": "0565-06-05",
+          "hora": "06:59",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": "8888888",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 10,
+              "precio": "1111111",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 11,
+              "precio": "1111111111",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector probando",
+              "disponibles": 12,
+              "precio": "444444444444",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 36,
+          "habilitado": 0
+        }
+      ],
+      "alta": 0,
+      "id": 11
+    },
+    {
+      "nombreEvento": "EVENTO EMILIA",
+      "artista_banda": "EMILIA",
+      "duracion": "02:00",
+      "UrlBanner": "DDDDD",
+      "recinto_id": 2,
+      "fechas": [
+        {
+          "fecha": "2024-11-11",
+          "hora": "03:33",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": "10",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 10,
+              "precio": "20",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 11,
+              "precio": "30",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector probando",
+              "disponibles": 12,
+              "precio": "40",
+              "asientos": []
+            },
+            {
+              "nombreSector": "VER SECTOR",
+              "disponibles": 3,
+              "precio": "50",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 39,
+          "habilitado": 0
+        },
+        {
+          "fecha": "2024-11-12",
+          "hora": "22:22",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": 0,
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 10,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 11,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector probando",
+              "disponibles": 12,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "VER SECTOR",
+              "disponibles": 3,
+              "precio": 0,
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 39,
+          "habilitado": 0
+        },
+        {
+          "fecha": "2025-06-06",
+          "hora": "04:00",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": 0,
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 10,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 11,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector probando",
+              "disponibles": 12,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "VER SECTOR",
+              "disponibles": 3,
+              "precio": 0,
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 39,
+          "habilitado": 0
+        }
+      ],
+      "alta": 0,
+      "id": 12
+    },
+    {
+      "nombreEvento": "evento funciona",
+      "artista_banda": "evento",
+      "duracion": "04:33",
+      "UrlBanner": "aaaaaaaaaaaaaaaa",
+      "recinto_id": 3,
+      "fechas": [
+        {
+          "fecha": "0333-03-31",
+          "hora": "03:33",
+          "entradas": [
+            {
+              "nombreSector": "sector 33",
+              "disponibles": 5,
+              "precio": "1",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector nuevo ",
+              "disponibles": 44,
+              "precio": "2",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector AGREGADO",
+              "disponibles": 2,
+              "precio": "3",
+              "asientos": []
+            },
+            {
+              "nombreSector": "SECTORRRRRRRR",
+              "disponibles": 2,
+              "precio": "4",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 53,
+          "habilitado": 0
+        },
+        {
+          "fecha": "11111-11-11",
+          "hora": "22:22",
+          "entradas": [
+            {
+              "nombreSector": "sector 33",
+              "disponibles": 5,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector nuevo ",
+              "disponibles": 44,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector AGREGADO",
+              "disponibles": 2,
+              "precio": 0,
+              "asientos": []
+            },
+            {
+              "nombreSector": "SECTORRRRRRRR",
+              "disponibles": 2,
+              "precio": 0,
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 53,
+          "habilitado": 0
+        }
+      ],
+      "alta": 0,
+      "id": 13
+    },
+    {
+      "nombreEvento": "EMILIA MALDONADO",
+      "artista_banda": "EMILIA MALDONAOD",
+      "duracion": "01:00",
+      "UrlBanner": "AAAAAAAAAAAAA",
+      "recinto_id": 3,
+      "fechas": [
+        {
+          "fecha": "2024-11-11",
+          "hora": "01:00",
+          "entradas": [
+            {
+              "nombreSector": "sector 33",
+              "disponibles": 5,
+              "precio": "1",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector nuevo ",
+              "disponibles": 44,
+              "precio": "2",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector AGREGADO",
+              "disponibles": 2,
+              "precio": "3",
+              "asientos": []
+            },
+            {
+              "nombreSector": "SECTORRRRRRRR",
+              "disponibles": 2,
+              "precio": "4",
+              "asientos": []
+            },
+            {
+              "nombreSector": "MALDONADO",
+              "disponibles": 2,
+              "precio": "5",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 55,
+          "habilitado": 0
+        },
+        {
+          "fecha": "2024-11-12",
+          "hora": "11:11",
+          "entradas": [
+            {
+              "nombreSector": "sector 33",
+              "disponibles": 5,
+              "precio": "1",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector nuevo ",
+              "disponibles": 44,
+              "precio": "2",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector AGREGADO",
+              "disponibles": 2,
+              "precio": "3",
+              "asientos": []
+            },
+            {
+              "nombreSector": "SECTORRRRRRRR",
+              "disponibles": 2,
+              "precio": "4",
+              "asientos": []
+            },
+            {
+              "nombreSector": "MALDONADO",
+              "disponibles": 2,
+              "precio": "5",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 55,
+          "habilitado": 0
+        }
+      ],
+      "alta": 0,
+      "id": 14
+    },
+    {
+      "nombreEvento": "conan gray",
+      "artista_banda": "conan gray",
+      "duracion": "01:30",
+      "UrlBanner": "conan",
+      "recinto_id": 17,
+      "fechas": [
+        {
+          "fecha": "2025-10-02",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "campo vip",
+              "disponibles": 18,
+              "precio": "87000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "campo",
+              "disponibles": 40,
+              "precio": "50000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "platea",
+              "disponibles": 10,
+              "precio": "30000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ],
+          "disponibilidadTotal": 70,
+          "habilitado": 1
+        },
+        {
+          "fecha": "2025-10-03",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "campo vip",
+              "disponibles": 20,
+              "precio": "87000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "campo",
+              "disponibles": 40,
+              "precio": "50000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "platea",
+              "disponibles": 10,
+              "precio": "30000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ],
+          "disponibilidadTotal": 70,
+          "habilitado": 0
+        }
+      ],
+      "alta": 1,
+      "id": 15
     }
   ]
 }

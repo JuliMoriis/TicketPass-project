@@ -84,6 +84,7 @@ export class AddRecintoComponent implements OnInit {
   }
 
   agregarSectorEdit() {
+      this.crearButacas(this.sector)
       this.recintoRecibido?.sectores.push(this.sector);
 
       this.sector = {
@@ -137,7 +138,9 @@ export class AddRecintoComponent implements OnInit {
     else
     {
       this.recinto.sectores = this.sectoresTemp;
+
       for (let sector of this.recinto.sectores) {
+
         if (!sector.nombreSector || sector.capacidad <= 0) {
           alert('Por favor, completa al menos un sector.');
           return;
@@ -145,15 +148,16 @@ export class AddRecintoComponent implements OnInit {
 
         console.log("encontro un sector");
 
-
-            this.crearButacas(sector);
-            this.recinto.capacidadTotal = this.capacidadTotalCalculo()
-            this.postRecinto()
-            alert('Recinto agregado con exito')
+        this.crearButacas(sector);
+   
       }
+
+      this.recinto.capacidadTotal = this.capacidadTotalCalculo()
+      this.postRecinto()
+      
     }
 
-  }
+}
 
   postRecinto() {
     this.recintoService.postRecintos(this.recinto).subscribe(
