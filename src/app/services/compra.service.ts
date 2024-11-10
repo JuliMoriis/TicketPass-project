@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Compra } from '../compra/interfaces/compra.interface';
 
 @Injectable({
-    providedIn: 'root', 
+    providedIn: 'root',
   })
 
   export class CompraService {
@@ -21,6 +21,10 @@ import { Compra } from '../compra/interfaces/compra.interface';
 
     putCompra (id: string | null, compra: Compra): Observable<Compra>{
       return this.http.put<Compra>(`${this.urlBase}/${id}`, compra)
+    }
+
+    getCompraById(id: string | null): Observable<Compra> {
+      return this.http.get<Compra>(`${this.urlBase}/${id}`);
     }
 
   }
