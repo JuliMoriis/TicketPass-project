@@ -1,0 +1,61 @@
+.usuarios-section {
+  padding: 20px;
+  background-color: #f4f4f9;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.usuarios-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.usuario-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  padding: 15px;
+  transition: transform 0.3s ease;
+}
+
+.usuario-item:hover {
+  transform: translateY(-5px);
+}
+
+.usuario-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.usuario-nombre {
+  font-size: 18px;
+  font-weight: bold;
+  color: #36173d;
+  margin: 0;
+}
+
+.detalle-boton {
+  align-self: flex-start;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #36173d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.detalle-boton:hover {
+  background-color: #6a4d8c;
+}
+
+.detalle-boton:active {
+  transform: translateY(2px);
+}
