@@ -1,20 +1,26 @@
+*{
+    margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif
+  }
+  
 h2{
     font-size: 2.5em;
     margin-bottom:20px;
     color:#36173d;
     font-family: Arial, Helvetica, sans-serif;
-    margin-top:10px;
+    margin-top:1%;
 }
 
 .divreg {
-    display: flex;
     align-items: center;
-    justify-content:space-between;
-    margin: 10px auto 10px auto;
+    margin: 10px auto;
     padding: 20px 40px;
     background-color:#fa8331;
     border-radius:40px;
     width:90%;
+    margin-top:10;
   }
 
 button{
@@ -55,6 +61,22 @@ button:hover{
     justify-content: space-between;
 }
 
-
+body{
+    width: 100%;
+    display: row;
+    align-items:center;
+    justify-content: center;
+    min-height:100vh;
+    color:white;
+}
   
-
+body::before{
+    content:"";
+    position: absolute;
+    width:100%;
+    height:100%;
+    background:#efefef;
+    background-position: center;
+    background-size:auto;
+    z-index:-1 ;
+}
