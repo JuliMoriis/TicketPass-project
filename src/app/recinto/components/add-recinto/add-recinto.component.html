@@ -1,7 +1,8 @@
+<div class = "divreg"><h2>Agregar recinto</h2></div>
  <body>
 <div class="wrapper">
   <form #formulario="ngForm" (ngSubmit)="addRecinto(formulario)">  
-    <h2>Agregar recinto</h2>
+   
     <div class="input-field">
       <input type="text" id="nombreRecinto" name="nombreRecinto" [(ngModel)]="recinto.nombreRecinto" required>
       <div *ngIf="formulario.controls['nombreRecinto']?.invalid && formulario.controls['nombreRecinto']?.touched">
