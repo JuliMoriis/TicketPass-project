@@ -81,19 +81,34 @@ export class DetalleEventoComponent implements OnInit{
     })
   }
 
-   darDeBaja(){
-    if(this.eventoSeleccionado && this.eventoSeleccionado.alta === 1)
-    {
-      this.eventosService.deshabilitarEvento(this.eventoSeleccionado.id, 0).subscribe({
-        next:()=>{
-          alert("Evento deshabilitado")
-          this.router.navigate(['administrador', this.usuario?.id])
-        },
-        error:(e: Error)=>{
-          console.log(e.message);
+   deshabilitarOHabilitar(){
+    if(this.eventoSeleccionado){
+      if(this.eventoSeleccionado.alta === 1)
+        {
+          this.eventosService.deshabilitarEvento(this.eventoSeleccionado.id, 0).subscribe({
+            next:()=>{
+              alert("Evento deshabilitado")
+              this.router.navigate(['administrador', this.usuario?.id])
+            },
+            error:(e: Error)=>{
+              console.log(e.message);
+            }
+          })
         }
-      })
+        else
+          {
+            this.eventosService.deshabilitarEvento(this.eventoSeleccionado.id, 1).subscribe({
+              next:()=>{
+                alert("Evento habilitado")
+                this.router.navigate(['administrador', this.usuario?.id])
+              },
+              error:(e: Error)=>{
+                console.log(e.message);
+              }
+            })
+          }
     }
+
   }
 
   cambiarEstadoFila(fecha: Fecha) {

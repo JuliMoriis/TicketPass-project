@@ -14,6 +14,7 @@ import { PageRecintosListComponent } from './recinto/pages/page-recintos-list/pa
 import { PageDetalleComponent } from './recinto/pages/page-detalle/page-detalle.component';
 import { PageVerPerfilComponent } from './usuario/pages/page-ver-perfil/page-ver-perfil.component';
 import { PageListAdminComponent } from './evento/pages/page-list-admin/page-list-admin.component';
+import { ListDeshabilitadosAdminComponent } from './evento/components/list-deshabilitados-admin/list-deshabilitados-admin.component';
 
 
 export const routes: Routes = [
@@ -32,5 +33,6 @@ export const routes: Routes = [
   { path: 'recintos/:id', component: PageDetalleComponent},
   { path: 'perfil/:id', component: PageVerPerfilComponent},
   { path: 'eventos-administrador/:id', component: PageListAdminComponent},
-  { path: '', redirectTo: '/comprar-entrada', pathMatch: 'full' }
+  { path: '', redirectTo: '/comprar-entrada', pathMatch: 'full' },
+  { path: 'eventos-deshabilitados/:id', component: ListDeshabilitadosAdminComponent}
 ];
