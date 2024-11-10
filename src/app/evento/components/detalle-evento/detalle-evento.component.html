@@ -1,36 +1,43 @@
 <section>
-  @if (eventoSeleccionado){
-    <h2>Detalle del Evento</h2>
-    <p> Nombre del Evento: {{eventoSeleccionado.nombreEvento}} </p>
-    <p>Artista/Banda: {{eventoSeleccionado.artista_banda}} </p>
-    <p>Duración del evento en horas: {{eventoSeleccionado.duracion}} </p>
 
-      <p>Fechas y Hora de comienzo del evento:</p>
-      <div *ngFor="let fecha of eventoSeleccionado?.fechas" class="fecha">
-       <p>Fecha: {{fecha.fecha}}</p>
-       <p>Hora: {{fecha.hora}}</p>
-       <div *ngIf="usuario?.tipo ==  2">
-        <button type="button" [routerLink]="['/fila', usuario?.id, eventoSeleccionado.id, fecha.fecha]">Entrar a la fila</button>
-      </div>
-       </div>
-  }
+  <h2>Detalle del Evento</h2>
+  <p> Nombre del Evento: {{eventoSeleccionado?.nombreEvento}} </p>
+  <p>Artista/Banda: {{eventoSeleccionado?.artista_banda}} </p>
+  <p>Duración del evento en horas: {{eventoSeleccionado?.duracion}} </p>
 
-  <div *ngIf="usuario?.tipo ==  1">
-    <button (click)="changeEdit()">Editar evento</button>
-    @if(isEditing){
+  <p>Fechas y Hora de comienzo del evento:</p>
+
+  <div *ngFor="let fecha of eventoSeleccionado?.fechas" class="fecha">
+
+    <p>Fecha: {{fecha.fecha}}</p>
+    <p>Hora: {{fecha.hora}}</p>
+
+    <div *ngIf="usuario?.tipo ==  2">
+      <button type="button" [disabled]="fecha.disponibilidadTotal==0 || fecha.habilitado == 0"
+        [routerLink]="['/fila', usuario?.id, eventoSeleccionado?.id, fecha.fecha]">Entrar a la fila</button>
+      <div *ngIf="fecha.disponibilidadTotal==0">Evento SOLD OUT</div>
+    </div>
+
+    <div *ngIf="usuario?.tipo ==  1">
+      <button (click)="cambiarEstadoFila(fecha)">
+        {{ fecha.habilitado === 1 ? 'Deshabilitar Fila' : 'Habilitar Fila' }}
+      </button>
+    </div>
+
+   </div>
+
+    <div *ngIf="usuario?.tipo ==  1">
+      <button (click)="changeEdit()">Editar evento</button>
+      @if(isEditing){
       <app-add-evento [eventoIn]="eventoSeleccionado" (updateEvento)="updateEventos($event)"></app-add-evento>
-    }
+      }
 
-    @if(eventoSeleccionado?.alta === 1){
-      <button (click)="deshabilitarOHabilitar()">Eliminar evento</button>
-      <button>Habilitar fila</button>
-    }
+      <button (click)="deshabilitarOHabilitar()">
+        {{ eventoSeleccionado?.alta === 1 ? 'Deshabilitar evento' : 'Habilitar evento' }}
+      </button>
 
-    @if(eventoSeleccionado?.alta === 0){
-      <button (click)="deshabilitarOHabilitar()">Habilitar evento</button>
-    }
+    </div>
 
-  </div>
 </section>
 
 

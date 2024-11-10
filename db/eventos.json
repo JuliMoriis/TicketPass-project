@@ -619,6 +619,44 @@
       ],
       "alta": 1,
       "id": 5
+    },
+    {
+      "nombreEvento": "emilia mernes",
+      "artista_banda": "emilia mernes",
+      "duracion": "02:00",
+      "UrlBanner": "emiliabanner",
+      "recinto_id": 2,
+      "fechas": [
+        {
+          "fecha": "2024-11-21",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": "140000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ],
+          "disponibilidadTotal": 3,
+          "habilitado": 0
+        }
+      ],
+      "alta": 1,
+      "id": 6
     }
   ]
 }

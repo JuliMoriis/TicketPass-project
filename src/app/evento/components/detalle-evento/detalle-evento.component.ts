@@ -116,7 +116,7 @@ export class DetalleEventoComponent implements OnInit{
     const fechaActualizar = this.eventoSeleccionado?.fechas.find(f => f.fecha === fecha.fecha);
 
     if (fechaActualizar) {
-      // Toggle the habilitado status
+
       fechaActualizar.habilitado = fechaActualizar.habilitado === 1 ? 0 : 1;
 
       if (this.eventoSeleccionado)
