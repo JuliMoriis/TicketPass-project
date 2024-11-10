@@ -633,8 +633,123 @@
           "entradas": [
             {
               "nombreSector": "Platea popular",
-              "disponibles": 3,
-              "precio": "140000",
+              "disponibles": 1,
+              "precio": "20",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 10,
+              "precio": "10",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 11,
+              "precio": "5",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector probando",
+              "disponibles": 12,
+              "precio": "11",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 36,
+          "habilitado": 1
+        }
+      ],
+      "alta": 1,
+      "id": 6
+    },
+    {
+      "nombreEvento": "bruno mars",
+      "artista_banda": "bruno mars",
+      "duracion": "02:00",
+      "UrlBanner": "url bruno mars",
+      "recinto_id": 3,
+      "fechas": [
+        {
+          "fecha": "2025-12-03",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "sector 1",
+              "disponibles": 8,
+              "precio": "120",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 11,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ],
+          "disponibilidadTotal": 8,
+          "habilitado": 1
+        },
+        {
+          "fecha": "2025-12-04",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "sector 1",
+              "disponibles": 11,
+              "precio": "120",
               "asientos": [
                 {
                   "butaca": 1,
@@ -647,16 +762,111 @@
                 {
                   "butaca": 3,
                   "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 11,
+                  "disponibilidad": true
                 }
               ]
             }
           ],
-          "disponibilidadTotal": 3,
+          "disponibilidadTotal": 11,
           "habilitado": 0
         }
       ],
       "alta": 1,
-      "id": 6
+      "id": 7
+    },
+    {
+      "nombreEvento": "evento emi",
+      "artista_banda": "emi",
+      "duracion": "20:09",
+      "UrlBanner": "url",
+      "recinto_id": 3,
+      "fechas": [
+        {
+          "fecha": "2024-11-11",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "sector 33",
+              "disponibles": 1,
+              "precio": "10",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector nuevo ",
+              "disponibles": 44,
+              "precio": "20",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector AGREGADO",
+              "disponibles": 2,
+              "precio": "111",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 51,
+          "habilitado": 1
+        },
+        {
+          "fecha": "2024-11-12",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "sector 33",
+              "disponibles": 5,
+              "precio": "10",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector nuevo ",
+              "disponibles": 43,
+              "precio": "20",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector AGREGADO",
+              "disponibles": 2,
+              "precio": "111",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 51,
+          "habilitado": 1
+        }
+      ],
+      "alta": 1,
+      "id": 8
     }
   ]
 }

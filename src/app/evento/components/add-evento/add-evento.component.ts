@@ -93,37 +93,68 @@ export class AddEventoComponent implements OnInit{
     )
   }
 
- //le pasa todos los datos al evento segun el recinto MENOS EL PRECIO
+  seleccionRecinto(event: any) {
+    const idSeleccionado = Number(event.target.value);
+    this.evento.recinto_id = idSeleccionado;
+  
+    if (!idSeleccionado) return;
+  
+    const recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id === idSeleccionado);
+  
+    if (recintoEncontrado && recintoEncontrado.sectores) {
+      console.log("Se encontró el recinto");
+      this.sectoresRecinto = recintoEncontrado.sectores;
+  
+   
+      this.evento.fechas.forEach(fecha => {
+        fecha.disponibilidadTotal = recintoEncontrado.capacidadTotal;
+  
 
- seleccionRecinto(event: any) {
-  const idSeleccionado = Number(event.target.value);
-  this.evento.recinto_id = idSeleccionado;
-
-  if (!idSeleccionado) return;
-
-  const recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id === idSeleccionado);
-
-  if (recintoEncontrado && recintoEncontrado.sectores) {
-    console.log("Se encontró el recinto");
-
-    this.sectoresRecinto = recintoEncontrado.sectores;
-
-    // Encuentra la última fecha
-    const ultimaFecha = this.evento.fechas[this.evento.fechas.length - 1];
-
-    if (ultimaFecha) {
-      ultimaFecha.disponibilidadTotal = recintoEncontrado.capacidadTotal;
-      ultimaFecha.entradas = [];
-      this.rellenarEntradas(this.sectoresRecinto, ultimaFecha);
+        const tieneEntradasVendidas = fecha.entradas && fecha.entradas.some(e => e.disponibles < this.obtenerCapacidadSector(e.nombreSector));
+  
+        if (tieneEntradasVendidas) {
+  
+          this.actualizarEntradasConSectores(fecha.entradas, this.sectoresRecinto);
+        } else {
+   
+          fecha.entradas = [];
+          this.rellenarEntradas(this.sectoresRecinto, fecha);
+        }
+      });
     } else {
-      console.log("No hay una fecha actual para actualizar");
+      console.log("No se encontró el recinto");
+      this.sectoresRecinto = [];
     }
-  } else {
-    console.log("No se encontró el recinto");
-    this.sectoresRecinto = [];
   }
-}
+  
 
+
+  ///////////////////////////////////////////////////////////
+  //actualizar solo sectores que todavia no hayan sido vendidos (agregar sector en editar)
+
+  obtenerCapacidadSector(nombreSector: string): number {
+    const sector = this.sectoresRecinto.find(s => s.nombreSector === nombreSector);
+    return sector ? sector.capacidad : 0;
+  }
+
+  actualizarEntradasConSectores(entradasExistentes: any[], sectores: Sector[]) {
+    for (const sector of sectores) {
+      const entradaExistente = entradasExistentes.find(e => e.nombreSector === sector.nombreSector);
+      if (!entradaExistente) {
+        const nuevaEntrada = {
+          nombreSector: sector.nombreSector,
+          disponibles: sector.capacidad,
+          precio: 0,
+          asientos: sector.numerado ? sector.asientos : []
+        };
+        entradasExistentes.push(nuevaEntrada);
+      }
+    }
+  }
+
+  /////////////////////////////////////////////////////////////////////////
+
+  
 
 rellenarEntradas(sectores: Sector[], fechaActual: any) {
   for (const sector of sectores) {

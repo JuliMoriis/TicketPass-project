@@ -96,11 +96,11 @@ export class AddRecintoComponent implements OnInit {
   }
 
   eliminarSector(pos: number) {
-    this.sectoresTemp.slice(pos, 1);
+    this.sectoresTemp.splice(pos, 1);
   }
 
   eliminarSectorEdit(pos: number) {
-    this.recinto.sectores.slice(pos, 1);
+    this.recinto.sectores.splice(pos, 1);
   }
 
   crearButacas(sector: Sector) {
@@ -108,7 +108,7 @@ export class AddRecintoComponent implements OnInit {
       for (let i = 1; i <= sector.capacidad; i++) {
         let nuevoAsiento: Asiento = {
           butaca: i,
-          disponibilidad: true // Cambia esto según tu lógica
+          disponibilidad: true
         };
         sector.asientos.push(nuevoAsiento);
       }
@@ -129,19 +129,22 @@ export class AddRecintoComponent implements OnInit {
 
     if (this.recintoRecibido)
     {
+      this.recinto.capacidadTotal = this.capacidadTotalCalculo()
       this.editRecinto()
       alert('Recinto editado con exito')
     }
 
-
     else
     {
+      this.recinto.sectores = this.sectoresTemp;
       for (let sector of this.recinto.sectores) {
-        console.log('entor al for');
         if (!sector.nombreSector || sector.capacidad <= 0) {
           alert('Por favor, completa al menos un sector.');
           return;
         }
+
+        console.log("encontro un sector");
+
 
             this.crearButacas(sector);
             this.recinto.capacidadTotal = this.capacidadTotalCalculo()

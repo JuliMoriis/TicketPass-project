@@ -134,6 +134,126 @@
       "precioTotal": 60,
       "estado": true,
       "id": 6
+    },
+    {
+      "fechaDeCompra": "2024-11-10T15:48:33.982Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "emilia mernes",
+        "fechaEvento": "2024-11-21",
+        "idEvento": 6
+      },
+      "entrada": {
+        "sector": "Platea popular",
+        "precioUnitario": "20",
+        "butaca": [
+          1,
+          2
+        ]
+      },
+      "cantidad": "2",
+      "precioTotal": 40,
+      "estado": true,
+      "id": 7
+    },
+    {
+      "fechaDeCompra": "2024-11-10T16:07:03.742Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "emilia mernes",
+        "fechaEvento": "2024-11-21",
+        "idEvento": 6
+      },
+      "entrada": {
+        "sector": "Platea popular",
+        "precioUnitario": "20",
+        "butaca": [
+          1,
+          2
+        ]
+      },
+      "cantidad": "2",
+      "precioTotal": 40,
+      "estado": true,
+      "id": 8
+    },
+    {
+      "fechaDeCompra": "2024-11-10T16:32:26.081Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "bruno mars",
+        "fechaEvento": "2025-12-03",
+        "idEvento": 7
+      },
+      "entrada": {
+        "sector": "sector 1",
+        "precioUnitario": "120",
+        "butaca": [
+          1,
+          2,
+          3
+        ]
+      },
+      "cantidad": "3",
+      "precioTotal": 360,
+      "estado": true,
+      "id": 9
+    },
+    {
+      "fechaDeCompra": "2024-11-10T16:39:24.527Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "evento emi",
+        "fechaEvento": "2024-11-11",
+        "idEvento": 8
+      },
+      "entrada": {
+        "sector": "sector 33",
+        "precioUnitario": "10",
+        "butaca": []
+      },
+      "cantidad": "4",
+      "precioTotal": 40,
+      "estado": true,
+      "id": 10
+    },
+    {
+      "fechaDeCompra": "2024-11-10T16:42:30.682Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "evento emi",
+        "fechaEvento": "2024-11-12",
+        "idEvento": 8
+      },
+      "entrada": {
+        "sector": "sector nuevo ",
+        "precioUnitario": "20",
+        "butaca": []
+      },
+      "cantidad": 1,
+      "precioTotal": 20,
+      "estado": true,
+      "id": 11
     }
   ]
 }

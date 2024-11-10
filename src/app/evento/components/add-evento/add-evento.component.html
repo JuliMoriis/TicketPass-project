@@ -79,7 +79,7 @@
           <br>
           <label for="seleccionRecinto"></label>
           <br>
-          <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)" [disabled]="!fechaAgregada || eventoIn" required>
+          <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)" [disabled]="!fechaAgregada && !eventoIn" required>
 
             <div class="divAvisos" *ngIf="formulario.controls['seleccionRecinto']?.invalid && formulario.controls['seleccionRecinto']?.touched ">
               Debe seleccionar un recinto
@@ -99,7 +99,7 @@
           <ul>
             <!-- Itera sobre todas las fechas del evento -->
             <li *ngFor="let fecha of evento.fechas">
-              <h5>Fecha: {{ fecha.fecha }}</h5>
+              <h5>Fecha: {{ fecha.fecha | date }}</h5>
 
               <!-- Itera sobre las entradas de la fecha actual -->
               <div *ngFor="let entrada of fecha.entradas">
@@ -119,6 +119,7 @@
         </div>
 
       </fieldset> <!-- ACA TERMINA SELECCIONE RECINTO -->
+
 
     </div>
 
