@@ -154,7 +154,7 @@
           "habilitado": 1
         }
       ],
-      "alta": 1,
+      "alta": 0,
       "id": 1
     },
     {
@@ -1582,7 +1582,7 @@
             },
             {
               "nombreSector": "campo",
-              "disponibles": 40,
+              "disponibles": 35,
               "precio": "50000",
               "asientos": []
             },
@@ -1634,7 +1634,7 @@
               ]
             }
           ],
-          "disponibilidadTotal": 70,
+          "disponibilidadTotal": 65,
           "habilitado": 1
         },
         {

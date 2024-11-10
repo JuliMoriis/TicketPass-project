@@ -1,0 +1,17 @@
+
+.boton-deshabilitados {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color:  #36173d;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.boton-deshabilitados:hover {
+  background-color: #36173d89;
+}

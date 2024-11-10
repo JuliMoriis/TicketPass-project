@@ -1,10 +1,14 @@
-<section>
-  <ul>
-      @for (evento of listaEventos; track $index){
-          <ol>{{evento.nombreEvento}} </ol>
+<section class="seccion-eventos">
+  <h2 class="titulo-eventos-deshabilitados">Eventos Deshabilitados</h2>
+  <ul class="lista-eventos">
+    <li *ngFor="let evento of listaEventos; let index = index" class="item-evento">
+      <ol class="nombre-evento">{{evento.nombreEvento}}</ol>
 
-          <button type="button" [routerLink]="['/detalle-evento', userId, evento.id]">Ver Detalle</button>
-
-        }
+      <div class="contenedor-botones">
+        <button class="boton-detalle" type="button" [routerLink]="['/detalle-evento', userId, evento.id]">
+          Ver Detalle
+        </button>
+      </div>
+    </li>
   </ul>
 </section>

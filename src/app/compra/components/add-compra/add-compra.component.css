@@ -1,0 +1,134 @@
+/* Estilo general para la sección de compra */
+.compra-section {
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 900px;
+  margin: 40px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+/* Título principal */
+.titulo-compra {
+  font-size: 32px;
+  color: #6a4d8c;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Subtítulo */
+.subtitulo-compra {
+  font-size: 20px;
+  color: #36173d;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el campo de sectores */
+.compra-fieldset {
+  border: none;
+  padding: 0;
+}
+
+.lista-sectores {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sector-item {
+  background-color: #f4f4f9;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  color: #36173d;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sector-item:hover {
+  background-color: #e7e7f5;
+  transform: translateY(-5px);
+}
+
+.radio-sector {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.label-sector {
+  font-weight: bold;
+  color: #36173d;
+}
+
+.precio-sector {
+  font-size: 16px;
+  color: #6a4d8c;
+  font-weight: 500;
+}
+
+/* Estilos para la selección de cantidad */
+.titulo-cantidad {
+  font-size: 18px;
+  color: #36173d;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.select-cantidad {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 200px;
+  margin: 10px auto;
+  border: 2px solid #6a4d8c;
+  background-color: #f9f9f9;
+}
+
+.select-cantidad:focus {
+  outline: none;
+  border-color: #36173d;
+}
+
+/* Detalles de la compra */
+.detalle-compra {
+  font-size: 18px;
+  color: #36173d;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.detalle-texto {
+  color: #6a4d8c;
+}
+
+/* Estilo para el botón de compra */
+.boton-comprar {
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #6a4d8c;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+}
+
+.boton-comprar:hover {
+  background-color: #36173d;
+  transform: scale(1.05);
+}
+
+/* Sección de pago */
+.pago-section {
+  margin-top: 30px;
+}
