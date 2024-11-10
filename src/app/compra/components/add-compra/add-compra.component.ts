@@ -124,9 +124,16 @@ export class AddCompraComponent implements OnInit {
     this.compra.precioTotal = this.compra.cantidad * this.compra.entrada.precioUnitario;
   }
 
+
+  ////////////////////////////////////////////////////////////////
+
   comprarEntrada() {
+    this.actualizarStockEntradas()
+    this.editarEvento()
     this.postCompra()
   }
+
+  /////////////////////////////////////////////////////////////
 
 
   actualizarStockEntradas() {
@@ -157,10 +164,11 @@ export class AddCompraComponent implements OnInit {
     entrada.asientos.forEach(asiento => {
 
       if (asiento.disponibilidad == true && i <= cantidad) {
-        this.compra.entrada.butaca?.push(asiento.butaca)
+        this.compra.entrada.butaca?.push(asiento.butaca) //ESTO NO FUNCIONA
         asiento.disponibilidad = false;
         i++;
       }
+
     });
   }
 
@@ -170,8 +178,6 @@ export class AddCompraComponent implements OnInit {
         console.log("compra cargada");
         this.compraCompletaJson = compraCargada
         this.mostrarPago = true;
-        this.actualizarStockEntradas()
-        this.editarEvento()
       },
       error: (e: Error) => {
         console.log(e.message);

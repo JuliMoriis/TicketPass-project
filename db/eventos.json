@@ -98,7 +98,7 @@
             },
             {
               "nombreSector": "Platea",
-              "disponibles": 3,
+              "disponibles": 0,
               "precio": "90000",
               "asientos": [
                 {
@@ -131,15 +131,15 @@
                 },
                 {
                   "butaca": 8,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 9,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 10,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 }
               ]
             },
@@ -150,7 +150,7 @@
               "asientos": []
             }
           ],
-          "disponibilidadTotal": 34995,
+          "disponibilidadTotal": 34992,
           "habilitado": 1
         }
       ],
@@ -376,8 +376,249 @@
           "habilitado": 0
         }
       ],
-      "alta": 1,
+      "alta": 0,
       "id": 3
+    },
+    {
+      "nombreEvento": "ricky martin",
+      "artista_banda": "ricky martin",
+      "duracion": "02:00",
+      "UrlBanner": "bannermartin",
+      "recinto_id": 1,
+      "fechas": [
+        {
+          "fecha": "2024-11-11",
+          "hora": "23:00",
+          "entradas": [
+            {
+              "nombreSector": "Campo Vip",
+              "disponibles": 15000,
+              "precio": "10",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo ",
+              "disponibles": 20000,
+              "precio": "20",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Platea",
+              "disponibles": 0,
+              "precio": "30",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": false
+                }
+              ]
+            },
+            {
+              "nombreSector": "sector prueba",
+              "disponibles": 0,
+              "precio": "40",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 35000,
+          "habilitado": 1
+        },
+        {
+          "fecha": "2024-11-12",
+          "hora": "20:00",
+          "entradas": [
+            {
+              "nombreSector": "Campo Vip",
+              "disponibles": 15000,
+              "precio": "10",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo ",
+              "disponibles": 20000,
+              "precio": "20",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Platea",
+              "disponibles": 10,
+              "precio": "30",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "sector prueba",
+              "disponibles": 0,
+              "precio": "40",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 35010,
+          "habilitado": 0
+        }
+      ],
+      "alta": 1,
+      "id": 4
+    },
+    {
+      "nombreEvento": "sabrina carpenter",
+      "artista_banda": "sabrina carpenter",
+      "duracion": "03:00",
+      "UrlBanner": "sabrina",
+      "recinto_id": 1,
+      "fechas": [
+        {
+          "fecha": "2025-06-04",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "Campo Vip",
+              "disponibles": 15000,
+              "precio": "50",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo ",
+              "disponibles": 20000,
+              "precio": "40",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Platea",
+              "disponibles": 8,
+              "precio": "30",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": false
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "sector prueba",
+              "disponibles": 0,
+              "precio": "10",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 35008,
+          "habilitado": 1
+        }
+      ],
+      "alta": 1,
+      "id": 5
     }
   ]
 }

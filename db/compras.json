@@ -1,76 +1,73 @@
 {
   "compras": [
     {
-      "fechaDeCompra": "2024-11-08T15:58:19.296Z",
+      "fechaDeCompra": "2024-11-10T00:46:01.290Z",
       "cliente": {
-        "nombre": "Emilia",
+        "nombre": "Emi",
         "email": "m.emiliamaldo@gmail.com",
         "idCliente": 1
       },
       "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-12-12",
-        "idEvento": 1
+        "nombreEvento": "ricky martin",
+        "fechaEvento": "2024-11-11",
+        "idEvento": 4
       },
       "entrada": {
         "sector": "Platea",
-        "precioUnitario": "500000",
-        "butaca": [
-          1,
-          2
-        ]
+        "precioUnitario": "30",
+        "butaca": []
       },
-      "cantidad": "2",
-      "precioTotal": 1000000,
-      "estado": false,
+      "cantidad": "4",
+      "precioTotal": 120,
+      "estado": true,
       "id": 1
     },
     {
-      "fechaDeCompra": "2024-11-08T16:02:08.250Z",
+      "fechaDeCompra": "2024-11-10T00:48:43.493Z",
       "cliente": {
-        "nombre": "Emilia",
+        "nombre": "Emi",
         "email": "m.emiliamaldo@gmail.com",
         "idCliente": 1
       },
       "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-12-12",
-        "idEvento": 1
+        "nombreEvento": "ricky martin",
+        "fechaEvento": "2024-11-11",
+        "idEvento": 4
       },
       "entrada": {
-        "sector": "Campo Vip",
-        "precioUnitario": "120000",
+        "sector": "Platea",
+        "precioUnitario": "30",
         "butaca": []
       },
-      "cantidad": 1,
-      "precioTotal": 120000,
-      "estado": false,
+      "cantidad": "4",
+      "precioTotal": 120,
+      "estado": true,
       "id": 2
     },
     {
-      "fechaDeCompra": "2024-11-09T16:25:08.640Z",
+      "fechaDeCompra": "2024-11-10T00:49:59.998Z",
       "cliente": {
         "nombre": "Emi",
         "email": "m.emiliamaldo@gmail.com",
         "idCliente": 1
       },
       "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-11-13",
-        "idEvento": 1
+        "nombreEvento": "ricky martin",
+        "fechaEvento": "2024-11-11",
+        "idEvento": 4
       },
       "entrada": {
-        "sector": "Campo ",
-        "precioUnitario": "62000",
+        "sector": "Platea",
+        "precioUnitario": "30",
         "butaca": []
       },
-      "cantidad": 1,
-      "precioTotal": 62000,
-      "estado": false,
+      "cantidad": "2",
+      "precioTotal": 60,
+      "estado": true,
       "id": 3
     },
     {
-      "fechaDeCompra": "2024-11-09T16:27:10.761Z",
+      "fechaDeCompra": "2024-11-10T00:53:29.031Z",
       "cliente": {
         "nombre": "Emi",
         "email": "m.emiliamaldo@gmail.com",
@@ -84,18 +81,15 @@
       "entrada": {
         "sector": "Platea",
         "precioUnitario": "90000",
-        "butaca": [
-          1,
-          2
-        ]
+        "butaca": []
       },
       "cantidad": "2",
       "precioTotal": 180000,
-      "estado": false,
+      "estado": true,
       "id": 4
     },
     {
-      "fechaDeCompra": "2024-11-09T16:29:25.070Z",
+      "fechaDeCompra": "2024-11-10T00:56:49.122Z",
       "cliente": {
         "nombre": "Emi",
         "email": "m.emiliamaldo@gmail.com",
@@ -109,9 +103,7 @@
       "entrada": {
         "sector": "Platea",
         "precioUnitario": "90000",
-        "butaca": [
-          3
-        ]
+        "butaca": []
       },
       "cantidad": 1,
       "precioTotal": 90000,
@@ -119,186 +111,29 @@
       "id": 5
     },
     {
-      "fechaDeCompra": "2024-11-09T16:30:02.402Z",
+      "fechaDeCompra": "2024-11-10T01:02:01.791Z",
       "cliente": {
         "nombre": "Emi",
         "email": "m.emiliamaldo@gmail.com",
         "idCliente": 1
       },
       "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-11-13",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "Campo ",
-        "precioUnitario": "62000",
-        "butaca": []
-      },
-      "cantidad": 1,
-      "precioTotal": 62000,
-      "estado": false,
-      "id": 6
-    },
-    {
-      "fechaDeCompra": "2024-11-09T16:31:09.204Z",
-      "cliente": {
-        "nombre": "Emi",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-11-13",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "Campo Vip",
-        "precioUnitario": "120000",
-        "butaca": []
-      },
-      "cantidad": 1,
-      "precioTotal": 120000,
-      "estado": false,
-      "id": 7
-    },
-    {
-      "fechaDeCompra": "2024-11-09T16:31:52.482Z",
-      "cliente": {
-        "nombre": "Emi",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-11-13",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "Campo ",
-        "precioUnitario": "62000",
-        "butaca": []
-      },
-      "cantidad": 1,
-      "precioTotal": 62000,
-      "estado": false,
-      "id": 8
-    },
-    {
-      "fechaDeCompra": "2024-11-09T16:34:35.690Z",
-      "cliente": {
-        "nombre": "Emi",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-11-13",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "Campo Vip",
-        "precioUnitario": "120000",
-        "butaca": []
-      },
-      "cantidad": 1,
-      "precioTotal": 120000,
-      "estado": false,
-      "id": 9
-    },
-    {
-      "fechaDeCompra": "2024-11-09T16:34:58.553Z",
-      "cliente": {
-        "nombre": "Emi",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-11-13",
-        "idEvento": 1
+        "nombreEvento": "sabrina carpenter",
+        "fechaEvento": "2025-06-04",
+        "idEvento": 5
       },
       "entrada": {
         "sector": "Platea",
-        "precioUnitario": "90000",
+        "precioUnitario": "30",
         "butaca": [
-          4
+          1,
+          2
         ]
-      },
-      "cantidad": 1,
-      "precioTotal": 90000,
-      "estado": false,
-      "id": 10
-    },
-    {
-      "fechaDeCompra": "2024-11-09T16:37:12.745Z",
-      "cliente": {
-        "nombre": "Emi",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-11-13",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "Campo Vip",
-        "precioUnitario": "120000",
-        "butaca": []
-      },
-      "cantidad": 1,
-      "precioTotal": 120000,
-      "estado": false,
-      "id": 11
-    },
-    {
-      "fechaDeCompra": "2024-11-09T16:39:45.023Z",
-      "cliente": {
-        "nombre": "Emi",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-11-13",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "Platea",
-        "precioUnitario": "90000",
-        "butaca": [
-          5,
-          6,
-          7
-        ]
-      },
-      "cantidad": "3",
-      "precioTotal": 270000,
-      "estado": false,
-      "id": 12
-    },
-    {
-      "fechaDeCompra": "2024-11-09T16:47:21.054Z",
-      "cliente": {
-        "nombre": "Emi",
-        "email": "m.emiliamaldo@gmail.com",
-        "idCliente": 1
-      },
-      "evento": {
-        "nombreEvento": "Love On Tour",
-        "fechaEvento": "2024-11-13",
-        "idEvento": 1
-      },
-      "entrada": {
-        "sector": "Campo Vip",
-        "precioUnitario": "120000",
-        "butaca": []
       },
       "cantidad": "2",
-      "precioTotal": 240000,
+      "precioTotal": 60,
       "estado": true,
-      "id": 13
+      "id": 6
     }
   ]
 }
