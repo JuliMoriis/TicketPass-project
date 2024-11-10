@@ -276,6 +276,72 @@
       "precioTotal": 174000,
       "estado": true,
       "id": 12
+    },
+    {
+      "fechaDeCompra": "2024-11-10T21:27:51.568Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "conan gray",
+        "fechaEvento": "2025-10-02",
+        "idEvento": 15
+      },
+      "entrada": {
+        "sector": "campo",
+        "precioUnitario": "50000",
+        "butaca": []
+      },
+      "cantidad": "2",
+      "precioTotal": 100000,
+      "estado": false,
+      "id": 13
+    },
+    {
+      "fechaDeCompra": "2024-11-10T21:37:19.351Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "conan gray",
+        "fechaEvento": "2025-10-02",
+        "idEvento": 15
+      },
+      "entrada": {
+        "sector": "",
+        "precioUnitario": 0,
+        "butaca": []
+      },
+      "cantidad": 1,
+      "precioTotal": 0,
+      "estado": false,
+      "id": 14
+    },
+    {
+      "fechaDeCompra": "2024-11-10T21:38:39.170Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "conan gray",
+        "fechaEvento": "2025-10-02",
+        "idEvento": 15
+      },
+      "entrada": {
+        "sector": "campo",
+        "precioUnitario": "50000",
+        "butaca": []
+      },
+      "cantidad": "3",
+      "precioTotal": 150000,
+      "estado": false,
+      "id": 15
     }
   ]
 }
