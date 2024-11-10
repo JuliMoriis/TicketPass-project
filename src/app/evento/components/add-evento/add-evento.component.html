@@ -19,7 +19,7 @@
         Debe completar el campo
       </div>
     </div>
-  </div>
+  </div> 
 
   <div class="fielset-container">
     <div class="flex-container">
@@ -28,7 +28,7 @@
         <h4>Datos del evento</h4>
 
         <div class="input-field">
-          <label for="nombreEvento">Nombre del evento</label>
+          
           <input
             type="text"
             id="nombreEvento"
@@ -40,10 +40,11 @@
           <div class="divAvisos" *ngIf="nombreEvento.invalid && nombreEvento.touched">
             Debe completar el campo
           </div>
+          <label for="nombreEvento">Nombre del evento</label>
         </div>
 
         <div class="input-field">
-          <label for="nombreArtistaBanda">Artista/Banda</label>
+          
           <input
             type="text"
             id="nombreArtistaBanda"
@@ -55,10 +56,11 @@
           <div class="divAvisos" *ngIf="nombreArtistaBanda.invalid && nombreArtistaBanda.touched">
             Debe completar el campo
           </div>
+          <label for="nombreArtistaBanda">Artista/Banda</label>
         </div>
 
         <div class="input-field">
-          <label for="duracion">Duración</label>
+          
           <input
             type="time"
             id="duracion"
@@ -70,6 +72,7 @@
           <div class="divAvisos" *ngIf="duracion.invalid && duracion.touched">
             Debe completar el campo
           </div>
+          <label for="duracion">Duración</label>
         </div>
       </fieldset>
 
