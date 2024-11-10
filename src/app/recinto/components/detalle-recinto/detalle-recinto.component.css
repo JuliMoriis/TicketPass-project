@@ -1,0 +1,90 @@
+
+h2{
+    font-size: 2.5em;
+    margin-bottom:5%;
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top:3%;
+}
+
+.divreg {
+    position:absolute;
+    background-color:#36173d;
+    margin-left:9%;
+    border-radius: 8px;
+    width:30% ;
+    padding-left: 3%;
+    padding-right: 5%;
+    margin-top:0.5%;
+  }
+
+.containerImgRecinto{
+    margin-top:8%;
+   width:50%;
+   height:auto;
+   display: flex;
+   justify-self: center;
+   margin-bottom:2%;
+   
+}
+
+h4{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+}
+.h4direc{
+    border-bottom: 1px solid white;
+}
+h5{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+
+}
+.detalles{
+    margin-top:2%;
+    margin-bottom:2%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    box-sizing: content-box;
+ 
+}
+
+button{
+    background:#36173d89;
+    color:#fff;
+    font-weight:600px;
+    backdrop-filter:blur (9px);
+    border:none;
+    padding: 20px 210px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size:16px;
+ 
+}
+
+button:hover{
+ background:#ff4845;   
+ border-radius:8px;
+ color:#36173d ;
+}
+
+.botonContainer{
+    display: flex;
+    justify-content:center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 100%;
+}
+.wrapper{
+    justify-self: center;
+    margin-top:50px;
+    width:470px;
+    border-radius:8px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #36173d89;
+    background-color: #36173d89;
+}
+

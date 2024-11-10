@@ -43,8 +43,8 @@ button{
 }
 
 button:hover{
-  background:#fa833189;  
-  border-color:#fa833189; 
+  background:#ff484589;  
+  border-color:#ff484589; 
   border-radius:8px;
   color:#36173d ;
 }
@@ -68,6 +68,6 @@ h2{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
     font-size: 30px;
-    color:#36173d;
+    color:#fff;
     margin-bottom: 20px;
 }

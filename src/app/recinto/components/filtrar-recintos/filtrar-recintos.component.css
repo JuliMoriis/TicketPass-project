@@ -4,6 +4,7 @@
 }
 
 input{
+
   width:100%;
   height:40px;
   color: #ffffff;
@@ -22,7 +23,7 @@ input::placeholder{
     top:60px;
     left:0;
     right:0;
-    background-color: #36173d;
+    background-color: #3a363b89;
     border: 2px solid #36173d;
     max-height: 200px;
     overflow-y: auto;
@@ -43,7 +44,7 @@ input::placeholder{
   }
 
   .busqueda li:hover {
-    background-color: #fa8331;
+    background-color: #ff4845;
     color: #36173d;
   }
 
