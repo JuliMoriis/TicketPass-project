@@ -15,6 +15,8 @@ import { PageDetalleComponent } from './recinto/pages/page-detalle/page-detalle.
 import { PageVerPerfilComponent } from './usuario/pages/page-ver-perfil/page-ver-perfil.component';
 import { PageListAdminComponent } from './evento/pages/page-list-admin/page-list-admin.component';
 import { ListDeshabilitadosAdminComponent } from './evento/components/list-deshabilitados-admin/list-deshabilitados-admin.component';
+import { ListEntradasComponent } from './compra/components/list-entradas/list-entradas.component';
+import { VerDetalleEntradasComponent } from './compra/components/ver-detalle-entradas/ver-detalle-entradas.component';
 
 
 export const routes: Routes = [
@@ -34,5 +36,7 @@ export const routes: Routes = [
   { path: 'perfil/:id', component: PageVerPerfilComponent},
   { path: 'eventos-administrador/:id', component: PageListAdminComponent},
   { path: '', redirectTo: '/comprar-entrada', pathMatch: 'full' },
-  { path: 'eventos-deshabilitados/:id', component: ListDeshabilitadosAdminComponent}
-];
+  { path: 'eventos-deshabilitados/:id', component: ListDeshabilitadosAdminComponent},
+  { path: 'ver-mis-entradas/:id', component: ListEntradasComponent},
+  { path: 'ver-detalle-entradas/:userId/:id', component: VerDetalleEntradasComponent}
+]
