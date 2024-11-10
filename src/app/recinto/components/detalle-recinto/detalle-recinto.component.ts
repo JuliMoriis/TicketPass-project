@@ -8,7 +8,7 @@ import { AddRecintoComponent } from "../add-recinto/add-recinto.component";
 @Component({
   selector: 'app-detalle-recinto',
   standalone: true,
-  imports: [CommonModule, AddRecintoComponent],
+  imports: [CommonModule, AddRecintoComponent, CommonModule],
   templateUrl: './detalle-recinto.component.html',
   styleUrl: './detalle-recinto.component.css'
 })
