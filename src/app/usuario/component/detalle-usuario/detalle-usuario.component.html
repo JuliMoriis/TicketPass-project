@@ -1,31 +1,34 @@
-@if (usuario) {
-  <section class="seccion-perfil">
-    <div class="perfil-header">
-      <h2 class="titulo-perfil">{{usuario.nombre}} {{usuario.apellido}}</h2>
-      <p class="subtitulo-perfil">Bienvenido a tu perfil</p>
-    </div>
+<body>
+  @if (usuario) {
 
-    <fieldset class="informacion-perfil">
-      <ul class="lista-perfil">
-        <li class="detalle"><strong>Nombre de usuario:</strong> {{usuario.nombreUsuario}}</li>
-        <li class="detalle"><strong>Teléfono:</strong> {{usuario.telefono}}</li>
-        <li class="detalle"><strong>Email:</strong> {{usuario.email}}</li>
-        <li class="detalle"><strong>Dirección:</strong>
-          <ul class="direccion">
-            <li>{{usuario.direccion.calle}} {{usuario.direccion.numero}}</li>
-            <li>{{usuario.direccion.ciudad}}, {{usuario.direccion.pais}}</li>
-          </ul>
-        </li>
-      </ul>
-    </fieldset>
-
-    <div class="acciones">
-      <button class="boton-editar" type="button" (click)="mostrarEditar()">Editar Perfil</button>
-    </div>
-
-    <div *ngIf="abrirForm" class="formulario-editar">
-      <h3 class="titulo-editar">Editar Perfil</h3>
-      <app-editar-usuario [usuarioRecibido]="usuario"></app-editar-usuario>
-    </div>
-  </section>
-}
+    <section class="seccion-perfil">
+      <div class="perfil-header">
+        <h2 class="titulo-perfil">{{usuario.nombre}} {{usuario.apellido}}</h2>
+        <p class="subtitulo-perfil">Bienvenido a tu perfil</p>
+      </div>
+  
+      <fieldset class="informacion-perfil">
+        <ul class="lista-perfil">
+          <li class="detalle"><strong>Nombre de usuario:</strong> {{usuario.nombreUsuario}}</li>
+          <li class="detalle"><strong>Teléfono:</strong> {{usuario.telefono}}</li>
+          <li class="detalle"><strong>Email:</strong> {{usuario.email}}</li>
+          <li class="detalle"><strong>Dirección:</strong>
+            <ul class="direccion">
+              <li>{{usuario.direccion.calle}} {{usuario.direccion.numero}}</li>
+              <li>{{usuario.direccion.ciudad}}, {{usuario.direccion.pais}}</li>
+            </ul>
+          </li>
+        </ul>
+      </fieldset>
+  
+      <div class="acciones">
+        <button class="boton-editar" type="button" (click)="mostrarEditar()">Editar Perfil</button>
+      </div>
+  
+      <div *ngIf="abrirForm" class="formulario-editar">
+        <h3 class="titulo-editar">Editar Perfil</h3>
+        <app-editar-usuario [usuarioRecibido]="usuario"></app-editar-usuario>
+      </div>
+    </section>
+  }
+</body>

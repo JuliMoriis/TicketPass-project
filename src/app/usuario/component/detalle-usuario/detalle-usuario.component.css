@@ -1,13 +1,19 @@
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
 .seccion-perfil {
-  padding: 25px;
-  background-color: #f4f4f9;
-  border-radius: 10px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 30px auto;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: #333;
+  margin-top:1%;
+    width:470px;
+    border-radius:8px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #ffffff80;
+    backdrop-filter: blur(8px);
 }
 
 .perfil-header {
@@ -16,7 +22,7 @@
 }
 
 .titulo-perfil {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   color: #36173d;
   margin-bottom: 5px;
@@ -25,19 +31,23 @@
 
 .subtitulo-perfil {
   font-size: 16px;
-  color: #6a4d8c;
+  color: #36173d;
 }
 
 
 .informacion-perfil {
   margin-bottom: 15px;
+ text-align: left;
+
 }
 
 .lista-perfil {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin-left:2%;
+  margin-top:2%;
   font-size: 16px;
+
 }
 
 .detalle {
@@ -63,17 +73,18 @@
 .boton-editar {
   padding: 10px 20px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: lighter;
   color: #fff;
   background-color: #36173d;
   border: none;
-  border-radius: 30px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .boton-editar:hover {
-  background-color: #6a4d8c;
+  background-color: #ff4845;
+  color: #36173d;
   transform: translateY(-5px);
 }
 
@@ -97,4 +108,26 @@
 
 strong {
   color: #36173d;
+}
+
+body{
+  width: 100%;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  min-height:80vh;
+  padding: 0 10px;
+  color:white;
+}
+
+body::before{
+  content:"";
+  position: absolute;
+  width:100%;
+  height:215%;
+  background:url('/img/audiencia-background.jpg')
+  #000;
+  background-position: center;
+  background-size:auto;
+  z-index:-1 ;
 }
