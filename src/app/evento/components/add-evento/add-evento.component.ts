@@ -25,7 +25,7 @@ export class AddEventoComponent implements OnInit{
   @Output()
   updateEvento: EventEmitter <Evento> = new EventEmitter()
 
-  flag: boolean = false; // Controla la visibilidad del formulario
+  flag: boolean = false; 
   fechaAgregada= false;
 
   recintosService= inject (RecintoService);
@@ -68,7 +68,7 @@ export class AddEventoComponent implements OnInit{
     UrlBanner:'',
     recinto_id: 1,
     fechas: [],
-    alta: 1
+    alta: 0
   }
 
   ngOnInit(): void {
