@@ -1,43 +1,51 @@
-<section>
+<section class="detalle-evento">
+  <div class="detalle-evento-header">
+    <h2 class="detalle-evento-titulo">Detalle del Evento</h2>
+    <p class="subtitulo-evento">Información del evento seleccionado</p>
+  </div>
 
-  <h2>Detalle del Evento</h2>
-  <p> Nombre del Evento: {{eventoSeleccionado?.nombreEvento}} </p>
-  <p>Artista/Banda: {{eventoSeleccionado?.artista_banda}} </p>
-  <p>Duración del evento en horas: {{eventoSeleccionado?.duracion}} </p>
+  <div class="informacion-evento">
+    <p class="detalle-item"><strong>Nombre del Evento:</strong> {{eventoSeleccionado?.nombreEvento}}</p>
+    <p class="detalle-item"><strong>Artista/Banda:</strong> {{eventoSeleccionado?.artista_banda}}</p>
+    <p class="detalle-item"><strong>Duración del Evento en Horas:</strong> {{eventoSeleccionado?.duracion}}</p>
+  </div>
 
-  <p>Fechas y Hora de comienzo del evento:</p>
+  <div class="lista-evento">
+    <p class="detalle-item"><strong>Fechas y Hora de Comienzo del Evento:</strong></p>
 
-  <div *ngFor="let fecha of eventoSeleccionado?.fechas" class="fecha">
+    <!-- Cada fecha tiene sus propios detalles -->
+    <div *ngFor="let fecha of eventoSeleccionado?.fechas" class="detalle-item">
+      <p class="fecha-evento">Fecha: {{fecha.fecha}}</p>
+      <p class="hora-evento">Hora: {{fecha.hora}}</p>
 
-    <p>Fecha: {{fecha.fecha}}</p>
-    <p>Hora: {{fecha.hora}}</p>
+      <!-- Botones según tipo de usuario -->
+      <div *ngIf="usuario?.tipo == 2" class="acciones-evento">
+        <button type="button" class="boton-accion"
+                [disabled]="fecha.disponibilidadTotal==0 || fecha.habilitado == 0"
+                [routerLink]="['/fila', usuario?.id, eventoSeleccionado?.id, fecha.fecha]">
+          Entrar a la Fila
+        </button>
+        <div *ngIf="fecha.disponibilidadTotal==0" class="sold-out">Evento SOLD OUT</div>
+      </div>
 
-    <div *ngIf="usuario?.tipo ==  2">
-      <button type="button" [disabled]="fecha.disponibilidadTotal==0 || fecha.habilitado == 0"
-        [routerLink]="['/fila', usuario?.id, eventoSeleccionado?.id, fecha.fecha]">Entrar a la fila</button>
-      <div *ngIf="fecha.disponibilidadTotal==0">Evento SOLD OUT</div>
+      <div *ngIf="usuario?.tipo == 1" class="acciones-evento">
+        <button class="boton-accion" (click)="cambiarEstadoFila(fecha)">
+          {{ fecha.habilitado === 1 ? 'Deshabilitar Fila' : 'Habilitar Fila' }}
+        </button>
+      </div>
     </div>
+  </div>
 
-    <div *ngIf="usuario?.tipo ==  1">
-      <button (click)="cambiarEstadoFila(fecha)">
-        {{ fecha.habilitado === 1 ? 'Deshabilitar Fila' : 'Habilitar Fila' }}
-      </button>
-    </div>
-
-   </div>
-
-    <div *ngIf="usuario?.tipo ==  1">
-      <button (click)="changeEdit()">Editar evento</button>
-      @if(isEditing){
+  <!-- Botones para el administrador -->
+  <div *ngIf="usuario?.tipo == 1" class="acciones-evento">
+    <button class="boton-accion" (click)="changeEdit()">Editar Evento</button>
+    <div *ngIf="isEditing" class="formulario-editar">
       <app-add-evento [eventoIn]="eventoSeleccionado" (updateEvento)="updateEventos($event)"></app-add-evento>
-      }
-
-      <button (click)="deshabilitarOHabilitar()">
-        {{ eventoSeleccionado?.alta === 1 ? 'Deshabilitar evento' : 'Habilitar evento' }}
-      </button>
-
     </div>
 
+    <button class="boton-accion" (click)="deshabilitarOHabilitar()">
+      {{ eventoSeleccionado?.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
+    </button>
+  </div>
 </section>
-
 

@@ -1,0 +1,98 @@
+/* Contenedor principal del detalle del evento */
+.detalle-evento {
+  padding: 25px;
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 30px auto;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+}
+
+/* Encabezado del detalle del evento */
+.detalle-evento-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.detalle-evento-titulo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #36173d;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+
+/* Subtítulo y detalles generales */
+.subtitulo-evento {
+  font-size: 16px;
+  color: #6a4d8c;
+  margin-bottom: 20px;
+}
+
+/* Estilo de información del evento */
+.informacion-evento {
+  margin-bottom: 15px;
+}
+
+.lista-evento {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+.detalle-item {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.fecha-evento {
+  font-weight: bold;
+  color: #36173d;
+}
+
+.hora-evento {
+  font-size: 16px;
+  color: #6a4d8c;
+  margin-top: 5px;
+}
+
+/* Botones */
+.acciones-evento {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.boton-accion {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #36173d;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 10px;
+}
+
+.boton-accion:hover {
+  background-color: #6a4d8c;
+  transform: translateY(-5px);
+}
+
+.boton-accion:active {
+  transform: translateY(2px);
+}
+
+/* Sold out o información extra */
+.sold-out {
+  text-align: center;
+  font-size: 16px;
+  color: #ff484589;
+  margin-top: 10px;
+  font-weight: bold;
+}
