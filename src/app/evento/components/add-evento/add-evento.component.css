@@ -1,4 +1,10 @@
-input{
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.input-url{
     width:200px;
     padding: 5px 15px;
     margin: 5px;
@@ -6,8 +12,66 @@ input{
     border-color:#fa8331;
     border-radius:40px;
     background-color: #eeeeee;
+} 
+
+.input-field{
+    position: relative;
+    border-bottom:2px solid #36173d;
+    margin-bottom:10px;
+}
+ .input-field label{
+    position:absolute;
+    color:#36173d;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+    font-size:16px;
+    pointer-events:none;
+    transition: 0.15s ease;
 }
 
+.input-field input{
+    width:100%;
+    height:40px;
+    color:#36173d;
+    background:transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.input-field input[type="time"] {
+    width: 100%;
+    height: 40px;
+    color: #36173d;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 0 10px;
+    text-align: center; /* Centra el texto horizontalmente */
+    box-sizing: border-box; 
+}
+.input-field input[type="date"] {
+    width: 100%;
+    height: 40px;
+    color: #36173d;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 0 10px;
+    text-align: center; 
+    box-sizing: border-box; 
+}
+
+.input-field input:focus~label,
+.input-field input:valid~label{
+    font-size: 0.9rem;
+    top:10px;
+    transform: translateY(-120%);
+}
+ 
 .container{  /* posicion del submit */
     display: flex;
     justify-content:flex-end;
@@ -86,43 +150,50 @@ h4{
     justify-content: space-between;
     width:100%;
     margin-bottom:20px;
-
 }
 
 
 .fieldEvento{
-    width: 50%;
-    padding: 20px;
-    border-radius:40px;
-    background-color: white;
+    width: 470px;
+    padding: 30px;
+    border-radius:8px;
     box-sizing: border-box;
     margin-bottom: 15px;
     margin-left:80px;
+    text-align: center;
+    border: 1px solid #fa833189;
+    background-color: #fa833189;
 }
 
 .fieldRecinto{
-    width: 35%;
-    padding: 40px ;
-    border-radius: 40px;
-    background-color: white;
+    width: 470px;
+    padding: 30px;
+    border-radius:8px;
     box-sizing: border-box;
     margin-bottom: 15px;
     margin-right:80px;
+    text-align: center;
+    border: 1px solid #fa833189;
+    background-color: #fa833189;
 }
 
 .fieldFecha{
-    width: 50%;
-     padding: 20px ;
-     border-radius:40px;
-     background-color: white;
-     box-sizing: border-box;
-     margin-bottom: 15px;
-     margin-left:80px;
+    width: 470px;
+    padding: 30px;
+    border-radius:8px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    margin-left:80px;
+    text-align: center;
+    border: 1px solid #fa833189;
+    background-color: #fa833189;
 }
 
 .fielset-container{
-display: block;
+display: row;
 margin-top: 10px;
+align-items: center;
+justify-content: center;
 }
 
 select {

@@ -8,10 +8,9 @@
         <h2>Editar Evento</h2>
       }
 
-
     <div class="inputBanner">
       <label for="bannerEvento"></label>
-      <input type="text" id="bannerEvento" name="bannerEvento" [(ngModel)]="evento.UrlBanner" [ngModelOptions]="{standalone: true}"
+      <input class="input-url" type="text" id="bannerEvento" name="bannerEvento" [(ngModel)]="evento.UrlBanner" [ngModelOptions]="{standalone: true}"
         placeholder="url/banner.com" required>
         <div *ngIf="formulario.controls['bannerEvento']?.invalid && formulario.controls['bannerEvento']?.touched ">
           Debe completar el campo
@@ -25,40 +24,38 @@
         <br>
         <h4>Datos del evento</h4>
         <br>
-        <label for="nombreEvento">Nombre del evento</label>
-        <br>
-        <input type="text" id="nombreEvento" name="nombreEvento" [(ngModel)]="evento.nombreEvento" [ngModelOptions]="{standalone: true}"
+        <div class="input-field">
+          <input type="text" id="nombreEvento" name="nombreEvento" [(ngModel)]="evento.nombreEvento" [ngModelOptions]="{standalone: true}"
           required>
-
           <div *ngIf="formulario.controls['nombreEvento']?.invalid && formulario.controls['nombreEvento']?.touched ">
             Debe completar el campo
           </div>
+          <label for="nombreEvento">Nombre del evento</label>
+        </div>
 
-        <br>
-        <label for="nombreArtista-Banda">Artista/Banda</label>
-        <br>
-        <input type="text" id="nombreArtista-Banda" name="nombreArtista-Banda" [(ngModel)]="evento.artista_banda"
+        <div  class="input-field">
+          <input type="text" id="nombreArtista-Banda" name="nombreArtista-Banda" [(ngModel)]="evento.artista_banda"
           [ngModelOptions]="{standalone: true}" required>
-
           <div *ngIf="formulario.controls['nombreArtista-Banda']?.invalid && formulario.controls['nombreArtista-Banda']?.touched ">
             Debe completar el campo
           </div>
-
-        <br>
-        <label for="duracion">Duracion</label>
-        <br>
+          <label for="nombreArtista-Banda">Artista/Banda</label>
+        </div >
+       
+      <div  class="input-field">
         <input type="time" id="duracion" name="duracion" [(ngModel)]="evento.duracion" [ngModelOptions]="{standalone: true}" required>
 
         <div *ngIf="formulario.controls['duracion']?.invalid && formulario.controls['duracion']?.touched ">
           Debe completar el campo
         </div>
-
+        <label for="duracion">Duracion</label>
+      </div>
       </fieldset> <!-- FIN DE FIELDSETEVENTO -->
-
 
       <fieldset class="fieldRecinto"> <!-- SELECCIONE RECINTO -->
         <div>
           <h4>Seleccione recinto</h4>
+          <br>
           <label for="seleccionRecinto"></label>
           <br>
           <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)" [disabled]="!fechaAgregada || eventoIn" required>
@@ -73,9 +70,7 @@
             <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
               <br>
               {{ recinto.nombreRecinto }}
-            </option>
-
-            
+            </option>      
           </select>
         </div>
 
@@ -88,15 +83,15 @@
               <!-- Itera sobre las entradas de la fecha actual -->
               <div *ngFor="let entrada of fecha.entradas">
                 <h6>{{entrada.nombreSector}}</h6>
-
-                <label for="precioSector-{{ entrada.nombreSector }}">$</label>
-                <input type="text" id="precioSector-{{ entrada.nombreSector }}" name="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
+                <div  class="input-field">
+                  <input type="text" id="precioSector-{{ entrada.nombreSector }}" name="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
                   [ngModelOptions]="{standalone: true}" required>
 
                   <div *ngIf="formulario.controls['precioSector-{{ entrada.nombreSector }}']?.invalid && formulario.controls['precioSector-{{ entrada.nombreSector }}']?.touched ">
                     Debe completar el campo
                   </div>
-
+                  <label for="precioSector-{{ entrada.nombreSector }}">$</label>
+                </div>
               </div>
             </li>
           </ul>
@@ -110,26 +105,28 @@
       <!-- Datos de las fechas -->
       <div *ngFor="let fecha of evento.fechas; let i = index">
         <h4>Fecha {{ i + 1 }}</h4>
-        <div>
-          <label for="fecha-{{i}}">Fecha:</label>
+        <div class= "input-field">
           <input type="date" id="fecha-{{i}}" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
+          <label for="fecha-{{i}}">Fecha</label>
         </div>
-        <div>
-          <label for="horario-{{i}}">Horario:</label>
+        <div class="input-field">
           <input type="time" id="horario-{{i}}" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
+          <label for="horario-{{i}}">Horario</label>
         </div>
       </div>
 
       <!-- Formulario para agregar una nueva fecha -->
       <div *ngIf="mostrarFormularioFecha">
         <h4>Agregar Nueva Fecha</h4>
-        <div>
-          <label for="nuevaFecha">Fecha:</label>
+        <div class="input-field">
           <input type="date" id="nuevaFecha" [(ngModel)]="nuevaFecha.fecha" [ngModelOptions]="{standalone: true}" required>
+          <label for="nuevaFecha">Fecha</label>
+       
         </div>
-        <div>
-          <label for="nuevoHorario">Horario:</label>
+        <div class="input-field">
           <input type="time" id="nuevoHorario" [(ngModel)]="nuevaFecha.hora" [ngModelOptions]="{standalone: true}" required>
+          <label for="nuevoHorario">Horario</label>
+         
         </div>
         <button type="button" (click)="aceptarFecha()">Aceptar</button>
       </div>
