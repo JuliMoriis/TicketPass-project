@@ -342,6 +342,28 @@
       "precioTotal": 150000,
       "estado": false,
       "id": 15
+    },
+    {
+      "fechaDeCompra": "2024-11-10T22:49:02.477Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "conan gray",
+        "fechaEvento": "2025-10-02",
+        "idEvento": 15
+      },
+      "entrada": {
+        "sector": "campo vip",
+        "precioUnitario": "87000",
+        "butaca": []
+      },
+      "cantidad": "3",
+      "precioTotal": 261000,
+      "estado": true,
+      "id": 16
     }
   ]
 }

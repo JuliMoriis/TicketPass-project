@@ -1,6 +1,6 @@
 <header>
   <div class="wrapper">
-    <div class="logo">TicketPass</div>
+    <div class="logo" [routerLink]="['usuarios' , idUsuario]">TicketPass</div>
 
     <div *ngIf="tipoUsuario === 1">
       <!-- Menú para el Administrador -->

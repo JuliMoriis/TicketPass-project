@@ -1576,7 +1576,7 @@
           "entradas": [
             {
               "nombreSector": "campo vip",
-              "disponibles": 18,
+              "disponibles": 15,
               "precio": "87000",
               "asientos": []
             },
@@ -1634,7 +1634,7 @@
               ]
             }
           ],
-          "disponibilidadTotal": 65,
+          "disponibilidadTotal": 62,
           "habilitado": 1
         },
         {
