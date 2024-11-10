@@ -17,23 +17,22 @@ import { Fecha } from '../../interfaces/fecha.interface';
   styleUrl: './add-evento.component.css'
 })
 
-export class AddEventoComponent implements OnInit{
+export class AddEventoComponent implements OnInit {
 
   @Input()
   eventoIn?: Evento; // undefined si no pongo editar
 
   @Output()
-  updateEvento: EventEmitter <Evento> = new EventEmitter()
+  updateEvento: EventEmitter<Evento> = new EventEmitter()
 
-  flag: boolean = false; 
-  fechaAgregada= false;
+  flag: boolean = false;
+  fechaAgregada = false;
 
-  recintosService= inject (RecintoService);
-  eventosService= inject(EventoService);
+  recintosService = inject(RecintoService);
+  eventosService = inject(EventoService);
 
   listadoRecintos: Recinto[] = [];
-  sectoresRecinto: Sector[]= [];
-
+  sectoresRecinto: Sector[] = [];
 
   mostrarFormularioFecha = false;
 
@@ -57,19 +56,23 @@ export class AddEventoComponent implements OnInit{
     fecha: new Date(),
     hora: '',
     entradas: [],
-    disponibilidadTotal : 0,
-    habilitado:0
+    disponibilidadTotal: 0,
+    habilitado: 0
   }
 
-  evento: Evento ={
-    nombreEvento:'',
+  evento: Evento = {
+    nombreEvento: '',
     artista_banda: '',
-    duracion:'',
-    UrlBanner:'',
+    duracion: '',
+    UrlBanner: '',
     recinto_id: 1,
     fechas: [],
     alta: 0
   }
+
+
+
+  fechaSeleccionada = this.evento.fechas[0];
 
   ngOnInit(): void {
     this.levantarRecintos();
@@ -79,14 +82,13 @@ export class AddEventoComponent implements OnInit{
     }
   }
 
-  levantarRecintos ()
-  {
+  levantarRecintos() {
     this.recintosService.getRecintos().subscribe(
       {
-        next: (recintos: Recinto[])=>{
+        next: (recintos: Recinto[]) => {
           this.listadoRecintos = recintos.filter(recinto => recinto.alta == true)
         },
-        error: (err)=> {
+        error: (err) => {
           console.error('Error al levantar recintos:', err);
         }
       }
@@ -96,37 +98,34 @@ export class AddEventoComponent implements OnInit{
   seleccionRecinto(event: any) {
     const idSeleccionado = Number(event.target.value);
     this.evento.recinto_id = idSeleccionado;
-  
+
     if (!idSeleccionado) return;
-  
+
     const recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id === idSeleccionado);
-  
+
     if (recintoEncontrado && recintoEncontrado.sectores) {
       console.log("Se encontró el recinto");
       this.sectoresRecinto = recintoEncontrado.sectores;
-  
-   
+
       this.evento.fechas.forEach(fecha => {
         fecha.disponibilidadTotal = recintoEncontrado.capacidadTotal;
-  
 
         const tieneEntradasVendidas = fecha.entradas && fecha.entradas.some(e => e.disponibles < this.obtenerCapacidadSector(e.nombreSector));
-  
+
         if (tieneEntradasVendidas) {
-  
           this.actualizarEntradasConSectores(fecha.entradas, this.sectoresRecinto);
         } else {
-   
           fecha.entradas = [];
           this.rellenarEntradas(this.sectoresRecinto, fecha);
         }
+
       });
     } else {
       console.log("No se encontró el recinto");
       this.sectoresRecinto = [];
     }
   }
-  
+
 
 
   ///////////////////////////////////////////////////////////
@@ -154,108 +153,98 @@ export class AddEventoComponent implements OnInit{
 
   /////////////////////////////////////////////////////////////////////////
 
-  
-
-rellenarEntradas(sectores: Sector[], fechaActual: any) {
-  for (const sector of sectores) {
-    const nuevaEntrada = {
-      nombreSector: sector.nombreSector,
-      disponibles: sector.capacidad,
-      precio: 0,
-      asientos: sector.numerado ? sector.asientos : []
-    };
 
 
-    fechaActual.entradas.push(nuevaEntrada);
+  rellenarEntradas(sectores: Sector[], fechaActual: Fecha) {
+    for (const sector of sectores) {
+      const nuevaEntrada = {
+        nombreSector: sector.nombreSector,
+        disponibles: sector.capacidad,
+        precio: 0,
+        asientos: sector.numerado ? sector.asientos : []
+      };
+
+      fechaActual.entradas.push(nuevaEntrada);
+    }
+
   }
-}
 
 
- aceptarFecha() {
-  if (this.nuevaFecha.fecha && this.nuevaFecha.hora) {
-    this.evento.fechas.push({ ...this.nuevaFecha });
-    this.mostrarFormularioFecha = false;
-    this.nuevaFecha = {
-      fecha: new Date(),
-      hora: '',
-      entradas: [],
-      disponibilidadTotal: 0,
-      habilitado: 0
-    };
-    alert('Fecha agregada correctamente');
-
-    if (this.evento.fechas.length > 0){
+  aceptarFecha() {
+    if (this.nuevaFecha.fecha && this.nuevaFecha.hora) {
+      this.evento.fechas.push({ ...this.nuevaFecha });
+      console.log(this.evento.fechas);   ///////////////////////////
+      this.mostrarFormularioFecha = false;
       this.fechaAgregada = true;
-
+      this.nuevaFecha = {
+        fecha: new Date(),
+        hora: '',
+        entradas: [],
+        disponibilidadTotal: 0,
+        habilitado: 0
+      };
+      alert('Fecha agregada correctamente');
     }
-  } else {
-    alert('Por favor completa todos los campos de la fecha.');
   }
-}
 
-//  addFecha ()
-//  {
-//    if (this.fecha.fecha && this.fecha.hora) {
-//      this.evento.fechas.push(this.fecha)
+  //  addFecha ()
+  //  {
+  //    if (this.fecha.fecha && this.fecha.hora) {
+  //      this.evento.fechas.push(this.fecha)
 
-//      this.fechaAgregada = this.evento.fechas.length > 0;
+  //      this.fechaAgregada = this.evento.fechas.length > 0;
 
 
-//      this.fecha = {
-//       fecha: new Date(),
-//       hora: '',
-//       entradas: [],
-//       disponibilidadTotal : 0,
-//       habilitado:0
-//     }
-//      alert('Fecha agregada correctamente');
+  //      this.fecha = {
+  //       fecha: new Date(),
+  //       hora: '',
+  //       entradas: [],
+  //       disponibilidadTotal : 0,
+  //       habilitado:0
+  //     }
+  //      alert('Fecha agregada correctamente');
 
-//    } else {
-//      alert('Por favor completa todos los campos del sector.');
-//    }
-//  }
+  //    } else {
+  //      alert('Por favor completa todos los campos del sector.');
+  //    }
+  //  }
 
-  addEvento (formulario: NgForm)
-  {
+  addEvento(formulario: NgForm) {
 
-    if (formulario.invalid)return;
+    if (formulario.invalid) return;
 
-    let entradasCargadas : Entrada[] = [];
-    let disponibilidad : number = 0
 
-    //rellena todas las fechas con las mismas entradas
-    for (const fecha of this.evento.fechas) {
-      if(fecha.entradas.length >0)
-      {
-        entradasCargadas = fecha.entradas;
-        disponibilidad = fecha.disponibilidadTotal;
-      }
+    let entradasCargadas = this.evento.fechas[0].entradas; /////////////nuevo
+    let disponibilidad = this.evento.fechas[0].disponibilidadTotal;
+
+    if (this.eventoIn) {
+      
     }
 
-    for (const fecha of this.evento.fechas) {
-      if(fecha.entradas.length === 0)
-      {
+    else {
+      //rellena todas las fechas iguales
+      for (const fecha of this.evento.fechas) {
         fecha.entradas = entradasCargadas;
         fecha.disponibilidadTotal = disponibilidad;
       }
     }
 
+
+
     console.log(this.evento);
     this.guardarEventosJSON();
 
-
   }
 
-  guardarEventosJSON ()
-  {
+  guardarEventosJSON() {
     console.log("Evento que se enviará:", this.evento);
     this.eventosService.postEvento(this.evento).subscribe(
       {
-        next: ()=> {
+        next: () => {
           console.log('evento agregado');
           alert('Evento agregado con exito')
         },
-        error: (err)=> {
+        error: (err) => {
           alert('Error al agregar el evento: ' + err.message);
           console.error('Error:', err);
         }
@@ -263,8 +252,8 @@ rellenarEntradas(sectores: Sector[], fechaActual: any) {
     )
   }
 
-  emitUpdate(formulario: NgForm){
-    if (formulario.invalid)return;
+  emitUpdate(formulario: NgForm) {
+    if (formulario.invalid) return;
     this.updateEvento.emit(this.evento)
   }
 

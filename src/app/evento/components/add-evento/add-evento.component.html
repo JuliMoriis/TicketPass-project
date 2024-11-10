@@ -86,8 +86,6 @@
             </div>
 
             <option value="" disabled selected>Recintos</option>
-
-            <option value="" disabled selected>Recintos</option>
             <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
               <br>
               {{ recinto.nombreRecinto }}
@@ -95,25 +93,13 @@
           </select>
         </div>
 
-        <div>
+        <div *ngIf="evento.fechas && evento.fechas[0] && evento.fechas[0].entradas && evento.fechas[0].entradas.length > 0">
           <ul>
-            <!-- Itera sobre todas las fechas del evento -->
-            <li *ngFor="let fecha of evento.fechas">
-              <h5>Fecha: {{ fecha.fecha | date }}</h5>
-
-              <!-- Itera sobre las entradas de la fecha actual -->
-              <div *ngFor="let entrada of fecha.entradas">
-                <h6>{{entrada.nombreSector}}</h6>
-                <div  class="input-field">
-                  <input type="text" id="precioSector-{{ entrada.nombreSector }}" name="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
-                  [ngModelOptions]="{standalone: true}" required>
-
-                  <div class="divAvisos" *ngIf="formulario.controls['precioSector-{{ entrada.nombreSector }}']?.invalid && formulario.controls['precioSector-{{ entrada.nombreSector }}']?.touched ">
-                    Debe completar el campo
-                  </div>
-                  <label for="precioSector-{{ entrada.nombreSector }}">$</label>
-                </div>
-              </div>
+            <li *ngFor="let entrada of evento.fechas[0].entradas">
+              <h5>{{entrada.nombreSector}}</h5>
+              <label for="precioSector-{{ entrada.nombreSector }}">$</label>
+              <input type="text" id="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
+                     [ngModelOptions]="{standalone: true}" required>
             </li>
           </ul>
         </div>

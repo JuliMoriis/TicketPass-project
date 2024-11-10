@@ -863,10 +863,125 @@
           ],
           "disponibilidadTotal": 51,
           "habilitado": 1
+        },
+        {
+          "fecha": "44444-04-04",
+          "hora": "04:44",
+          "entradas": [],
+          "disponibilidadTotal": 0,
+          "habilitado": 0
         }
       ],
       "alta": 1,
       "id": 8
+    },
+    {
+      "nombreEvento": "topa",
+      "artista_banda": "topa",
+      "duracion": "03:03",
+      "UrlBanner": "utltopa",
+      "recinto_id": 2,
+      "fechas": [
+        {
+          "fecha": "2025-02-22",
+          "hora": "15:00",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": "10",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 10,
+              "precio": "20",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 11,
+              "precio": "30",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector probando",
+              "disponibles": 12,
+              "precio": "40",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 36,
+          "habilitado": 0
+        },
+        {
+          "fecha": "2025-02-23",
+          "hora": "15:00",
+          "entradas": [
+            {
+              "nombreSector": "Platea popular",
+              "disponibles": 3,
+              "precio": "10",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 10,
+              "precio": "20",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 11,
+              "precio": "30",
+              "asientos": []
+            },
+            {
+              "nombreSector": "sector probando",
+              "disponibles": 12,
+              "precio": "40",
+              "asientos": []
+            }
+          ],
+          "disponibilidadTotal": 36,
+          "habilitado": 0
+        },
+        {
+          "fecha": "4444-04-04",
+          "hora": "04:04",
+          "entradas": [],
+          "disponibilidadTotal": 0,
+          "habilitado": 0
+        }
+      ],
+      "alta": 0,
+      "id": 9
     }
   ]
 }
