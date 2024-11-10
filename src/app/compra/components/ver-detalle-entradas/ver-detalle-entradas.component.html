@@ -1,0 +1,20 @@
+<h2>Detalle de su entrada para {{compraSeleccionada?.evento?.nombreEvento}}</h2>
+<p> Nombre del Evento: {{compraSeleccionada?.evento?.nombreEvento}} </p>
+<p> Fecha del Evento: {{compraSeleccionada?.evento?.fechaEvento}} </p>
+<p> Fecha de compra de la entrada: {{ compraSeleccionada?.fechaDeCompra | date:'yyyy/MM/dd' }} </p>
+<p> Mail del usuario asociado a la entrada: {{compraSeleccionada?.cliente?.email}}</p>
+<p> Cantidad de entradas compradas: {{compraSeleccionada?.cantidad}}</p>
+<p> Precio de la entrada: {{compraSeleccionada?.entrada?.precioUnitario}}</p>
+@if(compraSeleccionada){
+  @if(compraSeleccionada.cantidad > 1){
+    <p> Precio total de las {{compraSeleccionada.cantidad}} entradas: {{compraSeleccionada.precioTotal}}</p>
+  }
+}
+<p> Sector de las entradas: {{compraSeleccionada?.entrada?.sector}}</p>
+
+@if(compraSeleccionada?.entrada?.butaca?.length){
+  <p> Butacas: </p>
+  @for (butaca of compraSeleccionada?.entrada?.butaca; track $index) {
+    <li> Butaca: {{butaca}}</li>
+  }
+}

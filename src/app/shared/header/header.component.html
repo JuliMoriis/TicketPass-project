@@ -25,7 +25,7 @@
       <!-- Menú para el Cliente -->
       <nav>
         <a [routerLink]="['/perfil' , idUsuario]" >Mi perfil</a>
-        <a href="#">Mis Entradas</a>
+        <a [routerLink]="['/ver-mis-entradas', idUsuario]">Mis Entradas</a>
         <a href="#" (click)="cerrarSesion()">Cerrar sesión</a>
       </nav>
     </div>
