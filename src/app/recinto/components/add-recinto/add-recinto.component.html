@@ -1,100 +1,100 @@
-<div class = "divreg"><h2>Agregar recinto</h2></div>
- <body>
-<div class="wrapper">
-  <form #formulario="ngForm" (ngSubmit)="addRecinto(formulario)">  
-   
-    <div class="input-field">
-      <input type="text" id="nombreRecinto" name="nombreRecinto" [(ngModel)]="recinto.nombreRecinto" required>
-      <div class="divAvisos" *ngIf="formulario.controls['nombreRecinto']?.invalid && formulario.controls['nombreRecinto']?.touched">
-        Debe completar este campo
-      </div>
-      <label for="nombreRecinto">Nombre del Recinto</label>
-    </div>
-
-  
-    <div class="input-field">
-      <input type="text" id="calle" name="calle" [(ngModel)]="recinto.direccion.calle" required>
-      <div class="divAvisos" *ngIf="formulario.controls['calle']?.invalid && formulario.controls['calle']?.touched">
-        Debe completar este campo
-      </div>
-      <label for="calle">Calle</label>
-    </div>
-    
-    <div class="input-field">
-     <input type="number" id="numero" name="numero" [(ngModel)]="recinto.direccion.numero" required>
-     <div class="divAvisos" *ngIf="formulario.controls['numero']?.invalid && formulario.controls['numero']?.touched ">
-      Debe completar este campo
-     </div>
-     <label for="numero">Numero</label>
-    </div>
-
-    <div class="input-field">
-      <input type="text" id="ciudad" name="ciudad" [(ngModel)]="recinto.direccion.ciudad" required>
-      <div class="divAvisos" *ngIf="formulario.controls['ciudad']?.invalid && formulario.controls['ciudad']?.touched">
-        Debe completar este campo
-      </div>
-      <label for="ciudad">Ciudad</label>
-    </div>
-
-    <div  class="input-field">
-      <input type="text" id="codigoPostal" name="codigoPostal" [(ngModel)]="recinto.direccion.codigoPostal" required>
-      <div class="divAvisos" *ngIf="formulario.controls['codigoPostal']?.invalid && formulario.controls['codigoPostal']?.touched">
-        Debe completar este campo
-      </div>
-      <label for="codigoPostal">Código Postal</label>
-    </div>
-
-    <div  class="input-field">
-      <input type="text" id="pais" name="pais" [(ngModel)]="recinto.direccion.pais" required>
-      <div class="divAvisos" *ngIf="formulario.controls['pais']?.invalid && formulario.controls['pais']?.touched">
-        Debe completar este campo
-      </div>
-      <label for="pais">País</label>
-    </div>
-
-
-    <div  class="input-field">    
-      <input type="url" id="urlImg" name="urlImg" [(ngModel)]="recinto.urlImg" required>
-      <div class="divAvisos" *ngIf="formulario.controls['urlImg']?.invalid && formulario.controls['urlImg']?.touched">
-        Debe completar este campo
-      </div>
-      <label for="urlImg">URL de la Imagen del Recinto</label>
-    </div>
-
-
-    <div  class="input-field">     
-      <input type="url" id="urlMapaSectores" name="urlMapaSectores" [(ngModel)]="recinto.urlMapaSectores" required>
-      <div class="divAvisos" *ngIf="formulario.controls['urlMapaSectores']?.invalid && formulario.controls['urlMapaSectores']?.touched">
-        Debe completar este campo
-      </div>
-      <label for="urlMapaSectores">URL del Mapa de Sectores</label>
-    </div>
-
-<div class="input-field">
-  <input type="text" id="nombreSector" name="nombreSector" [(ngModel)]="sector.nombreSector" required >
-  <div class="divAvisos" *ngIf="formulario.controls['nombreSector']?.invalid && formulario.controls['nombreSector']?.touched ">
-    Debe completar este campo
-  </div>
-  <label for="nombreSector">Nombre del Sector</label>
+<div class="divreg">
+  <h2>Agregar recinto</h2>
 </div>
-  
-    
-     <div class="input-field" >
-      <input type="number" id="capacidad" name="capacidad" [(ngModel)]="sector.capacidad" required>
-      <div class="divAvisos" *ngIf="formulario.controls['capacidad']?.invalid && formulario.controls['capacidad']?.touched">
-        Debe completar este campo
-      </div>
-      <label for="capacidad">Capacidad</label>
-     </div>
 
-     <div class="check-contaner">
-      <label class="custom-checkbox" for="butacasNumeradas">¿Butacas Numeradas?  
-         <input type="checkbox" id="butacasNumeradas" name="butacasNumeradas"
-        [(ngModel)]="sector.numerado">
-        <span class="checkmark"></span>
-      </label>
-     </div>
-     
+<body>
+  <div class="wrapper">
+    <form #formulario="ngForm" (ngSubmit)="addRecinto(formulario)">
+
+      <div class="input-field">
+        <input type="text" id="nombreRecinto" name="nombreRecinto" [(ngModel)]="recinto.nombreRecinto" required>
+        <div class="divAvisos"
+          *ngIf="formulario.controls['nombreRecinto']?.invalid && formulario.controls['nombreRecinto']?.touched">
+          Debe completar este campo
+        </div>
+        <label for="nombreRecinto">Nombre del Recinto</label>
+      </div>
+
+
+      <div class="input-field">
+        <input type="text" id="calle" name="calle" [(ngModel)]="recinto.direccion.calle" required>
+        <div class="divAvisos" *ngIf="formulario.controls['calle']?.invalid && formulario.controls['calle']?.touched">
+          Debe completar este campo
+        </div>
+        <label for="calle">Calle</label>
+      </div>
+
+      <div class="input-field">
+        <input type="number" id="numero" name="numero" [(ngModel)]="recinto.direccion.numero" required>
+        <div class="divAvisos"
+          *ngIf="formulario.controls['numero']?.invalid && formulario.controls['numero']?.touched ">
+          Debe completar este campo
+        </div>
+        <label for="numero">Numero</label>
+      </div>
+
+      <div class="input-field">
+        <input type="text" id="ciudad" name="ciudad" [(ngModel)]="recinto.direccion.ciudad" required>
+        <div class="divAvisos" *ngIf="formulario.controls['ciudad']?.invalid && formulario.controls['ciudad']?.touched">
+          Debe completar este campo
+        </div>
+        <label for="ciudad">Ciudad</label>
+      </div>
+
+      <div class="input-field">
+        <input type="text" id="codigoPostal" name="codigoPostal" [(ngModel)]="recinto.direccion.codigoPostal" required>
+        <div class="divAvisos"
+          *ngIf="formulario.controls['codigoPostal']?.invalid && formulario.controls['codigoPostal']?.touched">
+          Debe completar este campo
+        </div>
+        <label for="codigoPostal">Código Postal</label>
+      </div>
+
+      <div class="input-field">
+        <input type="text" id="pais" name="pais" [(ngModel)]="recinto.direccion.pais" required>
+        <div class="divAvisos" *ngIf="formulario.controls['pais']?.invalid && formulario.controls['pais']?.touched">
+          Debe completar este campo
+        </div>
+        <label for="pais">País</label>
+      </div>
+
+
+      <div class="input-field">
+        <input type="url" id="urlImg" name="urlImg" [(ngModel)]="recinto.urlImg" required>
+        <div class="divAvisos" *ngIf="formulario.controls['urlImg']?.invalid && formulario.controls['urlImg']?.touched">
+          Debe completar este campo
+        </div>
+        <label for="urlImg">URL de la Imagen del Recinto</label>
+      </div>
+
+
+      <div class="input-field">
+        <input type="url" id="urlMapaSectores" name="urlMapaSectores" [(ngModel)]="recinto.urlMapaSectores" required>
+        <div class="divAvisos"
+          *ngIf="formulario.controls['urlMapaSectores']?.invalid && formulario.controls['urlMapaSectores']?.touched">
+          Debe completar este campo
+        </div>
+        <label for="urlMapaSectores">URL del Mapa de Sectores</label>
+      </div>
+
+      <div class="input-field">
+        <input type="text" id="nombreSector" name="nombreSector" [(ngModel)]="sector.nombreSector">
+        <label for="nombreSector">Nombre del Sector</label>
+      </div>
+
+
+      <div class="input-field">
+        <input type="number" id="capacidad" name="capacidad" [(ngModel)]="sector.capacidad">
+        <label for="capacidad">Capacidad</label>
+      </div>
+
+      <div class="check-contaner">
+        <label class="custom-checkbox" for="butacasNumeradas">¿Butacas Numeradas?
+          <input type="checkbox" id="butacasNumeradas" name="butacasNumeradas" [(ngModel)]="sector.numerado">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+
       <div *ngIf="!recintoRecibido">
         <button type="button" (click)="agregarSector()">Agregar sector</button>
       </div>
@@ -103,29 +103,25 @@
         <button type="button" (click)="agregarSectorEdit()">Agregar sector</button>
       </div>
 
-    
 
-   
       @for (sector of sectoresTemp; track $index) {
-        {{sector.nombreSector}}
-        <button (click)="eliminarSector ($index)">Eliminar</button>
+      {{sector.nombreSector}}
+      <button (click)="eliminarSector ($index)">Eliminar</button>
       }
 
       <div *ngIf="recintoRecibido">
         @for (sector of recinto.sectores; track $index) {
-          {{sector.nombreSector}}
-          <button (click)="eliminarSectorEdit ($index)">Eliminar</button>
+        {{sector.nombreSector}}
+        <button (click)="eliminarSectorEdit ($index)">Eliminar</button>
         }
       </div>
-<br>
-<br>
-    <button type="submit" [disabled]="formulario.invalid">Enviar</button>
+      <br>
+      <br>
+      <button type="submit" [disabled]="formulario.invalid">Enviar</button>
 
-  </form>
+    </form>
 
-</div>
-  
+  </div>
 
- </body>
- 
 
+</body>

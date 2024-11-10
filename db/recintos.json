@@ -79,7 +79,7 @@
         }
       ],
       "urlMapaSectores": "url mapa",
-      "alta" : true,
+      "alta": true,
       "id": 1
     },
     {
@@ -92,7 +92,7 @@
         "pais": "Argentina"
       },
       "urlImg": "url1",
-      "capacidadTotal": 3,
+      "capacidadTotal": 36,
       "sectores": [
         {
           "nombreSector": "Platea popular",
@@ -112,11 +112,64 @@
               "disponibilidad": true
             }
           ]
+        },
+        {
+          "nombreSector": "Campo",
+          "capacidad": 10,
+          "numerado": false,
+          "asientos": []
+        },
+        {
+          "nombreSector": "Campo vip",
+          "capacidad": 11,
+          "numerado": false,
+          "asientos": []
+        },
+        {
+          "nombreSector": "sector probando",
+          "capacidad": 12,
+          "numerado": false,
+          "asientos": []
         }
       ],
       "urlMapaSectores": "url2",
-       "alta" : true,
+      "alta": true,
       "id": 2
+    },
+    {
+      "nombreRecinto": "recinto prueba",
+      "direccion": {
+        "calle": "calle 1",
+        "numero": 123,
+        "ciudad": "mdp",
+        "codigoPostal": "7600",
+        "pais": "arg"
+      },
+      "urlImg": "url1",
+      "capacidadTotal": 51,
+      "sectores": [
+        {
+          "nombreSector": "sector 33",
+          "capacidad": 5,
+          "numerado": true,
+          "asientos": []
+        },
+        {
+          "nombreSector": "sector nuevo ",
+          "capacidad": 44,
+          "numerado": false,
+          "asientos": []
+        },
+        {
+          "nombreSector": "sector AGREGADO",
+          "capacidad": 2,
+          "numerado": true,
+          "asientos": []
+        }
+      ],
+      "alta": true,
+      "urlMapaSectores": "url2",
+      "id": 3
     }
   ]
 }

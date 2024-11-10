@@ -147,8 +147,8 @@ h2{
   .custom-checkbox input[type="checkbox"]:checked + .checkmark {
     transition: background-color 1.3s, border-color 1.3s, color 1.3s, transform 0.3s;
   }
-  
 
+  
   button{
     background:#36173d;
     color: #efefef;
@@ -167,6 +167,8 @@ button:hover{
     border-radius:5px;
 
 }
+
+
 
 .divreg {
   display: flex;
