@@ -1,3 +1,48 @@
 {
-  "compras": [ ]
+  "compras": [
+    {
+      "fechaDeCompra": "2024-11-11T01:52:49.328Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "Love on Tour",
+        "fechaEvento": "2024-12-03",
+        "idEvento": 1
+      },
+      "entrada": {
+        "sector": "Campo delantero derecho",
+        "precioUnitario": "120000",
+        "butaca": []
+      },
+      "cantidad": "2",
+      "precioTotal": 240000,
+      "estado": true,
+      "id": 1
+    },
+    {
+      "fechaDeCompra": "2024-11-11T02:13:53.742Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "Faith in the Future",
+        "fechaEvento": "2025-05-24",
+        "idEvento": 2
+      },
+      "entrada": {
+        "sector": "Campo vip",
+        "precioUnitario": "90000",
+        "butaca": []
+      },
+      "cantidad": "2",
+      "precioTotal": 180000,
+      "estado": true,
+      "id": 2
+    }
+  ]
 }

@@ -1,5 +1,644 @@
 {
   "eventos": [
-   
+    {
+      "nombreEvento": "Love on Tour",
+      "artista_banda": "Harry Styles",
+      "duracion": "02:00",
+      "UrlBanner": "https://cdn.getcrowder.com/images/1669985664927-null-nt1920x720-aa-a-1.png",
+      "recinto_id": 1,
+      "fechas": [
+        {
+          "fecha": "2024-12-03",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "Campo delantero izquierdo",
+              "disponibles": 10000,
+              "precio": "120000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo delantero derecho",
+              "disponibles": 9996,
+              "precio": "120000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Platea Sivori Media",
+              "disponibles": 10,
+              "precio": "58000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Platea sivori Alta",
+              "disponibles": 10,
+              "precio": "58000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ],
+          "disponibilidadTotal": 20016,
+          "habilitado": 1
+        }
+      ],
+      "alta": 1,
+      "id": 1
+    },
+    {
+      "nombreEvento": "Faith in the Future",
+      "artista_banda": "Louis Tomlinson",
+      "duracion": "01:30",
+      "UrlBanner": "https://disfrutasantiago.cl/wp-content/uploads/2024/05/e688a32e-7f97-4ebd-86b3-d12aaec92291-landing-1920x720-web-louistomlinson-dgmedios1.png",
+      "recinto_id": 3,
+      "fechas": [
+        {
+          "fecha": "2025-05-24",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 14998,
+              "precio": "90000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 22000,
+              "precio": "82000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Platea Alta Norte",
+              "disponibles": 10,
+              "precio": "75000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ],
+          "disponibilidadTotal": 37008,
+          "habilitado": 1
+        },
+        {
+          "fecha": "2025-05-25",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "Campo vip",
+              "disponibles": 15000,
+              "precio": "90000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo",
+              "disponibles": 22000,
+              "precio": "82000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Platea Alta Norte",
+              "disponibles": 10,
+              "precio": "75000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ],
+          "disponibilidadTotal": 37010,
+          "habilitado": 0
+        }
+      ],
+      "alta": 1,
+      "id": 2
+    },
+    {
+      "nombreEvento": "The Clancy World Tour",
+      "artista_banda": "Twenty One Pilots",
+      "duracion": "02:20",
+      "UrlBanner": "https://www.livenationentertainment.com/wp-content/uploads/2024/03/Static_Social-FacebookPR_1200x630_TwentyOnePilots_2024_National.jpg",
+      "recinto_id": 2,
+      "fechas": [
+        {
+          "fecha": "2024-01-30",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "Campo Delantero",
+              "disponibles": 150000,
+              "precio": "110000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo Trasero",
+              "disponibles": 15000,
+              "precio": "64000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "102",
+              "disponibles": 5,
+              "precio": "53000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "108",
+              "disponibles": 5,
+              "precio": "53000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ],
+          "disponibilidadTotal": 165010,
+          "habilitado": 1
+        }
+      ],
+      "alta": 1,
+      "id": 3
+    },
+    {
+      "nombreEvento": "Duki",
+      "artista_banda": "Duki",
+      "duracion": "01:40",
+      "UrlBanner": "https://cdn.getcrowder.com/images/0a1ca76f-429f-4187-b934-7fae8263db27-1920x720-1.jpg",
+      "recinto_id": 1,
+      "fechas": [
+        {
+          "fecha": "2024-12-22",
+          "hora": "21:00",
+          "entradas": [
+            {
+              "nombreSector": "Campo delantero izquierdo",
+              "disponibles": 10000,
+              "precio": "70000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Campo delantero derecho",
+              "disponibles": 10000,
+              "precio": "70000",
+              "asientos": []
+            },
+            {
+              "nombreSector": "Platea Sivori Media",
+              "disponibles": 10,
+              "precio": "46000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            },
+            {
+              "nombreSector": "Platea sivori Alta",
+              "disponibles": 10,
+              "precio": "46000",
+              "asientos": [
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 1,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 2,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 3,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 4,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 5,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 6,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 7,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 8,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 9,
+                  "disponibilidad": true
+                },
+                {
+                  "butaca": 10,
+                  "disponibilidad": true
+                }
+              ]
+            }
+          ],
+          "disponibilidadTotal": 20020,
+          "habilitado": 1
+        }
+      ],
+      "alta": 1,
+      "id": 4
+    }
   ]
 }

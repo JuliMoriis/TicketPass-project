@@ -41,15 +41,16 @@
     <!-- Botones para el administrador -->
     <div *ngIf="usuario?.tipo == 1" class="acciones-evento">
       <button class="boton-accion" (click)="changeEdit()">Editar Evento</button>
-      <div *ngIf="isEditing" class="formulario-editar">
-        <app-add-evento [eventoIn]="eventoSeleccionado" (updateEvento)="updateEventos($event)"></app-add-evento>
-      </div>
 
       <button class="boton-accion" (click)="deshabilitarOHabilitar()">
         {{ eventoSeleccionado?.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
       </button>
     </div>
   </section>
+
+  <div *ngIf="isEditing" class="formulario-editar">
+    <app-add-evento [eventoIn]="eventoSeleccionado" (updateEvento)="updateEventos($event)"></app-add-evento>
+  </div>
 
 </body>
 
