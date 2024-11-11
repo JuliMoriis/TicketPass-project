@@ -4,7 +4,7 @@
       "nombreEvento": "Love On Tour",
       "artista_banda": "Harry Styles",
       "duracion": "02:00",
-      "UrlBanner": "",
+      "UrlBanner": "https://cdn.getcrowder.com/images/1669985664927-null-nt1920x720-aa-a-1.png",
       "recinto_id": 1,
       "fechas": [
         {
@@ -86,7 +86,7 @@
           "entradas": [
             {
               "nombreSector": "Campo Vip",
-              "disponibles": 14995,
+              "disponibles": 14943,
               "precio": "120000",
               "asientos": []
             },
@@ -150,18 +150,18 @@
               "asientos": []
             }
           ],
-          "disponibilidadTotal": 34992,
+          "disponibilidadTotal": 34940,
           "habilitado": 1
         }
       ],
-      "alta": 0,
-      "id": 1
+      "alta": 1,
+      "id": "1"
     },
     {
       "nombreEvento": "The Eras Tour",
       "artista_banda": "Taylor Swift",
       "duracion": "04:00",
-      "UrlBanner": "urltaylor",
+      "UrlBanner": "https://www.losandes.com.ar/resizer/v2/T4MZXGL3VFBB3OGEFHDKCJNQGE.jpg?auth=63216a1d25fc2e70ed486fe26168c306d26f0561b4e9829b4e6bd7e0f49e8c69&width=1050&height=368",
       "recinto_id": 1,
       "fechas": [
         {
@@ -312,13 +312,13 @@
         }
       ],
       "alta": 1,
-      "id": 2
+      "id": "2"
     },
     {
       "nombreEvento": "duki",
       "artista_banda": "duki",
       "duracion": "01:30",
-      "UrlBanner": "",
+      "UrlBanner": "https://static.ptocdn.net/images/eventos/biz269_rs.jpg",
       "recinto_id": 2,
       "fechas": [
         {
@@ -376,8 +376,8 @@
           "habilitado": 0
         }
       ],
-      "alta": 0,
-      "id": 3
+      "alta": 1,
+      "id": "3"
     },
     {
       "nombreEvento": "ricky martin",
@@ -534,7 +534,7 @@
         }
       ],
       "alta": 1,
-      "id": 4
+      "id": "4"
     },
     {
       "nombreEvento": "sabrina carpenter",
@@ -618,7 +618,7 @@
         }
       ],
       "alta": 1,
-      "id": 5
+      "id": "5"
     },
     {
       "nombreEvento": "emilia mernes",
@@ -674,7 +674,7 @@
         }
       ],
       "alta": 1,
-      "id": 6
+      "id": "6"
     },
     {
       "nombreEvento": "bruno mars",
@@ -803,7 +803,7 @@
         }
       ],
       "alta": 1,
-      "id": 7
+      "id": "7"
     },
     {
       "nombreEvento": "evento emi",
@@ -873,7 +873,7 @@
         }
       ],
       "alta": 1,
-      "id": 8
+      "id": "8"
     },
     {
       "nombreEvento": "topa",
@@ -988,7 +988,7 @@
         }
       ],
       "alta": 0,
-      "id": 9
+      "id": "9"
     },
     {
       "nombreEvento": "NUEVO",
@@ -1179,7 +1179,7 @@
         }
       ],
       "alta": 0,
-      "id": 10
+      "id": "10"
     },
     {
       "nombreEvento": "VER PRECIOP",
@@ -1235,7 +1235,7 @@
         }
       ],
       "alta": 0,
-      "id": 11
+      "id": "11"
     },
     {
       "nombreEvento": "EVENTO EMILIA",
@@ -1399,7 +1399,7 @@
         }
       ],
       "alta": 0,
-      "id": 12
+      "id": "12"
     },
     {
       "nombreEvento": "evento funciona",
@@ -1474,7 +1474,7 @@
         }
       ],
       "alta": 0,
-      "id": 13
+      "id": "13"
     },
     {
       "nombreEvento": "EMILIA MALDONADO",
@@ -1561,7 +1561,7 @@
         }
       ],
       "alta": 0,
-      "id": 14
+      "id": "14"
     },
     {
       "nombreEvento": "conan gray",
@@ -1706,7 +1706,7 @@
         }
       ],
       "alta": 1,
-      "id": 15
+      "id": "15"
     }
   ]
 }

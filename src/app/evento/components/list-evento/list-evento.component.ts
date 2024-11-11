@@ -39,4 +39,18 @@ export class ListEventoComponent implements OnInit{
     )
   }
 
+
+  currentIndex: number = 0;
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.listaEventos.filter(evento => evento.alta === 1).length;
+  }
+
+  prevSlide() {
+    this.currentIndex =
+      (this.currentIndex - 1 + this.listaEventos.filter(evento => evento.alta === 1).length) %
+      this.listaEventos.filter(evento => evento.alta === 1).length;
+  }
+
+
 }

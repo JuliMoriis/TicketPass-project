@@ -1,25 +1,6 @@
 <h1>Welcome Administrador!</h1>
+<app-list-evento [userId]="id"></app-list-evento>
 
  <app-filtrar-eventos [idUsuario]="id"></app-filtrar-eventos>
-  <app-list-evento [userId]="id"></app-list-evento>
-
-<nav>
-    <ul>
-        <li>
-            <a routerLink="ver-evento">Eventos habilitados</a>
-        </li>
-        <li>
-          <a [routerLink]="['/eventos-administrador', id]">Ver todos los eventos</a>
-      </li>
-        <li>
-            <a routerLink="/add-eventos">Cargar evento</a>
-        </li>
-        <li>
-            <a routerLink="/add-recinto">Cargar recinto</a>
-        </li>
-        <li>
-            <a routerLink="/buscar-evento">Buscar Evento</a>
-        </li>
-    </ul>
-</nav>
+ 
 
