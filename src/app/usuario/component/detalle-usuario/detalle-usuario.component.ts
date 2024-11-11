@@ -9,7 +9,7 @@ import { EditarUsuarioComponent } from '../editar-usuario/editar-usuario.compone
 @Component({
   selector: 'app-detalle-usuario',
   standalone: true,
-  imports: [CommonModule, AddUsuarioComponent, EditarUsuarioComponent],
+  imports: [CommonModule, EditarUsuarioComponent],
   templateUrl: './detalle-usuario.component.html',
   styleUrl: './detalle-usuario.component.css'
 })

@@ -5,10 +5,10 @@
   box-sizing: border-box;
 }
 
-/* Fondo y estructura general */
+
 body {
   font-family: 'Arial', Helvetica, sans-serif;
-  background: linear-gradient(135deg, #222, #555); /* Fondo suave */
+  background: linear-gradient(135deg, #222, #555);
   color: #fff;
   display: flex;
   justify-content: center;
@@ -17,15 +17,13 @@ body {
   padding: 20px;
 }
 
-/* Contenedor del título del recinto */
 .divreg {
   position: relative;
-  background-color: rgba(54, 23, 61, 0.9); /* Fondo oscuro con opacidad */
+  background-color: #36173d;
   border-radius: 12px;
   width: 40%;
   padding: 20px;
   text-align: center;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
   margin-top: 5%;
   margin-bottom: 2%;
 }
