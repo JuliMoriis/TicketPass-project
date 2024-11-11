@@ -6,7 +6,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-page-list-admin',
   standalone: true,
-  imports: [ListEventosAdminComponent, FiltrarEventoComponent, RouterModule],
+  imports: [ListEventosAdminComponent, RouterModule],
   templateUrl: './page-list-admin.component.html',
   styleUrl: './page-list-admin.component.css'
 })

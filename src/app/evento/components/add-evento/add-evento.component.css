@@ -12,7 +12,7 @@
     border-color:#fff;
     border-radius:40px;
     background-color: #eeeeee;
-} 
+}
 
 .input-field{
     position: relative;
@@ -49,8 +49,8 @@
     outline: none;
     font-size: 16px;
     padding: 0 10px;
-    text-align: center; 
-    box-sizing: border-box; 
+    text-align: center;
+    box-sizing: border-box;
 }
 .input-field input[type="date"] {
     width: 100%;
@@ -61,8 +61,8 @@
     outline: none;
     font-size: 16px;
     padding: 0 10px;
-    text-align: center; 
-    box-sizing: border-box; 
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .input-field input:focus~label,
@@ -71,7 +71,7 @@
     top:10px;
     transform: translateY(-120%);
 }
- 
+
 .container{  /* posicion del submit */
     display: flex;
     justify-content:flex-end;

@@ -21,9 +21,10 @@
 
   <div class="botonContainer">
     <button (click)="mostrarForm()">Editar</button>
-    <div *ngIf="mostrarEditar">
-      <h3>Editar recinto</h3>
-      <app-add-recinto [recintoRecibido]="recinto"></app-add-recinto>
-    </div>
   </div>
+
+  <div *ngIf="mostrarEditar">
+    <app-add-recinto [recintoRecibido]="recinto"></app-add-recinto>
+  </div>
+
 }

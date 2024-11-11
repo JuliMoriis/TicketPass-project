@@ -1,5 +1,6 @@
 <div class="divreg">
-  <h2>Agregar recinto</h2>
+  <h2 *ngIf="!recintoRecibido">Agregar recinto</h2>
+  <h2 *ngIf="recintoRecibido">Editar recinto</h2>
 </div>
 
 <body>
@@ -105,14 +106,23 @@
 
 
       @for (sector of sectoresTemp; track $index) {
-      {{sector.nombreSector}}
-      <button (click)="eliminarSector ($index)">Eliminar</button>
+      <div class="nombreSector">
+        {{sector.nombreSector}}
+      </div>
+
+      <div class="eliminarBtn">
+        <button (click)="eliminarSector ($index)">Eliminar</button>
+      </div>
       }
 
       <div *ngIf="recintoRecibido">
         @for (sector of recinto.sectores; track $index) {
-        {{sector.nombreSector}}
-        <button (click)="eliminarSectorEdit ($index)">Eliminar</button>
+          <div class="nombreSector">
+            {{sector.nombreSector}}
+          </div>
+          <div class="eliminarBtn">
+            <button (click)="eliminarSectorEdit ($index)">Eliminar</button>
+          </div>
         }
       </div>
       <br>

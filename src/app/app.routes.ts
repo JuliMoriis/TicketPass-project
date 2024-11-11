@@ -17,6 +17,7 @@ import { PageListAdminComponent } from './evento/pages/page-list-admin/page-list
 import { ListDeshabilitadosAdminComponent } from './evento/components/list-deshabilitados-admin/list-deshabilitados-admin.component';
 import { ListEntradasComponent } from './compra/components/list-entradas/list-entradas.component';
 import { VerDetalleEntradasComponent } from './compra/components/ver-detalle-entradas/ver-detalle-entradas.component';
+import { ListUsuarioComponent } from './usuario/component/list-usuario/list-usuario.component';
 
 
 export const routes: Routes = [
@@ -38,5 +39,7 @@ export const routes: Routes = [
   { path: '', redirectTo: '/comprar-entrada', pathMatch: 'full' },
   { path: 'eventos-deshabilitados/:id', component: ListDeshabilitadosAdminComponent},
   { path: 'ver-mis-entradas/:id', component: ListEntradasComponent},
-  { path: 'ver-detalle-entradas/:userId/:id', component: VerDetalleEntradasComponent}
+  { path: 'ver-detalle-entradas/:userId/:id', component: VerDetalleEntradasComponent},
+  { path: 'ver-usuarios/:adminId', component: ListUsuarioComponent},
+  { path: 'ver-detalle-usuario/:adminId/:id', component: PageVerPerfilComponent}
 ]
