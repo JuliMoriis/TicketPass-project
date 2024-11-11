@@ -4,21 +4,22 @@
       <h2 class="detalle-evento-titulo">Detalle del Evento</h2>
       <p class="subtitulo-evento">Información del evento seleccionado</p>
     </div>
-  
+
     <div class="informacion-evento">
       <p class="detalle-item"><strong>Nombre del Evento:</strong> {{eventoSeleccionado?.nombreEvento}}</p>
       <p class="detalle-item"><strong>Artista/Banda:</strong> {{eventoSeleccionado?.artista_banda}}</p>
       <p class="detalle-item"><strong>Duración del Evento en Horas:</strong> {{eventoSeleccionado?.duracion}}</p>
     </div>
-  
+
     <div class="lista-evento">
       <p class="detalle-item"><strong>Fechas y Hora de Comienzo del Evento:</strong></p>
-  
+
       <!-- Cada fecha tiene sus propios detalles -->
       <div *ngFor="let fecha of eventoSeleccionado?.fechas" class="detalle-item">
+
         <p class="fecha-evento">Fecha: {{fecha.fecha}}</p>
         <p class="hora-evento">Hora: {{fecha.hora}}</p>
-  
+
         <!-- Botones según tipo de usuario -->
         <div *ngIf="usuario?.tipo == 2" class="acciones-evento">
           <button type="button" class="boton-accion"
@@ -28,7 +29,7 @@
           </button>
           <div *ngIf="fecha.disponibilidadTotal==0" class="sold-out">Evento SOLD OUT</div>
         </div>
-  
+
         <div *ngIf="usuario?.tipo == 1" class="acciones-evento">
           <button class="boton-accion" (click)="cambiarEstadoFila(fecha)">
             {{ fecha.habilitado === 1 ? 'Deshabilitar Fila' : 'Habilitar Fila' }}
@@ -36,19 +37,19 @@
         </div>
       </div>
     </div>
-  
+
     <!-- Botones para el administrador -->
     <div *ngIf="usuario?.tipo == 1" class="acciones-evento">
       <button class="boton-accion" (click)="changeEdit()">Editar Evento</button>
       <div *ngIf="isEditing" class="formulario-editar">
         <app-add-evento [eventoIn]="eventoSeleccionado" (updateEvento)="updateEventos($event)"></app-add-evento>
       </div>
-  
+
       <button class="boton-accion" (click)="deshabilitarOHabilitar()">
         {{ eventoSeleccionado?.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
       </button>
     </div>
   </section>
-  
+
 </body>
 

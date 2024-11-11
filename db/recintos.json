@@ -4,29 +4,232 @@
       "nombreRecinto": "Estadio River Plate",
       "direccion": {
         "calle": "Av. Pres. Figueroa Alcorta",
-        "numero": 7591,
+        "numero": 7597,
         "ciudad": "Buenos Aires",
         "codigoPostal": "C1428",
         "pais": "Argentina"
       },
       "urlImg": "https://turismo.buenosaires.gob.ar/sites/turismo/files/estadio_river_plate_1200_belgrano.jpg",
-      "capacidadTotal": 35015,
+      "capacidadTotal": 20020,
       "sectores": [
         {
-          "nombreSector": "Campo Vip",
+          "nombreSector": "Campo delantero izquierdo",
+          "capacidad": 10000,
+          "numerado": false,
+          "asientos": []
+        },
+        {
+          "nombreSector": "Campo delantero derecho",
+          "capacidad": 10000,
+          "numerado": false,
+          "asientos": []
+        },
+        {
+          "nombreSector": "Platea Sivori Media",
+          "capacidad": 10,
+          "numerado": true,
+          "asientos": [
+            {
+              "butaca": 1,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 2,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 3,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 4,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 5,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 6,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 7,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 8,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 9,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 10,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 1,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 2,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 3,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 4,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 5,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 6,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 7,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 8,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 9,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 10,
+              "disponibilidad": true
+            }
+          ]
+        },
+        {
+          "nombreSector": "Platea sivori Alta",
+          "capacidad": 10,
+          "numerado": true,
+          "asientos": [
+            {
+              "butaca": 1,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 2,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 3,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 4,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 5,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 6,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 7,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 8,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 9,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 10,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 1,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 2,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 3,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 4,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 5,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 6,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 7,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 8,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 9,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 10,
+              "disponibilidad": true
+            }
+          ]
+        }
+      ],
+      "alta": true,
+      "urlMapaSectores": "https://indiehoy.com/wp-content/uploads/2023/06/2-TS_FEED-MAPA-A.png",
+      "id": 1
+    },
+    {
+      "nombreRecinto": "Movistar Arena",
+      "direccion": {
+        "calle": "Humboldt ",
+        "numero": 450,
+        "ciudad": "Buenos Aires",
+        "codigoPostal": "C1414CSJ ",
+        "pais": "Argentina"
+      },
+      "urlImg": "https://tequierover.com.ar/wp-content/uploads/2024/08/Movistar-Arena.webp",
+      "capacidadTotal": 165010,
+      "sectores": [
+        {
+          "nombreSector": "Campo Delantero",
+          "capacidad": 150000,
+          "numerado": false,
+          "asientos": []
+        },
+        {
+          "nombreSector": "Campo Trasero",
           "capacidad": 15000,
           "numerado": false,
           "asientos": []
         },
         {
-          "nombreSector": "Campo ",
-          "capacidad": 20000,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "Platea",
-          "capacidad": 10,
+          "nombreSector": "102",
+          "capacidad": 5,
           "numerado": true,
           "asientos": [
             {
@@ -48,37 +251,11 @@
             {
               "butaca": 5,
               "disponibilidad": true
-            },
-            {
-              "butaca": 6,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 7,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 8,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 9,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 10,
-              "disponibilidad": true
             }
           ]
         },
         {
-          "nombreSector": "sector prueba",
-          "capacidad": 0,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "SECTOR NUMERADO",
+          "nombreSector": "108",
           "capacidad": 5,
           "numerado": true,
           "asientos": [
@@ -105,673 +282,85 @@
           ]
         }
       ],
-      "urlMapaSectores": "url mapa",
       "alta": true,
-      "id": 1
-    },
-    {
-      "nombreRecinto": "Luna Park",
-      "direccion": {
-        "calle": "Colon",
-        "numero": 2233,
-        "ciudad": "Buenos Aires",
-        "codigoPostal": "C1428",
-        "pais": "Argentina"
-      },
-      "urlImg": "url1",
-      "capacidadTotal": 39,
-      "sectores": [
-        {
-          "nombreSector": "Platea popular",
-          "capacidad": 3,
-          "numerado": true,
-          "asientos": [
-            {
-              "butaca": 1,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 2,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 3,
-              "disponibilidad": true
-            }
-          ]
-        },
-        {
-          "nombreSector": "Campo",
-          "capacidad": 10,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "Campo vip",
-          "capacidad": 11,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "sector probando",
-          "capacidad": 12,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "VER SECTOR",
-          "capacidad": 3,
-          "numerado": true,
-          "asientos": []
-        }
-      ],
-      "urlMapaSectores": "url2",
-      "alta": true,
+      "urlMapaSectores": "https://indiehoy.com/wp-content/uploads/2020/01/movistar-arena-argentina-plano-espacios-interior-565x513.jpg",
       "id": 2
     },
     {
-      "nombreRecinto": "recinto prueba",
+      "nombreRecinto": "Estadio Velez",
       "direccion": {
-        "calle": "calle 1",
-        "numero": 123,
-        "ciudad": "mdp",
-        "codigoPostal": "7600",
-        "pais": "arg"
+        "calle": "Av. Juan Bautista Justo ",
+        "numero": 9200,
+        "ciudad": "Buenos Aires",
+        "codigoPostal": "C1408AKU",
+        "pais": "Argentina"
       },
-      "urlImg": "url1",
-      "capacidadTotal": 55,
+      "urlImg": "https://indiehoy.com/wp-content/uploads/2022/08/estadio-velez-sarfield-01.jpeg",
+      "capacidadTotal": 37010,
       "sectores": [
         {
-          "nombreSector": "sector 33",
-          "capacidad": 5,
-          "numerado": true,
-          "asientos": []
-        },
-        {
-          "nombreSector": "sector nuevo ",
-          "capacidad": 44,
+          "nombreSector": "Campo vip",
+          "capacidad": 15000,
           "numerado": false,
           "asientos": []
         },
         {
-          "nombreSector": "sector AGREGADO",
-          "capacidad": 2,
-          "numerado": true,
+          "nombreSector": "Campo",
+          "capacidad": 22000,
+          "numerado": false,
           "asientos": []
         },
         {
-          "nombreSector": "SECTORRRRRRRR",
-          "capacidad": 2,
+          "nombreSector": "Platea Alta Norte",
+          "capacidad": 10,
           "numerado": true,
-          "asientos": []
-        },
-        {
-          "nombreSector": "MALDONADO",
-          "capacidad": 2,
-          "numerado": true,
-          "asientos": []
+          "asientos": [
+            {
+              "butaca": 1,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 2,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 3,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 4,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 5,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 6,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 7,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 8,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 9,
+              "disponibilidad": true
+            },
+            {
+              "butaca": 10,
+              "disponibilidad": true
+            }
+          ]
         }
       ],
       "alta": true,
-      "urlMapaSectores": "url2",
+      "urlMapaSectores": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWM61siW93GqHnfmGnvys9JAapPXwZVFhCZ65pqRPl2mMYzJcp00Tg6PVDDU4R8NDBJ46wfplLLnrjoQGB_XZ8xkS2IHGWRBJn42wdcoRgFyHGJqbNFjMrRa-SC87-dYgaz2G5CFSgUQKw/s1600/lugares.jpg",
       "id": 3
-    },
-    {
-      "nombreRecinto": "RECINTO EMILIA MALDONADO",
-      "direccion": {
-        "calle": "CALLE1",
-        "numero": 111,
-        "ciudad": "MDP",
-        "codigoPostal": "7600",
-        "pais": "arg"
-      },
-      "urlImg": "2222",
-      "capacidadTotal": 11,
-      "sectores": [
-        {
-          "nombreSector": "SECTOR NUMERADO",
-          "capacidad": 11,
-          "numerado": true,
-          "asientos": [
-            {
-              "butaca": 1,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 2,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 3,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 4,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 5,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 6,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 7,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 8,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 9,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 10,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 11,
-              "disponibilidad": true
-            }
-          ]
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "222",
-      "id": 4
-    },
-    {
-      "nombreRecinto": "RECINTO ULTIMO",
-      "direccion": {
-        "calle": "ULTIMA CALLE",
-        "numero": 123,
-        "ciudad": "MDP",
-        "codigoPostal": "7600",
-        "pais": "ARG"
-      },
-      "urlImg": "URL1",
-      "capacidadTotal": 15,
-      "sectores": [
-        {
-          "nombreSector": "SECTOR 1",
-          "capacidad": 5,
-          "numerado": true,
-          "asientos": [
-            {
-              "butaca": 1,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 2,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 3,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 4,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 5,
-              "disponibilidad": true
-            }
-          ]
-        },
-        {
-          "nombreSector": "SECTOR 2",
-          "capacidad": 10,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "URL2",
-      "id": 5
-    },
-    {
-      "nombreRecinto": "RECINTO ULTIMO",
-      "direccion": {
-        "calle": "ULTIMA CALLE",
-        "numero": 123,
-        "ciudad": "MDP",
-        "codigoPostal": "7600",
-        "pais": "ARG"
-      },
-      "urlImg": "URL1",
-      "capacidadTotal": 15,
-      "sectores": [
-        {
-          "nombreSector": "SECTOR 1",
-          "capacidad": 5,
-          "numerado": true,
-          "asientos": [
-            {
-              "butaca": 1,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 2,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 3,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 4,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 5,
-              "disponibilidad": true
-            }
-          ]
-        },
-        {
-          "nombreSector": "SECTOR 2",
-          "capacidad": 10,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "URL2",
-      "id": 6
-    },
-    {
-      "nombreRecinto": "RECINTO NO FUNCIONA?",
-      "direccion": {
-        "calle": "333",
-        "numero": 333,
-        "ciudad": "333",
-        "codigoPostal": "333",
-        "pais": "333"
-      },
-      "urlImg": "333",
-      "capacidadTotal": 13,
-      "sectores": [
-        {
-          "nombreSector": "S1",
-          "capacidad": 3,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "S2",
-          "capacidad": 10,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "333",
-      "id": 7
-    },
-    {
-      "nombreRecinto": "RECINTO NO FUNCIONA?",
-      "direccion": {
-        "calle": "333",
-        "numero": 333,
-        "ciudad": "333",
-        "codigoPostal": "333",
-        "pais": "333"
-      },
-      "urlImg": "333",
-      "capacidadTotal": 13,
-      "sectores": [
-        {
-          "nombreSector": "S1",
-          "capacidad": 3,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "S2",
-          "capacidad": 10,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "333",
-      "id": 8
-    },
-    {
-      "nombreRecinto": "ERERERERERERERERER",
-      "direccion": {
-        "calle": "EEE",
-        "numero": 444,
-        "ciudad": "DDDDDD",
-        "codigoPostal": "DD",
-        "pais": "RRRRRRRRR"
-      },
-      "urlImg": "URL",
-      "capacidadTotal": 22,
-      "sectores": [
-        {
-          "nombreSector": "EEEE",
-          "capacidad": 22,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "EWEE",
-      "id": 9
-    },
-    {
-      "nombreRecinto": "4444444",
-      "direccion": {
-        "calle": "44444444444",
-        "numero": 4444,
-        "ciudad": "444",
-        "codigoPostal": "444444",
-        "pais": "444444444"
-      },
-      "urlImg": "4444444444",
-      "capacidadTotal": 4,
-      "sectores": [
-        {
-          "nombreSector": "44444444",
-          "capacidad": 4,
-          "numerado": true,
-          "asientos": [
-            {
-              "butaca": 1,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 2,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 3,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 4,
-              "disponibilidad": true
-            }
-          ]
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "44444",
-      "id": 10
-    },
-    {
-      "nombreRecinto": "5555555555555",
-      "direccion": {
-        "calle": "555555",
-        "numero": 5555555,
-        "ciudad": "5555555555555555",
-        "codigoPostal": "555555555555555555",
-        "pais": "55555555555555555"
-      },
-      "urlImg": "555555555555555",
-      "capacidadTotal": 23,
-      "sectores": [
-        {
-          "nombreSector": "55555555",
-          "capacidad": 20,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "RRRRR",
-          "capacidad": 3,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "555555555555555",
-      "id": 11
-    },
-    {
-      "nombreRecinto": "5555555555555",
-      "direccion": {
-        "calle": "555555",
-        "numero": 5555555,
-        "ciudad": "5555555555555555",
-        "codigoPostal": "555555555555555555",
-        "pais": "55555555555555555"
-      },
-      "urlImg": "555555555555555",
-      "capacidadTotal": 23,
-      "sectores": [
-        {
-          "nombreSector": "55555555",
-          "capacidad": 20,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "RRRRR",
-          "capacidad": 3,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "555555555555555",
-      "id": 12
-    },
-    {
-      "nombreRecinto": "11111",
-      "direccion": {
-        "calle": "11111111111111",
-        "numero": 11111111111,
-        "ciudad": "11111111111111",
-        "codigoPostal": "1111111111",
-        "pais": "11111111111"
-      },
-      "urlImg": "1111111111111111",
-      "capacidadTotal": 6,
-      "sectores": [
-        {
-          "nombreSector": "111",
-          "capacidad": 1,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "2",
-          "capacidad": 2,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "3",
-          "capacidad": 3,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "11111",
-      "id": 13
-    },
-    {
-      "nombreRecinto": "11111",
-      "direccion": {
-        "calle": "11111111111111",
-        "numero": 11111111111,
-        "ciudad": "11111111111111",
-        "codigoPostal": "1111111111",
-        "pais": "11111111111"
-      },
-      "urlImg": "1111111111111111",
-      "capacidadTotal": 6,
-      "sectores": [
-        {
-          "nombreSector": "111",
-          "capacidad": 1,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "2",
-          "capacidad": 2,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "3",
-          "capacidad": 3,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "11111",
-      "id": 14
-    },
-    {
-      "nombreRecinto": "11111",
-      "direccion": {
-        "calle": "11111111111111",
-        "numero": 11111111111,
-        "ciudad": "11111111111111",
-        "codigoPostal": "1111111111",
-        "pais": "11111111111"
-      },
-      "urlImg": "1111111111111111",
-      "capacidadTotal": 6,
-      "sectores": [
-        {
-          "nombreSector": "111",
-          "capacidad": 1,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "2",
-          "capacidad": 2,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "3",
-          "capacidad": 3,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "11111",
-      "id": 15
-    },
-    {
-      "nombreRecinto": "A VER SI FUNCIONA",
-      "direccion": {
-        "calle": "11",
-        "numero": 1111111111,
-        "ciudad": "111111111111111",
-        "codigoPostal": "111111111111111111",
-        "pais": "11111111111111111"
-      },
-      "urlImg": "1111111111111",
-      "capacidadTotal": 12,
-      "sectores": [
-        {
-          "nombreSector": "SECTROR 1",
-          "capacidad": 2,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "S2",
-          "capacidad": 10,
-          "numerado": false,
-          "asientos": []
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "1111111111111111",
-      "id": 16
-    },
-    {
-      "nombreRecinto": "movistar arena",
-      "direccion": {
-        "calle": "movistar calle",
-        "numero": 123,
-        "ciudad": "buenos aires",
-        "codigoPostal": "123",
-        "pais": "argentina"
-      },
-      "urlImg": "url1",
-      "capacidadTotal": 70,
-      "sectores": [
-        {
-          "nombreSector": "campo vip",
-          "capacidad": 20,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "campo",
-          "capacidad": 40,
-          "numerado": false,
-          "asientos": []
-        },
-        {
-          "nombreSector": "platea",
-          "capacidad": 10,
-          "numerado": true,
-          "asientos": [
-            {
-              "butaca": 1,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 2,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 3,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 4,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 5,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 6,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 7,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 8,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 9,
-              "disponibilidad": true
-            },
-            {
-              "butaca": 10,
-              "disponibilidad": true
-            }
-          ]
-        }
-      ],
-      "alta": true,
-      "urlMapaSectores": "url2",
-      "id": 17
     }
   ]
 }

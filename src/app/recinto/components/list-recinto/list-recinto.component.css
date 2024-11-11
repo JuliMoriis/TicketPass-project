@@ -1,73 +1,82 @@
-.wrapper{
-  position: relative;
-  margin:0px auto;
-  width:470px;
-  border-radius:8px;
+.recintos-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 800px; /* Aumentado para que ocupe más espacio */
+  background-color: #ffffff;
+  border-radius: 12px;
   padding: 30px;
-  text-align: center;
-  border: 1px solid #36173d89;
-  background-color: #36173d89;
-  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-section{
-  width: 470px;
-  padding: 30px;
-  border-radius:8px;
-  box-sizing: border-box;
-  margin-bottom: 15px;
-  margin-right:200px;
+.wrapper h2 {
+  font-size: 2rem;
+  color: #36173d;
+  font-weight: 600;
+  margin-bottom: 25px;
   text-align: center;
 }
 
-ul {
-    list-style-type:square;
-    padding-left:0px; 
-  }
-
-h4{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight:400;
+.recintos-list {
+  list-style: none;
+  padding: 0;
 }
 
-button{
-    border-radius: 8px;
-    padding: 5px;
-    width: 150px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
-    font-weight: 500;
-    background-color:#36173d89;
-    color: #fff;
-    border-color: #36173d;
+.recinto-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: background-color 0.3s;
 }
 
-button:hover{
-  background:#ff484589;  
-  border-color:#ff484589; 
-  border-radius:8px;
-  color:#36173d ;
+.recinto-item h4 {
+  font-size: 1.4rem;
+  color: #36173d;
+  font-weight: 500;
+  margin: 0 0 15px;
 }
 
-
-li{
-box-sizing: content-box;
-border-radius: 8px;
-padding:10px;
-color: #fff;
-border-bottom: 1px solid white;
-border-top: 1px solid white;
+.recinto-item:hover {
+  background-color: #f9f9f9;
 }
 
-.botones{
-  margin-top: 10px;
-  margin-bottom:5px;
+.botones {
+  display: flex;
+  gap: 15px;
 }
 
-h2{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 100;
-    font-size: 30px;
-    color:#fff;
-    margin-bottom: 20px;
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #36173d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #4a2b5a;
+}
+
+.ver-mas {
+  background-color: #36173d;
+}
+
+.toggle {
+  background-color: #7a3b70;
+}
+
+.toggle:hover {
+  background-color: #4a2b5a;
 }

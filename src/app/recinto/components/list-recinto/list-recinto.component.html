@@ -1,20 +1,19 @@
-<section>
-
+<section class="recintos-section">
   <div class="wrapper">
-    <h2>Recintos cargados</h2>
-    <ul>
-        @for (item of listaRecintos; track $index){
-          <li><h4>{{item.nombreRecinto}}</h4></li>
-  
-          <div class="botones">
-            <button [routerLink]="['/recintos' , item.id]" >Ver mas</button>
-            <button (click)="habilitarDeshabilitar(item)">
-              {{ item.alta ? 'Deshabilitar' : 'Habilitar' }} recinto
-            </button>
-          </div>
-      
-         }
+    <h2>Recintos Cargados</h2>
+    <ul class="recintos-list">
+        <!-- Iteración de la lista de recintos -->
+        @for (item of listaRecintos; track $index) {
+          <li class="recinto-item">
+            <h4>{{ item.nombreRecinto }}</h4>
+            <div class="botones">
+              <button class="btn ver-mas" [routerLink]="['/recintos', item.id]">Ver más</button>
+              <button class="btn toggle" (click)="habilitarDeshabilitar(item)">
+                {{ item.alta ? 'Deshabilitar' : 'Habilitar' }} recinto
+              </button>
+            </div>
+          </li>
+        }
     </ul>
   </div>
-  
 </section>
