@@ -12,8 +12,8 @@ import { Autenticacion } from '../../services/autenticacion.service';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() tipoUsuario: number | null = null;  // Esto permite recibir tipoUsuario desde el componente padre (AppComponent)
-  @Input() idUsuario: string | null = null;
+  @Input() tipoUsuario: number | null = null;
+  @Input() idUsuario: string | null = null
 
   constructor(private router: Router) {}
   auth = inject(Autenticacion)

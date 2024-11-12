@@ -127,7 +127,10 @@ body::before{
 
 
 button {
-  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
   padding: 10px 15px;
   font-size: 14px;
   font-weight: bold;
@@ -141,6 +144,12 @@ button {
 
 button {
   background-color: #6a4d8c;
+}
+
+.btnDescargar {
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
 .mensaje {

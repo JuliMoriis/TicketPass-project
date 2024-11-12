@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import { CommonModule } from '@angular/common';
 import { Autenticacion } from './services/autenticacion.service';
@@ -27,6 +27,8 @@ export class AppComponent implements OnInit {
     private activated: ActivatedRoute
   ) {}
 
+  mostrarHeader : boolean = true ;
+
   ngOnInit(): void {
     this.authService.isLoggedIn.subscribe((loggedInStatus) => {
       this.isLoggedIn = loggedInStatus;
@@ -40,6 +42,15 @@ export class AppComponent implements OnInit {
       this.idUsuario = id;
       console.log('ID Usuario obtenido en AppComponent:', this.idUsuario);
     });
+
+
+    //si estoy en iniciar sesion no muestra
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.mostrarHeader = event.url !== '/iniciar-sesion';
+      }
+    });
+
   }
 
   cerrarSesion() {

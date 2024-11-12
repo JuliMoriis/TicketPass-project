@@ -1,4 +1,9 @@
-<div *ngIf="tipoUsuario != null">
-    <app-header [tipoUsuario]="tipoUsuario" [idUsuario]="idUsuario"></app-header>
+
+<div *ngIf="mostrarHeader">
+  <app-header [tipoUsuario]="tipoUsuario" [idUsuario]="idUsuario"></app-header>
 </div>
+
+
 <router-outlet></router-outlet>
+
+

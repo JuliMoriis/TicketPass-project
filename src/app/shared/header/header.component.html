@@ -1,7 +1,11 @@
 <header>
   <div class="wrapper">
-    <div class="logo" [routerLink]="['usuarios' , idUsuario]">TicketPass</div>
 
+    <div class="logo">
+      <span *ngIf="idUsuario !== null" [routerLink]="['usuarios', idUsuario]">TicketPass</span>
+      <span *ngIf="idUsuario === null">TicketPass</span>
+    </div>
+    
     <div *ngIf="tipoUsuario === 1">
       <!-- Menú para el Administrador -->
       <nav>
@@ -34,7 +38,7 @@
     <div *ngIf="tipoUsuario === null">
       <!-- Menú para los usuarios no logueados -->
       <nav>
-        <a routerLink="">Iniciar sesión</a>
+        <a routerLink="/iniciar-sesion">Iniciar sesión</a>
         <a routerLink="/registrarse">Registrarse</a>
       </nav>
     </div>
