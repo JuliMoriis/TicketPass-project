@@ -43,6 +43,32 @@
       "precioTotal": 180000,
       "estado": true,
       "id": 2
+    },
+    {
+      "fechaDeCompra": "2024-11-12T17:51:51.074Z",
+      "cliente": {
+        "nombre": "Emi",
+        "email": "m.emiliamaldo@gmail.com",
+        "idCliente": 1
+      },
+      "evento": {
+        "nombreEvento": "The Clancy World Tour",
+        "fechaEvento": "2024-01-30",
+        "idEvento": 3
+      },
+      "entrada": {
+        "sector": "102",
+        "precioUnitario": "53000",
+        "butaca": [
+          1,
+          2
+        ]
+      },
+      "cantidad": "2",
+      "precioTotal": 106000,
+      "estado": true,
+      "id": 3,
+      "qrEntrada": "data:image/png;base64,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"
     }
   ]
 }
