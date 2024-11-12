@@ -3,12 +3,13 @@ import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/ro
 import { HeaderComponent } from './shared/header/header.component';
 import { CommonModule } from '@angular/common';
 import { Autenticacion } from './services/autenticacion.service';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, CommonModule],
+  imports: [RouterOutlet, HeaderComponent, CommonModule, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -44,10 +45,10 @@ export class AppComponent implements OnInit {
     });
 
 
-    //si estoy en iniciar sesion no muestra
+    //si estoy en iniciar sesion o registrarse no muestra
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.mostrarHeader = event.url !== '/iniciar-sesion';
+        this.mostrarHeader = !['/iniciar-sesion', '/registrarse'].includes(event.url);
       }
     });
 

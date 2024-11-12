@@ -3,7 +3,6 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ListEventoComponent } from '../../evento/components/list-evento/list-evento.component';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../usuario/interfaces/usuario.interface';
-import { PageEventosListComponent } from '../../evento/pages/page-eventos-list/page-eventos-list.component';
 import { FiltrarEventoComponent } from '../../evento/components/filtrar-eventos/filtrar-eventos.component';
 import { HeaderComponent } from '../../shared/header/header.component';
 
@@ -28,7 +27,7 @@ export class ClientePageComponent implements OnInit{
 
     this.active.paramMap.subscribe(param => {
       this.id = param.get('id');
-      console.log("ID obtenido de la ruta:", this.id); // Verifica que `id` es correcto
+      console.log("ID obtenido de la ruta:", this.id);
       if (this.id) {
         this.userService.getUsuariosById(this.id).subscribe({
           next: (userDB: Usuario) => {

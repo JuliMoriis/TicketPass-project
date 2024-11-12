@@ -1,0 +1,8 @@
+main{
+  padding-top: 100px;
+}
+
+
+main.no-padding {
+  padding-top: 0;
+}

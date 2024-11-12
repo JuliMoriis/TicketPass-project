@@ -1,9 +1,16 @@
 
-<div *ngIf="mostrarHeader">
-  <app-header [tipoUsuario]="tipoUsuario" [idUsuario]="idUsuario"></app-header>
-</div>
+<header>
+  <div *ngIf="mostrarHeader">
+    <app-header [tipoUsuario]="tipoUsuario" [idUsuario]="idUsuario"></app-header>
+  </div>
+</header>
 
+<!-- sin padding si esta en iniciar sesion o registrarse -->
+<main [class.no-padding]="!mostrarHeader">
+  <router-outlet></router-outlet>
+</main>
 
-<router-outlet></router-outlet>
-
+<footer>
+  <app-footer></app-footer>
+</footer>
 

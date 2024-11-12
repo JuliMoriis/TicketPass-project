@@ -1,7 +1,6 @@
  <body>
- 
+
   <div class="wrapper">
-    <h2>Buscar eventos</h2>
     <input
       type="text"
       name="input-busqueda"
@@ -9,18 +8,18 @@
       (input)="filtrarEventos()"
       placeholder=" Buscar eventos..."
     />
-  
+
     <div *ngIf="mostrarResultados && resultados.length > 0" class="busqueda">
       <ul>
-        <li *ngFor="let evento of resultados" [routerLink]="['/detalle-evento' , idUsuario ,evento.id]">
+        <li *ngFor="let evento of resultados" (click)="redirigir(evento.id)" >
           <div class="divInfo">
             {{ evento.nombreEvento }} - {{ evento.artista_banda }}
           </div>
-           
+
         </li>
       </ul>
     </div>
-  
+
     <div *ngIf="mostrarResultados && resultados.length === 0" class="busqueda">
       <div>No se encontraron eventos.</div>
     </div>

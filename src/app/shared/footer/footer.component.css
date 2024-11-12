@@ -1,0 +1,47 @@
+
+.footer {
+  background-color: #000000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.footer .integrantes,
+.footer .social-media,
+.footer .legal {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer .integrantes li,
+.footer .social-media li,
+.footer .legal li {
+  display: inline;
+}
+
+.footer .integrantes a,
+.footer .social-media a,
+.footer .legal a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer .integrantes a:hover,
+.footer .social-media a:hover,
+.footer .legal a:hover {
+  color: #5a2a57;
+}
+
+
