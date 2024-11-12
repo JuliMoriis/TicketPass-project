@@ -1,3 +1,4 @@
+import { QRCode } from 'qrcode';
 import { Fecha } from './../../evento/interfaces/fecha.interface';
 export interface Compra {
   id?: string,
@@ -19,5 +20,6 @@ export interface Compra {
   },
   cantidad: number,
   precioTotal: number,
+  qrEntrada ?: string,
   estado: boolean
 }

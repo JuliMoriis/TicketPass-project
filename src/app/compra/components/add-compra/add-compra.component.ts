@@ -11,6 +11,7 @@ import { Usuario } from '../../../usuario/interfaces/usuario.interface';
 import { Compra } from '../../interfaces/compra.interface';
 import { CompraService } from '../../../services/compra.service';
 import { PagoComponent } from '../../pages/pago/pago.component';
+import QRCode from 'qrcode';
 
 @Component({
   selector: 'app-add-compra',
@@ -177,12 +178,39 @@ export class AddCompraComponent implements OnInit {
       next: (compraCargada : Compra) => {
         console.log("compra cargada");
         this.compraCompletaJson = compraCargada
+        this.generarQR(this.compraCompletaJson)
         this.mostrarPago = true;
       },
       error: (e: Error) => {
         console.log(e.message);
       }
     })
+  }
+
+  generarQR (compra: Compra){
+    //url ficticio funcionaria cuando se escanea la entrada en el recinto
+    const qrUrl = `http://localhost:4200/validar-entrada/${compra.id}`;
+    QRCode.toDataURL(qrUrl)
+      .then(url=> {
+        console.log('url generado con exito');
+        //guardo el url en el json de compras
+        compra.qrEntrada = url ;
+
+        if (compra.id){
+          this.compraService.putCompra(compra.id , compra).subscribe({
+            next: ()=> {
+              console.log('compra editada con qr');
+            },
+            error : (e:Error)=> {
+              console.log(e.message);
+            }
+          })
+        }
+
+      })
+      .catch(e => {
+        console.log(e);
+      })
   }
 
   editarEvento() {

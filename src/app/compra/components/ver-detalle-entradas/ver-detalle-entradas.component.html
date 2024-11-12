@@ -1,42 +1,50 @@
 <body>
   <section class="detalle-entrada">
-    <div class="entrada-titulo">
-      <h2>Detalle de su entrada para {{compraSeleccionada?.evento?.nombreEvento}}</h2>
-    </div>
-    <div class="entrada-contenido">
-      <p class="entrada-item">
-        <span class="entrada-label">Nombre del Evento:</span> {{compraSeleccionada?.evento?.nombreEvento}}
-      </p>
-      <p class="entrada-item">
-        <span class="entrada-label">Fecha del Evento:</span> {{compraSeleccionada?.evento?.fechaEvento}}
-      </p>
-      <p class="entrada-item">
-        <span class="entrada-label">Fecha de compra:</span> {{ compraSeleccionada?.fechaDeCompra | date:'yyyy/MM/dd' }}
-      </p>
-      <p class="entrada-item">
-        <span class="entrada-label">Usuario asociado:</span> {{compraSeleccionada?.cliente?.email}}
-      </p>
-      <p class="entrada-item">
-        <span class="entrada-label">Cantidad de entradas:</span> {{compraSeleccionada?.cantidad}}
-      </p>
-      <p class="entrada-item">
-        <span class="entrada-label">Precio unitario:</span> ${{compraSeleccionada?.entrada?.precioUnitario}}
-      </p>
-      <p *ngIf="compraSeleccionada && compraSeleccionada.cantidad > 1" class="entrada-item">
-        <span class="entrada-label">Precio total:</span> ${{compraSeleccionada.precioTotal}}
-      </p>
-      <p class="entrada-item">
-        <span class="entrada-label">Sector:</span> {{compraSeleccionada?.entrada?.sector}}
-      </p>
-      <div *ngIf="compraSeleccionada?.entrada?.butaca?.length" class="butacas">
-        <p class="entrada-label">Butacas:</p>
-        <ul class="butaca-lista">
-          <li *ngFor="let butaca of compraSeleccionada?.entrada?.butaca" class="butaca-item">
-            {{butaca}}
-          </li>
-        </ul>
+
+    <div #entrada>
+
+      <div class="entrada-titulo">
+        <h2>Detalle de su entrada para {{compraSeleccionada?.evento?.nombreEvento}}</h2>
       </div>
+      <div class="entrada-contenido">
+        <p class="entrada-item">
+          <span class="entrada-label">Nombre del Evento:</span> {{compraSeleccionada?.evento?.nombreEvento}}
+        </p>
+        <p class="entrada-item">
+          <span class="entrada-label">Fecha del Evento:</span> {{compraSeleccionada?.evento?.fechaEvento}}
+        </p>
+        <p class="entrada-item">
+          <span class="entrada-label">Fecha de compra:</span> {{ compraSeleccionada?.fechaDeCompra | date:'yyyy/MM/dd' }}
+        </p>
+        <p class="entrada-item">
+          <span class="entrada-label">Usuario asociado:</span> {{compraSeleccionada?.cliente?.email}}
+        </p>
+        <p class="entrada-item">
+          <span class="entrada-label">Cantidad de entradas:</span> {{compraSeleccionada?.cantidad}}
+        </p>
+        <p class="entrada-item">
+          <span class="entrada-label">Precio unitario:</span> ${{compraSeleccionada?.entrada?.precioUnitario}}
+        </p>
+        <p *ngIf="compraSeleccionada && compraSeleccionada.cantidad > 1" class="entrada-item">
+          <span class="entrada-label">Precio total:</span> ${{compraSeleccionada.precioTotal}}
+        </p>
+        <p class="entrada-item">
+          <span class="entrada-label">Sector:</span> {{compraSeleccionada?.entrada?.sector}}
+        </p>
+        <div *ngIf="compraSeleccionada?.entrada?.butaca?.length" class="butacas">
+          <p class="entrada-label">Butacas:</p>
+          <ul class="butaca-lista">
+            <li *ngFor="let butaca of compraSeleccionada?.entrada?.butaca" class="butaca-item">
+              {{butaca}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
+
+
+    <button (click)="descargarEntrada()">Descagar entrada</button>
   </section>
 
 </body>

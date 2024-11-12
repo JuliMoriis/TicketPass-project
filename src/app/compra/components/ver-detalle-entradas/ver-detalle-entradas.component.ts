@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { CompraService } from '../../../services/compra.service';
 import { Compra } from '../../interfaces/compra.interface';
 import { UsuarioService } from '../../../services/usuario.service';
@@ -6,6 +6,9 @@ import { Usuario } from '../../../usuario/interfaces/usuario.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgIf } from '@angular/common';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+
 
 @Component({
   selector: 'app-ver-detalle-entradas',
@@ -15,6 +18,9 @@ import { CommonModule, NgIf } from '@angular/common';
   styleUrl: './ver-detalle-entradas.component.css'
 })
 export class VerDetalleEntradasComponent {
+
+  //captura los datos de la entrada en html
+  @ViewChild('entrada', { static: false }) entrada!: ElementRef;
 
   comprasService= inject(CompraService);
   userService= inject(UsuarioService);
@@ -63,6 +69,28 @@ export class VerDetalleEntradasComponent {
         console.log("ID de usuario no encontrado en los parámetros de la ruta.");
       }
     });
+  }
+
+  descargarEntrada (){
+
+    const entradaPdf = this.entrada.nativeElement;
+
+    html2canvas(entradaPdf).then(canvas => {
+      const imagenPdf = canvas.toDataURL('image/png')
+      const pdf= new jsPDF()
+
+      if (this.compraSeleccionada?.qrEntrada)
+        {
+          const qrImagen = this.compraSeleccionada?.qrEntrada
+          pdf.addImage(qrImagen, 'PNG', 150, 200, 50, 50);
+
+        }
+
+      //datos del html
+      pdf.addImage(imagenPdf, 'PNG', 10,10, 200, 150);
+
+      pdf.save('entradaPdf')
+    })
   }
 
 

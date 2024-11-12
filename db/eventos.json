@@ -375,16 +375,16 @@
             },
             {
               "nombreSector": "102",
-              "disponibles": 5,
+              "disponibles": 3,
               "precio": "53000",
               "asientos": [
                 {
                   "butaca": 1,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 2,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 3,
@@ -428,7 +428,7 @@
               ]
             }
           ],
-          "disponibilidadTotal": 165010,
+          "disponibilidadTotal": 165008,
           "habilitado": 1
         }
       ],
