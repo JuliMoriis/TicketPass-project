@@ -7,6 +7,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { UsuarioService } from '../../../services/usuario.service';
 import { AddEventoComponent } from "../add-evento/add-evento.component";
 import { Fecha } from '../../interfaces/fecha.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detalle-evento',
@@ -73,10 +74,19 @@ export class DetalleEventoComponent implements OnInit{
   updateEventos(evento: Evento){
     this.eventosService.putEvento(evento?.id, evento).subscribe({
       next:()=>{
-        alert("Evento actualizado correctamente.")
+        Swal.fire({
+          title: "Evento editado correctamente",
+          confirmButtonColor: "#36173d",
+          icon: "success"
+        });
       },
       error:(e: Error)=>{
         console.log(e.message);
+        Swal.fire({
+          title: "Error al editar el evento",
+          confirmButtonColor: "#36173d",
+          icon: "error"
+        });
       }
     })
   }
@@ -87,11 +97,22 @@ export class DetalleEventoComponent implements OnInit{
         {
           this.eventosService.deshabilitarEvento(this.eventoSeleccionado.id, 0).subscribe({
             next:()=>{
-              alert("Evento deshabilitado")
-              this.router.navigate(['administrador', this.usuario?.id])
+              Swal.fire({
+                title: "Evento deshabilitado correctamente",
+                text: "El evento estara oculto para los clientes",
+                confirmButtonColor: "#36173d",
+                icon: "success"
+              }).then(() => {
+                window.location.reload();
+              });
             },
             error:(e: Error)=>{
               console.log(e.message);
+              Swal.fire({
+                title: "Error al deshabilitar el evento",
+                confirmButtonColor: "#36173d",
+                icon: "error"
+              })
             }
           })
         }
@@ -99,11 +120,22 @@ export class DetalleEventoComponent implements OnInit{
           {
             this.eventosService.deshabilitarEvento(this.eventoSeleccionado.id, 1).subscribe({
               next:()=>{
-                alert("Evento habilitado")
-                this.router.navigate(['administrador', this.usuario?.id])
+                Swal.fire({
+                  title: "Evento habilitado correctamente",
+                  text: "El evento esta visible para los clientes.",
+                  confirmButtonColor: "#36173d",
+                  icon: "success"
+                }).then(() => {
+                  window.location.reload();
+                });
               },
               error:(e: Error)=>{
                 console.log(e.message);
+                Swal.fire({
+                  title: "Error al deshabilitar el evento",
+                  confirmButtonColor: "#36173d",
+                  icon: "error"
+                })
               }
             })
           }
@@ -118,14 +150,27 @@ export class DetalleEventoComponent implements OnInit{
     if (fechaActualizar) {
 
       fechaActualizar.habilitado = fechaActualizar.habilitado === 1 ? 0 : 1;
+      const accion = fechaActualizar.habilitado === 0 ? 'deshabilitada' : 'habilitada';
 
       if (this.eventoSeleccionado)
       this.eventosService.putEvento(this.eventoSeleccionado.id, this.eventoSeleccionado).subscribe({
-        next: () => {
-          console.log('Evento actualizado con éxito');
+        next:()=>{
+          Swal.fire({
+            title: `Fila ${accion} correctamente`,
+            text: `La fila ahora está ${accion === 'habilitada' ? 'visible' : 'oculta'} para los clientes.`,
+            confirmButtonColor: "#36173d",
+            icon: "success"
+          }).then(() => {
+            window.location.reload();
+          });
         },
-        error: (e: Error) => {
-          console.error('Error al actualizar el evento:', e.message);
+        error:(e: Error)=>{
+          console.log(e.message);
+          Swal.fire({
+            title: `Error al ${accion === 'habilitada' ? 'habilitar' : 'deshabilitar'} la fila`,
+            confirmButtonColor: "#36173d",
+            icon: "error"
+          })
         }
       });
     } else {
@@ -133,4 +178,44 @@ export class DetalleEventoComponent implements OnInit{
     }
   }
 
+  confirmarDH(){
+    const accion = this.eventoSeleccionado?.alta === 1 ? 'deshabilitar' : 'habilitar';
+
+    Swal.fire({
+      title: `¿Desea ${accion} el evento?`,
+      text: `Esta acción hará que el evento esté ${accion === 'deshabilitar' ? 'oculto' : 'visible'} para los clientes.`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#36173d',
+      cancelButtonColor: "#ff4845",
+      confirmButtonText: `Si, ${accion}`,
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deshabilitarOHabilitar();
+      }
+    });
+  }
+
+  confirmarFila(fecha: Fecha){
+    const fechaActualizar = this.eventoSeleccionado?.fechas.find(f => f.fecha === fecha.fecha);
+
+    if (fechaActualizar) {
+      const accion = fechaActualizar.habilitado === 1 ? 'deshabilitar' : 'habilitar';
+      Swal.fire({
+        title: `¿Desea ${accion} la fila?`,
+        text: `Esta acción hará que la fila esté ${accion === 'deshabilitar' ? 'oculto' : 'visible'} para los clientes.`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#36173d',
+        cancelButtonColor: "#ff4845",
+        confirmButtonText: `Si, ${accion}`,
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.cambiarEstadoFila(fecha);
+        }
+      });
+    }
+  }
 }

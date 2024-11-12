@@ -3,6 +3,7 @@ import { Usuario } from '../../interfaces/usuario.interface';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsuarioService } from '../../../services/usuario.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -24,7 +25,7 @@ export class EditarUsuarioComponent implements OnInit{
   ngOnInit(): void {
       this.listarNombreUsuario();
       console.log(this.nombresUsuario);
-      
+
       if(this.usuarioRecibido)
       {
         this.formularioUsuario.setValue({
@@ -82,22 +83,31 @@ export class EditarUsuarioComponent implements OnInit{
   })
 
 
- 
+
   editarUsuario (usuario: Usuario){
     if (this.usuarioRecibido){
 
       if(this.usuarioRecibido.id)
       this.usuariosService.putUsuario(this.usuarioRecibido.id, usuario).subscribe({
         next : ()=> {
-         alert("Usuario editado con exito")
-        }, 
-        error: (e:Error)=> {
-          console.log(e.message);
+          Swal.fire({
+            title: "Perfil editado con exito",
+            confirmButtonColor: "#36173d",
+            icon: "success"
+          })
+        },
+        error: (err) => {
+          Swal.fire({
+            title: "Error al editar el perfil",
+            confirmButtonColor: "#36173d",
+            icon: "error"
+          });
+          console.error('Error:', err);
         }
       })
     }
-     
- 
+
+
   }
 
   addUsuario() {

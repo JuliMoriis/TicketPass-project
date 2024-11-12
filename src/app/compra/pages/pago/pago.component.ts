@@ -3,6 +3,7 @@ import { Compra } from '../../interfaces/compra.interface';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CompraService } from '../../../services/compra.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pago',
@@ -30,11 +31,23 @@ export class PagoComponent {
 
       this.compraService.putCompra(this.compra?.id, this.compra).subscribe({
         next: ()=> {
-          alert('Pago realizado con exito')
-          this.router.navigate(["usuarios", this.compra?.cliente.idCliente])
+          Swal.fire({
+            title: "Pago realizado con exito",
+            confirmButtonColor: "#36173d",
+            icon: "success"
+          }).then(()=>{
+            this.router.navigate(["usuarios", this.compra?.cliente.idCliente])
+          })
         },
         error: (e:Error) => {
           console.log(e.message);
+          Swal.fire({
+            title: "Hubo un problema con el pago.",
+            confirmButtonColor: "#36173d",
+            icon: "error"
+          })
+
+
         }
     })
 

@@ -8,6 +8,9 @@ import { RecintoService } from '../../../services/recintos.service';
 import { Entrada } from '../../interfaces/entrada.interface';
 import { Evento } from '../../interfaces/evento.interface';
 import { Fecha } from '../../interfaces/fecha.interface';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { Autenticacion } from '../../../services/autenticacion.service';
 
 @Component({
   selector: 'app-add-evento',
@@ -18,6 +21,10 @@ import { Fecha } from '../../interfaces/fecha.interface';
 })
 
 export class AddEventoComponent implements OnInit {
+
+  userId: string | null = null;
+
+  constructor(private router: Router, private authService: Autenticacion) {}
 
   @Input()
   eventoIn?: Evento; // undefined si no pongo editar
@@ -74,6 +81,12 @@ export class AddEventoComponent implements OnInit {
   fechaSeleccionada = this.evento.fechas[0];
 
   ngOnInit(): void {
+
+    this.authService.userId.subscribe((id) => {
+      this.userId = id;
+      console.log('ID Usuario en AddEventoComponent:', this.userId);
+    });
+
     this.levantarRecintos();
 
     if (this.eventoIn) {
@@ -206,7 +219,7 @@ export class AddEventoComponent implements OnInit {
         disponibilidadTotal: 0,
         habilitado: 0
       };
-      alert('Fecha agregada correctamente');
+      //alert('Fecha agregada correctamente');
     }
   }
 
@@ -226,8 +239,21 @@ export class AddEventoComponent implements OnInit {
         fecha.disponibilidadTotal = disponibilidad;
       }
 
+      Swal.fire({
+        title: "¿Deseas guardar el evento?",
+        showCancelButton: true,
+        confirmButtonColor: "#36173d",
+        cancelButtonColor: "#ff4845",
+        confirmButtonText: "Guardar",
+        cancelButtonText: "Cancelar"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.guardarEventosJSON();
+        }
+      });
+
     console.log(this.evento);
-    this.guardarEventosJSON();
+
 
   }
 
@@ -237,10 +263,23 @@ export class AddEventoComponent implements OnInit {
       {
         next: () => {
           console.log('evento agregado');
-          alert('Evento agregado con exito')
+          Swal.fire({
+            title: "¡Evento guardado!",
+            text: "Tu evento ha sido guardado y puede ser habilitado.",
+            confirmButtonColor: "#36173d",
+            icon: "success"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.router.navigate(['/administrador', this.userId]);
+            }
+          });
         },
         error: (err) => {
-          alert('Error al agregar el evento: ' + err.message);
+          Swal.fire({
+            title: "Error al guardar el evento",
+            confirmButtonColor: "#36173d",
+            icon: "error"
+          });
           console.error('Error:', err);
         }
       }
@@ -255,9 +294,9 @@ export class AddEventoComponent implements OnInit {
         this.rellenarPrecio(fecha); // ??????????????????
 
         if (fecha.entradas.length == 0){
-          this.rellenarEntradaNuevaEdit (fecha) ///////rellena las nuevas entradas 
+          this.rellenarEntradaNuevaEdit (fecha) ///////rellena las nuevas entradas
         }
-        
+
       })
     }
 

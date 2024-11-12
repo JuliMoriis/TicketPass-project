@@ -8,7 +8,7 @@
             <h4>{{ item.nombreRecinto }}</h4>
             <div class="botones">
               <button class="btn ver-mas" [routerLink]="['/recintos', item.id]">Ver más</button>
-              <button class="btn toggle" (click)="habilitarDeshabilitar(item)">
+              <button class="btn toggle" (click)="confirmarDHR(item)">
                 {{ item.alta ? 'Deshabilitar' : 'Habilitar' }} recinto
               </button>
             </div>

@@ -30,8 +30,8 @@
           <div *ngIf="fecha.disponibilidadTotal==0" class="sold-out">Evento SOLD OUT</div>
         </div>
 
-        <div *ngIf="usuario?.tipo == 1" class="acciones-evento">
-          <button class="boton-accion" (click)="cambiarEstadoFila(fecha)">
+        <div *ngIf="usuario?.tipo == 1 && eventoSeleccionado?.alta === 1" class="acciones-evento">
+          <button class="boton-accion" (click)="confirmarFila(fecha)">
             {{ fecha.habilitado === 1 ? 'Deshabilitar Fila' : 'Habilitar Fila' }}
           </button>
         </div>
@@ -42,7 +42,7 @@
     <div *ngIf="usuario?.tipo == 1" class="acciones-evento">
       <button class="boton-accion" (click)="changeEdit()">Editar Evento</button>
 
-      <button class="boton-accion" (click)="deshabilitarOHabilitar()">
+      <button class="boton-accion" (click)="confirmarDH()">
         {{ eventoSeleccionado?.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
       </button>
     </div>

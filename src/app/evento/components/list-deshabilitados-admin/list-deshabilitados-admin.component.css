@@ -57,3 +57,7 @@
 .boton-detalle:hover {
   background-color: #36173d;
 }
+
+.no-hay-eventos {
+  text-align: center;
+}

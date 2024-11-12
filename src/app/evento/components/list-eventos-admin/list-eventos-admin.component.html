@@ -5,7 +5,7 @@
         <span class="nombre-evento">{{ evento.nombreEvento }}</span>
 
         <div class="contenedor-botones">
-          <button type="button" class="boton-accion" (click)="cambioAlta(evento)">
+          <button type="button" class="boton-accion" (click)="confirmarDH(evento)">
             {{ evento.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
           </button>
 
