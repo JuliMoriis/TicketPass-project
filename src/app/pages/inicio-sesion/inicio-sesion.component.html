@@ -1,51 +1,53 @@
 
 <body>
+
     <div class="wrapper">
 
-        <form #formInicioSesion="ngForm" (ngSubmit)="iniciarSesion(formInicioSesion)">
-            <h2>TicketPass</h2>
-            <h4>Inicio de sesion</h4>
-        <div class="input-field">
-            <input type="text" id="usuarioForm" name="usuarioForm" ngModel required>
-            <label for="usuarioForm">Usuario</label>
-                <div class="divAvisos" *ngIf="formInicioSesion.controls['usuarioForm']?.invalid && formInicioSesion.controls['usuarioForm']?.touched" >
-                     Debe ingresar su usuario
-                </div>
-        </div>
-                    
-        <div class="input-field">
-            <input type="password" id="contraseniaForm" name="contraseniaForm" ngModel required >
-            <label for="contraseniaForm">Constraseña</label>
-            <div class="divAvisos" *ngIf="formInicioSesion.controls['contraseniaForm']?.invalid && formInicioSesion.controls['contraseniaForm']?.touched">
-                Debe ingresar su contraseña
-            </div>
-        </div>
-        <button  type="submit" [disabled]="formInicioSesion.invalid">Iniciar sesion</button>
-    
-        <div class="registro">
-      <a routerLink="registrarse">Todavia no tenes cuenta? Registrate haciendo click aca</a>
-        </div>
-        </form>
-    </div>
+      <form #formInicioSesion="ngForm" (ngSubmit)="iniciarSesion(formInicioSesion)">
+          <h2>TicketPass</h2>
+          <h4>Inicio de sesion</h4>
+      <div class="input-field">
+          <input type="text" id="usuarioForm" name="usuarioForm" ngModel required>
+          <label for="usuarioForm">Usuario</label>
+              <div class="divAvisos" *ngIf="formInicioSesion.controls['usuarioForm']?.invalid && formInicioSesion.controls['usuarioForm']?.touched" >
+                   Debe ingresar su usuario
+              </div>
+      </div>
+
+      <div class="input-field">
+          <input type="password" id="contraseniaForm" name="contraseniaForm" ngModel required >
+          <label for="contraseniaForm">Contraseña</label>
+          <div class="divAvisos" *ngIf="formInicioSesion.controls['contraseniaForm']?.invalid && formInicioSesion.controls['contraseniaForm']?.touched">
+              Debe ingresar su contraseña
+          </div>
+      </div>
+      <button  type="submit" [disabled]="formInicioSesion.invalid">Iniciar sesion</button>
+
+      <div class="registro">
+    <a routerLink="/registrarse">Todavia no tenes cuenta? Registrate haciendo click aca</a>
+      </div>
+      </form>
+  </div>
+
 </body>
 
 
 
-            
-  
-        
-            
-
-           
-
-       
 
 
 
 
-   
-       
-   
+
+
+
+
+
+
+
+
+
+
+
 
 
 

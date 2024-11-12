@@ -2,9 +2,12 @@
  <div class="carousel-container">
   <div class="carousel-box" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
     <div class="carousel-slide" *ngFor="let evento of listaEventos; let i = index">
-      @if (evento.alta === 1) {
-      <img *ngIf="evento.UrlBanner" [src]="evento.UrlBanner" alt="banner del evento" [routerLink]="['/detalle-evento', userId, evento.id]">
-      }
+      <ng-container *ngIf="evento.alta === 1">
+        <img *ngIf="evento.UrlBanner"
+             [src]="evento.UrlBanner"
+             alt="banner del evento"
+             [routerLink]="userId ? ['/detalle-evento', userId, evento.id] : ['/iniciar-sesion']">
+      </ng-container>
     </div>
   </div>
   <div class="carousel-controls">

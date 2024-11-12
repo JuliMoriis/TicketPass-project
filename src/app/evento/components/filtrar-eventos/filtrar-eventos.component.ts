@@ -5,7 +5,7 @@ import { Recinto } from '../../../recinto/interfaces/recinto.interface';
 import { RecintoService } from '../../../services/recintos.service';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Autenticacion } from '../../../services/autenticacion.service';
 
 @Component({
@@ -26,7 +26,7 @@ export class FiltrarEventoComponent implements OnInit {
   eventosClientes : Evento [] = [] //solo los que tienen alta 1
 
   @Input()
-  idUsuario: string | null = ""
+  idUsuario: string | null = null
 
   mostrarResultados= false;
 
@@ -34,6 +34,7 @@ export class FiltrarEventoComponent implements OnInit {
     private eventoService: EventoService,
     private recintoService: RecintoService,
     private authService: Autenticacion,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -53,7 +54,7 @@ export class FiltrarEventoComponent implements OnInit {
   }
 
   eventosCliente (eventos: Evento[]) {
-    this.eventosClientes = eventos.filter(evento => evento.alta == 1); 
+    this.eventosClientes = eventos.filter(evento => evento.alta == 1);
   }
 
   obtenerRecintos(): void {
@@ -69,7 +70,7 @@ export class FiltrarEventoComponent implements OnInit {
       this.mostrarResultados = false;
       return;
     }
-  
+
     let busq = this.busqueda.toLowerCase();
     let recintoEncontrado: Recinto | undefined;
     recintoEncontrado = this.recintos.find((recinto) =>
@@ -86,7 +87,7 @@ export class FiltrarEventoComponent implements OnInit {
         );
       });
     }
-    else //cliente 
+    else //cliente
     {
       this.resultados = this.eventosClientes.filter((evento) => {
         return (
@@ -97,7 +98,7 @@ export class FiltrarEventoComponent implements OnInit {
       });
     }
 
-    this.mostrarResultados = true; 
+    this.mostrarResultados = true;
   }
 
   mostrarBusqueda ()
@@ -105,5 +106,16 @@ export class FiltrarEventoComponent implements OnInit {
     this.mostrarResultados= !this.mostrarResultados
   }
 
+  redirigir (eventoId?: string){
+    if (this.idUsuario != null){
+      console.log('hola');
+      this.router.navigate(['/detalle-evento' , this.idUsuario ,eventoId])
+    }
+    else
+    {
+      console.log('hola2');
+      this.router.navigate(['iniciar-sesion'])
+    }
+  }
 
 }

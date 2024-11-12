@@ -21,13 +21,14 @@ import { ListUsuarioComponent } from './usuario/component/list-usuario/list-usua
 
 
 export const routes: Routes = [
+  { path: '', component: ClientePageComponent}, ///general
+  { path: 'iniciar-sesion', component: InicioSesionComponent},
   { path: 'administrador/:id', component: AdminPageComponent}, //list personalizada
   { path: 'add-eventos', component: PageAddEventoComponent},
   { path: 'detalle-evento/:userId/:id', component: PageDetalleEventoComponent},
-  { path: 'list-eventos', component: PageEventosListComponent}, //general
+  { path: 'list-eventos', component: PageEventosListComponent},
   { path: 'add-recinto', component: PageAddRecintoComponent},
-  { path: 'usuarios/:id', component: ClientePageComponent}, //list personalizada
-  { path: '', component: InicioSesionComponent},
+  { path: 'usuarios/:id', component: ClientePageComponent}, //general
   { path: 'registrarse', component: PageRegistroUsuarioComponent},
   { path: 'buscar-evento', component: FiltrarEventoComponent},
   { path: 'elegir-entrada/:userId/:idEvento/:fecha', component: CompraPageComponent},

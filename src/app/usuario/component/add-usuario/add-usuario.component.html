@@ -1,10 +1,10 @@
 <body>
     <div class="wrapper">
-        <form [formGroup]="formularioUsuario"(ngSubmit)="addUsuario()">    
+        <form [formGroup]="formularioUsuario"(ngSubmit)="addUsuario()">
             <div *ngIf="!usuarioRecibido">
                 <h2>Registrarse</h2>
             </div>
-     
+
             <h4>Informacion del Usuario</h4>
             <div class="input-field">
                 <input type="text" id="nombreUsuario" formControlName = "nombre" />
@@ -21,7 +21,7 @@
                     @if (formularioUsuario.controls['apellido'].getError('required') && formularioUsuario.controls['apellido'].touched){
                         <div class="divAvisos">
                             Complete el campo
-                        </div> 
+                        </div>
                     }
                 <label for="apellidoUsuario">Apellido</label>
             </div>
@@ -45,7 +45,7 @@
                     }
                 <label for="emailUsuario">Email</label>
             </div>
-         
+
             <div formGroupName="direccion">
                 <h4>Direccion</h4>
 
@@ -68,7 +68,7 @@
                     }
                     <label for="numeroUsuario">Numero</label>
                 </div>
-                    
+
                 <div class="input-field">
                     <input type="text" id="ciudadUsuario" formControlName = "ciudad">
                         @if (formularioUsuario.get('direccion.ciudad')?.getError('required') && formularioUsuario.get('direccion.ciudad')?.touched){
@@ -87,8 +87,8 @@
                         </div>
                     }
                     <label for="codigoPostalUsuario">Codigo postal</label>
-                </div>  
-             
+                </div>
+
                 <div class="input-field">
                     <input type="text" id="paisUsuario" formControlName = "pais">
                     @if (formularioUsuario.get('direccion.pais')?.getError('required') && formularioUsuario.get('direccion.pais')?.touched){
@@ -97,9 +97,9 @@
                         </div>
                     }
                     <label for="paisUsuario">Pais</label>
-                </div>        
+                </div>
             </div>
-       
+
         <h4>Datos de la cuenta</h4>
         <div class="input-field">
             <input type="text" id="usuarioDeUsuario" formControlName = "nombreUsuario">
@@ -110,7 +110,7 @@
             }
             <label for="usuarioDeUsuario">Nombre de Usuario</label>
         </div>
-      
+
         <div class="input-field">
             <input type="password" id="contraseniaUsuario" formControlName = "contrasenia">
             @if ((formularioUsuario.controls['contrasenia'].getError('required') || formularioUsuario.controls['contrasenia'].getError('minLength')) && formularioUsuario.controls['contrasenia'].touched){
@@ -120,15 +120,14 @@
             }
             <label for="contraseniaUsuario">Contraseña</label>
         </div>
-       
-   
+
+
         <button type="submit">Registrarse</button>
 <div class="sesion">
-<a routerLink="">Ya tenes una cuenta? Inicia sesion haciendo click aca</a>
+<a routerLink="/iniciar-sesion">Ya tenes una cuenta? Inicia sesion haciendo click aca</a>
 </div>
 </form>
     </div>
-    
+
 </body>
-        
-  
+
