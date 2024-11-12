@@ -1,6 +1,10 @@
 <body>
   <section class="detalle-entrada">
 
+    <div class="banner">
+      <img [src]="urlBanner" alt="Banner del evento" class="banner-img" />
+    </div>
+
     <div #entrada>
 
       <div class="entrada-titulo">
@@ -43,8 +47,9 @@
 
     </div>
 
-
     <button (click)="descargarEntrada()">Descagar entrada</button>
+    <div class="mensaje">*Recuerde para el dia del show tener descargada la entrada ya que le pediran el QR para el acceso</div>
+
   </section>
 
 </body>

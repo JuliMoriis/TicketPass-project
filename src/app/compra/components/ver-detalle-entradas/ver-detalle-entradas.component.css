@@ -26,6 +26,12 @@ body::before{
   z-index:-1 ;
 }
 
+.banner-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
 .detalle-entrada {
   position: relative;
   max-width: 700px;
@@ -117,4 +123,27 @@ body::before{
 
 .boton-volver:active {
   background-color: #314d5f;
+}
+
+
+button {
+  align-self: flex-start;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #36173d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button {
+  background-color: #6a4d8c;
+}
+
+.mensaje {
+  margin: 1rem;
+  font-size: smaller;
 }
