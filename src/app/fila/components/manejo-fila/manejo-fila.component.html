@@ -5,8 +5,10 @@
   <div *ngIf="usuario">
     <section class="fila-section">
       <h2 class="titulo-fila">¡Bienvenido a la fila, {{ usuario.nombre }}!</h2>
-      <button type="button" class="boton-ingresar" (click)="agregarCliente(usuario.nombre)">Ingresar</button>
-  
+      <button type="button" class="boton-ingresar" (click)="agregarCliente(usuario.nombre)"
+      [disabled]="estaEnFila"
+      >Ingresar</button>
+
       <ul class="lista-fila">
         <li *ngFor="let cliente of fila" class="item-fila">
           <span class="turno">{{ cliente.turno }}</span>
@@ -16,11 +18,11 @@
       </ul>
     </section>
   </div>
-  
+
   <div class="barra-progreso-container">
     <div class="barra-progreso" [style.width.%]="progreso"></div>
   </div>
-  
+
   <div *ngIf="cancionSeleccionada" class="song-preview">
     <div class="song-info">
       <img [src]="cancionSeleccionada.album.images[0].url" alt="Portada del álbum" class="album-cover" />
@@ -34,5 +36,5 @@
       Tu navegador no soporta el elemento de audio.
     </audio>
   </div>
-  
+
 </section>

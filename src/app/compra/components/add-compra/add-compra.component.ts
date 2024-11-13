@@ -27,6 +27,7 @@ export class AddCompraComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+
   compraRealizada: boolean = false;
   mostrarPago = false ;
   compraCompletaJson ?: Compra
@@ -64,7 +65,7 @@ export class AddCompraComponent implements OnInit {
 }
 
   //el checkbox que selecciona el usuario
-  sectorSeleccionado: string | undefined;
+  sectorSeleccionado: string = '';
   asientosDisponibles: number = 0
 
   mensaje: string = ""
@@ -123,6 +124,19 @@ export class AddCompraComponent implements OnInit {
       })
     })
   }
+
+  puedeComprar(): boolean{
+    if (this.sectorSeleccionado == '')
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+  }
+
+
 
   asignarSectorYPrecio(entrada: Entrada) {
     this.compra.entrada.sector = entrada.nombreSector;

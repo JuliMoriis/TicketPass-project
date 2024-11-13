@@ -39,7 +39,7 @@
       <button
       (click)="compraRealizada = true"
       class="boton-comprar"
-      [disabled]="compraRealizada">
+      [disabled]="compraRealizada|| puedeComprar()==false ">
       Pagar entrada
     </button>
 

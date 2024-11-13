@@ -24,6 +24,7 @@ export class ManejoFilaComponent implements OnInit {
   cancionSeleccionada: any = null;
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>; //reproduccion automatica
 
+  estaEnFila = false
   usuario: Usuario | undefined;
   evento: Evento | undefined;
   fecha: string | null = '';
@@ -76,6 +77,7 @@ export class ManejoFilaComponent implements OnInit {
 
 
   agregarCliente(nombre: string) {
+    this.estaEnFila= true
     const nuevoCliente: Cliente = {
       id: this.fila.length + 1,
       nombre,
