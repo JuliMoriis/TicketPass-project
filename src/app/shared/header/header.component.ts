@@ -10,14 +10,15 @@ import { Autenticacion } from '../../services/autenticacion.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
+//header para admin/cliente/logout
 export class HeaderComponent implements OnInit {
 
   @Input() tipoUsuario: number | null = null;
   @Input() idUsuario: string | null = null
 
   constructor(private router: Router) {}
-  auth = inject(Autenticacion)
-  activated= inject(ActivatedRoute)
+  private auth = inject(Autenticacion)
 
   ngOnInit(): void {
     console.log('id user', this.idUsuario);
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit {
 
   verMenu = false;
 
+  //menu del admin
   menuDesplegable() {
     this.verMenu = !this.verMenu;
   }

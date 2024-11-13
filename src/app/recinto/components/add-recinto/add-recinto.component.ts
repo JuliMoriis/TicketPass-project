@@ -23,20 +23,16 @@ export class AddRecintoComponent implements OnInit {
   userId: string | null = null;
 
   constructor(private router: Router){}
-
-  recintoService = inject(RecintoService);
+  private recintoService = inject(RecintoService);
 
   @Input()
-  recintoRecibido?: Recinto
+  recintoRecibido?: Recinto //si lo edita
 
   ngOnInit(): void {
     if (this.recintoRecibido) {
       this.recinto = this.recintoRecibido
     }
   }
-
-  @Output()
-  emitirRecinto: EventEmitter<Recinto> = new EventEmitter();
 
   sectoresTemp: Sector[] = []
 
@@ -70,6 +66,7 @@ export class AddRecintoComponent implements OnInit {
     pais: ''
   };
 
+  //agrega un sector al arreglo temporal
   agregarSector() {
     if (this.sector.nombreSector && this.sector.capacidad > 0) {
 
@@ -84,6 +81,7 @@ export class AddRecintoComponent implements OnInit {
     }
 
   }
+
 
   agregarSectorEdit() {
       this.crearButacas(this.sector)
@@ -106,6 +104,8 @@ export class AddRecintoComponent implements OnInit {
     this.recinto.sectores.splice(pos, 1);
   }
 
+
+  //segun la capacidad que se le asigno, se generan las butacas (SI ES NUMERADO)
   crearButacas(sector: Sector) {
     if (sector.numerado === true) {
       for (let i = 1; i <= sector.capacidad; i++) {
@@ -121,10 +121,12 @@ export class AddRecintoComponent implements OnInit {
     }
   }
 
+  //suma total de capacidad de todos los sectores
   capacidadTotalCalculo(): number {
     const capacidadTotal = this.recinto.sectores.reduce((acumulador, sector) => acumulador + sector.capacidad, 0);
     return capacidadTotal;
   }
+
 
   addRecinto(formulario: NgForm) {
 
@@ -138,19 +140,16 @@ export class AddRecintoComponent implements OnInit {
 
     else
     {
+      //rellena con los sectores y los que son numerados rellena las butacas
       this.recinto.sectores = this.sectoresTemp;
-
       for (let sector of this.recinto.sectores) {
 
         if (!sector.nombreSector || sector.capacidad <= 0) {
           alert('Por favor, completa al menos un sector.');
           return;
         }
-
         console.log("encontro un sector");
-
         this.crearButacas(sector);
-
       }
 
       this.recinto.capacidadTotal = this.capacidadTotalCalculo()
@@ -168,7 +167,6 @@ export class AddRecintoComponent implements OnInit {
       });
 
     }
-
 }
 
   postRecinto() {

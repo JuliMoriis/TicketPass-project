@@ -22,8 +22,6 @@ import { Autenticacion } from '../../../services/autenticacion.service';
 
 export class AddEventoComponent implements OnInit {
 
-  userId: string | null = null;
-
   constructor(private router: Router, private authService: Autenticacion) {}
 
   @Input()
@@ -32,11 +30,13 @@ export class AddEventoComponent implements OnInit {
   @Output()
   updateEvento: EventEmitter<Evento> = new EventEmitter()
 
+  userId: string | null = null;
+
   flag: boolean = false;
   fechaAgregada = false;
 
-  recintosService = inject(RecintoService);
-  eventosService = inject(EventoService);
+  private recintosService = inject(RecintoService);
+  private eventosService = inject(EventoService);
 
   listadoRecintos: Recinto[] = [];
   sectoresRecinto: Sector[] = [];
@@ -78,13 +78,13 @@ export class AddEventoComponent implements OnInit {
   }
 
 
-  fechaSeleccionada = this.evento.fechas[0];
+  fechaSeleccionada = this.evento.fechas[0]; //esta fecha se carga con los datos y se duplican en el resto
 
   ngOnInit(): void {
 
     this.authService.userId.subscribe((id) => {
       this.userId = id;
-      console.log('ID Usuario en AddEventoComponent:', this.userId);
+      console.log('ID Usuario en from evento:', this.userId);
     });
 
     this.levantarRecintos();
@@ -108,26 +108,31 @@ export class AddEventoComponent implements OnInit {
   }
 
   seleccionRecinto(event: any) {
+
     const idSeleccionado = Number(event.target.value);
     this.evento.recinto_id = idSeleccionado;
 
     if (!idSeleccionado) return;
-
+    //busca el recinto que apretamos en el select
     const recintoEncontrado = this.listadoRecintos.find(recinto => recinto.id === idSeleccionado);
 
     if (recintoEncontrado && recintoEncontrado.sectores) {
       console.log("Se encontró el recinto");
       this.sectoresRecinto = recintoEncontrado.sectores;
 
+      //rellena las fechas cargadas en el evento con los datos del recinto
       this.evento.fechas.forEach(fecha => {
         fecha.disponibilidadTotal = recintoEncontrado.capacidadTotal;
 
+        //validacion por si se usa el form para editar evento y que no se sobreescriba
         const tieneEntradasVendidas = fecha.entradas && fecha.entradas.some(e => e.disponibles < this.obtenerCapacidadSector(e.nombreSector));
 
+        //actualiza entradas con sectores nuevos
         if (tieneEntradasVendidas) {
           this.actualizarEntradasConSectores(fecha.entradas, this.sectoresRecinto);
         } else {
           fecha.entradas = [];
+          //rellena las entradas con los datos
           this.rellenarEntradas(this.sectoresRecinto, fecha);
         }
 
@@ -166,7 +171,7 @@ export class AddEventoComponent implements OnInit {
   /////////////////////////////////////////////////////////////////////////
 
 
-
+  //rellena entradas con sectores que encontro en el recinto
   rellenarEntradas(sectores: Sector[], fechaActual: Fecha) {
     for (const sector of sectores) {
       const nuevaEntrada = {
@@ -181,6 +186,7 @@ export class AddEventoComponent implements OnInit {
 
   }
 
+  //rellena la primera fecha con el precio que se asigno a cada sector
   rellenarPrecio (fecha:Fecha){
     const entradasPrimeraFecha = this.evento.fechas[0].entradas;
 
@@ -206,6 +212,7 @@ export class AddEventoComponent implements OnInit {
   }
 
 
+  //carga nuevas fechas al evento
   aceptarFecha() {
     if (this.nuevaFecha.fecha && this.nuevaFecha.hora) {
       this.evento.fechas.push({ ...this.nuevaFecha });
@@ -224,11 +231,15 @@ export class AddEventoComponent implements OnInit {
   }
 
 
+  //envia formulario
   addEvento(formulario: NgForm) {
 
     if (formulario.invalid) return;
 
-    let entradasCargadas = this.evento.fechas[0].entradas; /////////////PRIMERA FECHA CON SU PRECIO
+    //la primra fecha siempre va a estar cargada por completo
+    //si se agrega una fecha despues de poner ya los precios, queda sin rellenar pero al enviar el form
+    //se rellenan todas
+    let entradasCargadas = this.evento.fechas[0].entradas; //PRIMERA FECHA CON SU PRECIO
     let disponibilidad = this.evento.fechas[0].disponibilidadTotal;
 
     //cuando se carga por primera vez
@@ -286,15 +297,16 @@ export class AddEventoComponent implements OnInit {
     )
   }
 
+
   emitUpdate(formulario: NgForm) {
     if (formulario.invalid) return;
 
     if (this.eventoIn) {
       this.evento.fechas.forEach(fecha => {
-        this.rellenarPrecio(fecha); // ??????????????????
+        this.rellenarPrecio(fecha);
 
         if (fecha.entradas.length == 0){
-          this.rellenarEntradaNuevaEdit (fecha) ///////rellena las nuevas entradas
+          this.rellenarEntradaNuevaEdit (fecha) //rellena las nuevas entradas
         }
 
       })

@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class Autenticacion {
+
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.getIsLoggedIn());
   private userTypeSubject = new BehaviorSubject<number | null>(this.getUserType());
   private userIdSubject = new BehaviorSubject<string | null>(null);  // <--- Nuevo BehaviorSubject para el ID
@@ -12,10 +13,12 @@ export class Autenticacion {
 
   constructor() {}
 
+  //si esta la sesion iniciada
   private getIsLoggedIn(): boolean {
     return localStorage.getItem('isLoggedIn') === 'true';
   }
 
+  //devuelve el tipo de usuario que inicio sesion
   private getUserType(): number | null {
     const userType = localStorage.getItem('userType');
     return userType ? +userType : null;
@@ -30,6 +33,7 @@ export class Autenticacion {
   }
 
 
+  //guarda el tipo e id al iniciar sesion
   login(userType: number, idUsuario: string) {
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('userType', userType.toString());
@@ -38,6 +42,7 @@ export class Autenticacion {
     this.userIdSubject.next(idUsuario);
   }
 
+  //elimina el tipo e id
   logout() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userType');

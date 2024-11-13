@@ -16,7 +16,7 @@ export class ListEntradasComponent implements OnInit{
   listaCompras: Compra [] = []
 
   idUsuario: string | null = null;
-  activatedRoute = inject(ActivatedRoute);
+  private activatedRoute = inject(ActivatedRoute);
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {

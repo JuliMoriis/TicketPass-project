@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SpotifyService {
+
   private clientId: string = '73aa9d0997c34a3498d9b89d9559a6e0';
   private clientSecret: string = '8a62a32938734c8299cbc4fbf51d4499';
   private tokenUrl: string = 'https://accounts.spotify.com/api/token';
@@ -43,6 +44,7 @@ export class SpotifyService {
         if (!this.accessToken) {
           return throwError(() => new Error('Token de acceso no disponible.'));
         }
+        //si el token no tira error levanta las canciones
         return this.requestCanciones(artista);
       }),
       catchError(err => {
@@ -52,7 +54,7 @@ export class SpotifyService {
     );
   }
 
-
+  //levanta las canciones que coincidan con el artista
   private requestCanciones(artista: string): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.accessToken}`

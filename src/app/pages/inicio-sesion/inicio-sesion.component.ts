@@ -20,8 +20,7 @@ export class InicioSesionComponent implements OnInit{
   constructor (private router: Router){}
 
   private auth = inject(Autenticacion);
-
-  userService = inject(UsuarioService);
+  private userService = inject(UsuarioService);
 
   ngOnInit(): void {
     this.getusersDB();
@@ -44,9 +43,11 @@ export class InicioSesionComponent implements OnInit{
     );
   }
 
+  //comprueba que el usuario y contraseña coincidan
   existeUsuario(nombreUsuarioForm: string, contraseniaForm: string): Usuario | undefined{
     return this.usuariosDB.find(user => user.nombreUsuario == nombreUsuarioForm  && contraseniaForm == user.contrasenia)
   }
+
 
   iniciarSesion(form: NgForm){
 
@@ -56,7 +57,7 @@ export class InicioSesionComponent implements OnInit{
       if (user) {
 
         if (user.tipo == 1){
-          this.router.navigate(["administrador", user.id]);
+          this.router.navigate(["usuarios", user.id]);
           if(user.id)
           this.auth.login(1, user.id)
         }

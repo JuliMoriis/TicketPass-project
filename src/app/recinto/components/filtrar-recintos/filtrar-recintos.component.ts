@@ -13,8 +13,8 @@ import { RecintoService } from '../../../services/recintos.service';
   styleUrls: ['./filtrar-recintos.component.css']
 })
 export class FiltrarRecintoComponent implements OnInit {
-  
-  @Input() recintos: Recinto[] = [];
+
+  recintos: Recinto[] = [];
   resultados: Recinto[] = [];
   busqueda: string = '';
 
@@ -32,6 +32,7 @@ export class FiltrarRecintoComponent implements OnInit {
     });
   }
 
+  //busca recintos que coincidan con la ubicacion, nombre ,,
   filtrarRecintos(): void {
     if (this.busqueda.trim() === '') {
       this.resultados = [];
@@ -49,10 +50,8 @@ export class FiltrarRecintoComponent implements OnInit {
       );
     });
 
-    this.mostrarResultados = true; 
+    this.mostrarResultados = true;
   }
 
-  toggleBusqueda() {
-    this.mostrarResultados = !this.mostrarResultados;
-  }
+
 }

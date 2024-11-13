@@ -20,7 +20,7 @@ export class ListEventoComponent implements OnInit{
   userId: string | null = '' //id del evento
 
   private authService = inject(Autenticacion)
-  eventosService= inject(EventoService);
+  private eventosService= inject(EventoService);
   listaEventos: Evento [] = [];
 
 
@@ -50,6 +50,8 @@ export class ListEventoComponent implements OnInit{
 
   currentIndex: number = 0;
 
+
+  //carrousel de banners de eventos
   nextSlide() {
     this.currentIndex = (this.currentIndex + 1) % this.listaEventos.filter(evento => evento.alta === 1).length;
   }

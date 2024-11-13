@@ -25,10 +25,10 @@ export class AppComponent implements OnInit {
   constructor(
     private authService: Autenticacion,
     private router: Router,
-    private activated: ActivatedRoute
   ) {}
 
   mostrarHeader : boolean = true ;
+
 
   ngOnInit(): void {
     this.authService.isLoggedIn.subscribe((loggedInStatus) => {
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
     });
 
 
-    //si estoy en iniciar sesion o registrarse no muestra
+    //si estoy en iniciar sesion o registrarse no muestra el header 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.mostrarHeader = !['/iniciar-sesion', '/registrarse'].includes(event.url);

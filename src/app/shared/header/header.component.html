@@ -5,7 +5,7 @@
       <span *ngIf="idUsuario !== null" [routerLink]="['usuarios', idUsuario]">TicketPass</span>
       <span *ngIf="idUsuario === null">TicketPass</span>
     </div>
-    
+
     <div *ngIf="tipoUsuario === 1">
       <!-- Menú para el Administrador -->
       <nav>
@@ -36,6 +36,7 @@
     </div>
 
     <div *ngIf="tipoUsuario === null">
+      
       <!-- Menú para los usuarios no logueados -->
       <nav>
         <a routerLink="/iniciar-sesion">Iniciar sesión</a>
@@ -44,20 +45,6 @@
     </div>
 
   </div>
-
-  <!-- Botón para abrir/cerrar el menú desplegable
-  <button (click)="menuDesplegable()" class="menu-button">&#9776;</button>
-
-
-  <div *ngIf="verMenu" class="menu-desplegable">
-    <nav>
-      <a href="#">Opción 1</a>
-      <a href="#">Opción 2</a>
-      <a href="#">Opción 3</a>
-    </nav>
-  </div>
-
-  <button *ngIf="isLoggedIn" (click)="cerrarSesion()">Cerrar sesión</button> -->
 
 </header>
 

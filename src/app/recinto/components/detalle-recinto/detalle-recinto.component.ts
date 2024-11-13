@@ -19,8 +19,8 @@ export class DetalleRecintoComponent implements OnInit{
 
   mostrarEditar = false
 
-  activated= inject (ActivatedRoute)
-  recintoService = inject (RecintoService)
+  private activated= inject (ActivatedRoute)
+  private recintoService = inject (RecintoService)
 
   ngOnInit(): void {
     this.activated.paramMap.subscribe(param => {

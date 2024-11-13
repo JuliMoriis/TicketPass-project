@@ -14,12 +14,11 @@ import { Autenticacion } from '../../services/autenticacion.service';
   templateUrl: './cliente-page.component.html',
   styleUrl: './cliente-page.component.css'
 })
+
+//es el menu principal  '' // 'usuarios/:id'
 export class ClientePageComponent implements OnInit{
 
   id: string | null = ''
-
-  private userService = inject(UsuarioService)
-  private active = inject(ActivatedRoute)
   private authService = inject(Autenticacion)
 
   usuario : Usuario | undefined

@@ -89,6 +89,7 @@ export class DetalleEventoComponent implements OnInit{
     })
   }
 
+  //si el evento esta deshabilitado NO aparece en el menu principal
    deshabilitarOHabilitar(){
     if(this.eventoSeleccionado){
       if(this.eventoSeleccionado.alta === 1)
@@ -141,8 +142,8 @@ export class DetalleEventoComponent implements OnInit{
 
   }
 
+  //si la fila esta deshabilitada el cliente no puede comprar entradas
   cambiarEstadoFila(fecha: Fecha) {
-
     const fechaActualizar = this.eventoSeleccionado?.fechas.find(f => f.fecha === fecha.fecha);
 
     if (fechaActualizar) {

@@ -14,12 +14,14 @@ import Swal from 'sweetalert2';
   templateUrl: './list-eventos-admin.component.html',
   styleUrl: './list-eventos-admin.component.css'
 })
+
+//muestra TODOS los eventos esten o no habilitados
 export class ListEventosAdminComponent {
 
   userId: string | null = ''
 
-  userService = inject(UsuarioService)
-  active = inject(ActivatedRoute)
+  private userService = inject(UsuarioService)
+  private active = inject(ActivatedRoute)
 
   ngOnInit(): void {
 

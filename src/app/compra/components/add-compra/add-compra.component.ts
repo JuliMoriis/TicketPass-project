@@ -185,7 +185,7 @@ export class AddCompraComponent implements OnInit {
   postCompra() {
     this.compraService.postCompras(this.compra).subscribe({
       next: (compraCargada : Compra) => {
-        this.compraRealizada = true; 
+        this.compraRealizada = true;
         console.log("compra cargada");
         this.compraCompletaJson = compraCargada
         this.generarQR(this.compraCompletaJson)
@@ -223,6 +223,7 @@ export class AddCompraComponent implements OnInit {
       })
   }
 
+  
   editarEvento() {
 
     this.evento?.fechas.forEach(fecha => {

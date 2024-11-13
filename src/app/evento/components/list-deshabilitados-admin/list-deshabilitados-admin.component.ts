@@ -15,14 +15,14 @@ import { CommonModule } from '@angular/common';
 export class ListDeshabilitadosAdminComponent {
 
   listaEventos: Evento[] = [];
-  eventosService = inject(EventoService)
-
   constructor(private route: ActivatedRoute) {}
 
   userId: string | null = ''
 
-  userService = inject(UsuarioService)
-  active = inject(ActivatedRoute)
+  private userService = inject(UsuarioService)
+  private active = inject(ActivatedRoute)
+  private eventosService = inject(EventoService)
+
 
   ngOnInit(): void {
 
@@ -33,6 +33,8 @@ export class ListDeshabilitadosAdminComponent {
     this.listarEventos();
   }
 
+
+  //lista solo los eventos deshabilitados
   listarEventos(): void {
     this.eventosService.getEventos().subscribe(
       {

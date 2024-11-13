@@ -67,6 +67,8 @@ export class FiltrarEventoComponent implements OnInit {
     });
   }
 
+
+  //busca eventos que coincidan con el recinto o el artista
   filtrarEventos(): void {
 
     if (this.busqueda.trim() === '') {
@@ -105,6 +107,7 @@ export class FiltrarEventoComponent implements OnInit {
     this.mostrarResultados = true;
   }
 
+  //mostrar los resultados
   mostrarBusqueda ()
   {
     this.mostrarResultados= !this.mostrarResultados
@@ -112,12 +115,10 @@ export class FiltrarEventoComponent implements OnInit {
 
   redirigir (eventoId?: string){
     if (this.idUsuario != null){
-      console.log('hola');
       this.router.navigate(['/detalle-evento',eventoId])
     }
     else
     {
-      console.log('hola2');
       this.router.navigate(['iniciar-sesion'])
     }
   }

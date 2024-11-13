@@ -20,7 +20,6 @@ import { Autenticacion } from '../../../services/autenticacion.service';
 
 export class ManejoFilaComponent implements OnInit {
 
-  spotifyService = inject(SpotifyService);
   canciones: any[] = [];
   cancionSeleccionada: any = null;
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>; //reproduccion automatica
@@ -30,11 +29,12 @@ export class ManejoFilaComponent implements OnInit {
   fecha: string | null = '';
   idUser :string | null = null;
   progreso: any //barra de progreso en la fila
+
   private active = inject(ActivatedRoute);
   private userService = inject(UsuarioService);
   private eventoService = inject(EventoService);
-  private authService= inject(Autenticacion)
-
+  private authService= inject(Autenticacion);
+  private spotifyService = inject(SpotifyService);
 
   constructor(private router: Router) { }
 
@@ -70,8 +70,10 @@ export class ManejoFilaComponent implements OnInit {
     });
   }
 
+  //simula una fila con turnos
   fila: Cliente[] = [];
   turnoActual: number = 1;
+
 
   agregarCliente(nombre: string) {
     const nuevoCliente: Cliente = {
@@ -85,10 +87,12 @@ export class ManejoFilaComponent implements OnInit {
     this.iniciarCompra(nuevoCliente);
   }
 
+  //esta seria la pantalla de la fila
   iniciarCompra(cliente: Cliente) {
     const tiempoEspera = Math.floor(Math.random() * (45000 - 2000 + 1)) + 2000; //num random para la fila
     this.progreso = 0; //arranca en 0
 
+    //progreso de la barra segun lo que falta para que termine
     this.progreso = setInterval(() => {
       if (this.progreso < 100) {
         this.progreso += 1;
@@ -112,6 +116,7 @@ export class ManejoFilaComponent implements OnInit {
 
   levantarCanciones (){
     if (this.evento?.artista_banda) {
+      //busca en spotify las canciones que coincidan con el artista
       this.spotifyService.getCanciones(this.evento.artista_banda).subscribe({
         next: (canciones) => {
           console.log('Canciones obtenidas:', canciones);
@@ -131,6 +136,8 @@ export class ManejoFilaComponent implements OnInit {
     }
   }
 
+
+  //reproduccion automatica apenas se abre la fila
   reproducir() {
     if (this.cancionSeleccionada && this.cancionSeleccionada.preview_url && this.audioPlayer) {
         const audio: HTMLAudioElement = this.audioPlayer.nativeElement;

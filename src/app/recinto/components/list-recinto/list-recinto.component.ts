@@ -13,8 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class ListRecintoComponent implements OnInit{
 
-  recintosService= inject(RecintoService);
-
+  private recintosService= inject(RecintoService);
   listaRecintos: Recinto[] = [];
 
   ngOnInit(): void {
@@ -39,6 +38,7 @@ export class ListRecintoComponent implements OnInit{
     this.listaRecintos.push({...recinto});
   }
 
+  //si se deshabilita no aparece en el select de add evento
   habilitarDeshabilitar (recinto: Recinto)
   {
     const accion = recinto.alta ? 'deshabilitado' : 'habilitado';
