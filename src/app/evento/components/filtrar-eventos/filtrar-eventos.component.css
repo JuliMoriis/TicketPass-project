@@ -1,7 +1,7 @@
 section {
   margin: 0;
 }
- 
+
 .wrapper {
   padding: 20px;
   width:100%;
@@ -10,7 +10,7 @@ section {
   backdrop-filter: blur(8px);
   width:60%;
   margin-left:20%;
-  
+
 }
 
 input {
@@ -22,9 +22,9 @@ input {
   outline: none;
   box-sizing: border-box;
     height:40px;
-    color: #fff;
+    color: #000000;
     background: #efefef92;
-    border-bottom:3px solid #36173d; 
+    border-bottom:3px solid #36173d;
     border-top: 3px solid  #36173d;
     border-left: 3px solid #36173d;
     border-right: 3px solid #36173d;
@@ -56,7 +56,7 @@ input:valid~label{
   width: 100%;
   max-width: 800px;
   margin: 20px auto 0;
-
+  background: #efefef92;
   padding: 10px;
   border-radius: 5px;
   border: 2px solid #36173d;
@@ -86,7 +86,7 @@ input:valid~label{
 
 .busqueda .divInfo {
   font-size: 16px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .busqueda .divInfo:hover {

@@ -13,11 +13,12 @@ import { CompraService } from '../../../services/compra.service';
 import { PagoComponent } from '../../pages/pago/pago.component';
 import QRCode from 'qrcode';
 import { Autenticacion } from '../../../services/autenticacion.service';
+import { MercadoPagoComponent } from '../mercado-pago/mercado-pago.component';
 
 @Component({
   selector: 'app-add-compra',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterModule, PagoComponent],
+  imports: [FormsModule, CommonModule, RouterModule, MercadoPagoComponent],
   templateUrl: './add-compra.component.html',
   styleUrl: './add-compra.component.css'
 })
@@ -137,11 +138,16 @@ export class AddCompraComponent implements OnInit {
 
   ////////////////////////////////////////////////////////////////
 
+  pagoRealizado() { //el output
+    this.comprarEntrada();
+  }
+
   comprarEntrada() {
     this.actualizarStockEntradas()
     this.editarEvento()
     this.postCompra()
   }
+
 
   /////////////////////////////////////////////////////////////
 
@@ -223,7 +229,7 @@ export class AddCompraComponent implements OnInit {
       })
   }
 
-  
+
   editarEvento() {
 
     this.evento?.fechas.forEach(fecha => {
