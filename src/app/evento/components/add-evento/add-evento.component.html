@@ -1,160 +1,163 @@
-<form #formulario="ngForm" (ngSubmit)="eventoIn ? emitUpdate(formulario) : addEvento(formulario)">  
-  <!-- BANNER E INPUT DEL BANNER -->
-  <div class="divreg">
-    <h2>{{ eventoIn ? 'Editar Evento' : 'Agregar Evento' }}</h2>
-
-    <div class="inputBanner">
-      <label for="bannerEvento">URL del Banner</label>
-      <input
-        class="input-url"
-        type="text"
-        id="bannerEvento"
-        name="bannerEvento"
-        [(ngModel)]="evento.UrlBanner"
-        #bannerEvento="ngModel"
-        placeholder="url/banner.com"
-        required
-      />
-      <div class="divAvisos" *ngIf="bannerEvento.invalid && bannerEvento.touched">
-        Debe completar el campo
+<section>
+  <form #formulario="ngForm" (ngSubmit)="eventoIn ? emitUpdate(formulario) : addEvento(formulario)">  
+    <!-- BANNER E INPUT DEL BANNER -->
+    <div class="divreg">
+      <h2>{{ eventoIn ? 'Editar Evento' : 'Agregar Evento' }}</h2>
+  
+      <div class="inputBanner">
+        <label for="bannerEvento">URL del Banner</label>
+        <input
+          class="input-url" 
+          type="text"
+          id="bannerEvento"
+          name="bannerEvento"
+          [(ngModel)]="evento.UrlBanner"
+          #bannerEvento="ngModel"
+          placeholder="url/banner.com"
+          required
+        />
+        <div class="divAvisos" *ngIf="bannerEvento.invalid && bannerEvento.touched">
+        
+        </div>
       </div>
-    </div>
-  </div> 
-
-  <div class="fielset-container">
-    <div class="flex-container">
-      <!-- FIELDSET EVENTO -->
-      <fieldset class="fieldEvento">
-        <h4>Datos del evento</h4>
-
-        <div class="input-field">
-          
-          <input
-            type="text"
-            id="nombreEvento"
-            name="nombreEvento"
-            [(ngModel)]="evento.nombreEvento"
-            #nombreEvento="ngModel"
-            required
-          />
-          <div class="divAvisos" *ngIf="nombreEvento.invalid && nombreEvento.touched">
-            Debe completar el campo
-          </div>
-          <label for="nombreEvento">Nombre del evento</label>
-        </div>
-
-        <div class="input-field">
-          
-          <input
-            type="text"
-            id="nombreArtistaBanda"
-            name="nombreArtistaBanda"
-            [(ngModel)]="evento.artista_banda"
-            #nombreArtistaBanda="ngModel"
-            required
-          />
-          <div class="divAvisos" *ngIf="nombreArtistaBanda.invalid && nombreArtistaBanda.touched">
-            Debe completar el campo
-          </div>
-          <label for="nombreArtistaBanda">Artista/Banda</label>
-        </div>
-
-        <div class="input-field">
-          
-          <input
-            type="time"
-            id="duracion"
-            name="duracion"
-            [(ngModel)]="evento.duracion"
-            #duracion="ngModel"
-            required
-          />
-          <div class="divAvisos" *ngIf="duracion.invalid && duracion.touched">
-            Debe completar el campo
-          </div>
-          <label for="duracion">Duración</label>
-        </div>
-      </fieldset>
-
-      <fieldset class="fieldRecinto"> <!-- SELECCIONE RECINTO -->
-        <div>
-          <h4>Seleccione recinto</h4>
-          <br>
-          <label for="seleccionRecinto"></label>
-          <br>
-          <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)" [disabled]="!fechaAgregada && !eventoIn" required>
-
-            <div class="divAvisos" *ngIf="formulario.controls['seleccionRecinto']?.invalid && formulario.controls['seleccionRecinto']?.touched ">
-              Debe seleccionar un recinto
+    </div> 
+  
+    <div class="fielset-container">
+      <div class="flex-container">
+        <!-- FIELDSET EVENTO -->
+        <fieldset class="fieldEvento">
+          <h4>Datos del evento</h4>
+  
+          <div class="input-field">
+            
+            <input
+              type="text"
+              id="nombreEvento"
+              name="nombreEvento"
+              [(ngModel)]="evento.nombreEvento"
+              #nombreEvento="ngModel"
+              required
+            />
+            <div class="divAvisos" *ngIf="nombreEvento.invalid && nombreEvento.touched">
+              Debe completar el campo
             </div>
-
-            <option value="" disabled selected>Recintos</option>
-            <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
-              <br>
-              {{ recinto.nombreRecinto }}
-            </option>      
-          </select>
-        </div>
-
-        <div *ngIf="evento.fechas && evento.fechas[0] && evento.fechas[0].entradas && evento.fechas[0].entradas.length > 0">
-          <ul>
-            <li *ngFor="let entrada of evento.fechas[0].entradas">
-              <h5>{{entrada.nombreSector}}</h5>
-              <label for="precioSector-{{ entrada.nombreSector }}">$</label>
-              <input type="text" id="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
-                     [ngModelOptions]="{standalone: true}" required>
-            </li>
-          </ul>
-        </div>
-
-      </fieldset> <!-- ACA TERMINA SELECCIONE RECINTO -->
-
-
-    </div>
-
-    <fieldset class="fieldFecha">
-      <!-- Datos de las fechas -->
-      <div *ngFor="let fecha of evento.fechas; let i = index">
-        <h4>Fecha {{ i + 1 }}</h4>
-        <div class= "input-field">
-          <input type="date" id="fecha-{{i}}" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
-          <label for="fecha-{{i}}">Fecha</label>
-        </div>
-        <div class="input-field">
-          <input type="time" id="horario-{{i}}" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
-          <label for="horario-{{i}}">Horario</label>
-        </div>
+            <label for="nombreEvento">Nombre del evento</label>
+          </div>
+  
+          <div class="input-field">
+            
+            <input
+              type="text"
+              id="nombreArtistaBanda"
+              name="nombreArtistaBanda"
+              [(ngModel)]="evento.artista_banda"
+              #nombreArtistaBanda="ngModel"
+              required
+            />
+            <div class="divAvisos" *ngIf="nombreArtistaBanda.invalid && nombreArtistaBanda.touched">
+              Debe completar el campo
+            </div>
+            <label for="nombreArtistaBanda">Artista/Banda</label>
+          </div>
+  
+          <div class="input-field">
+            
+            <input
+              type="time"
+              id="duracion"
+              name="duracion"
+              [(ngModel)]="evento.duracion"
+              #duracion="ngModel"
+              required
+            />
+            <div class="divAvisos" *ngIf="duracion.invalid && duracion.touched">
+              Debe completar el campo
+            </div>
+            <label for="duracion">Duración</label>
+          </div>
+        </fieldset>
+  
+        <fieldset class="fieldRecinto"> <!-- SELECCIONE RECINTO -->
+          <div>
+            <h4>Seleccione recinto</h4>
+            <br>
+            <label for="seleccionRecinto"></label>
+            <br>
+            <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)" [disabled]="!fechaAgregada && !eventoIn" required>
+  
+              <div class="divAvisos" *ngIf="formulario.controls['seleccionRecinto']?.invalid && formulario.controls['seleccionRecinto']?.touched ">
+                Debe seleccionar un recinto
+              </div>
+  
+              <option value="" disabled selected>Recintos</option>
+              <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
+                <br>
+                {{ recinto.nombreRecinto }}
+              </option>      
+            </select>
+          </div>
+  
+          <div *ngIf="evento.fechas && evento.fechas[0] && evento.fechas[0].entradas && evento.fechas[0].entradas.length > 0">
+            <ul>
+              <li *ngFor="let entrada of evento.fechas[0].entradas">
+                <h5>{{entrada.nombreSector}}</h5>
+                <label for="precioSector-{{ entrada.nombreSector }}">$</label>
+                <input type="text" id="precioSector-{{ entrada.nombreSector }}" [(ngModel)]="entrada.precio"
+                       [ngModelOptions]="{standalone: true}" required>
+              </li>
+            </ul>
+          </div>
+  
+        </fieldset> <!-- ACA TERMINA SELECCIONE RECINTO -->
+  
+  
       </div>
-
-      <!-- Formulario para agregar una nueva fecha -->
-      <div *ngIf="mostrarFormularioFecha">
-        <h4>Agregar Nueva Fecha</h4>
-        <div class="input-field">
-          <input type="date" id="nuevaFecha" [(ngModel)]="nuevaFecha.fecha" [ngModelOptions]="{standalone: true}" required>
-          <label for="nuevaFecha">Fecha</label>
-       
+  
+      <fieldset class="fieldFecha">
+        <!-- Datos de las fechas -->
+        <div *ngFor="let fecha of evento.fechas; let i = index">
+          <h4>Fecha {{ i + 1 }}</h4>
+          <div class= "input-field">
+            <input type="date" id="fecha-{{i}}" [(ngModel)]="fecha.fecha" [ngModelOptions]="{standalone: true}" required>
+            <label for="fecha-{{i}}">Fecha</label>
+          </div>
+          <div class="input-field">
+            <input type="time" id="horario-{{i}}" [(ngModel)]="fecha.hora" [ngModelOptions]="{standalone: true}" required>
+            <label for="horario-{{i}}">Horario</label>
+          </div>
         </div>
-        <div class="input-field">
-          <input type="time" id="nuevoHorario" [(ngModel)]="nuevaFecha.hora" [ngModelOptions]="{standalone: true}" required>
-          <label for="nuevoHorario">Horario</label>
+  
+        <!-- Formulario para agregar una nueva fecha -->
+        <div *ngIf="mostrarFormularioFecha">
+          <h4>Agregar Nueva Fecha</h4>
+          <div class="input-field">
+            <input type="date" id="nuevaFecha" [(ngModel)]="nuevaFecha.fecha" [ngModelOptions]="{standalone: true}" required>
+            <label for="nuevaFecha">Fecha</label>
          
+          </div>
+          <div class="input-field">
+            <input type="time" id="nuevoHorario" [(ngModel)]="nuevaFecha.hora" [ngModelOptions]="{standalone: true}" required>
+            <label for="nuevoHorario">Horario</label>
+           
+          </div>
+          <button type="button" (click)="aceptarFecha()">Aceptar</button>
         </div>
-        <button type="button" (click)="aceptarFecha()">Aceptar</button>
+  
+        <!-- Botón para mostrar el formulario de agregar fecha -->
+        <button type="button" *ngIf="!mostrarFormularioFecha" (click)="mostrarFormularioFecha = true">Nueva Fecha</button>
+      </fieldset>
+  
+  
+    </div> <!--FIN DEL FIELDSER-CONTAINER-->
+  
+  
+    <!-- BOTON DE AGREGAR -->
+    <div class="container">
+      <button type="submit" [disabled]="formulario.invalid">
+        {{ eventoIn ? 'Editar Evento' : 'Agregar Evento' }}
+      </button>
       </div>
-
-      <!-- Botón para mostrar el formulario de agregar fecha -->
-      <button type="button" *ngIf="!mostrarFormularioFecha" (click)="mostrarFormularioFecha = true">Nueva Fecha</button>
-    </fieldset>
-
-
-  </div> <!--FIN DEL FIELDSER-CONTAINER-->
-
-
-  <!-- BOTON DE AGREGAR -->
-  <div class="container">
-    <button type="submit" [disabled]="formulario.invalid">
-      {{ eventoIn ? 'Editar Evento' : 'Agregar Evento' }}
-    </button>
-    </div>
-
-</form>
+  
+  </form>
+  
+</section>

@@ -1,19 +1,23 @@
-<section class="seccion-eventos">
-  <ul class="lista-eventos">
-    @for (evento of listaEventos; track $index) {
-      <li class="item-evento">
-        <span class="nombre-evento">{{ evento.nombreEvento }}</span>
 
-        <div class="contenedor-botones">
-          <button type="button" class="boton-accion" (click)="confirmarDH(evento)">
-            {{ evento.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
-          </button>
+  <section class="seccion-eventos">
+    <ul class="lista-eventos">
+      @for (evento of listaEventos; track $index) {
+        <li class="item-evento">
+          <span class="nombre-evento">{{ evento.nombreEvento }}</span>
+  
+          <div class="contenedor-botones">
+            <button type="button" class="boton-accion" (click)="confirmarDH(evento)">
+              {{ evento.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
+            </button>
+  
+            <button type="button" class="boton-detalle" [routerLink]="['/detalle-evento', evento.id]">
+              Ver Detalle
+            </button>
+          </div>
+        </li>
+      }
+    </ul>
+  </section>
+  
 
-          <button type="button" class="boton-detalle" [routerLink]="['/detalle-evento', evento.id]">
-            Ver Detalle
-          </button>
-        </div>
-      </li>
-    }
-  </ul>
-</section>
+ 

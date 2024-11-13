@@ -7,7 +7,7 @@
 }
 
 
-body{
+section{
     width: 100%;
     display: flex;
     align-items:center;
@@ -17,7 +17,7 @@ body{
     color:white;
 }
 
-body::before{
+section::before{
     content:"";
     position: absolute;
     width:100%;

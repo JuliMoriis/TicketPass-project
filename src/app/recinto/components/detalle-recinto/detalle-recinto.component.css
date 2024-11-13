@@ -4,37 +4,29 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-
-body {
-  font-family: 'Arial', Helvetica, sans-serif;
-  background: linear-gradient(135deg, #222, #555);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+section{
+ background-color: #efefef; 
 }
-
 .divreg {
-  position: relative;
-  background-color: #36173d;
-  border-radius: 12px;
-  width: 40%;
-  padding: 20px;
-  text-align: center;
-  margin-top: 5%;
-  margin-bottom: 2%;
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  background-color: #36173d77;
+  border-radius:8px;
+  width:100%;
+  border-top: none;
 }
 
 h2{
-  font-size: 2.3em;
-  margin-bottom:5%;
-  color:#fff;
+  margin-left: 10%;
+  margin-top:0;
   font-family: Arial, Helvetica, sans-serif;
-  margin-top:3%;
-
+  font-weight: 100;
+  font-size: 45px;
+  color: white;
+  /* width: 150px; */
 }
 
 .containerImgRecinto {
@@ -43,9 +35,6 @@ h2{
   max-height: 300px;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
-
-
 }
 h4{
   font-family: Arial, Helvetica, sans-serif;
@@ -66,9 +55,9 @@ h5{
 
  .datos-recinto {
   padding: 20px;
-  background-color: #f4f4f9;
+  background-color: #dbdada;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
   max-width: 600px;
   margin: 20px auto;
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -104,12 +93,15 @@ h5{
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-bottom: 2%;
 }
 
 .botonContainer button:hover {
-  background-color: #6a4d8c;
+  background-color: #ff4845eb;
+  color: #36173d;
 }
 
 .botonContainer button:active {
   transform: translateY(2px);
 }
+

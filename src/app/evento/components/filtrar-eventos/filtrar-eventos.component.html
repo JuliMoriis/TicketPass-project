@@ -1,4 +1,4 @@
- <body>
+ <section>
 
   <div class="wrapper">
     <input
@@ -6,7 +6,7 @@
       name="input-busqueda"
       [(ngModel)]="busqueda"
       (input)="filtrarEventos()"
-      placeholder=" Buscar eventos..."
+      placeholder="  Buscar eventos..."
     />
 
     <div *ngIf="mostrarResultados && resultados.length > 0" class="busqueda">
@@ -25,4 +25,4 @@
     </div>
   </div>
 
- </body>
+ </section>

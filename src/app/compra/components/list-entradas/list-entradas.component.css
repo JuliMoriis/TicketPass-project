@@ -7,6 +7,21 @@
   margin: 30px auto;
 }
 
+.fondo{
+  box-sizing: border-box;
+  width: 100%;
+  display: row;
+  flex-direction: row;
+  align-items:center;
+  justify-content: center;
+  min-height:100vh;
+  padding: 0;
+  margin: 0;
+  color:white;
+  position: absolute;
+     background: url('/img/audiencia-background.jpg') center center   / cover no-repeat;
+}
+ 
 .compras-list {
   list-style: none;
   padding: 0;
@@ -16,7 +31,6 @@
 .compra-item {
   background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 15px;
   padding: 15px;
   transition: transform 0.3s ease;
@@ -24,6 +38,8 @@
 
 .compra-item:hover {
   transform: translateY(-5px);
+  background-color: #36173d89;
+
 }
 
 .compra-content {
@@ -59,7 +75,8 @@
 }
 
 .detalle-boton:hover {
-  background-color: #6a4d8c;
+  background-color: #ff4845b2;
+  color: #36173d;;
 }
 
 .detalle-boton:active {

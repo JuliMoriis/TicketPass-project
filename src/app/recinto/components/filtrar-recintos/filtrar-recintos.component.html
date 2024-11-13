@@ -1,11 +1,11 @@
-<section>
+
   <div class="wrapper">
     <input
       type="text"
       name="input-busqueda"
       [(ngModel)]="busqueda"
       (input)="filtrarRecintos()"
-      placeholder=" Buscar recintos..."
+      placeholder="Buscar recintos..."
     />
   
     <div *ngIf="mostrarResultados && resultados.length > 0" class="busqueda">
@@ -22,4 +22,4 @@
       <div class="divInfo">No se encontraron recintos</div>
     </div>
   </div>
-</section>
+

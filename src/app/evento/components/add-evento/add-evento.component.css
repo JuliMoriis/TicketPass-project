@@ -4,7 +4,8 @@
     box-sizing:border-box;
     font-family:Arial, Helvetica, sans-serif;
 }
-.input-url{
+
+.input-url{  /* input del url del banner*/
     width:200px;
     padding: 5px 15px;
     margin: 5px;
@@ -19,6 +20,7 @@
     border-bottom:2px solid #36173d;
     margin-bottom:10px;
 }
+
  .input-field label{
     position:absolute;
     color:#36173d;
@@ -72,7 +74,7 @@
     transform: translateY(-120%);
 }
 
-.container{  /* posicion del submit */
+.container{
     display: flex;
     justify-content:flex-end;
     margin-top: 10px;
@@ -80,19 +82,21 @@
 }
 
 .divreg {
+    position:relative;
     display: flex;
     align-items: center;
-    justify-content:space-between;
-    margin: 10px auto 10px auto;
-    padding: 20px 40px;
-    background-color: #36173d;
-    border-radius:40px;
-    width:90%;
+    justify-content: space-between;
+    padding: 10px 10px;
+    background-color: #36173d77;
+    border-radius:8px;
+    width:100%;
+    border-top: none;
 }
 
 h2{
 
-    margin-top:0px;
+    margin-left: 11%;
+    margin-top:0;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
     font-size: 30px;
@@ -131,10 +135,10 @@ label{
 
 .inputBanner{
     margin-top:0px;
-    margin-right:10px;
+    margin-right:10%;
     padding:5px;
     border-radius: 40px;
-    background-color: #eeeeee;
+    background-color: #efefef19;
     border:1px solid #36173d;
 }
 h4{
@@ -148,45 +152,45 @@ h4{
 .flex-container{
     display: flex;
     justify-content: space-between;
-    width:100%;
-    margin-bottom:20px;
+    width:90%;
+    margin-bottom:3%;
 }
 
 
 .fieldEvento{
-    width: 470px;
-    padding: 30px;
+    width: 40%;
+    padding: 3%;
     border-radius:8px;
     box-sizing: border-box;
     margin-bottom: 15px;
-    margin-left:80px;
+    margin-left:150px;
     text-align: center;
     border: 1px solid #36173d89;
-    background-color: #ffffff89;
+    background-color: #efefef;
 }
 
 .fieldRecinto{
-    width: 470px;
-    padding: 30px;
+    width: 40%;
+    padding: 3%;
     border-radius:8px;
     box-sizing: border-box;
     margin-bottom: 15px;
-    margin-right:80px;
+    margin-right:10px;
     text-align: center;
     border: 1px solid #36173d89;
-    background-color: #ffffff89;
+    background-color: #efefef;
 }
 
 .fieldFecha{
-    width: 470px;
-    padding: 30px;
+    width: 36%;
+    padding: 3%;
     border-radius:8px;
     box-sizing: border-box;
     margin-bottom: 15px;
-    margin-left:80px;
+    margin-left:150px;
     text-align: center;
     border: 1px solid #36173d89;
-    background-color: #ffffff89;
+    background-color: #efefef;
 }
 
 .fielset-container{
@@ -226,6 +230,21 @@ h5{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
   }
+
+   section{
+    box-sizing: border-box;
+    width: 100%;
+    display: row;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+    min-height:100vh;
+    padding: 0;
+    margin: 0;
+    color:white;
+    position: relative;
+       background: url('/img/background-op2.png') center center   / cover no-repeat;
+} 
 
 
 

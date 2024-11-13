@@ -1,23 +1,37 @@
 .compra-section {
-  background-color: #f9f9f9;
+  background-color: #efefef;
   border-radius: 15px;
   padding: 30px;
   max-width: 900px;
   margin: 40px auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+ 
   color: #333;
   text-align: center;
 }
 
+.divreg {
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  background-color: #36173d77;
+  border-radius:8px;
+  width:100%;
+  border-top: none;
+  
+}
+
 .titulo-compra {
-  font-size: 32px;
-  color: #6a4d8c;
+
+  font-size: 40px;
+  color: #ffffff;
   margin-bottom: 10px;
-  font-weight: bold;
+  font-weight: 200;
 }
 
 .subtitulo-compra {
-  font-size: 20px;
+  font-size: 25px;
   color: #36173d;
   margin-bottom: 20px;
 }
@@ -34,7 +48,7 @@
 }
 
 .sector-item {
-  background-color: #f4f4f9;
+  background-color: #ffffff;
   padding: 15px;
   margin: 12px 0;
   border-radius: 12px;
@@ -44,7 +58,7 @@
   font-size: 18px;
   color: #36173d;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
 }
 
 .sector-item:hover {
@@ -64,7 +78,7 @@
 
 .precio-sector {
   font-size: 16px;
-  color: #6a4d8c;
+  color: #36173d;
   font-weight: 500;
 }
 
@@ -76,17 +90,22 @@
 }
 
 .select-cantidad {
+  display: flex;
   padding: 10px;
   font-size: 16px;
   border-radius: 8px;
   width: 100%;
   max-width: 200px;
   margin: 10px auto;
-  border: 2px solid #6a4d8c;
-  background-color: #f9f9f9;
+  border: 2px solid #fff;
+  background-color: #fff;
 }
 
 .select-cantidad:focus {
+  outline: none;
+  border-color: #36173d;
+}
+.select-cantidad:hover {
   outline: none;
   border-color: #36173d;
 }
@@ -99,7 +118,7 @@
 }
 
 .detalle-texto {
-  color: #6a4d8c;
+  color: #36173d;
 }
 
 .boton-comprar {
@@ -107,7 +126,7 @@
   font-size: 18px;
   font-weight: bold;
   color: #fff;
-  background-color: #6a4d8c;
+  background-color: #36173d;
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -116,10 +135,25 @@
 }
 
 .boton-comprar:hover {
-  background-color: #36173d;
-  transform: scale(1.05);
+  background-color: #ff4845c5;
+  color: #36173d;
+  transform: scale(1.02);
 }
 
 .pago-section {
   margin-top: 30px;
+}
+.fondo{
+  width: 100%;
+  box-sizing:border-box;
+  display: row;
+  align-items:center;
+  justify-content: center;
+  min-height:110vh;
+  padding: 0 10px;
+  color:white;
+  background:url('/img/audiencia-background.jpg') ;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
 }

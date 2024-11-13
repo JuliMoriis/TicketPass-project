@@ -6,6 +6,7 @@
     text-align: center;
     border: 1px solid #ffffff80;
     backdrop-filter: blur(8px);
+    margin-bottom: 5%;
 }
 form{
     display: flex;
@@ -52,7 +53,7 @@ h2{
     transform: translateY(-120%);
 }
 
-body{
+section{
     width: 100%;
     display: flex;
     align-items:center;
@@ -60,6 +61,7 @@ body{
     min-height:100vh;
     padding: 0 10px;
     color:white;
+  
 }
 button {
     padding: 10px 20px;

@@ -1,10 +1,9 @@
 .fila-section {
-  background-color: #f9f9f9;
+  background-color: #efefef90;
   border-radius: 12px;
   padding: 20px;
   max-width: 800px;
   margin: 30px auto;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   font-family: 'Helvetica Neue', Arial, sans-serif;
   color: #333;
   text-align: center;
@@ -22,7 +21,7 @@
   font-size: 16px;
   font-weight: bold;
   color: #fff;
-  background-color: #6a4d8c;
+  background-color: #36173d;
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -31,7 +30,8 @@
 }
 
 .boton-ingresar:hover {
-  background-color: #36173d;
+  background-color: #ff48459f;
+  color: #36173d;
   transform: scale(1.05);
 }
 
@@ -42,7 +42,7 @@
 }
 
 .item-fila {
-  background-color: #f4f4f9;
+  background-color: #efefef90;
   padding: 15px;
   margin: 10px 0;
   border-radius: 8px;
@@ -51,7 +51,7 @@
   align-items: center;
   font-size: 18px;
   color: #333;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
   transition: all 0.3s ease;
 }
 
@@ -66,20 +66,20 @@
 }
 
 .nombre {
-  color: #6a4d8c;
+  color: #36173d;
 }
 
 .estado {
-  color: #8e44ad;
+  color: #36173d;
   font-style: italic;
 }
 
 .song-preview {
   margin-top: 30px;
-  background-color: #f4f4f9;
+  background-color: #efefef90;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+
   max-width: 800px;
   margin: 30px auto;
 }
@@ -111,7 +111,7 @@
 
 .text-info .artist {
   font-size: 16px;
-  color: #6a4d8c;
+  color: #36173d;
 }
 
 audio {
@@ -124,14 +124,29 @@ audio {
 .barra-progreso-container {
   width: 100%;
   height: 10px;
-  background-color: #e0e0e0;
+  background-color: #efefef;
   border-radius: 5px;
   margin-top: 20px;
 }
 
 .barra-progreso {
   height: 100%;
-  background-color: #6a4d8c;
+  background-color: #36173d;
   border-radius: 5px;
   transition: width 0.1s ease-in-out;
+}
+
+.fondo{
+  width: 100%;
+  box-sizing:border-box;
+  display: row;
+  align-items:center;
+  justify-content: center;
+  min-height:110vh;
+  padding: 0 10px;
+  color:white;
+  background:url('/img/audiencia-background.jpg') ;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
 }

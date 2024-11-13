@@ -19,7 +19,7 @@ h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body {
+section {
   width: 100%;
   display: block;
   padding: 10px;
@@ -28,7 +28,7 @@ body {
   position: relative;
 }
 
-body::before {
+section::before {
   content: "";
   position: fixed;
   top: 0;

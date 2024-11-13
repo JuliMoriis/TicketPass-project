@@ -1,12 +1,10 @@
-<div class="divreg">
-  <h2 *ngIf="!recintoRecibido">Agregar recinto</h2>
-  <h2 *ngIf="recintoRecibido">Editar recinto</h2>
-</div>
-
-<body>
-  <div class="wrapper">
+<section>
     <form #formulario="ngForm" (ngSubmit)="addRecinto(formulario)">
-
+      <div class="divreg">
+        <h2 *ngIf="!recintoRecibido">Agregar recinto</h2>
+        <h2 *ngIf="recintoRecibido">Editar recinto</h2>
+      </div>
+      <div class="wrapper">
       <div class="input-field">
         <input type="text" id="nombreRecinto" name="nombreRecinto" [(ngModel)]="recinto.nombreRecinto" required>
         <div class="divAvisos"
@@ -15,8 +13,6 @@
         </div>
         <label for="nombreRecinto">Nombre del Recinto</label>
       </div>
-
-
       <div class="input-field">
         <input type="text" id="calle" name="calle" [(ngModel)]="recinto.direccion.calle" required>
         <div class="divAvisos" *ngIf="formulario.controls['calle']?.invalid && formulario.controls['calle']?.touched">
@@ -24,7 +20,6 @@
         </div>
         <label for="calle">Calle</label>
       </div>
-
       <div class="input-field">
         <input type="number" id="numero" name="numero" [(ngModel)]="recinto.direccion.numero" required>
         <div class="divAvisos"
@@ -33,7 +28,6 @@
         </div>
         <label for="numero">Numero</label>
       </div>
-
       <div class="input-field">
         <input type="text" id="ciudad" name="ciudad" [(ngModel)]="recinto.direccion.ciudad" required>
         <div class="divAvisos" *ngIf="formulario.controls['ciudad']?.invalid && formulario.controls['ciudad']?.touched">
@@ -41,7 +35,6 @@
         </div>
         <label for="ciudad">Ciudad</label>
       </div>
-
       <div class="input-field">
         <input type="text" id="codigoPostal" name="codigoPostal" [(ngModel)]="recinto.direccion.codigoPostal" required>
         <div class="divAvisos"
@@ -50,7 +43,6 @@
         </div>
         <label for="codigoPostal">Código Postal</label>
       </div>
-
       <div class="input-field">
         <input type="text" id="pais" name="pais" [(ngModel)]="recinto.direccion.pais" required>
         <div class="divAvisos" *ngIf="formulario.controls['pais']?.invalid && formulario.controls['pais']?.touched">
@@ -58,8 +50,6 @@
         </div>
         <label for="pais">País</label>
       </div>
-
-
       <div class="input-field">
         <input type="url" id="urlImg" name="urlImg" [(ngModel)]="recinto.urlImg" required>
         <div class="divAvisos" *ngIf="formulario.controls['urlImg']?.invalid && formulario.controls['urlImg']?.touched">
@@ -67,8 +57,6 @@
         </div>
         <label for="urlImg">URL de la Imagen del Recinto</label>
       </div>
-
-
       <div class="input-field">
         <input type="url" id="urlMapaSectores" name="urlMapaSectores" [(ngModel)]="recinto.urlMapaSectores" required>
         <div class="divAvisos"
@@ -77,33 +65,26 @@
         </div>
         <label for="urlMapaSectores">URL del Mapa de Sectores</label>
       </div>
-
       <div class="input-field">
         <input type="text" id="nombreSector" name="nombreSector" [(ngModel)]="sector.nombreSector">
         <label for="nombreSector">Nombre del Sector</label>
       </div>
-
-
       <div class="input-field">
         <input type="number" id="capacidad" name="capacidad" [(ngModel)]="sector.capacidad">
         <label for="capacidad">Capacidad</label>
       </div>
-
       <div class="check-contaner">
         <label class="custom-checkbox" for="butacasNumeradas">¿Butacas Numeradas?
           <input type="checkbox" id="butacasNumeradas" name="butacasNumeradas" [(ngModel)]="sector.numerado">
           <span class="checkmark"></span>
         </label>
       </div>
-
       <div *ngIf="!recintoRecibido">
         <button type="button" (click)="agregarSector()">Agregar sector</button>
       </div>
-
       <div *ngIf="recintoRecibido">
         <button type="button" (click)="agregarSectorEdit()">Agregar sector</button>
       </div>
-
 
       @for (sector of sectoresTemp; track $index) {
       <div class="nombreSector">
@@ -128,10 +109,10 @@
       <br>
       <br>
       <button type="submit" [disabled]="formulario.invalid">Enviar</button>
-
+    </div>
     </form>
 
-  </div>
+ 
 
 
-</body>
+</section>

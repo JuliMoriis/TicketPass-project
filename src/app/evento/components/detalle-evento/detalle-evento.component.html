@@ -40,7 +40,7 @@
 
     <!-- Botones para el administrador -->
     <div *ngIf="tipo == 1" class="acciones-evento">
-      <button class="boton-accion" (click)="changeEdit()">Editar Evento</button>
+      <button  class="boton-accion" (click)="changeEdit()">Editar Evento</button>
 
       <button class="boton-accion" (click)="confirmarDH()">
         {{ eventoSeleccionado?.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}

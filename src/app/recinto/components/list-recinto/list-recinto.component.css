@@ -1,3 +1,6 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
 .recintos-section {
   display: flex;
   justify-content: center;
@@ -6,12 +9,12 @@
 
 .wrapper {
   width: 100%;
-  max-width: 800px; /* Aumentado para que ocupe más espacio */
-  background-color: #ffffff;
+  max-width: 800px;
+  background-color: #efefef;
   border-radius: 12px;
   padding: 30px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-}
+
+} 
 
 .wrapper h2 {
   font-size: 2rem;
@@ -32,7 +35,8 @@
   align-items: flex-start;
   padding: 20px;
   margin-bottom: 20px;
-  border: 1px solid #ddd;
+  background-color: white;
+  border: 1px solid #36173d;
   border-radius: 10px;
   transition: background-color 0.3s;
 }
@@ -45,7 +49,7 @@
 }
 
 .recinto-item:hover {
-  background-color: #f9f9f9;
+  background-color: #36173d89;
 }
 
 .botones {
@@ -66,7 +70,8 @@
 }
 
 .btn:hover {
-  background-color: #4a2b5a;
+  background-color: #ff4845b2;
+  color: #36173d;
 }
 
 .ver-mas {
@@ -78,5 +83,6 @@
 }
 
 .toggle:hover {
-  background-color: #4a2b5a;
+  background-color: #ff4845b2;
+  color: #36173d;
 }

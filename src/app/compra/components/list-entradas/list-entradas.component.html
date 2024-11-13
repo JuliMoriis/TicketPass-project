@@ -1,17 +1,21 @@
-<section class="compras-section">
-  <ul class="compras-list">
-    @for (compra of listaCompras; track $index) {
-      @if(compra.cliente.idCliente == idUsuario) {
-        <li class="compra-item">
-          <div class="compra-content">
-            <h3 class="evento-nombre">Entrada para: {{compra.evento.nombreEvento}}</h3>
-            <p class="evento-fecha">Fecha del evento: {{compra.evento.fechaEvento}}</p>
-            <button class="detalle-boton" type="button" [routerLink]="['/ver-detalle-entradas', compra.id]">
-              Ver Detalle
-            </button>
-          </div>
-        </li>
+<section class="fondo">
+  <section class="compras-section">
+    <ul class="compras-list">
+      @for (compra of listaCompras; track $index) {
+        @if(compra.cliente.idCliente == idUsuario) {
+          <li class="compra-item">
+            <div class="compra-content">
+              <h3 class="evento-nombre">Entrada para: {{compra.evento.nombreEvento}}</h3>
+              <p class="evento-fecha">Fecha del evento: {{compra.evento.fechaEvento}}</p>
+              <button class="detalle-boton" type="button" [routerLink]="['/ver-detalle-entradas', compra.id]">
+                Ver Detalle
+              </button>
+            </div>
+          </li>
+        }
       }
-    }
-  </ul>
+    </ul>
+  </section>
 </section>
+
+ 
