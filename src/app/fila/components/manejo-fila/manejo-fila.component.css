@@ -35,6 +35,17 @@
   transform: scale(1.05);
 }
 
+button:disabled{
+  color: #fff;
+  background-color: #36173d72;
+}
+
+button:disabled:hover{
+  color: #fff;
+  background-color: #36173d72;
+}
+
+
 .lista-fila {
   list-style: none;
   padding: 0;

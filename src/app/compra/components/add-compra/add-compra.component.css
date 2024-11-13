@@ -4,7 +4,7 @@
   padding: 30px;
   max-width: 900px;
   margin: 40px auto;
- 
+
   color: #333;
   text-align: center;
 }
@@ -19,7 +19,7 @@
   border-radius:8px;
   width:100%;
   border-top: none;
-  
+
 }
 
 .titulo-compra {
@@ -156,4 +156,14 @@
   background-position: center;
   background-size: cover;
   position: absolute;
+}
+
+button:disabled{
+  color: #fff;
+  background-color: #36173d72;
+}
+
+button:disabled:hover{
+  color: #fff;
+  background-color: #36173d72;
 }

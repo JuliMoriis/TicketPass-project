@@ -16,7 +16,7 @@ section{
   color:white;
   background: url('/img/background-op2.png') center center   / cover no-repeat;
 }
- 
+
 .divreg {
   position: absolute;
   padding: 10px 10px;
@@ -24,7 +24,7 @@ section{
   border-radius:8px;
   width:100%;
   border-top: none;
-  
+
 }
 
 h2{
@@ -157,6 +157,16 @@ button:hover{
   background:#ff4845;
   border-radius:8px;
   color: #36173d;
+}
+
+button:disabled{
+  color: #fff;
+  background-color: #36173d72;
+}
+
+button:disabled:hover{
+  color: #fff;
+  background-color: #36173d72;
 }
 
 .divAvisos{

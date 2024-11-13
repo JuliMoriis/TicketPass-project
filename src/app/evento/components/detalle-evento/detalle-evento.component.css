@@ -93,6 +93,15 @@
   transform: translateY(2px);
 }
 
+button:disabled{
+  color: #fff;
+  background-color: #36173d72;
+}
+
+button:disabled:hover{
+  color: #fff;
+  background-color: #36173d72;
+}
 
 .sold-out {
   text-align: center;
