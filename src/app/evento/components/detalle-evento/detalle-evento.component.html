@@ -48,9 +48,9 @@
     </div>
   </section>
 
-  <div *ngIf="isEditing" class="formulario-editar">
-    <app-add-evento [eventoIn]="eventoSeleccionado" (updateEvento)="updateEventos($event)"></app-add-evento>
-  </div>
-
 </body>
+
+<div *ngIf="isEditing" class="formulario-editar">
+  <app-add-evento [eventoIn]="eventoSeleccionado" (updateEvento)="updateEventos($event)"></app-add-evento>
+</div>
 
