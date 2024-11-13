@@ -40,12 +40,21 @@
 
     <!-- Botones para el administrador -->
     <div *ngIf="tipo == 1" class="acciones-evento">
+
+      <div *ngIf="ventana">
+    <app-disponibilidad [evento]="eventoSeleccionado" [ventana]="ventana" (cerrar)="cerrarVentana()"></app-disponibilidad>
+  </div>
+
+
       <button  class="boton-accion" (click)="changeEdit()">Editar Evento</button>
 
       <button class="boton-accion" (click)="confirmarDH()">
         {{ eventoSeleccionado?.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
       </button>
     </div>
+
+    <button class="boton-accion" (click)="verDisponibilidad()">Ver disponibilidades</button>
+
   </section>
 
 </body>

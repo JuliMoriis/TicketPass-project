@@ -9,11 +9,12 @@ import { AddEventoComponent } from "../add-evento/add-evento.component";
 import { Fecha } from '../../interfaces/fecha.interface';
 import Swal from 'sweetalert2';
 import { Autenticacion } from '../../../services/autenticacion.service';
+import { DisponibilidadComponent } from "../disponibilidad/disponibilidad.component";
 
 @Component({
   selector: 'app-detalle-evento',
   standalone: true,
-  imports: [CommonModule, RouterModule, AddEventoComponent],
+  imports: [CommonModule, RouterModule, AddEventoComponent, DisponibilidadComponent],
   templateUrl: './detalle-evento.component.html',
   styleUrl: './detalle-evento.component.css'
 })
@@ -23,6 +24,7 @@ export class DetalleEventoComponent implements OnInit{
   private userService= inject(UsuarioService);
   private authService = inject(Autenticacion)
   isEditing = false;
+  ventana= false;
 
   eventoSeleccionado: Evento | undefined;
 
@@ -216,5 +218,13 @@ export class DetalleEventoComponent implements OnInit{
         }
       });
     }
+  }
+
+  verDisponibilidad(): void {
+    this.ventana = true;
+  }
+
+  cerrarVentana(): void {
+    this.ventana = false;
   }
 }

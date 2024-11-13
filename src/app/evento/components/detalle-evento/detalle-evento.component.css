@@ -73,6 +73,7 @@
 }
 
 .boton-accion {
+  margin: 3px;
   padding: 10px 20px;
   font-size: 14px;
   font-weight: lighter;

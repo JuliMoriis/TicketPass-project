@@ -1,0 +1,18 @@
+<div class="contenedor-ventana">
+  <div class="ventana-header">
+    <h2>Disponibilidad del Evento</h2>
+    <span class="cerrar-cruz" (click)="cerrarVentana()">×</span>
+  </div>
+  <div class="ventana-body">
+    <ul>
+      <li *ngFor="let fecha of evento?.fechas">
+        <p><strong>Fecha:</strong> {{fecha.fecha}} - <strong>Disponibilidad:</strong> {{fecha.disponibilidadTotal}}</p>
+        <ul>
+          <li *ngFor="let entrada of fecha.entradas">
+            <strong>Sector:</strong> {{entrada.nombreSector}} - <strong>Disponibles:</strong> {{entrada.disponibles}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
