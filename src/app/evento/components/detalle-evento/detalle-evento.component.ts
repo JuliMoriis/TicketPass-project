@@ -8,6 +8,7 @@ import { UsuarioService } from '../../../services/usuario.service';
 import { AddEventoComponent } from "../add-evento/add-evento.component";
 import { Fecha } from '../../interfaces/fecha.interface';
 import Swal from 'sweetalert2';
+import { Autenticacion } from '../../../services/autenticacion.service';
 
 @Component({
   selector: 'app-detalle-evento',
@@ -18,15 +19,16 @@ import Swal from 'sweetalert2';
 })
 export class DetalleEventoComponent implements OnInit{
 
-  eventosService= inject(EventoService);
-  userService= inject(UsuarioService);
+  private eventosService= inject(EventoService);
+  private userService= inject(UsuarioService);
+  private authService = inject(Autenticacion)
   isEditing = false;
 
   eventoSeleccionado: Evento | undefined;
-  usuario: Usuario | undefined;
 
-  id: string | null = ''
+  id: string | null = ''  //evento
   userId: string | null = ''
+  tipo : number | null = null
 
   active = inject(ActivatedRoute)
 
@@ -34,9 +36,18 @@ export class DetalleEventoComponent implements OnInit{
 
   ngOnInit(): void {
 
+    this.authService.userId.subscribe((id) => {
+      this.userId = id;
+      console.log('ID Usuario obtenido en detalle:', this.userId);
+    });
+
+    this.authService.userType.subscribe((tipo) => {
+      this.tipo = tipo;
+      console.log('Tipo de usuario:', this.tipo);
+    });
+
     this.active.paramMap.subscribe(param => {
       const id = param.get('id');
-      const userId = param.get('userId');
 
       if (id) {
         this.eventosService.getEventosById(id).subscribe({
@@ -49,19 +60,6 @@ export class DetalleEventoComponent implements OnInit{
         });
       } else {
         console.log("ID de evento no encontrado en los parámetros de la ruta.");
-      }
-
-      if (userId) {
-        this.userService.getUsuariosById(userId).subscribe({
-          next: (usuarioEncontrado: Usuario) => {
-            this.usuario = usuarioEncontrado;
-          },
-          error: (e: Error) => {
-            console.log("Error obteniendo el usuario:", e.message);
-          }
-        });
-      } else {
-        console.log("ID de usuario no encontrado en los parámetros de la ruta.");
       }
     });
   }

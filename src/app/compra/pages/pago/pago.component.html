@@ -1,17 +1,15 @@
-<div class="purchase-container">
-  <h2>Detalle de la Compra</h2>
+<div class="compra-section">
+  <h2 class="titulo-compra">Detalle de la Compra</h2>
 
-
-  <div *ngIf="compra">
-
+  <div *ngIf="compra" class="purchase-details">
     <div class="event-info">
-      <h3>Información del Evento</h3>
+      <h3 class="subtitulo-compra">Información del Evento</h3>
       <p><strong>Nombre del Evento:</strong> {{ compra.evento.nombreEvento }}</p>
       <p><strong>Fecha del Evento:</strong> {{ compra.evento.fechaEvento | date }}</p>
     </div>
 
     <div class="ticket-info">
-      <h3>Detalles de la Entrada</h3>
+      <h3 class="subtitulo-compra">Detalles de la Entrada</h3>
       <p><strong>Sector:</strong> {{ compra.entrada.sector }}</p>
       <p><strong>Precio Unitario:</strong> ${{ compra.entrada.precioUnitario }}</p>
       <div *ngIf="compra.entrada.butaca">
@@ -21,15 +19,11 @@
       <p><strong>Precio Total:</strong> ${{ compra.precioTotal }}</p>
     </div>
 
-
-    <!-- Código QR para el Pago -->
     <div class="qr-code">
-      <h3>Escanee el codigo QR para realizar el pago</h3>
-      <img src='/img/qr-pago-entradas.jpeg 'alt="Código QR para pagar" />
+      <h3 class="subtitulo-compra">Escanee el código QR para realizar el pago</h3>
+      <img src='/img/qr-pago-entradas.jpeg' alt="Código QR para pagar" />
     </div>
   </div>
 
-
-  <button (click)="pagoConfirmado()">Aceptar</button>
+  <button class="boton-comprar" (click)="pagoConfirmado()">Aceptar</button>
 </div>
-

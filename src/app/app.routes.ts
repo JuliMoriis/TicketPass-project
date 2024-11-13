@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { ClientePageComponent } from './pages/cliente-page/cliente-page.component';
 import { InicioSesionComponent } from './pages/inicio-sesion/inicio-sesion.component';
 import { FiltrarEventoComponent } from './evento/components/filtrar-eventos/filtrar-eventos.component';
@@ -23,24 +22,24 @@ import { ListUsuarioComponent } from './usuario/component/list-usuario/list-usua
 export const routes: Routes = [
   { path: '', component: ClientePageComponent}, ///general
   { path: 'iniciar-sesion', component: InicioSesionComponent},
-  { path: 'administrador/:id', component: AdminPageComponent}, //list personalizada
   { path: 'add-eventos', component: PageAddEventoComponent},
-  { path: 'detalle-evento/:userId/:id', component: PageDetalleEventoComponent},
+  { path: 'detalle-evento/:id', component: PageDetalleEventoComponent},
   { path: 'list-eventos', component: PageEventosListComponent},
   { path: 'add-recinto', component: PageAddRecintoComponent},
   { path: 'usuarios/:id', component: ClientePageComponent}, //general
   { path: 'registrarse', component: PageRegistroUsuarioComponent},
   { path: 'buscar-evento', component: FiltrarEventoComponent},
-  { path: 'elegir-entrada/:userId/:idEvento/:fecha', component: CompraPageComponent},
-  { path: 'fila/:userId/:idEvento/:fecha', component: ManejoFilaComponent},
+  { path: 'elegir-entrada/:idEvento/:fecha', component: CompraPageComponent},
+  { path: 'fila/:idEvento/:fecha', component: ManejoFilaComponent},
   { path: 'recintos', component: PageRecintosListComponent},
   { path: 'recintos/:id', component: PageDetalleComponent},
   { path: 'perfil/:id', component: PageVerPerfilComponent},
   { path: 'eventos-administrador/:id', component: PageListAdminComponent},
-  { path: '', redirectTo: '/comprar-entrada', pathMatch: 'full' },
   { path: 'eventos-deshabilitados/:id', component: ListDeshabilitadosAdminComponent},
   { path: 'ver-mis-entradas/:id', component: ListEntradasComponent},
-  { path: 'ver-detalle-entradas/:userId/:id', component: VerDetalleEntradasComponent},
+  { path: 'ver-detalle-entradas/:id', component: VerDetalleEntradasComponent},
   { path: 'ver-usuarios/:adminId', component: ListUsuarioComponent},
-  { path: 'ver-detalle-usuario/:adminId/:id', component: PageVerPerfilComponent}
+  { path: 'ver-detalle-usuario/:adminId/:id', component: PageVerPerfilComponent},
+  { path: '**', component: ClientePageComponent},
+
 ]

@@ -17,6 +17,10 @@
   </section>
 </div>
 
+<div class="barra-progreso-container">
+  <div class="barra-progreso" [style.width.%]="progreso"></div>
+</div>
+
 <div *ngIf="cancionSeleccionada" class="song-preview">
   <div class="song-info">
     <img [src]="cancionSeleccionada.album.images[0].url" alt="Portada del álbum" class="album-cover" />

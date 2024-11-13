@@ -6,7 +6,7 @@
         <img *ngIf="evento.UrlBanner"
              [src]="evento.UrlBanner"
              alt="banner del evento"
-             [routerLink]="userId ? ['/detalle-evento', userId, evento.id] : ['/iniciar-sesion']">
+             [routerLink]="userId ? ['/detalle-evento', evento.id] : ['/iniciar-sesion']">
       </ng-container>
     </div>
   </div>

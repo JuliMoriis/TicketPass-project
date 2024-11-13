@@ -1,5 +1,84 @@
-img
-{
-  width: 150px;
-  height: 150px;
+/* Estilos generales para la sección de compra */
+.compra-section {
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 900px;
+  margin: 40px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  text-align: center;
+  position: relative; /* Cambiado de absolute a relative */
+  overflow: hidden;  /* Asegura que el contenido no se desborde */
+}
+
+/* Detalles de la compra */
+.purchase-details {
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 700px;
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+/* Título principal */
+.titulo-compra {
+  font-size: 32px;
+  color: #6a4d8c;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Subtítulo */
+.subtitulo-compra {
+  font-size: 20px;
+  color: #36173d;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el botón de compra */
+.boton-comprar {
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #6a4d8c;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.boton-comprar:hover {
+  background-color: #36173d;
+  transform: scale(1.05);
+}
+
+/* Fondo de la sección */
+.compra-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/path/to/background-image.jpg'); /* Cambiar la ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Lo pone detrás del contenido */
+  border-radius: 15px;
+}
+
+
+.qr-code img {
+  max-width: 200px;  /* Ajusta el tamaño máximo según tus necesidades */
+  width: 100%;  /* Asegura que la imagen se ajuste al contenedor sin exceder el max-width */
+  height: auto;  /* Mantiene la relación de aspecto */
 }

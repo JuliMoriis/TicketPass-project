@@ -5,11 +5,12 @@ import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../usuario/interfaces/usuario.interface';
 import { FiltrarEventoComponent } from '../../evento/components/filtrar-eventos/filtrar-eventos.component';
 import { HeaderComponent } from '../../shared/header/header.component';
+import { Autenticacion } from '../../services/autenticacion.service';
 
 @Component({
   selector: 'app-cliente-page',
   standalone: true,
-  imports: [RouterLink, ListEventoComponent, FiltrarEventoComponent, HeaderComponent],
+  imports: [ListEventoComponent, FiltrarEventoComponent],
   templateUrl: './cliente-page.component.html',
   styleUrl: './cliente-page.component.css'
 })
@@ -17,30 +18,19 @@ export class ClientePageComponent implements OnInit{
 
   id: string | null = ''
 
-
-  userService = inject(UsuarioService)
-  active = inject(ActivatedRoute)
+  private userService = inject(UsuarioService)
+  private active = inject(ActivatedRoute)
+  private authService = inject(Autenticacion)
 
   usuario : Usuario | undefined
 
   ngOnInit(): void {
 
-    this.active.paramMap.subscribe(param => {
-      this.id = param.get('id');
-      console.log("ID obtenido de la ruta:", this.id);
-      if (this.id) {
-        this.userService.getUsuariosById(this.id).subscribe({
-          next: (userDB: Usuario) => {
-            this.usuario = userDB;
-          },
-          error: (e: Error) => {
-            console.log(e.message);
-          }
-        });
-      } else {
-        console.log("ID no encontrado en los parámetros de la ruta.");
-      }
+    this.authService.userId.subscribe((id) => {
+      this.id = id;
+      console.log('ID Usuario obtenido en page:', this.id);
     });
+
   }
 }
 

@@ -17,6 +17,7 @@ import { Autenticacion } from '../../../services/autenticacion.service';
 })
 
 export class FiltrarEventoComponent implements OnInit {
+
   @Input() eventos: Evento[] = [];
   resultados: Evento[] = [];
   busqueda: string = '';
@@ -25,7 +26,6 @@ export class FiltrarEventoComponent implements OnInit {
   tipoUsuario: number | null = null;
   eventosClientes : Evento [] = [] //solo los que tienen alta 1
 
-  @Input()
   idUsuario: string | null = null
 
   mostrarResultados= false;
@@ -40,6 +40,10 @@ export class FiltrarEventoComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerEventos();
     this.obtenerRecintos();
+
+    this.authService.userId.subscribe((id) => {
+      this.idUsuario = id;
+    });
 
     this.authService.userType.subscribe((userType) => {
       this.tipoUsuario = userType;
@@ -109,7 +113,7 @@ export class FiltrarEventoComponent implements OnInit {
   redirigir (eventoId?: string){
     if (this.idUsuario != null){
       console.log('hola');
-      this.router.navigate(['/detalle-evento' , this.idUsuario ,eventoId])
+      this.router.navigate(['/detalle-evento',eventoId])
     }
     else
     {

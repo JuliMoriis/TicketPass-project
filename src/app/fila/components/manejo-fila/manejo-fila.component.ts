@@ -8,39 +8,49 @@ import { SpotifyService } from '../../../services/spotify.service';
 import { UsuarioService } from '../../../services/usuario.service';
 import { EventoService } from '../../../services/evento.service';
 import { Cliente } from '../../../usuario/interfaces/cliente.interface';
+import { Autenticacion } from '../../../services/autenticacion.service';
 
 @Component({
   selector: 'app-manejo-fila',
   standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './manejo-fila.component.html',
-  styleUrl: './manejo-fila.component.css'  
+  styleUrl: './manejo-fila.component.css'
 })
 
 export class ManejoFilaComponent implements OnInit {
 
   spotifyService = inject(SpotifyService);
-  canciones: any[] = []; 
-  cancionSeleccionada: any = null; 
+  canciones: any[] = [];
+  cancionSeleccionada: any = null;
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>; //reproduccion automatica
 
   usuario: Usuario | undefined;
   evento: Evento | undefined;
   fecha: string | null = '';
-  active = inject(ActivatedRoute);
-  userService = inject(UsuarioService);
-  eventoService = inject(EventoService);
+  idUser :string | null = null;
+  progreso: any //barra de progreso en la fila
+  private active = inject(ActivatedRoute);
+  private userService = inject(UsuarioService);
+  private eventoService = inject(EventoService);
+  private authService= inject(Autenticacion)
+
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+
+    this.authService.userId.subscribe((id) => {
+      this.idUser = id;
+      console.log('ID Usuario obtenido en fila:', this.idUser);
+    });
+
     this.active.paramMap.subscribe(param => {
-      const userId = param.get("userId");
       const eventoId = param.get("idEvento");
       const fechaParam = param.get("fecha");
       this.fecha = fechaParam;
 
-      this.userService.getUsuariosById(userId).subscribe({
+      this.userService.getUsuariosById(this.idUser).subscribe({
         next: (usuarioEncontrado: Usuario) => {
           this.usuario = usuarioEncontrado;
         },
@@ -69,25 +79,35 @@ export class ManejoFilaComponent implements OnInit {
       nombre,
       turno: this.turnoActual++,
       haComprado: false,
-      estado: 'Esperando en la fila' 
+      estado: 'Esperando en la fila'
     };
     this.fila.push(nuevoCliente);
     this.iniciarCompra(nuevoCliente);
   }
 
   iniciarCompra(cliente: Cliente) {
-    const tiempoEspera = Math.floor(Math.random() * (45000 - 2000 + 1)) + 2000;
+    const tiempoEspera = Math.floor(Math.random() * (45000 - 2000 + 1)) + 2000; //num random para la fila
+    this.progreso = 0; //arranca en 0
+
+    this.progreso = setInterval(() => {
+      if (this.progreso < 100) {
+        this.progreso += 1;
+      }
+    }, tiempoEspera / 100);
 
     setTimeout(() => {
       cliente.haComprado = true;
       cliente.estado = 'Entro a comprar entrada';
       console.log(cliente.estado);
-      this.router.navigate(["elegir-entrada", this.usuario?.id, this.evento?.id, this.fecha]);
+      this.router.navigate(["elegir-entrada", this.evento?.id, this.fecha]);
+
+      clearInterval(this.progreso);
+
     }, tiempoEspera);
 
-    //mientras espera el time out  
+    //mientras espera el time out
     this.levantarCanciones()
-   
+
   }
 
   levantarCanciones (){
@@ -127,7 +147,7 @@ export class ManejoFilaComponent implements OnInit {
 
         audio.onended = () => {
             console.log('La canción ha terminado, seleccionando otra...');
-            this.seleccionarCancionAleatoria(); 
+            this.seleccionarCancionAleatoria();
         };
     } else {
         console.error('No hay URL de previsualización disponible para esta canción.');
@@ -140,7 +160,7 @@ seleccionarCancionAleatoria() {
         this.cancionSeleccionada = this.canciones[indiceAleatorio];
         setTimeout(() => {
             this.reproducir();
-        }, 100); 
+        }, 100);
     } else {
         console.log('No hay canciones disponibles para reproducir.');
     }

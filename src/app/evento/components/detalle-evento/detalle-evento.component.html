@@ -21,16 +21,16 @@
         <p class="hora-evento">Hora: {{fecha.hora}}</p>
 
         <!-- Botones según tipo de usuario -->
-        <div *ngIf="usuario?.tipo == 2" class="acciones-evento">
+        <div *ngIf="tipo == 2" class="acciones-evento">
           <button type="button" class="boton-accion"
                   [disabled]="fecha.disponibilidadTotal==0 || fecha.habilitado == 0"
-                  [routerLink]="['/fila', usuario?.id, eventoSeleccionado?.id, fecha.fecha]">
+                  [routerLink]="['/fila', eventoSeleccionado?.id, fecha.fecha]">
             Entrar a la Fila
           </button>
           <div *ngIf="fecha.disponibilidadTotal==0" class="sold-out">Evento SOLD OUT</div>
         </div>
 
-        <div *ngIf="usuario?.tipo == 1 && eventoSeleccionado?.alta === 1" class="acciones-evento">
+        <div *ngIf="tipo == 1 && eventoSeleccionado?.alta === 1" class="acciones-evento">
           <button class="boton-accion" (click)="confirmarFila(fecha)">
             {{ fecha.habilitado === 1 ? 'Deshabilitar Fila' : 'Habilitar Fila' }}
           </button>
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Botones para el administrador -->
-    <div *ngIf="usuario?.tipo == 1" class="acciones-evento">
+    <div *ngIf="tipo == 1" class="acciones-evento">
       <button class="boton-accion" (click)="changeEdit()">Editar Evento</button>
 
       <button class="boton-accion" (click)="confirmarDH()">

@@ -4,6 +4,7 @@ import { Evento } from '../../interfaces/evento.interface';
 import { EventoService } from '../../../services/evento.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Autenticacion } from '../../../services/autenticacion.service';
 
 @Component({
   selector: 'app-list-evento',
@@ -16,12 +17,19 @@ import { CommonModule } from '@angular/common';
 //compartida con cliente y admin, con visual principal
 export class ListEventoComponent implements OnInit{
 
-  @Input() userId: string | null = '';
+  userId: string | null = '' //id del evento
 
+  private authService = inject(Autenticacion)
   eventosService= inject(EventoService);
   listaEventos: Evento [] = [];
 
+
   ngOnInit(): void {
+    this.authService.userId.subscribe((id) => {
+      this.userId = id;
+      console.log('ID Usuario obtenido en list:', this.userId);
+    });
+
      this.listarEventos();
   }
 

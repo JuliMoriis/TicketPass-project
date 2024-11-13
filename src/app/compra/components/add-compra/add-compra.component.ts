@@ -12,6 +12,7 @@ import { Compra } from '../../interfaces/compra.interface';
 import { CompraService } from '../../../services/compra.service';
 import { PagoComponent } from '../../pages/pago/pago.component';
 import QRCode from 'qrcode';
+import { Autenticacion } from '../../../services/autenticacion.service';
 
 @Component({
   selector: 'app-add-compra',
@@ -25,8 +26,11 @@ export class AddCompraComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  compraRealizada: boolean = false;
   mostrarPago = false ;
   compraCompletaJson ?: Compra
+
+  userId : string | null = null
 
 
   compra: Compra = {
@@ -64,19 +68,24 @@ export class AddCompraComponent implements OnInit {
 
   mensaje: string = ""
 
-  active = inject(ActivatedRoute)
-  userService = inject(UsuarioService)
-  eventoService = inject(EventoService)
-  compraService = inject(CompraService);
+  private active = inject(ActivatedRoute)
+  private userService = inject(UsuarioService)
+  private eventoService = inject(EventoService)
+  private compraService = inject(CompraService);
+  private authService = inject(Autenticacion);
 
   ngOnInit(): void {
 
+    this.authService.userId.subscribe((id) => {
+      this.userId = id;
+      console.log('ID Usuario obtenido en compra:', this.userId);
+    });
+
     this.active.paramMap.subscribe(param => {
-      const userId = param.get("userId");
       const eventoId = param.get("idEvento");
       const fechaParam = param.get("fecha");
 
-      this.userService.getUsuariosById(userId).subscribe({
+      this.userService.getUsuariosById(this.userId).subscribe({
         next: (usuarioEncontrado: Usuario) => {
           this.compra.cliente.idCliente = usuarioEncontrado.id
           this.compra.cliente.nombre = usuarioEncontrado.nombre
@@ -176,6 +185,7 @@ export class AddCompraComponent implements OnInit {
   postCompra() {
     this.compraService.postCompras(this.compra).subscribe({
       next: (compraCargada : Compra) => {
+        this.compraRealizada = true; 
         console.log("compra cargada");
         this.compraCompletaJson = compraCargada
         this.generarQR(this.compraCompletaJson)

@@ -10,6 +10,7 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { EventoService } from '../../../services/evento.service';
 import { Evento } from '../../../evento/interfaces/evento.interface';
+import { Autenticacion } from '../../../services/autenticacion.service';
 
 
 @Component({
@@ -24,9 +25,11 @@ export class VerDetalleEntradasComponent {
   //captura los datos de la entrada en html
   @ViewChild('entrada', { static: false }) entrada!: ElementRef;
 
-  comprasService= inject(CompraService);
-  eventoService = inject(EventoService)
-  userService= inject(UsuarioService);
+  private comprasService= inject(CompraService);
+  private eventoService = inject(EventoService)
+  private userService= inject(UsuarioService);
+  private active = inject(ActivatedRoute)
+  private authService = inject(Autenticacion)
 
   compraSeleccionada: Compra | undefined;
   usuario: Usuario | undefined;
@@ -35,17 +38,17 @@ export class VerDetalleEntradasComponent {
   userId: string | null = ''
   urlBanner: string = ''
 
-  active = inject(ActivatedRoute)
 
   constructor(private router: Router){}
 
   ngOnInit(): void {
+    this.authService.userId.subscribe((id) => {
+      this.userId = id;
+      console.log('ID Usuario obtenido en entrada:', this.userId);
+    });
 
     this.active.paramMap.subscribe(param => {
       const id = param.get('id');
-      const userId = param.get('userId');
-
-      console.log('ID:', id, 'UserID:', userId);
 
       if (id) {
         this.comprasService.getCompraById(id).subscribe({
@@ -61,8 +64,8 @@ export class VerDetalleEntradasComponent {
         console.log("ID de compra no encontrado en los parámetros de la ruta.");
       }
 
-      if (userId) {
-        this.userService.getUsuariosById(userId).subscribe({
+      if (this.userId) {
+        this.userService.getUsuariosById(this.userId).subscribe({
           next: (usuarioEncontrado: Usuario) => {
             this.usuario = usuarioEncontrado;
           },

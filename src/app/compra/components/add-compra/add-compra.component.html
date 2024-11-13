@@ -36,8 +36,14 @@
         <p class="detalle-texto">{{sectorSeleccionado}} X{{compra.cantidad}} = ${{compra.precioTotal}}</p>
       </div>
 
-      <button (click)="comprarEntrada()" class="boton-comprar">Comprar entrada</button>
-    </fieldset>
+      <button
+      (click)="comprarEntrada()"
+      class="boton-comprar"
+      [disabled]="compraRealizada">
+      Comprar entrada
+    </button>
+  
+  </fieldset>
 
     <div *ngIf="mostrarPago && compraCompletaJson" class="pago-section">
       <app-pago [compra]="compraCompletaJson"></app-pago>

@@ -9,7 +9,7 @@
             {{ evento.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
           </button>
 
-          <button type="button" class="boton-detalle" [routerLink]="['/detalle-evento', userId, evento.id]">
+          <button type="button" class="boton-detalle" [routerLink]="['/detalle-evento', evento.id]">
             Ver Detalle
           </button>
         </div>
