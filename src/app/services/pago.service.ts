@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
 export class PagoService {
 
   private mercadopagoUrl = 'https://api.mercadopago.com/checkout/preferences';
@@ -18,6 +17,7 @@ export class PagoService {
       'Authorization': `Bearer ${this.accessToken}`,
       'Content-Type': 'application/json'
     });
+
     const preference = {
       items: [
         {
@@ -29,7 +29,7 @@ export class PagoService {
       back_urls: {
         success: 'http://localhost:4200/ver-mis-entradas',
         failure: 'http://localhost:4200/pagoFallido',
-        pending: 'http://localhost:4200'
+        pending: 'http://localhost:4200/ver-mis-entradas'
       },
       auto_return: 'approved'
     };
