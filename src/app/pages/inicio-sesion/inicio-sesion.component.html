@@ -1,5 +1,5 @@
 
-<section> 
+<section>
 
     <div class="wrapper">
 
@@ -14,14 +14,17 @@
               </div>
       </div>
 
-      <div class="input-field">
-          <input type="password" id="contraseniaForm" name="contraseniaForm" ngModel required >
+     <div iv class="input-field">
+          <input [type]="showPassword ? 'text' : 'password'" id="contraseniaForm" name="contraseniaForm" ngModel required >
           <label for="contraseniaForm">Contraseña</label>
           <div class="divAvisos" *ngIf="formInicioSesion.controls['contraseniaForm']?.invalid && formInicioSesion.controls['contraseniaForm']?.touched">
               Debe ingresar su contraseña
           </div>
-      </div>
+
+          <fa-icon [icon]="showPassword ? faEye : faEyeSlash" (click)="showPassword = !showPassword" class="password"></fa-icon>
+        </div>
       <button  type="submit" [disabled]="formInicioSesion.invalid">Iniciar sesion</button>
+
 
       <div class="registro">
     <a routerLink="/registrarse">Todavia no tenes cuenta? Registrate haciendo click aca</a>

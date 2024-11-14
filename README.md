@@ -15,4 +15,6 @@ npm run comprasdb
 npm i qrcode
 npm i jspdf html2canvas
 npm i sweetalert2
+npm i @fortawesome/free-solid-svg-icons
+npm i @fortawesome/angular-fontawesome
 

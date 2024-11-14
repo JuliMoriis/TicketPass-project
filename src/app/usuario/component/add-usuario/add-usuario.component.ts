@@ -4,17 +4,24 @@ import {Router, RouterModule} from '@angular/router';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from '../../interfaces/usuario.interface';
 import { CommonModule } from '@angular/common';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'; 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import Swal from 'sweetalert2';
 
 
 
 @Component({
   selector: 'app-add-usuario',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule, CommonModule],
+  imports: [ReactiveFormsModule, RouterModule, CommonModule, FontAwesomeModule],
   templateUrl: './add-usuario.component.html',
   styleUrl: './add-usuario.component.css'
 })
 export class AddUsuarioComponent implements OnInit{
+
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
+  showPassword: boolean = false;
 
   constructor(private router: Router){}
 
@@ -44,6 +51,8 @@ export class AddUsuarioComponent implements OnInit{
           },
           nombreUsuario: this.usuarioRecibido.nombreUsuario,
           contrasenia: this.usuarioRecibido.contrasenia,
+          pregunta: this.usuarioRecibido.pregunta,
+          verificacion: this.usuarioRecibido.verificacion,
           tipo: this.usuarioRecibido.tipo
         });
 
@@ -81,6 +90,8 @@ export class AddUsuarioComponent implements OnInit{
     }),
     nombreUsuario:['',[Validators.required, Validators.minLength(3)]],
     contrasenia:['', [Validators.required, Validators.minLength(8)]],
+    pregunta: ['', [Validators.required]],
+    verificacion: ['', [Validators.required]],
     tipo:[2, [Validators.required]]
   })
 
@@ -91,7 +102,12 @@ export class AddUsuarioComponent implements OnInit{
         console.log('Usuario agregado exitosamente');
       },
       error: (err) => {
-        alert('Error al agregar el usuario: ' + err.message);
+        Swal.fire({
+          title: "Error al registrarse",
+          text: "Por favor, intente nuevamente",
+          confirmButtonColor: "#36173d",
+          icon: "error"
+        })
         console.error('Error:', err);
       }
     });
@@ -101,8 +117,12 @@ export class AddUsuarioComponent implements OnInit{
     if (usuario.id)
     this.usuariosService.putUsuario(usuario.id, usuario).subscribe({
       next : ()=> {
-       alert("Usuario editado con exito")
-      }, 
+        Swal.fire({
+          title: "Usuario editado con exito",
+          confirmButtonColor: "#36173d",
+          icon: "success"
+        })
+      },
       error: (e:Error)=> {
         console.log(e.message);
       }
@@ -113,15 +133,27 @@ export class AddUsuarioComponent implements OnInit{
   addUsuario() {
     if (this.formularioUsuario.invalid) {
       console.log('Formulario inválido');
+      Swal.fire({
+        title: "Campos vacios o inválidos",
+        text: "Por favor, intente nuevamente",
+        confirmButtonColor: "#36173d",
+        icon: "warning"
+      })
       return;
     }
 
     const usuario: Usuario = this.formularioUsuario.getRawValue();
     const usuarioEncontrado = this.nombresUsuario.find(nombre => nombre == usuario.nombreUsuario);
     console.log(usuarioEncontrado);
+
     if (usuarioEncontrado)
     {
-      alert("El nombre de usuario ya esta en uso!");
+      Swal.fire({
+        title: `¡El nombre de usuario "${usuarioEncontrado}" ya esta en uso!`,
+        confirmButtonColor: "#36173d",
+        icon: "warning"
+      });
+
       //ver en css poner en rojo el campo usuario
     }
     else
@@ -132,11 +164,15 @@ export class AddUsuarioComponent implements OnInit{
       }
       else
       {
-        alert('usuario registrado con exito');
+        Swal.fire({
+        title: "Usuario registrado con exito",
+        confirmButtonColor: "#36173d",
+        icon: "success"
+      }).then(() => {
         this.guardarUsuarioJSON(usuario);
         this.router.navigate(['/'])
+      })
       }
-    
     }
 
   }
