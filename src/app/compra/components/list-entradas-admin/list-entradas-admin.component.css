@@ -1,0 +1,102 @@
+.compras-section {
+  padding: 20px;
+  background-color: #f4f4f9;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.fondo{
+  box-sizing: border-box;
+  width: 100%;
+  display: row;
+  flex-direction: row;
+  align-items:center;
+  justify-content: center;
+  min-height:100vh;
+  padding: 0;
+  margin: 0;
+  color:white;
+  position: absolute;
+     background: url('/img/audiencia-background.jpg') center center   / cover no-repeat;
+}
+
+.compras-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.compra-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 15px;
+  transition: transform 0.3s ease;
+}
+
+.compra-item:hover {
+  transform: translateY(-5px);
+  background-color: #36173d89;
+
+}
+
+.compra-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.evento-nombre {
+  font-size: 18px;
+  font-weight: bold;
+  color: #36173d;
+  margin: 0;
+}
+
+.evento-fecha {
+  font-size: 16px;
+  color: #6a4d8c;
+  margin: 0;
+}
+
+.detalle-boton {
+  align-self: flex-start;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #36173d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.detalle-boton:hover {
+  background-color: #ff4845b2;
+  color: #36173d;;
+}
+
+.detalle-boton:active {
+  transform: translateY(2px);
+}
+
+.boton-filtro{
+  margin: 1rem;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #36173da3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filtros{
+  display: flex;
+  justify-content: center;
+}

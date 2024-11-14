@@ -21,5 +21,6 @@ export interface Compra {
   cantidad: number,
   precioTotal: number,
   qrEntrada ?: string,
-  estado: boolean
+  estado: boolean //estado de pago
+  alta: boolean
 }

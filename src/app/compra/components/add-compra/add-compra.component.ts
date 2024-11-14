@@ -52,7 +52,8 @@ export class AddCompraComponent implements OnInit {
     },
     cantidad: 1, //segun el input
     precioTotal: 0,
-    estado: false
+    estado: false,
+    alta: true
   }
 
   evento?: Evento //levantamos el evento COMPLETO

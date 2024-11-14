@@ -2,7 +2,7 @@
   <section class="compras-section">
     <ul class="compras-list">
       @for (compra of listaCompras; track $index) {
-        @if(compra.cliente.idCliente == idUsuario) {
+        @if(compra.cliente.idCliente == idUsuario && compra.alta) {
           <li class="compra-item">
             <div class="compra-content">
               <h3 class="evento-nombre">Entrada para: {{compra.evento.nombreEvento}}</h3>
@@ -18,4 +18,3 @@
   </section>
 </section>
 
- 
