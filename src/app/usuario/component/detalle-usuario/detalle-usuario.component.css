@@ -2,7 +2,6 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Arial, Helvetica, sans-serif;
 }
 
 .seccion-perfil {
@@ -13,7 +12,7 @@
     padding: 3%;
     text-align: center;
     border: 1px solid #ffffff80;
-    backdrop-filter: blur(8px);
+    background-color: #efefef90;
 }
 
 .perfil-header {
@@ -24,20 +23,21 @@
 .titulo-perfil {
   font-size: 30px;
   font-weight: bold;
-  color: #fff;
+  color: #36173d;
   margin-bottom: 5px;
   text-transform: capitalize;
 }
 
 .subtitulo-perfil {
   font-size: 16px;
-  color: #fff;
+  color: #36173d;
 }
 
 
 .informacion-perfil {
   margin-bottom: 15px;
  text-align: left;
+ background-color: #efefefc8;
 
 }
 
@@ -107,7 +107,7 @@
 
 
 strong {
-  color: #fff;
+  color: #36173d;
 }
 
 .fondo{
@@ -118,7 +118,7 @@ strong {
   justify-content: center;
   min-height:110vh;
   padding: 0 10px;
-  color:white;
+  color: #36173d;
   background:url('/img/background-op2.png') ;
   background-position: center;
   background-size: cover;

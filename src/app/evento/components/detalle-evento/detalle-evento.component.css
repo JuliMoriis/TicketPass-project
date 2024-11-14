@@ -4,15 +4,16 @@
   box-sizing:border-box;
   font-family:Arial, Helvetica, sans-serif;
 }
+
 /* Contenedor principal del detalle del evento */
 .detalle-evento {
   margin-top:1%;
   width:470px;
   border-radius:8px;
   padding: 30px;
-  text-align: center;
+  /* text-align: center; */
   border: 1px solid #ffffff80;
-  backdrop-filter: blur(8px);
+  background-color: #efefef90;
 }
 
 
@@ -119,7 +120,7 @@ body{
   justify-content: center;
   min-height:80vh;
   padding: 0 10px;
-  color:white;
+  color: #36173d;
 }
 
 body::before{
