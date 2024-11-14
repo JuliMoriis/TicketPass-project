@@ -58,7 +58,7 @@ export class MercadoPagoComponent {
       .subscribe({
         next: (response: any) => {
           if (response && response.id) {
-            const mp = new MercadoPago('APP_USR-73f9a128-944c-4a72-82a3-f5cad1ea9d9a', {
+            const mp = new MercadoPago('APP_USR-a9929fea-ac74-4d7e-b31e-055201ba23a2', {
               locale: 'es-AR'
             });
 
