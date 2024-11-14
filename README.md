@@ -16,3 +16,4 @@ npm i qrcode
 npm i jspdf html2canvas
 npm i sweetalert2
 
+# <script src="https://sdk.mercadopago.com/js/v2"></script>
