@@ -224,7 +224,7 @@
             },
             {
               "nombreSector": "Campo",
-              "disponibles": 22000,
+              "disponibles": 21999,
               "precio": "82000",
               "asientos": []
             },
@@ -276,7 +276,7 @@
               ]
             }
           ],
-          "disponibilidadTotal": 37008,
+          "disponibilidadTotal": 37007,
           "habilitado": 1
         },
         {
@@ -375,12 +375,12 @@
             },
             {
               "nombreSector": "102",
-              "disponibles": 5,
+              "disponibles": 4,
               "precio": "53000",
               "asientos": [
                 {
                   "butaca": 1,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 2,
@@ -428,7 +428,7 @@
               ]
             }
           ],
-          "disponibilidadTotal": 165010,
+          "disponibilidadTotal": 165009,
           "habilitado": 1
         }
       ],

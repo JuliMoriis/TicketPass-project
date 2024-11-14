@@ -37,17 +37,17 @@
       </div>
 
       <button
-      (click)="compraRealizada = true"
+      (click)="realizarCompra = true"
       class="boton-comprar"
-      [disabled]=" puedeComprar()==false ">
+      [disabled]="sectorSeleccionado == '' || yaCompro">
       Pagar entrada
     </button>
 
   </fieldset>
   </div>
 
-  <div *ngIf="compraRealizada">
-  <app-mercado-pago [compra]="compra" (pagoExitoso)="pagoRealizado()"></app-mercado-pago>
+  <div *ngIf="realizarCompra">
+    <app-mercado-pago [compra]="compra" (pagoExitoso)="pagoRealizado()"></app-mercado-pago>
   </div>
 
 </section>

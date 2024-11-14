@@ -10,7 +10,6 @@ import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from '../../../usuario/interfaces/usuario.interface';
 import { Compra } from '../../interfaces/compra.interface';
 import { CompraService } from '../../../services/compra.service';
-import { PagoComponent } from '../../pages/pago/pago.component';
 import QRCode from 'qrcode';
 import { Autenticacion } from '../../../services/autenticacion.service';
 import { MercadoPagoComponent } from '../mercado-pago/mercado-pago.component';
@@ -25,15 +24,11 @@ import { MercadoPagoComponent } from '../mercado-pago/mercado-pago.component';
 
 export class AddCompraComponent implements OnInit {
 
-  constructor(private router: Router) { }
-
-
-  compraRealizada: boolean = false;
-  mostrarPago = false ;
+  yaCompro = false;
+  realizarCompra: boolean = false;
   compraCompletaJson ?: Compra
 
   userId : string | null = null
-
 
   compra: Compra = {
     fechaDeCompra: new Date(),
@@ -79,17 +74,18 @@ export class AddCompraComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.realizarCompra = false
+
     this.authService.userId.subscribe((id) => {
       this.userId = id;
       console.log('ID Usuario obtenido en compra:', this.userId);
     });
 
-    this.active.paramMap.subscribe(param => {
-      const eventoId = param.get("idEvento");
-      const fechaParam = param.get("fecha");
+    if (this.userId){
 
       this.userService.getUsuariosById(this.userId).subscribe({
         next: (usuarioEncontrado: Usuario) => {
+          console.log(usuarioEncontrado);
           this.compra.cliente.idCliente = usuarioEncontrado.id
           this.compra.cliente.nombre = usuarioEncontrado.nombre
           this.compra.cliente.email = usuarioEncontrado.email
@@ -98,6 +94,11 @@ export class AddCompraComponent implements OnInit {
           console.log(e.message);
         }
       })
+    }
+
+    this.active.paramMap.subscribe(param => {
+      const eventoId = param.get("idEvento");
+      const fechaParam = param.get("fecha");
 
       this.eventoService.getEventosById(eventoId).subscribe({
         next: (eventoEncontrado: Evento) => {
@@ -126,19 +127,6 @@ export class AddCompraComponent implements OnInit {
     })
   }
 
-  puedeComprar(): boolean{
-    if (this.sectorSeleccionado == '')
-    {
-      return false;
-    }
-    else
-    {
-      return true;
-    }
-  }
-
-
-
   asignarSectorYPrecio(entrada: Entrada) {
     this.compra.entrada.sector = entrada.nombreSector;
     this.compra.entrada.precioUnitario = entrada.precio;
@@ -148,11 +136,12 @@ export class AddCompraComponent implements OnInit {
 
   actualizarTotalPrecio() {
     this.compra.precioTotal = this.compra.cantidad * this.compra.entrada.precioUnitario;
+    console.log(this.compra);
   }
 
   ////////////////////////////////////////////////////////////////
 
-  pagoRealizado() { //el output
+  pagoRealizado() {  //el output
     console.log('recibio el output');
     this.comprarEntrada();
   }
@@ -195,7 +184,7 @@ export class AddCompraComponent implements OnInit {
     entrada.asientos.forEach(asiento => {
 
       if (asiento.disponibilidad == true && i <= cantidad) {
-        this.compra.entrada.butaca?.push(asiento.butaca) //ESTO NO FUNCIONA
+        this.compra.entrada.butaca?.push(asiento.butaca)
         asiento.disponibilidad = false;
         i++;
       }
@@ -206,11 +195,10 @@ export class AddCompraComponent implements OnInit {
   postCompra() {
     this.compraService.postCompras(this.compra).subscribe({
       next: (compraCargada : Compra) => {
-        this.compraRealizada = true;
+        this.yaCompro= true
         console.log("compra cargada");
         this.compraCompletaJson = compraCargada
         this.generarQR(this.compraCompletaJson)
-        this.mostrarPago = true;
       },
       error: (e: Error) => {
         console.log(e.message);
