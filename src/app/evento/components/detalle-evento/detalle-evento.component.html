@@ -22,9 +22,8 @@
 
         <!-- Botones según tipo de usuario -->
         <div *ngIf="tipo == 2" class="acciones-evento">
-          <button type="button" class="boton-accion"
-                  [disabled]="fecha.disponibilidadTotal==0 || fecha.habilitado == 0"
-                  [routerLink]="['/fila', eventoSeleccionado?.id, fecha.fecha]">
+          <button type="button" class="boton-accion" [disabled]="fecha.disponibilidadTotal==0 || fecha.habilitado == 0"
+            [routerLink]="['/fila', eventoSeleccionado?.id, fecha.fecha]">
             Entrar a la Fila
           </button>
           <div *ngIf="fecha.disponibilidadTotal==0" class="sold-out">Evento SOLD OUT</div>
@@ -42,19 +41,20 @@
     <div *ngIf="tipo == 1" class="acciones-evento">
 
       <div *ngIf="ventana">
-    <app-disponibilidad [evento]="eventoSeleccionado" [ventana]="ventana" (cerrar)="cerrarVentana()"></app-disponibilidad>
-  </div>
+        <app-disponibilidad [evento]="eventoSeleccionado" [ventana]="ventana"
+          (cerrar)="cerrarVentana()"></app-disponibilidad>
+      </div>
 
 
-      <button  class="boton-accion" (click)="changeEdit()">Editar Evento</button>
+      <button class="boton-accion" (click)="changeEdit()">Editar Evento</button>
 
       <button class="boton-accion" (click)="confirmarDH()">
         {{ eventoSeleccionado?.alta === 1 ? 'Deshabilitar Evento' : 'Habilitar Evento' }}
       </button>
+
+      <button class="boton-accion" (click)="verDisponibilidad()">Ver disponibilidades</button>
+
     </div>
-
-    <button class="boton-accion" (click)="verDisponibilidad()">Ver disponibilidades</button>
-
   </section>
 
 </body>
@@ -62,4 +62,3 @@
 <div *ngIf="isEditing" class="formulario-editar">
   <app-add-evento [eventoIn]="eventoSeleccionado" (updateEvento)="updateEventos($event)"></app-add-evento>
 </div>
-

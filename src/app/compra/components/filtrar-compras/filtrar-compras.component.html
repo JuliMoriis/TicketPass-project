@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <input
+    type="text"
+    name="input-busqueda"
+    [(ngModel)]="busqueda"
+    (input)="filtrarCompras()"
+    placeholder="Buscar por recital..."
+  />
+
+  <div *ngIf="mostrarResultados && resultados.length > 0" class="busqueda">
+    <ul>
+      <li *ngFor="let compra of resultados" [routerLink]="['/ver-detalle-entradas', compra.id]">
+        <div class="divInfo">
+          Entrada: {{ compra.evento.nombreEvento }} - Alta:
+          {{ compra.alta ? 'Habilitado' : 'Deshabilitado' }} - Usuario: {{compra.cliente.idCliente}}
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="mostrarResultados && resultados.length === 0" class="busqueda">
+    <div class="divInfo">No se encontraron compras</div>
+  </div>
+</div>

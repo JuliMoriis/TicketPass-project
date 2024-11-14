@@ -15,17 +15,17 @@ declare var MercadoPago: any;
 export class MercadoPagoComponent {
 
   @Input() compra?: Compra;
-  @Output() pagoExitoso = new EventEmitter<void>(); // Emite cuando se realiza el pago exitoso
+  @Output() pagoExitoso = new EventEmitter<void>();
 
   descripcion: string = '';
+  cantidad: number = 1;
 
   constructor(private pagoService: PagoService, private compraService: CompraService) {}
 
-  // Cargar el script de MercadoPago si aún no está cargado
   loadMercadoPagoScript(): Promise<void> {
     return new Promise((resolve, reject) => {
       if (typeof MercadoPago !== 'undefined') {
-        resolve(); // Ya está cargado
+        resolve();
         return;
       }
 
@@ -40,9 +40,9 @@ export class MercadoPagoComponent {
   ngAfterViewInit() {
     if (this.compra) {
       this.descripcion = `${this.compra.evento.nombreEvento} - ${this.compra.entrada.sector}`;
+      this.cantidad = Number(this.compra.cantidad);
     }
 
-    // Cargar el script y luego iniciar el pago
     this.loadMercadoPagoScript()
       .then(() => {
         this.iniciarPago();
@@ -52,10 +52,9 @@ export class MercadoPagoComponent {
       });
   }
 
-  // Función para iniciar el pago
+
   iniciarPago() {
-    // Llamar al servicio para crear la preferencia de pago
-    this.pagoService.crearPreferencia(this.descripcion, this.compra?.cantidad, 10, this.compra?.cliente.idCliente)
+    this.pagoService.crearPreferencia(this.descripcion, this.cantidad, 1)
       .subscribe({
         next: (response: any) => {
           if (response && response.id) {
@@ -66,9 +65,14 @@ export class MercadoPagoComponent {
             mp.checkout({
               preference: { id: response.id },
               autoOpen: true,
-              onSuccess: () => {
-                console.log('Pago exitoso');
+              onSuccess: (paymentData: any) => {
+                console.log('Pago exitoso', paymentData);
+                alert('Pago realizado con éxito');
                 this.pagoExitoso.emit();
+              },
+              onError: (error: Error) => {
+                console.error('Error en el pago:', error);
+                alert('Hubo un error con el pago');
               }
             });
           } else {
@@ -81,7 +85,5 @@ export class MercadoPagoComponent {
       });
   }
 
+
 }
-
-
-

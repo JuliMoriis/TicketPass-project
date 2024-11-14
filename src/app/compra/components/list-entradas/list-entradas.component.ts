@@ -2,6 +2,7 @@ import { Compra } from './../../interfaces/compra.interface';
 import { Component, inject, OnInit } from '@angular/core';
 import { CompraService } from '../../../services/compra.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Autenticacion } from '../../../services/autenticacion.service';
 
 @Component({
   selector: 'app-list-entradas',
@@ -16,12 +17,12 @@ export class ListEntradasComponent implements OnInit{
   listaCompras: Compra [] = []
 
   idUsuario: string | null = null;
-  private activatedRoute = inject(ActivatedRoute);
+  private authService = inject(Autenticacion)
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(params => {
-      this.idUsuario = params.get('id');
-      console.log('ID Usuario en ListEntradasComponent:', this.idUsuario);
+    this.authService.userId.subscribe((id) => {
+      this.idUsuario = id;
+      console.log('ID Usuario obtenido en compra:', this.idUsuario);
     });
 
     this.listarCompras();

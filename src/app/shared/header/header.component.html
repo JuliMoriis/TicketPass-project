@@ -17,7 +17,7 @@
             <li><a routerLink="add-eventos">Cargar evento</a></li>
             <li><a [routerLink]="['/eventos-administrador', idUsuario]">Ver eventos registrados</a></li>
             <li><a routerLink="recintos">Ver recintos</a></li>
-            <li><a href="#opcion3">Ver compras</a></li>
+            <li><a href="compras">Ver compras</a></li>
             <li><a [routerLink]="['/ver-usuarios', idUsuario]">Ver usuarios registrados</a></li>
           </ul>
         </div>
@@ -30,13 +30,13 @@
       <!-- Menú para el Cliente -->
       <nav>
         <a [routerLink]="['/perfil' , idUsuario]" >Mi perfil</a>
-        <a [routerLink]="['/ver-mis-entradas', idUsuario]">Mis Entradas</a>
+        <a [routerLink]="['/ver-mis-entradas']">Mis Entradas</a>
         <a href="#" (click)="cerrarSesion()">Cerrar sesión</a>
       </nav>
     </div>
 
     <div *ngIf="tipoUsuario === null">
-      
+
       <!-- Menú para los usuarios no logueados -->
       <nav>
         <a routerLink="/iniciar-sesion">Iniciar sesión</a>

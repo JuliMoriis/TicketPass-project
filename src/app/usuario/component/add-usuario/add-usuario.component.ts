@@ -173,6 +173,7 @@ export class AddUsuarioComponent implements OnInit{
         this.router.navigate(['/'])
       })
       }
+    
     }
 
   }

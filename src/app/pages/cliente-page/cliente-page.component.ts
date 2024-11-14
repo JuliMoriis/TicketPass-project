@@ -1,10 +1,8 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ListEventoComponent } from '../../evento/components/list-evento/list-evento.component';
-import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../usuario/interfaces/usuario.interface';
 import { FiltrarEventoComponent } from '../../evento/components/filtrar-eventos/filtrar-eventos.component';
-import { HeaderComponent } from '../../shared/header/header.component';
 import { Autenticacion } from '../../services/autenticacion.service';
 
 @Component({
@@ -24,7 +22,6 @@ export class ClientePageComponent implements OnInit{
   usuario : Usuario | undefined
 
   ngOnInit(): void {
-
     this.authService.userId.subscribe((id) => {
       this.id = id;
       console.log('ID Usuario obtenido en page:', this.id);

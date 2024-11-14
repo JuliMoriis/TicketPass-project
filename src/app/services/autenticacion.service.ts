@@ -8,10 +8,10 @@ export class Autenticacion {
 
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.getIsLoggedIn());
   private userTypeSubject = new BehaviorSubject<number | null>(this.getUserType());
-  private userIdSubject = new BehaviorSubject<string | null>(null);  // <--- Nuevo BehaviorSubject para el ID
+  private userIdSubject = new BehaviorSubject<string | null>(this.getUserId());
   userId = this.userIdSubject.asObservable();
 
-  constructor() {}
+  constructor() { }
 
   //si esta la sesion iniciada
   private getIsLoggedIn(): boolean {
@@ -23,6 +23,10 @@ export class Autenticacion {
     const userType = localStorage.getItem('userType');
     return userType ? +userType : null;
   }
+
+  private getUserId(): string | null {
+    return localStorage.getItem('idUsuario');
+}
 
   get isLoggedIn() {
     return this.isLoggedInSubject.asObservable();
@@ -37,15 +41,16 @@ export class Autenticacion {
   login(userType: number, idUsuario: string) {
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('userType', userType.toString());
+    localStorage.setItem('idUsuario', idUsuario);
     this.isLoggedInSubject.next(true);
     this.userTypeSubject.next(userType);
     this.userIdSubject.next(idUsuario);
   }
 
-  //elimina el tipo e id
   logout() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userType');
+    localStorage.removeItem('idUsuario');
     this.isLoggedInSubject.next(false);
     this.userTypeSubject.next(null);
     this.userIdSubject.next(null);

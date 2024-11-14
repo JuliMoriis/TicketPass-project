@@ -1,0 +1,72 @@
+.wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #000000;
+  outline: none;
+}
+
+.busqueda {
+  background-color: #f8f8f8;
+  padding: 3px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+.divInfo {
+  font-size: 14px;
+  color: #333;
+}
+
+.divInfo {
+  font-size: 14px;
+  font-weight: bold;
+  color: #888;
+  text-align: center;
+}
+
+.busqueda .divInfo {
+  padding: 5px;
+  background-color: #f7f7f7;
+  color: #000000;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.busqueda .divInfo:hover{
+  padding: 5px;
+  background-color: #36173d60;
+  color: #000000;
+  border-radius: 5px;
+  text-align: center;
+}
