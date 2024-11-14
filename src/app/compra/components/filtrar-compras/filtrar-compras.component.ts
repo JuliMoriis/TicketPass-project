@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
 })
 export class FiltrarComprasComponent {
 
-  compras: Compra[] = [];  // Aquí deberías tener tus compras
+  compras: Compra[] = []; 
   resultados: Compra[] = [];
   busqueda: string = '';
   mostrarResultados: boolean = false;
@@ -31,7 +31,6 @@ export class FiltrarComprasComponent {
     });
   }
 
-  // Filtra las compras por artista-banda y estado 'alta'
   filtrarCompras(): void {
 
     if (this.busqueda.trim() === '') {

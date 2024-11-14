@@ -102,7 +102,7 @@ export class AddUsuarioComponent implements OnInit{
     this.usuariosService.putUsuario(usuario.id, usuario).subscribe({
       next : ()=> {
        alert("Usuario editado con exito")
-      }, 
+      },
       error: (e:Error)=> {
         console.log(e.message);
       }
@@ -134,9 +134,9 @@ export class AddUsuarioComponent implements OnInit{
       {
         alert('usuario registrado con exito');
         this.guardarUsuarioJSON(usuario);
-        this.router.navigate(['/'])
+        this.router.navigate(['/iniciar-sesion'])
       }
-    
+
     }
 
   }

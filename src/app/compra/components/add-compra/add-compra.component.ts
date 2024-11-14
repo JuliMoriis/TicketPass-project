@@ -150,10 +150,10 @@ export class AddCompraComponent implements OnInit {
     this.compra.precioTotal = this.compra.cantidad * this.compra.entrada.precioUnitario;
   }
 
-
   ////////////////////////////////////////////////////////////////
 
   pagoRealizado() { //el output
+    console.log('recibio el output');
     this.comprarEntrada();
   }
 

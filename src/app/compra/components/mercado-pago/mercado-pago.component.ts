@@ -21,14 +21,12 @@ export class MercadoPagoComponent {
 
   constructor(private pagoService: PagoService, private compraService: CompraService) {}
 
-  // Cargar el script de MercadoPago si aún no está cargado
   loadMercadoPagoScript(): Promise<void> {
     return new Promise((resolve, reject) => {
       if (typeof MercadoPago !== 'undefined') {
-        resolve(); // Ya está cargado
+        resolve();
         return;
       }
-
       const script = document.createElement('script');
       script.src = 'https://sdk.mercadopago.com/js/v2';
       script.onload = () => resolve();
@@ -52,9 +50,8 @@ export class MercadoPagoComponent {
       });
   }
 
-  // Función para iniciar el pago
   iniciarPago() {
-    // Llamar al servicio para crear la preferencia de pago
+    console.log('se inicio');
     this.pagoService.crearPreferencia(this.descripcion, this.compra?.cantidad, 10, this.compra?.cliente.idCliente)
       .subscribe({
         next: (response: any) => {

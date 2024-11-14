@@ -38,7 +38,7 @@ export const routes: Routes = [
   { path: 'perfil/:id', component: PageVerPerfilComponent},
   { path: 'eventos-administrador/:id', component: PageListAdminComponent},
   { path: 'eventos-deshabilitados/:id', component: ListDeshabilitadosAdminComponent},
-  { path: 'ver-mis-entradas/:id', component: PageMisEntradasComponent},
+  { path: 'ver-mis-entradas', component: PageMisEntradasComponent},
   { path: 'ver-detalle-entradas/:id', component: VerDetalleEntradasComponent},
   { path: 'ver-usuarios/:adminId', component: ListUsuarioComponent},
   { path: 'ver-detalle-usuario/:adminId/:id', component: PageVerPerfilComponent},
