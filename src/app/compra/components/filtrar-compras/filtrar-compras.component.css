@@ -1,13 +1,10 @@
-/* Contenedor principal */
 .wrapper {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Arial, sans-serif;
 }
 
-/* Estilo del campo de búsqueda */
-input[type="text"] {
+input {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -18,28 +15,28 @@ input[type="text"] {
   transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus {
-  border-color: #4CAF50;
+input:focus {
+  border-color: #000000;
   outline: none;
 }
 
-/* Estilo de los resultados de búsqueda */
 .busqueda {
   background-color: #f8f8f8;
-  padding: 15px;
+  padding: 3px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Lista de resultados */
+
 ul {
   list-style-type: none;
   padding: 0;
 }
 
 li {
-  padding: 10px 0;
+  padding: 5px;
   border-bottom: 1px solid #ddd;
+  cursor: pointer;
 }
 
 li:last-child {
@@ -47,23 +44,29 @@ li:last-child {
 }
 
 .divInfo {
-  font-size: 18px;
+  font-size: 14px;
   color: #333;
 }
 
-/* Mensaje cuando no se encuentran resultados */
 .divInfo {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   color: #888;
   text-align: center;
 }
 
-/* Estilo de la caja de búsqueda cuando no hay resultados */
-.busqueda > .divInfo {
-  padding: 20px;
+.busqueda .divInfo {
+  padding: 5px;
   background-color: #f7f7f7;
-  color: #ff0000;
+  color: #000000;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.busqueda .divInfo:hover{
+  padding: 5px;
+  background-color: #36173d60;
+  color: #000000;
   border-radius: 5px;
   text-align: center;
 }
