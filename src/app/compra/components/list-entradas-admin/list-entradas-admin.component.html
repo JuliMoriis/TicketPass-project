@@ -23,6 +23,11 @@
             <button class="detalle-boton" (click)="confirmarDHR(compra)">
               {{ compra.alta ? 'Dar de baja' : 'Habilitar' }} compra
             </button>
+            <div *ngIf="compra.alta == false">
+              <button class="detalle-boton" type="button" disabled>
+                Reponer stock
+              </button>
+            </div>
           </div>
         </div>
       </li>

@@ -3,6 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CompraService } from '../../../services/compra.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Autenticacion } from '../../../services/autenticacion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-entradas',
@@ -39,6 +40,20 @@ export class ListEntradasComponent implements OnInit{
         }
       }
     )
+  }
+
+  bajaEntrada(compra: Compra){
+    compra.alta = false;
+
+    if (compra.id)
+    this.compraService.putCompra(compra.id, compra).subscribe({
+      next: () => {
+
+      },
+      error: (e: Error) => {
+
+      }
+  })
   }
 
 }

@@ -10,6 +10,9 @@
               <button class="detalle-boton" type="button" [routerLink]="['/ver-detalle-entradas', compra.id]">
                 Ver Detalle
               </button>
+              <button class="detalle-boton" type="button" (click)="bajaEntrada(compra)">
+                Devolver entrada
+              </button>
             </div>
           </li>
         }

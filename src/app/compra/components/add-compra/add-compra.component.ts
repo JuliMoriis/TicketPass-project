@@ -47,7 +47,7 @@ export class AddCompraComponent implements OnInit {
     },
     cantidad: 1, //segun el input
     precioTotal: 0,
-    estado: false,
+    estado: true,
     alta: true
   }
 
@@ -141,6 +141,7 @@ export class AddCompraComponent implements OnInit {
 
   ////////////////////////////////////////////////////////////////
 
+  //para cuando funcione mp
   pagoRealizado() {  //el output
     console.log('recibio el output');
     this.comprarEntrada();

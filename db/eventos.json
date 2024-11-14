@@ -25,16 +25,16 @@
             },
             {
               "nombreSector": "Platea Sivori Media",
-              "disponibles": 10,
+              "disponibles": 8,
               "precio": "58000",
               "asientos": [
                 {
                   "butaca": 1,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 2,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 3,
@@ -198,7 +198,7 @@
               ]
             }
           ],
-          "disponibilidadTotal": 20016,
+          "disponibilidadTotal": 20014,
           "habilitado": 1
         }
       ],

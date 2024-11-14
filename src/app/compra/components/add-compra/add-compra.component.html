@@ -36,8 +36,9 @@
         <p class="detalle-texto">{{sectorSeleccionado}} X{{compra.cantidad}} = ${{compra.precioTotal}}</p>
       </div>
 
+      <!-- cuando pongamos mp en el click se pone realizar compra true -->
       <button
-      (click)="realizarCompra = true"
+      (click)="comprarEntrada()"
       class="boton-comprar"
       [disabled]="sectorSeleccionado == '' || yaCompro">
       Pagar entrada
@@ -46,8 +47,8 @@
   </fieldset>
   </div>
 
-  <div *ngIf="realizarCompra">
+  <!-- <div *ngIf="realizarCompra">
     <app-mercado-pago [compra]="compra" (pagoExitoso)="pagoRealizado()"></app-mercado-pago>
-  </div>
+  </div> -->
 
 </section>

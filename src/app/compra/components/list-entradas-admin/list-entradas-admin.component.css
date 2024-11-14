@@ -79,6 +79,10 @@
   color: #36173d;;
 }
 
+.detalle-boton:disabled {
+  background-color: #36173d5d;;
+}
+
 .detalle-boton:active {
   transform: translateY(2px);
 }
@@ -95,6 +99,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 
 .filtros{
   display: flex;
