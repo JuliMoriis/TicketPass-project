@@ -13,6 +13,7 @@ import { CompraService } from '../../../services/compra.service';
 import QRCode from 'qrcode';
 import { Autenticacion } from '../../../services/autenticacion.service';
 import { MercadoPagoComponent } from '../mercado-pago/mercado-pago.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-compra',
@@ -151,6 +152,12 @@ export class AddCompraComponent implements OnInit {
     this.actualizarStockEntradas()
     this.editarEvento()
     this.postCompra()
+
+    Swal.fire({
+      title: "Compra realizada con exito",
+      confirmButtonColor: "#36173d",
+      icon: "success"
+    });
   }
 
 

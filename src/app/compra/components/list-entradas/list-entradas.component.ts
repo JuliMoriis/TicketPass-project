@@ -48,12 +48,37 @@ export class ListEntradasComponent implements OnInit{
     if (compra.id)
     this.compraService.putCompra(compra.id, compra).subscribe({
       next: () => {
-
+        Swal.fire({
+          title: "Entrada dada de baja",
+          confirmButtonColor: "#36173d",
+          icon: 'success'
+        });
       },
       error: (e: Error) => {
-
+        Swal.fire({
+          title: "Error al dar de baja la entrada",
+          confirmButtonColor: "#36173d",
+          icon: 'error'
+        });
       }
   })
+  }
+
+  confirmarBajaEntrada(compra: Compra){
+    Swal.fire({
+      title: `¿Esta seguro que desea devolver su entrada para el evento "${compra.evento.nombreEvento}"?`,
+      text: 'Esta accion no se puede deshacer.',
+      showCancelButton: true,
+      confirmButtonText: "Dar de baja",
+      cancelButtonText: "Cancelar",
+      confirmButtonColor: "#36173d",
+      cancelButtonColor: "#ff4845b2",
+      icon: "warning"
+    }).then((result) => {
+      if (result.isConfirmed){
+        this.bajaEntrada(compra)
+      }
+    })
   }
 
 }
