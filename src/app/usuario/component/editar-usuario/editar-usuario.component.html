@@ -1,8 +1,8 @@
 <section>
     <div class="wrapper">
 
-        <form [formGroup]="formularioUsuario"(ngSubmit)="addUsuario()">    
-        
+        <form [formGroup]="formularioUsuario"(ngSubmit)="addUsuario()">
+
             <div class="input-field">
                 <input type="text" id="nombreUsuario" formControlName = "nombre" />
                      @if (formularioUsuario.controls['nombre'].getError('required') && formularioUsuario.controls['nombre'].touched){
@@ -12,17 +12,17 @@
                      }
                 <label for="nombreUsuario">Nombre </label>
             </div>
-    
+
             <div class="input-field">
                 <input type="text" id="apellidoUsuario" formControlName = "apellido"/>
                     @if (formularioUsuario.controls['apellido'].getError('required') && formularioUsuario.controls['apellido'].touched){
                         <div class="divAvisos">
                             Complete el campo
-                        </div> 
+                        </div>
                     }
                 <label for="apellidoUsuario">Apellido</label>
             </div>
-    
+
             <div class="input-field">
                 <input type="tel" id="telefonoUsuario" formControlName = "telefono"/>
                     @if (formularioUsuario.controls['telefono'].getError('required') && formularioUsuario.controls['telefono'].touched){
@@ -32,7 +32,7 @@
                     }
                 <label for="telefonoUsuario">Telefono</label>
             </div>
-    
+
             <div class="input-field">
                 <input type="text" id="emailUsuario" formControlName = "email" placeholder="mail@ejemplo.com"/>
                     @if ((formularioUsuario.controls['email'].getError('required') || formularioUsuario.controls['email'].getError('email')) && formularioUsuario.controls['email'].touched){
@@ -42,10 +42,10 @@
                     }
                 <label for="emailUsuario">Email</label>
             </div>
-         
+
             <div formGroupName="direccion">
                 <h4>Direccion</h4>
-    
+
                 <div class="input-field">
                     <input type="text" id="calleUsuario" formControlName = "calle">
                         @if (formularioUsuario.get('direccion.calle')?.getError('required') && formularioUsuario.get('direccion.calle')?.touched){
@@ -55,7 +55,7 @@
                         }
                     <label for="calleUsuario">Calle</label>
                 </div>
-    
+
                 <div class="input-field">
                     <input type="number" id="numeroUsuario" formControlName = "numero">
                         @if (formularioUsuario.get('direccion.numero')?.getError('required') && formularioUsuario.get('direccion.numero')?.touched){
@@ -65,7 +65,7 @@
                     }
                     <label for="numeroUsuario">Numero</label>
                 </div>
-                    
+
                 <div class="input-field">
                     <input type="text" id="ciudadUsuario" formControlName = "ciudad">
                         @if (formularioUsuario.get('direccion.ciudad')?.getError('required') && formularioUsuario.get('direccion.ciudad')?.touched){
@@ -75,7 +75,7 @@
                          }
                     <label for="ciudadUsuario">Ciudad</label>
                 </div>
-    
+
                 <div class="input-field">
                     <input type="text" id="codigoPostalUsuario" formControlName = "codigoPostal">
                     @if (formularioUsuario.get('direccion.codigoPostal')?.getError('required') && formularioUsuario.get('direccion.codigoPostal')?.touched){
@@ -84,8 +84,8 @@
                         </div>
                     }
                     <label for="codigoPostalUsuario">Codigo postal</label>
-                </div>  
-             
+                </div>
+
                 <div class="input-field">
                     <input type="text" id="paisUsuario" formControlName = "pais">
                     @if (formularioUsuario.get('direccion.pais')?.getError('required') && formularioUsuario.get('direccion.pais')?.touched){
@@ -94,9 +94,9 @@
                         </div>
                     }
                     <label for="paisUsuario">Pais</label>
-                </div>        
+                </div>
             </div>
-       
+
         <h4>Datos de la cuenta</h4>
         <div class="input-field">
             <input type="text" id="usuarioDeUsuario" formControlName = "nombreUsuario">
@@ -107,21 +107,45 @@
             }
             <label for="usuarioDeUsuario">Nombre de Usuario</label>
         </div>
-      
+
         <div class="input-field">
-            <input type="password" id="contraseniaUsuario" formControlName = "contrasenia">
+            <input [type]="showPassword ? 'text' : 'password'" id="contraseniaUsuario" formControlName = "contrasenia">
             @if ((formularioUsuario.controls['contrasenia'].getError('required') || formularioUsuario.controls['contrasenia'].getError('minLength')) && formularioUsuario.controls['contrasenia'].touched){
                 <div class="divAvisos">
                   La contraseña, debe contener mas de 8 caracteres
                 </div>
             }
+            <fa-icon [icon]="showPassword ? faEye : faEyeSlash" (click)="showPassword = !showPassword" class="password"></fa-icon>
             <label for="contraseniaUsuario">Contraseña</label>
         </div>
-    
+        <div class="input-field">
+          <select id="pregunta" formControlName="pregunta">
+              <option value="" disabled selected>Selecciona una pregunta de seguridad</option>
+              <option value="comida">Comida favorita</option>
+              <option value="animal">Animal favorito</option>
+              <option value="mascota">Nombre de tu mascota</option>
+          </select>
+          @if (formularioUsuario.controls['pregunta'].getError('required') && formularioUsuario.controls['pregunta'].touched) {
+              <div class="divAvisos">
+                  Debes seleccionar una pregunta de verificación.
+              </div>
+          }
+          <label for="verificacion">Pregunta de verificación</label>
+      </div>
+        <div class="input-field">
+          <input type="text" id="verificacionUsuario" formControlName="verificacion">
+          @if ((formularioUsuario.controls['verificacion'].getError('required') && formularioUsuario.controls['verificacion'].touched)) {
+              <div class="divAvisos">
+                  Debe ingresar una respuesta.
+              </div>
+          }
+          <label for="verificacionUsuario">Respuesta a la pregunta de verificación</label>
+      </div>
+
         <button type="submit">Editar</button>
-    
+
     </form>
-    
+
     </div>
-    
+
 </section>

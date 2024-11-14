@@ -4,11 +4,14 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsuarioService } from '../../../services/usuario.service';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'; 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @Component({
   selector: 'app-editar-usuario',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, FontAwesomeModule],
   templateUrl: './editar-usuario.component.html',
   styleUrl: './editar-usuario.component.css'
 })
@@ -16,6 +19,10 @@ export class EditarUsuarioComponent implements OnInit{
 
   @Input()
   usuarioRecibido?: Usuario
+
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
+  showPassword: boolean = false;
 
   nombresUsuario: string[] = [];
 
@@ -42,6 +49,8 @@ export class EditarUsuarioComponent implements OnInit{
           },
           nombreUsuario: this.usuarioRecibido.nombreUsuario,
           contrasenia: this.usuarioRecibido.contrasenia,
+          pregunta: this.usuarioRecibido.pregunta,
+          verificacion: this.usuarioRecibido.verificacion,
           tipo: this.usuarioRecibido.tipo
         });
 
@@ -79,6 +88,8 @@ export class EditarUsuarioComponent implements OnInit{
     }),
     nombreUsuario:['',[Validators.required, Validators.minLength(3)]],
     contrasenia:['', [Validators.required, Validators.minLength(8)]],
+    pregunta: ['', [Validators.required]],
+    verificacion: ['', [Validators.required]],
     tipo:[2, [Validators.required]]
   })
 

@@ -1,0 +1,37 @@
+<section>
+  <section>
+    <div class="wrapper">
+        <form [formGroup]="formCambioContrasenia">
+           <div *ngIf="!closeForm">
+            <h4>Pregunta de verificación:</h4>
+            <p>{{usuario?.pregunta}}</p>
+            <br>
+
+            <div class="input-field">
+              <input type="text" id="respuesta" formControlName="respuesta" />
+              <div *ngIf="formCambioContrasenia.controls['respuesta'].getError('required') && formCambioContrasenia.controls['respuesta'].touched" class="divAvisos">
+                Completa este campo
+              </div>
+              <label for="respuesta">Respuesta</label>
+            </div>
+            <button type="submit" (click)="verificarRta()">Verificar Respuesta</button>
+          </div>
+
+          <div *ngIf="closeForm">
+            <h2>Cambiar Contraseña</h2>
+            <div class="input-field">
+                <input  [type]="showPassword ? 'text' : 'password'" id="nuevaContrasenia" formControlName="nuevaContrasenia" />
+                @if ((formCambioContrasenia.controls['nuevaContrasenia'].getError('required') || formCambioContrasenia.controls['nuevaContrasenia'].getError('minLength')) && formCambioContrasenia.controls['nuevaContrasenia'].touched) {
+                    <div class="divAvisos">
+                        La nueva contraseña debe tener más de 8 caracteres
+                    </div>
+                }
+                <label for="nuevaContrasenia">Nueva Contraseña</label>
+                <fa-icon [icon]="showPassword ? faEye : faEyeSlash" (click)="showPassword = !showPassword" class="password"></fa-icon>
+            </div>
+            <button type="submit" (click)="cambiarContrasenia()">Cambiar Contraseña</button>
+          </div>
+        </form>
+    </div>
+</section>
+</section>

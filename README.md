@@ -15,5 +15,7 @@ npm run comprasdb
 npm i qrcode
 npm i jspdf html2canvas
 npm i sweetalert2
+npm i @fortawesome/free-solid-svg-icons
+npm i @fortawesome/angular-fontawesome
 
 # <script src="https://sdk.mercadopago.com/js/v2"></script>

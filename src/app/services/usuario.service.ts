@@ -28,5 +28,8 @@ export class UsuarioService{
   putUsuario (id: string | null, usuario: Usuario): Observable<Usuario> {
     return this.http.put<Usuario>(`${this.urlBase}/${id}` , usuario)
   }
+  actualizarContrasenia(id: string | undefined, nuevaContrasenia: string): Observable<Usuario> {
+    return this.http.patch<Usuario>(`${this.urlBase}/${id}`, { contrasenia: nuevaContrasenia });
+  }
 
 }
