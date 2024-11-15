@@ -1,14 +1,21 @@
 
 .seccion-eventos {
-  padding: 20px;
-  background-color: #f9f9f9;
+  margin-bottom: auto;
+  margin-top: 3%;
+  margin-left: 3%;
+    width:40%;
+    border-radius:8px;
+    padding: 3%;
+    text-align: center;
+    border: 1px solid #ffffff80;
+    background-color: #efefef90;
   font-family: Arial, sans-serif;
 }
 
 .titulo-eventos-deshabilitados {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+  color: #36173d;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -22,7 +29,7 @@
 
 .item-evento {
   padding: 15px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +39,7 @@
 .nombre-evento {
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: #36173d;
   margin-bottom: 10px;
 }
 
@@ -41,6 +48,19 @@
   display: flex;
   gap: 8px;
 }
+
+.fondo{
+  position: relative;
+  width: 100%;
+  min-height:100vh;
+  display:flex;
+  justify-content: center;
+  box-sizing: border-box;
+  background:url('/img/background-op2.png') ;
+  background-position:center;
+  background-size: cover;
+}
+
 
 
 .boton-detalle {
@@ -55,7 +75,9 @@
 }
 
 .boton-detalle:hover {
-  background-color: #36173d;
+  color: #36173d;
+  background-color: #ff48459f ;
+  transform: translateY(-5px);
 }
 
 .no-hay-eventos {

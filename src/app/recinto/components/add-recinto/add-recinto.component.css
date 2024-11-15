@@ -7,14 +7,13 @@
 
 section{
   width: 100%;
+  position: relative;
   box-sizing: border-box;
   display:row;
-  align-items:center;
   justify-content: center;
   min-height:100vh;
-  padding: 0 10px;
-  color:white;
   background: url('/img/background-op2.png') center center   / cover no-repeat;
+  margin-bottom: auto;
 }
 
 .divreg {
@@ -39,16 +38,15 @@ h2{
 }
 
 .wrapper{
-  margin-top:5%;
-  width:35%;
+  margin-left: 35%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  width:30%;
   border-radius:8px;
   padding: 3%;
-  justify-content: center;
   text-align: center;
-  border: 1px solid #36173daf;
-  background-color: #efefef;
-  margin-bottom: 5%;
-  margin-left:33%;
+  border: 1px solid #ffffff80;
+  background-color: #efefef90;
 }
 
 form{
@@ -154,9 +152,9 @@ button{
 }
 
 button:hover{
-  background:#ff4845;
-  border-radius:8px;
-  color: #36173d;
+color: #36173d;
+background-color: #ff48459f ;
+transform: translateY(-5px); 
 }
 
 button:disabled{

@@ -51,7 +51,7 @@ h2{
 }
 
 button {
-margin-left:940%;
+margin-left:1150%;
   width:150%;
   background-color: #36173d;
   color: #fff;
@@ -64,7 +64,8 @@ margin-left:940%;
 }
 
 button:hover {
-  background-color: #ff4845;
+  background-color: #ff48459f ;
+  transform: translateY(-5px);
   color: #36173d;
 }
 

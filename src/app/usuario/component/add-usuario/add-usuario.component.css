@@ -1,4 +1,3 @@
-
 *{
     margin:0;
     padding:0;
@@ -7,36 +6,32 @@
 }
 
 section{
+    position: relative;
     width: 100%;
     display: flex;
     align-items:center;
     justify-content: center;
     min-height:100vh;
-    padding: 0 10px;
-    color:white;
-}
-
-section::before{
-    content:"";
-    position: absolute;
-    width:100%;
-    height:180%;
-    background:url('/img/audiencia-background.jpg')
-    #000;
+    color: #ccc;
+    background:url('/img/audiencia-background.jpg');
     background-position: center;
     background-size:auto;
-    z-index:-1 ;
+    margin-bottom: 3%;
 }
+
+
 .wrapper{
-    margin-top:5%;
-    width:470px;
+    margin-top:3%;
+    width:35%;
+    margin-bottom: 10%;
     border-radius:8px;
-    padding: 30px;
+    padding: 3%;
     text-align: center;
     border: 1px solid #ffffff80;
     backdrop-filter: blur(8px);
     margin-bottom:5%;
 }
+
 form{
     display: flex;
     flex-direction: column;
@@ -100,8 +95,9 @@ button{
     border:2px solid transparent;
 }
 button:hover{
-    background:#ff484589;
-    border-radius:5px;
+    background-color: #ff48459f;
+   transform: translateY(-5px);
+   color:#36173d;
 
 }
 
@@ -141,8 +137,8 @@ input::placeholder{
 
 
 .input-field select option {
-  background: #36173d;
-  color: #fff;
+    color: #fff;
+
 }
 
 .input-field select~label {

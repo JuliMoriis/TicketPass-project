@@ -79,7 +79,6 @@
 .container {
   display: flex;
   justify-content: flex-end;
-  margin-top: 10px;
   width: 100%;
 }
 
@@ -127,8 +126,8 @@ button {
 }
 
 button:hover {
-  background: #ff4845;
-  border-color: #ff4845;
+ background-color:  #ff48459f; 
+  transform: translateY(-5px);
   color: #36173d;
 }
 
@@ -180,8 +179,8 @@ h4 {
   margin-bottom: 15px;
   margin-left: 150px;
   text-align: center;
-  border: 1px solid #36173d89;
-  background-color: #efefef;
+  border: 1px solid #efefef;
+  background-color: #efefef90;
 }
 
 .fieldRecinto {
@@ -192,8 +191,8 @@ h4 {
   margin-bottom: 15px;
   margin-right: 10px;
   text-align: center;
-  border: 1px solid #36173d89;
-  background-color: #efefef;
+  border: 1px solid #efefef;
+  background-color: #efefef90;
 }
 
 .fieldFecha {
@@ -204,8 +203,8 @@ h4 {
   margin-bottom: 15px;
   margin-left: 150px;
   text-align: center;
-  border: 1px solid #36173d89;
-  background-color: #efefef;
+  border: 1px solid #efefef;
+  background-color: #efefef90;
 }
 
 .fielset-container {

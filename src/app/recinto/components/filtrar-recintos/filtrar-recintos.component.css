@@ -1,93 +1,17 @@
-/* *{
-  margin:0;
-  padding:0;
-}
-
-input{
-
-  width: 100%;
-  max-width: 800px;
-  padding: 20px;
-  font-size: 16px;
-  border-radius: 8px;
-  outline: none;
-  box-sizing: border-box;
-    height:40px;
-    color: #fff;
-    background: transparent;
-    border-bottom:2px solid #36173d; 
-    border-top: 2px solid  #36173d;
-    border-left: none;
-    border-right: none;
-}
-
-input::placeholder{
-  color: #36173d;
-}
-
-.busqueda {
-    position: absolute;
-    top:60px;
-    left:0;
-    right:0;
-    background-color: transparent;
-    border: 2px solid #36173d;
-    max-height: 200px;
-    overflow-y: auto;
-    width: 100%;
-
-    z-index: 100; 
-  } 
-
-  .busqueda ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .busqueda li {
-    padding: 8px;
-    color:#fff;
-    cursor: pointer;
-  }
-
-  .busqueda li:hover {
-    background-color: #36173d89;
-    color: #fff;
-  }
-
-  .wrapper{
-    position: relative;
-    width:80%;
-    margin-top:2%;
-    margin-left:10%;
-    border-radius:8px;
-    padding: 5%;
-    text-align: center;
-    border: 1px solid #eee;
-    background-color:#efefef;
-    backdrop-filter: blur(8px);
-}
-
-.divInfo{
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 100;
-} */
 
 section {
   margin: 0;
 }
 
 .wrapper {
-  position: relative;
-  width:59.9%;
-  margin-top:2%;
-  margin-left:20%;
-  border-radius:8px;
-  padding: 1%;
+  padding: 20px;
+  width:100%;
   text-align: center;
-  border: 1px solid #eee;
-  background-color:#efefef;
+  border-radius:8px;
   backdrop-filter: blur(8px);
+  width:60%;
+  margin-left:20%;
+
 }
 
 input {
@@ -99,12 +23,12 @@ input {
   outline: none;
   box-sizing: border-box;
     height:40px;
-    color: #36173d;
-    background: transparent;
-    border-bottom:2px solid #36173d; 
-    border-top: 2px solid  #36173d;
-    border-left: none;
-    border-right: none;
+    color: #000000;
+    background: #efefef92;
+    border-bottom:3px solid #36173d;
+    border-top: 3px solid  #36173d;
+    border-left: 3px solid #36173d;
+    border-right: 3px solid #36173d;
 }
 
 input:focus {
@@ -112,10 +36,11 @@ input:focus {
 }
 
 input::placeholder{
+  margin-left:2%;
   position: absolute;
-    color:  #36173d;
+    color:  #505051;
     top:50%;
-    left:3%;
+    left:0;
     transform: translateY(-50%);
     font-size:20px;
     transition: 0.15s ease;
@@ -132,6 +57,7 @@ input:valid~label{
   width: 100%;
   max-width: 800px;
   margin: 20px auto 0;
+  background: #efefef92;
   padding: 10px;
   border-radius: 5px;
   border: 2px solid #36173d;
@@ -161,10 +87,9 @@ input:valid~label{
 
 .busqueda .divInfo {
   font-size: 16px;
-  color: #36173d;
+  color: #000000;
 }
 
 .busqueda .divInfo:hover {
   color: #ffffff;
 }
-

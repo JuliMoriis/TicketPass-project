@@ -1,36 +1,39 @@
 
 <section class="fondo">
+  <div class="containes-vertical">
+    <app-filtrar-compras></app-filtrar-compras>
 
-  <app-filtrar-compras></app-filtrar-compras>
-
-  <div class="filtros">
-    <button class="boton-filtro"  (click)="filtrarComprasPorEstado('habilitado')">Mostrar Habilitadas</button>
-    <button class="boton-filtro"  (click)="filtrarComprasPorEstado('deshabilitado')">Mostrar Deshabilitadas</button>
-    <button  class="boton-filtro"  (click)="filtrarComprasPorEstado('todos')">Mostrar Todas</button>
-  </div>
-
-  <section class="compras-section">
-
-    <ul class="compras-list">
-      <li *ngFor="let compra of comprasFiltradas">
-        <div class="compra-item">
-          <div class="compra-content">
-            <h3 class="evento-nombre">Entrada para: {{ compra.evento.nombreEvento }}</h3>
-            <p class="evento-fecha">Fecha del evento: {{ compra.evento.fechaEvento }}</p>
-            <button class="detalle-boton" type="button" [routerLink]="['/ver-detalle-entradas', compra.id]">
-              Ver Detalle
-            </button>
-            <button class="detalle-boton" (click)="confirmarDHR(compra)">
-              {{ compra.alta ? 'Dar de baja' : 'Habilitar' }} compra
-            </button>
-            <div *ngIf="compra.alta == false">
-              <button class="detalle-boton" type="button" disabled>
-                Reponer stock
+    <div class="filtros">
+      <button class="boton-filtro"  (click)="filtrarComprasPorEstado('habilitado')">Mostrar Habilitadas</button>
+      <button class="boton-filtro"  (click)="filtrarComprasPorEstado('deshabilitado')">Mostrar Deshabilitadas</button>
+      <button  class="boton-filtro"  (click)="filtrarComprasPorEstado('todos')">Mostrar Todas</button>
+    </div>
+  
+    <section class="compras-section">
+  
+      <ul class="compras-list">
+        <li *ngFor="let compra of comprasFiltradas">
+          <div class="compra-item">
+            <div class="compra-content">
+              <h3 class="evento-nombre">Entrada para: {{ compra.evento.nombreEvento }}</h3>
+              <p class="evento-fecha">Fecha del evento: {{ compra.evento.fechaEvento }}</p>
+              <button class="detalle-boton" type="button" [routerLink]="['/ver-detalle-entradas', compra.id]">
+                Ver Detalle
               </button>
+              <button class="detalle-boton" (click)="confirmarDHR(compra)">
+                {{ compra.alta ? 'Dar de baja' : 'Habilitar' }} compra
+              </button>
+              <div *ngIf="compra.alta == false">
+                <button class="detalle-boton" type="button" disabled>
+                  Reponer stock
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </li>
-    </ul>
-  </section>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+
 </section>

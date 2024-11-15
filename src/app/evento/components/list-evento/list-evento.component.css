@@ -4,12 +4,15 @@
     padding: 0;
     }
 
+
+
     .carousel-container {
       position: relative;
       max-width: 1000px;
       margin: 40px auto;
       overflow: hidden;
       border-radius: 15px;
+      
 
     }
 

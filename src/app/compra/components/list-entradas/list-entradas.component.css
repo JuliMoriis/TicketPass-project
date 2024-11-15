@@ -1,25 +1,33 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 .compras-section {
-  padding: 20px;
-  background-color: #f4f4f9;
+  padding: 3%;
+  margin-left: 2%;
+  margin-bottom:15%;
+  width:40%;
+  border: 1px solid #ffffff80;
+  background-color: #efefef90;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   color: #333;
-  max-width: 800px;
-  margin: 30px auto;
+  border-radius: 8px;
 }
 
 .fondo{
-  box-sizing: border-box;
-  width: 100%;
-  display: row;
-  flex-direction: row;
+   position: relative;
+   width: 100%;
+   min-height:100vh;
+  display:flex;
   align-items:center;
   justify-content: center;
-  min-height:100vh;
-  padding: 0;
-  margin: 0;
-  color:white;
-  position: absolute;
-     background: url('/img/audiencia-background.jpg') center center   / cover no-repeat;
+  box-sizing: border-box;
+  background: url('/img/audiencia-background.jpg');
+  background-position:center;
+  background-size: cover;
+
 }
  
 .compras-list {
@@ -38,7 +46,7 @@
 
 .compra-item:hover {
   transform: translateY(-5px);
-  background-color: #36173d89;
+  background-color: #36173d50;
 
 }
 
@@ -57,7 +65,7 @@
 
 .evento-fecha {
   font-size: 16px;
-  color: #6a4d8c;
+  color: #36173d;
   margin: 0;
 }
 
@@ -69,13 +77,13 @@
   color: #fff;
   background-color: #36173d;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .detalle-boton:hover {
-  background-color: #ff4845b2;
+  background-color: #ff48459f;
   color: #36173d;;
 }
 

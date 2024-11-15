@@ -5,9 +5,9 @@
 }
 
 .seccion-perfil {
-  margin-left: 25%;
-  margin-top:5%;
-    width:50%;
+    margin-left: 2%;
+    margin-bottom: 10%;
+    width:40%;
     border-radius:8px;
     padding: 3%;
     text-align: center;
@@ -26,7 +26,7 @@
   color: #36173d;
   margin-bottom: 5px;
   text-transform: capitalize;
-}
+} 
 
 .subtitulo-perfil {
   font-size: 16px;
@@ -83,7 +83,7 @@
 }
 
 .boton-editar:hover {
-  background-color: #ff4845;
+  background-color:  #ff48459f ;
   color: #36173d;
   transform: translateY(-5px);
 }
@@ -105,23 +105,20 @@
   margin-bottom: 15px;
 }
 
-
 strong {
   color: #36173d;
 }
 
 .fondo{
+  position: relative;
   width: 100%;
-  box-sizing:border-box;
-  display: row;
+  min-height:100vh;
+  display:flex;
   align-items:center;
   justify-content: center;
-  min-height:110vh;
-  padding: 0 10px;
-  color: #36173d;
+  box-sizing: border-box;
   background:url('/img/background-op2.png') ;
-  background-position: center;
+  background-position:center;
   background-size: cover;
-  position: absolute;
 }
 

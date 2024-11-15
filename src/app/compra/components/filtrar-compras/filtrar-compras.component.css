@@ -1,72 +1,94 @@
+section {
+  margin: 0;
+}
+
 .wrapper {
-  max-width: 600px;
-  margin: 0 auto;
   padding: 20px;
+  width:100%;
+  text-align: center;
+  border-radius:8px;
+  backdrop-filter: blur(8px);
+  width:60%;
+  margin-left:20%;
+
 }
 
 input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
+   width: 100%;
+  max-width: 800px;
+  padding: 20px;
   font-size: 16px;
-  background-color: #f9f9f9;
-  transition: border-color 0.3s ease;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+    height:40px;
+    color: #000000;
+    background: #efefef92;
+    border-bottom:3px solid #36173d;
+    border-top: 3px solid  #36173d;
+    border-left: 3px solid #36173d;
+    border-right: 3px solid #36173d;
 }
 
 input:focus {
-  border-color: #000000;
-  outline: none;
+  border-color: #36173d;
+}
+
+input::placeholder{
+  margin-left:3%;
+  position: absolute;
+    color:  #505051;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+    font-size:20px;
+    transition: 0.15s ease;
+}
+
+input:focus~label,
+input:valid~label{
+    font-size: 0.8rem;
+    top:10px;
+    transform: translateY(-120%);
 }
 
 .busqueda {
-  background-color: #f8f8f8;
-  padding: 3px;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto 0;
+  background: #efefef92;
+  padding: 10px;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid #36173d;
+  box-sizing: border-box;
 }
 
-
-ul {
-  list-style-type: none;
+.busqueda ul {
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-li {
-  padding: 5px;
+.busqueda li {
+  padding: 10px;
   border-bottom: 1px solid #ddd;
-  cursor: pointer;
+  text-align: left;
 }
 
-li:last-child {
+.busqueda li:hover {
+  background-color: #36173d79;
+  color: #ffffff;
+}
+
+.busqueda li:last-child {
   border-bottom: none;
 }
 
-.divInfo {
-  font-size: 14px;
-  color: #333;
-}
-
-.divInfo {
-  font-size: 14px;
-  font-weight: bold;
-  color: #888;
-  text-align: center;
-}
-
 .busqueda .divInfo {
-  padding: 5px;
-  background-color: #f7f7f7;
+  font-size: 16px;
   color: #000000;
-  border-radius: 5px;
-  text-align: center;
 }
 
-.busqueda .divInfo:hover{
-  padding: 5px;
-  background-color: #36173d60;
-  color: #000000;
-  border-radius: 5px;
-  text-align: center;
+.busqueda .divInfo:hover {
+  color: #ffffff;
 }

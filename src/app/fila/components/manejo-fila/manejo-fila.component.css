@@ -1,12 +1,14 @@
 .fila-section {
   background-color: #efefef90;
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 800px;
-  margin: 30px auto;
+  border-radius: 8px;
+  padding: 5%;
+  width:300%;
+  justify-self: center;
+  margin-bottom:5%;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   color: #333;
   text-align: center;
+  margin-top: 20%;
 }
 
 .titulo-fila {
@@ -23,7 +25,7 @@
   color: #fff;
   background-color: #36173d;
   border: none;
-  border-radius: 50px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-bottom: 20px;
@@ -32,7 +34,7 @@
 .boton-ingresar:hover {
   background-color: #ff48459f;
   color: #36173d;
-  transform: scale(1.05);
+  transform: translateY(-5px)
 }
 
 button:disabled{
@@ -54,7 +56,8 @@ button:disabled:hover{
 
 .item-fila {
   background-color: #efefef90;
-  padding: 15px;
+  padding: 2%;
+  width: 150;
   margin: 10px 0;
   border-radius: 8px;
   display: flex;
@@ -88,11 +91,15 @@ button:disabled:hover{
 .song-preview {
   margin-top: 30px;
   background-color: #efefef90;
-  padding: 20px;
-  border-radius: 10px;
-
-  max-width: 800px;
-  margin: 30px auto;
+  padding:5%;
+  border-radius: 8px;
+  width:300%;
+  
+  justify-self: center;
+  margin-bottom:5%;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  text-align: center;
 }
 
 .song-info {
@@ -131,13 +138,17 @@ audio {
   border-radius: 8px;
   border: none;
 }
+.contenedor-flex-vertical {
+  display: row;
+}
 
 .barra-progreso-container {
-  width: 100%;
+  justify-self: center;
+  width: 400%;
   height: 10px;
   background-color: #efefef;
   border-radius: 5px;
-  margin-top: 20px;
+  margin-top: 5%;
 }
 
 .barra-progreso {
@@ -148,16 +159,14 @@ audio {
 }
 
 .fondo{
+ 
+  position: relative;
   width: 100%;
   box-sizing:border-box;
-  display: row;
-  align-items:center;
+  display: flex;
   justify-content: center;
-  min-height:110vh;
-  padding: 0 10px;
-  color:white;
+  min-height:100vh;
   background:url('/img/audiencia-background.jpg') ;
   background-position: center;
-  background-size: cover;
-  position: absolute;
+  background-size: auto;
 }

@@ -42,15 +42,16 @@ header nav a {
   line-height:normal;
   font-size: 15px;
   font-weight:100;
-  border-radius:50px;
+  border-radius:8px;
   -webkit-transition:all 500ms ease;
   -o-transition:all 500ms ease;
   transition:all 500ms ease;
 }
 
 header nav a:hover{
-  background:#ff484589;
-  border-radius:50px;
+ 
+  background-color: #ff48459f ;
+  border-radius:8px;
 }
 
 

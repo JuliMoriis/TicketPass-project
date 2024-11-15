@@ -6,4 +6,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body{
+    position: relative;
+    padding-bottom: 3em ;
+    min-height: 110vh;
+}
+
 

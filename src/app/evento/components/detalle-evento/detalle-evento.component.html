@@ -1,4 +1,4 @@
-<body>
+<section class="fondo"> 
   <section class="detalle-evento">
     <div class="detalle-evento-header">
       <h2 class="detalle-evento-titulo">Detalle del Evento</h2>
@@ -57,7 +57,7 @@
     </div>
   </section>
 
-</body>
+</section>
 
 <div *ngIf="isEditing" class="formulario-editar">
   <app-add-evento [eventoIn]="eventoSeleccionado" (updateEvento)="updateEventos($event)"></app-add-evento>

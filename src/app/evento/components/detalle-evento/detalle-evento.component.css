@@ -5,15 +5,14 @@
   font-family:Arial, Helvetica, sans-serif;
 }
 
-/* Contenedor principal del detalle del evento */
+
 .detalle-evento {
-  margin-top:1%;
-  width:470px;
+  width:30%;
   border-radius:8px;
-  padding: 30px;
-  /* text-align: center; */
+  padding: 2%;
   border: 1px solid #ffffff80;
   background-color: #efefef90;
+  margin-bottom: 5%;
 }
 
 
@@ -40,6 +39,7 @@
 .informacion-evento {
   margin-bottom: 15px;
  text-align: left;
+ margin-left:2%;
 }
 
 .lista-evento {
@@ -56,14 +56,17 @@
 }
 
 .fecha-evento {
-  font-weight: bold;
+  
+  font-size: 16px;
   color: #36173d;
+  margin-left:0;
 }
 
 .hora-evento {
   font-size: 16px;
   color: #36173d;
-  margin-top: 5px;
+  margin-top: 1%;
+  margin-left:0;
 }
 
 
@@ -87,8 +90,9 @@
 }
 
 .boton-accion:hover {
-  background-color: #ff4845;
+  background-color: #ff48459f;
   transform: translateY(-5px);
+  color: #36173d;
 }
 
 .boton-accion:active {
@@ -113,24 +117,16 @@ button:disabled:hover{
   font-weight: bold;
 }
 
-body{
+.fondo{
+  position: relative;
   width: 100%;
+  min-height:100vh;
   display: flex;
   align-items:center;
   justify-content: center;
-  min-height:80vh;
-  padding: 0 10px;
-  color: #36173d;
-}
-
-body::before{
-  content:"";
-  position: absolute;
-  width:100%;
-  height:100%;
-  background:url('/img/audiencia-background.jpg')
-  #000;
+  box-sizing: border-box;
+  background:url('/img/audiencia-background.jpg');
   background-position: center;
   background-size:auto;
-  z-index:-1 ;
+
 }

@@ -1,14 +1,15 @@
 .compra-section {
-  background-color: #efefef;
-  border-radius: 15px;
-  padding: 30px;
-  max-width: 900px;
-  margin: 40px auto;
-
+  background-color: #efefef90;
+  border-radius: 8px;
+  padding: 3%;
+  width: 60%;
+  margin-bottom: 10%;
+  margin-left: 20%;
+  margin-top: 2%;
   color: #333;
   text-align: center;
 }
-
+ 
 .divreg {
   position:relative;
   display: flex;
@@ -128,34 +129,34 @@
   color: #fff;
   background-color: #36173d;
   border: none;
-  border-radius: 50px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 30px;
 }
 
 .boton-comprar:hover {
-  background-color: #ff4845c5;
+  background-color: #ff48459f;
   color: #36173d;
-  transform: scale(1.02);
+  transform: translateY(-5px);
 }
 
 .pago-section {
   margin-top: 30px;
 }
+
 .fondo{
+  position: relative;
   width: 100%;
   box-sizing:border-box;
   display: row;
   align-items:center;
   justify-content: center;
-  min-height:110vh;
-  padding: 0 10px;
-  color:white;
+  min-height:100vh;
   background:url('/img/audiencia-background.jpg') ;
   background-position: center;
   background-size: cover;
-  position: absolute;
+ 
 }
 
 button:disabled{
