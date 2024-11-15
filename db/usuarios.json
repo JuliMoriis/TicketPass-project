@@ -1,19 +1,21 @@
 {
   "usuarios": [
     {
-      "nombre": "Emi",
+      "nombre": "Emilia",
       "apellido": "Maldonado",
-      "telefono": "1111",
-      "email": "m.emiliamaldo@gmail.com",
+      "telefono": "11111",
+      "email": "emilia@ejemplo",
       "direccion": {
-        "calle": "Guido",
-        "numero": 222,
-        "ciudad": "Mar del Plata",
+        "calle": "colon",
+        "numero": 111,
+        "ciudad": "mar del plata",
         "codigoPostal": "7600",
-        "pais": "Argentina"
+        "pais": "argentina"
       },
       "nombreUsuario": "emiliamaldo",
       "contrasenia": "utnmdp2024",
+      "pregunta": "animal favorito",
+      "verificacion": "elefante",
       "tipo": 2,
       "id": 1
     },
@@ -31,6 +33,8 @@
       },
       "nombreUsuario": "administrador",
       "contrasenia": "utnmdp2024",
+      "pregunta": "animal favorito",
+      "verificacion": "elefante",
       "tipo": 1,
       "id": 4610388041556482
     }

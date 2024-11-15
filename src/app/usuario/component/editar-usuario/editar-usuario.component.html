@@ -121,9 +121,9 @@
         <div class="input-field">
           <select id="pregunta" formControlName="pregunta">
               <option value="" disabled selected>Selecciona una pregunta de seguridad</option>
-              <option value="comida">Comida favorita</option>
-              <option value="animal">Animal favorito</option>
-              <option value="mascota">Nombre de tu mascota</option>
+              <option value="comida favorita">Comida favorita</option>
+              <option value="animal favorito">Animal favorito</option>
+              <option value="nombre de tu mascota">Nombre de tu mascota</option>
           </select>
           @if (formularioUsuario.controls['pregunta'].getError('required') && formularioUsuario.controls['pregunta'].touched) {
               <div class="divAvisos">
