@@ -1,13 +1,13 @@
 <section>
-  <form #formulario="ngForm" (ngSubmit)="eventoIn ? emitUpdate(formulario) : addEvento(formulario)">  
+  <form #formulario="ngForm" (ngSubmit)="eventoIn ? emitUpdate(formulario) : addEvento(formulario)">
     <!-- BANNER E INPUT DEL BANNER -->
     <div class="divreg">
       <h2>{{ eventoIn ? 'Editar Evento' : 'Agregar Evento' }}</h2>
-  
+
       <div class="inputBanner">
         <label for="bannerEvento">URL del Banner</label>
         <input
-          class="input-url" 
+          class="input-url"
           type="text"
           id="bannerEvento"
           name="bannerEvento"
@@ -17,19 +17,19 @@
           required
         />
         <div class="divAvisos" *ngIf="bannerEvento.invalid && bannerEvento.touched">
-        
+
         </div>
       </div>
-    </div> 
-  
+    </div>
+
     <div class="fielset-container">
       <div class="flex-container">
         <!-- FIELDSET EVENTO -->
         <fieldset class="fieldEvento">
           <h4>Datos del evento</h4>
-  
+
           <div class="input-field">
-            
+
             <input
               type="text"
               id="nombreEvento"
@@ -43,9 +43,9 @@
             </div>
             <label for="nombreEvento">Nombre del evento</label>
           </div>
-  
+
           <div class="input-field">
-            
+
             <input
               type="text"
               id="nombreArtistaBanda"
@@ -59,9 +59,9 @@
             </div>
             <label for="nombreArtistaBanda">Artista/Banda</label>
           </div>
-  
+
           <div class="input-field">
-            
+
             <input
               type="time"
               id="duracion"
@@ -76,7 +76,7 @@
             <label for="duracion">Duración</label>
           </div>
         </fieldset>
-  
+
         <fieldset class="fieldRecinto"> <!-- SELECCIONE RECINTO -->
           <div>
             <h4>Seleccione recinto</h4>
@@ -84,19 +84,19 @@
             <label for="seleccionRecinto"></label>
             <br>
             <select name="seleccionRecinto" id="seleccionRecinto" (change)="seleccionRecinto($event)" [disabled]="!fechaAgregada && !eventoIn" required>
-  
+
               <div class="divAvisos" *ngIf="formulario.controls['seleccionRecinto']?.invalid && formulario.controls['seleccionRecinto']?.touched ">
                 Debe seleccionar un recinto
               </div>
-  
+
               <option value="" disabled selected>Recintos</option>
               <option *ngFor="let recinto of listadoRecintos" [value]="recinto.id">
                 <br>
                 {{ recinto.nombreRecinto }}
-              </option>      
+              </option>
             </select>
           </div>
-  
+
           <div *ngIf="evento.fechas && evento.fechas[0] && evento.fechas[0].entradas && evento.fechas[0].entradas.length > 0">
             <ul>
               <li *ngFor="let entrada of evento.fechas[0].entradas">
@@ -107,12 +107,12 @@
               </li>
             </ul>
           </div>
-  
+
         </fieldset> <!-- ACA TERMINA SELECCIONE RECINTO -->
-  
-  
+
+
       </div>
-  
+
       <fieldset class="fieldFecha">
         <!-- Datos de las fechas -->
         <div *ngFor="let fecha of evento.fechas; let i = index">
@@ -126,38 +126,38 @@
             <label for="horario-{{i}}">Horario</label>
           </div>
         </div>
-  
+
         <!-- Formulario para agregar una nueva fecha -->
         <div *ngIf="mostrarFormularioFecha">
           <h4>Agregar Nueva Fecha</h4>
           <div class="input-field">
             <input type="date" id="nuevaFecha" [(ngModel)]="nuevaFecha.fecha" [ngModelOptions]="{standalone: true}" required>
             <label for="nuevaFecha">Fecha</label>
-         
+
           </div>
           <div class="input-field">
             <input type="time" id="nuevoHorario" [(ngModel)]="nuevaFecha.hora" [ngModelOptions]="{standalone: true}" required>
             <label for="nuevoHorario">Horario</label>
-           
+
           </div>
           <button type="button" (click)="aceptarFecha()">Aceptar</button>
         </div>
-  
+
         <!-- Botón para mostrar el formulario de agregar fecha -->
         <button type="button" *ngIf="!mostrarFormularioFecha" (click)="mostrarFormularioFecha = true">Nueva Fecha</button>
       </fieldset>
-  
-  
+
+
     </div> <!--FIN DEL FIELDSER-CONTAINER-->
-  
-  
+
+
     <!-- BOTON DE AGREGAR -->
     <div class="container">
-      <button type="submit" [disabled]="formulario.invalid">
+      <button type="submit" >
         {{ eventoIn ? 'Editar Evento' : 'Agregar Evento' }}
       </button>
       </div>
-  
+
   </form>
-  
+
 </section>

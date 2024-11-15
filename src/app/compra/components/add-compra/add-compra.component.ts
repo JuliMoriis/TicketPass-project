@@ -12,13 +12,15 @@ import { Compra } from '../../interfaces/compra.interface';
 import { CompraService } from '../../../services/compra.service';
 import QRCode from 'qrcode';
 import { Autenticacion } from '../../../services/autenticacion.service';
-import { MercadoPagoComponent } from '../mercado-pago/mercado-pago.component';
 import Swal from 'sweetalert2';
+import { PagoService } from '../../../services/pago.service';
+
+declare var MercadoPago: any;
 
 @Component({
   selector: 'app-add-compra',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterModule, MercadoPagoComponent],
+  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './add-compra.component.html',
   styleUrl: './add-compra.component.css'
 })
@@ -71,7 +73,12 @@ export class AddCompraComponent implements OnInit {
   private userService = inject(UsuarioService)
   private eventoService = inject(EventoService)
   private compraService = inject(CompraService);
+  private pagoService = inject(PagoService);
   private authService = inject(Autenticacion);
+
+  preferencia: any = {};
+  private mercadoPago: any;
+  cantidad : number = 1
 
   ngOnInit(): void {
 
@@ -126,6 +133,7 @@ export class AddCompraComponent implements OnInit {
         }
       })
     })
+
   }
 
   asignarSectorYPrecio(entrada: Entrada) {
@@ -142,24 +150,48 @@ export class AddCompraComponent implements OnInit {
 
   ////////////////////////////////////////////////////////////////
 
-  //para cuando funcione mp
-  pagoRealizado() {  //el output
-    console.log('recibio el output');
-    this.comprarEntrada();
+
+  iniciarPago() {
+    this.cantidad = Number(this.compra.cantidad)
+    this.pagoService.crearPreferencia(this.compra.evento.nombreEvento, this.cantidad, 1)
+      .subscribe({
+        next: (response: any) => {
+          if (response && response.id) {
+            const mp = new MercadoPago('APP_USR-a9929fea-ac74-4d7e-b31e-055201ba23a2', {
+              locale: 'es-AR'
+            });
+
+            mp.checkout({
+              preference: { id: response.id },
+              autoOpen: true,
+
+            });
+          } else {
+            console.error('ID de preferencia inválido en la respuesta');
+          }
+        },
+        error: (err: Error) => {
+          console.error('Error en la creación de preferencia:', err.message);
+        }
+      });
+
+      this.comprarEntrada()
+
   }
+
 
   comprarEntrada() {
     this.actualizarStockEntradas()
     this.editarEvento()
     this.postCompra()
 
-    Swal.fire({
-      title: "Compra realizada con exito",
-      confirmButtonColor: "#36173d",
-      icon: "success"
-    });
-  }
+    // Swal.fire({
+    //   title: "Compra realizada con exito",
+    //   confirmButtonColor: "#36173d",
+    //   icon: "success"
+    // });
 
+  }
 
   /////////////////////////////////////////////////////////////
 

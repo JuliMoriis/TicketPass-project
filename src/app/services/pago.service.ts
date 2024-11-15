@@ -12,7 +12,7 @@ export class PagoService {
 
   constructor(private http: HttpClient) {}
 
-  crearPreferencia(descripcion: string, cantidad: number | undefined, precio: number): Observable<any> {
+  crearPreferencia(descripcion: string, cantidad: number, precio: number): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.accessToken}`,
       'Content-Type': 'application/json'
