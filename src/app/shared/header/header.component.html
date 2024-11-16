@@ -13,12 +13,12 @@
 
         <div class="menu" [class.open]="verMenu">
           <ul>
-            <li><a [routerLink]="['/administrador' , idUsuario]">Menu</a></li>
-            <li><a routerLink="add-eventos">Cargar evento</a></li>
-            <li><a [routerLink]="['/eventos-administrador', idUsuario]">Ver eventos registrados</a></li>
-            <li><a routerLink="recintos">Ver recintos</a></li>
-            <li><a href="compras">Ver compras</a></li>
-            <li><a [routerLink]="['/ver-usuarios', idUsuario]">Ver usuarios registrados</a></li>
+            <li><a [routerLink]="['/administrador' , idUsuario]" (click)="cerrarMenu()">Menu</a></li>
+            <li><a routerLink="add-eventos"(click)="cerrarMenu()">Cargar evento</a></li>
+            <li><a [routerLink]="['/eventos-administrador', idUsuario]"(click)="cerrarMenu()">Ver eventos registrados</a></li>
+            <li><a routerLink="recintos"(click)="cerrarMenu()">Ver recintos</a></li>
+            <li><a href="compras"(click)="cerrarMenu()">Ver compras</a></li>
+            <li><a [routerLink]="['/ver-usuarios', idUsuario]"(click)="cerrarMenu()">Ver usuarios registrados</a></li>
           </ul>
         </div>
 

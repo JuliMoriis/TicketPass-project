@@ -25,11 +25,15 @@ export class HeaderComponent implements OnInit {
     console.log('tipoUsuario recibido:', this.tipoUsuario);
   }
 
-  verMenu = false;
+  verMenu:Boolean = false;
 
   //menu del admin
   menuDesplegable() {
     this.verMenu = !this.verMenu;
+  }
+
+  cerrarMenu() {
+    this.verMenu = false;
   }
 
   cerrarSesion() {
