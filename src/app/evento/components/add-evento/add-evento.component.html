@@ -3,23 +3,13 @@
     <!-- BANNER E INPUT DEL BANNER -->
     <div class="divreg">
       <h2>{{ eventoIn ? 'Editar Evento' : 'Agregar Evento' }}</h2>
-
-      <div class="inputBanner">
-        <label for="bannerEvento">URL del Banner</label>
-        <input
-          class="input-url"
-          type="text"
-          id="bannerEvento"
-          name="bannerEvento"
-          [(ngModel)]="evento.UrlBanner"
-          #bannerEvento="ngModel"
-          placeholder="url/banner.com"
-          required
-        />
-        <div class="divAvisos" *ngIf="bannerEvento.invalid && bannerEvento.touched">
-
+      <div class="container">
+        <button type="submit" >
+          {{ eventoIn ? 'Editar Evento' : 'Agregar Evento' }}
+        </button>
         </div>
-      </div>
+  
+     
     </div>
 
     <div class="fielset-container">
@@ -74,6 +64,22 @@
               Debe completar el campo
             </div>
             <label for="duracion">Duración</label>
+          </div>
+          <div class="inputBanner">
+            <label for="bannerEvento">URL del Banner</label>
+            <input
+              class="input-url"
+              type="text"
+              id="bannerEvento"
+              name="bannerEvento"
+              [(ngModel)]="evento.UrlBanner"
+              #bannerEvento="ngModel"
+              placeholder="url/banner.com"
+              required
+            />
+            <div class="divAvisos" *ngIf="bannerEvento.invalid && bannerEvento.touched">
+    
+            </div>
           </div>
         </fieldset>
 
@@ -152,12 +158,7 @@
 
 
     <!-- BOTON DE AGREGAR -->
-    <div class="container">
-      <button type="submit" >
-        {{ eventoIn ? 'Editar Evento' : 'Agregar Evento' }}
-      </button>
-      </div>
-
+  
   </form>
 
 </section>
