@@ -21,7 +21,6 @@ import { DisponibilidadComponent } from "../disponibilidad/disponibilidad.compon
 export class DetalleEventoComponent implements OnInit{
 
   private eventosService= inject(EventoService);
-  private userService= inject(UsuarioService);
   private authService = inject(Autenticacion)
   isEditing = false;
   ventana= false;

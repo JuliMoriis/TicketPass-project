@@ -1,0 +1,25 @@
+<div class="wrapper">
+    <input
+      type="text"
+      name="input-busqueda"
+      [(ngModel)]="busqueda"
+      (input)="filtrarUsuarios()"
+      placeholder="Buscar usuarios..."
+    />
+  
+    <div *ngIf="mostrarResultados && resultados.length > 0" class="busqueda">
+      <ul>
+        <li *ngFor="let usuario of resultados" [routerLink]="['/ver-detalle-usuario' , adminId , usuario.id]">
+          <div class="divInfo">
+            {{ usuario.nombre }} {{ usuario.apellido}} - {{ usuario.nombreUsuario }}
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+    <div  *ngIf="mostrarResultados && resultados.length === 0" class="busqueda">
+      <div class="divInfo">No se encontraron usuarios</div>
+    </div>
+    
+  </div>
+

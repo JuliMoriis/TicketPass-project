@@ -72,7 +72,7 @@ export class InicioSesionComponent implements OnInit{
       if (user) {
 
         if (user.alta == false){
-
+          alert('usuario dado de baja')
         }
         else
         {
@@ -97,7 +97,7 @@ export class InicioSesionComponent implements OnInit{
           icon: "warning",
         });
       }
-      
+
       else {
         Swal.fire({
           title: 'Usuario o contraseña incorrecta',

@@ -5,6 +5,7 @@ import { Usuario } from '../../interfaces/usuario.interface';
 import { CommonModule } from '@angular/common';
 import { AddUsuarioComponent } from '../add-usuario/add-usuario.component';
 import { EditarUsuarioComponent } from '../editar-usuario/editar-usuario.component';
+import { Autenticacion } from '../../../services/autenticacion.service';
 
 @Component({
   selector: 'app-detalle-usuario',
@@ -15,8 +16,8 @@ import { EditarUsuarioComponent } from '../editar-usuario/editar-usuario.compone
 })
 export class DetalleUsuarioComponent {
 
-  active = inject(ActivatedRoute)
-  userService = inject(UsuarioService)
+  private active = inject(ActivatedRoute)
+  private userService = inject(UsuarioService)
 
   abrirForm = false;
 

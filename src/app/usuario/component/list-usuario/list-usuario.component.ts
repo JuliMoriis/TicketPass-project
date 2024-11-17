@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { AddUsuarioComponent } from '../add-usuario/add-usuario.component';
 import { Usuario } from '../../interfaces/usuario.interface';
 import { UsuarioService } from '../../../services/usuario.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
+import { FiltrarUsuariosComponent } from '../filtrar-usuarios/filtrar-usuarios.component';
 
 @Component({
   selector: 'app-list-usuario',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, FiltrarUsuariosComponent],
   templateUrl: './list-usuario.component.html',
   styleUrl: './list-usuario.component.css'
 })

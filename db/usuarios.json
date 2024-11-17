@@ -13,11 +13,11 @@
         "pais": "argentina"
       },
       "nombreUsuario": "emiliamaldo",
-      "contrasenia": "utnmdp2024",
+      "contrasenia": "utnmdp2025",
       "pregunta": "animal favorito",
       "verificacion": "elefante",
       "tipo": 2,
-      "alta" : true,
+      "alta": true,
       "id": 1
     },
     {
@@ -37,7 +37,7 @@
       "pregunta": "animal favorito",
       "verificacion": "elefante",
       "tipo": 1,
-      "alta" : true,
+      "alta": true,
       "id": 4610388041556482
     }
   ]

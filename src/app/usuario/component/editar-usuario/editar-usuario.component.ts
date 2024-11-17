@@ -51,7 +51,8 @@ export class EditarUsuarioComponent implements OnInit{
           contrasenia: this.usuarioRecibido.contrasenia,
           pregunta: this.usuarioRecibido.pregunta,
           verificacion: this.usuarioRecibido.verificacion,
-          tipo: this.usuarioRecibido.tipo
+          tipo: this.usuarioRecibido.tipo,
+          alta: this.usuarioRecibido.alta
         });
 
       }
@@ -90,7 +91,8 @@ export class EditarUsuarioComponent implements OnInit{
     contrasenia:['', [Validators.required, Validators.minLength(8)]],
     pregunta: ['', [Validators.required]],
     verificacion: ['', [Validators.required]],
-    tipo:[2, [Validators.required]]
+    tipo:[2, [Validators.required]],
+    alta:[true, [Validators.required]]
   })
 
 
