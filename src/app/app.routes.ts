@@ -21,6 +21,7 @@ import { CambiarContraseniaComponent } from './pages/cambiar-contrasenia/cambiar
 import { PageMisEntradasComponent } from './compra/pages/page-mis-entradas/page-mis-entradas.component';
 import { PageComprasComponent } from './compra/pages/page-compras/page-compras.component';
 import { PageListUsuariosComponent } from './usuario/pages/page-list-usuarios/page-list-usuarios.component';
+import { CambiarContraseniaSinIdComponent } from './pages/cambiar-contrasenia-sin-id/cambiar-contrasenia-sin-id.component';
 
 
 export const routes: Routes = [
@@ -45,6 +46,7 @@ export const routes: Routes = [
   { path: 'ver-usuarios/:adminId', component: PageListUsuariosComponent},
   { path: 'ver-detalle-usuario/:adminId/:id', component: PageVerPerfilComponent},
   { path: 'cambiar-contrasenia/:id', component: CambiarContraseniaComponent},
+  { path: 'cambiar-contrasenia', component: CambiarContraseniaSinIdComponent},
   { path: 'compras', component: PageComprasComponent},
   { path: '**', component: ClientePageComponent}
 

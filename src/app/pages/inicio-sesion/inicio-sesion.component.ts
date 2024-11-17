@@ -52,7 +52,7 @@ export class InicioSesionComponent implements OnInit{
   }
 
    // Verifica si el nombre de usuario existe
-   usuarioExiste(nombreUsuarioForm: string): Usuario | undefined {
+   usernameExiste(nombreUsuarioForm: string): Usuario | undefined {
     return this.usuariosDB.find(user => user.nombreUsuario === nombreUsuarioForm);
   }
 
@@ -67,12 +67,17 @@ export class InicioSesionComponent implements OnInit{
     if (form.valid) {
 
       let user = this.existeUsuario(form.value.usuarioForm, form.value.contraseniaForm)
-      let nameUser = this.usuarioExiste(form.value.usuarioForm);
+      let nameUser = this.usernameExiste(form.value.usuarioForm);
 
       if (user) {
 
         if (user.alta == false){
-          alert('usuario dado de baja')
+          Swal.fire({
+            title: 'Tu usuario ha sido dado de baja.',
+            text: 'Si cree que ha sido un error, contactese con nosotros via TicketPassSupport@gmail.com, lo ayudaremos en breve.',
+            confirmButtonColor: "#36173d",
+            icon: "warning",
+          });
         }
         else
         {

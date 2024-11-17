@@ -140,6 +140,7 @@ export class ListEntradasAdminComponent implements OnInit {
 
 
   //las puse asincronicas porque sino se pisaban las actualizaciones
+
   async reponerStockTodas() {
 
     if (!this.comprasFiltradas || !this.eventos) {
@@ -237,6 +238,42 @@ encontroCompraParaReponer(): boolean {
   );
 
   return hayParaReponer;
+
 }
-  
+
+confirmarReponerIndividual(compra: Compra){
+
+  Swal.fire({
+    title: '¿Desea reponer el stock de esta entrada?',
+    text: 'Esta acción no permitira habilitar la entrada',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#36173d',
+    cancelButtonColor: '#ff4845',
+    confirmButtonText: 'Sí, reponer stock',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.reponerStockIndividual(compra);
+    }
+  });
+}
+
+confirmarReponerTodas (){
+  Swal.fire({
+    title: '¿Desea reponer el stock de todas las entradas disponibles?',
+    text: 'Esta acción no permitira habilitar las entradas',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#36173d',
+    cancelButtonColor: '#ff4845',
+    confirmButtonText: 'Sí, reponer stock',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.reponerStockTodas();
+    }
+  });
+}
+
 }
