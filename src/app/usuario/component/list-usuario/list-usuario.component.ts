@@ -3,6 +3,7 @@ import { AddUsuarioComponent } from '../add-usuario/add-usuario.component';
 import { Usuario } from '../../interfaces/usuario.interface';
 import { UsuarioService } from '../../../services/usuario.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-usuario',
@@ -41,5 +42,52 @@ export class ListUsuarioComponent {
       }
     );
   }
+
+
+  habilitarDeshabilitar (usuario: Usuario)
+  {
+    const accion = usuario.alta ? 'deshabilitado' : 'habilitado';
+    usuario.alta = !usuario.alta;
+    if (usuario.id)
+    this.usuariosService.putUsuario(usuario.id, usuario).subscribe({
+      next: () => {
+        Swal.fire({
+          title: `Usuario ${accion} correctamente`,
+          confirmButtonColor: "#36173d",
+          icon: "success"
+        });
+      },
+      error: (e: Error) => {
+        console.log(e.message);
+        Swal.fire({
+          title: `Error al ${accion === 'habilitado' ? 'habilitar' : 'deshabilitar'} el usuario`,
+          confirmButtonColor: "#36173d",
+          icon: "error"
+        });
+      }
+  })
+  }
+
+  confirmarDHR(usuario: Usuario){
+
+    const accion = usuario.alta ? 'deshabilitar' : 'habilitar';
+
+    Swal.fire({
+      title: `¿Desea ${accion} el usuario?`,
+      text: `Esta acción hará que el usuario ${accion === 'deshabilitar' ? 'no pueda' : 'este habilitado'} a ingresar a su cuenta.`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#36173d',
+      cancelButtonColor: '#ff4845',
+      confirmButtonText: `Sí, ${accion}`,
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.habilitarDeshabilitar(usuario);
+      }
+    });
+  }
+
+
 }
 

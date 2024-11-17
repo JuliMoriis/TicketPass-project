@@ -11,6 +11,7 @@ export interface Usuario{
     contrasenia: string,
     pregunta: string,
     verificacion: string,
-    tipo:number  /* 1 admin, 2 cliente */
+    tipo:number,  /* 1 admin, 2 cliente */
+    alta: boolean
 
 }

@@ -71,18 +71,24 @@ export class InicioSesionComponent implements OnInit{
 
       if (user) {
 
-        if (user.tipo == 1){
-          this.router.navigate(["usuarios", user.id]);
-          if(user.id)
-          this.auth.login(1, user.id)
-        }
-        else if (user.tipo == 2){
-          this.router.navigate(["usuarios", user.id])
-          if(user.id)
-          this.auth.login(2, user.id)
-        }
+        if (user.alta == false){
 
+        }
+        else
+        {
+          if (user.tipo == 1){
+            this.router.navigate(["usuarios", user.id]);
+            if(user.id)
+            this.auth.login(1, user.id)
+          }
+          else if (user.tipo == 2){
+            this.router.navigate(["usuarios", user.id])
+            if(user.id)
+            this.auth.login(2, user.id)
+          }
+        }
       }
+
       else if (nameUser){
         Swal.fire({
           title: 'Contraseña incorrecta',
@@ -91,6 +97,7 @@ export class InicioSesionComponent implements OnInit{
           icon: "warning",
         });
       }
+      
       else {
         Swal.fire({
           title: 'Usuario o contraseña incorrecta',

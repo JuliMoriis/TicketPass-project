@@ -30,7 +30,7 @@ export class AddUsuarioComponent implements OnInit{
   nombresUsuario: string[] = [];
 
   fb = inject(FormBuilder);
-  usuariosService = inject(UsuarioService);
+  private usuariosService = inject(UsuarioService);
 
   ngOnInit(): void {
       this.listarNombreUsuario();
@@ -53,7 +53,8 @@ export class AddUsuarioComponent implements OnInit{
           contrasenia: this.usuarioRecibido.contrasenia,
           pregunta: this.usuarioRecibido.pregunta,
           verificacion: this.usuarioRecibido.verificacion,
-          tipo: this.usuarioRecibido.tipo
+          tipo: this.usuarioRecibido.tipo,
+          alta: this.usuarioRecibido.alta
         });
 
       }
@@ -92,7 +93,8 @@ export class AddUsuarioComponent implements OnInit{
     contrasenia:['', [Validators.required, Validators.minLength(8)]],
     pregunta: ['', [Validators.required]],
     verificacion: ['', [Validators.required]],
-    tipo:[2, [Validators.required]]
+    tipo:[2, [Validators.required]],
+    alta:[true, [Validators.required]],
   })
 
 
@@ -154,7 +156,6 @@ export class AddUsuarioComponent implements OnInit{
         icon: "warning"
       });
 
-      //ver en css poner en rojo el campo usuario
     }
     else
     {

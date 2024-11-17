@@ -17,6 +17,7 @@
       "pregunta": "animal favorito",
       "verificacion": "elefante",
       "tipo": 2,
+      "alta" : true,
       "id": 1
     },
     {
@@ -36,6 +37,7 @@
       "pregunta": "animal favorito",
       "verificacion": "elefante",
       "tipo": 1,
+      "alta" : true,
       "id": 4610388041556482
     }
   ]
