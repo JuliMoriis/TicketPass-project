@@ -2,7 +2,7 @@
   <section class="seccion-eventos">
     <h2 class="titulo-eventos-deshabilitados">Eventos Deshabilitados</h2>
     <ul class="lista-eventos">
-      @if(listaEventos.length <= 0){
+      @if(listaEventos.length == 0){
         <p class="no-hay-eventos">No hay eventos deshabilitados.</p>
       }
       <li *ngFor="let evento of listaEventos; let index = index" class="item-evento">

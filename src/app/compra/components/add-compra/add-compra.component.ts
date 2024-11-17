@@ -175,6 +175,7 @@ export class AddCompraComponent implements OnInit {
         }
       });
 
+      //simula q se realizo el pago
       this.comprarEntrada()
 
   }

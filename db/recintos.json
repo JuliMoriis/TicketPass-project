@@ -213,11 +213,11 @@
         "pais": "Argentina"
       },
       "urlImg": "https://tequierover.com.ar/wp-content/uploads/2024/08/Movistar-Arena.webp",
-      "capacidadTotal": 165010,
+      "capacidadTotal": 30010,
       "sectores": [
         {
           "nombreSector": "Campo Delantero",
-          "capacidad": 150000,
+          "capacidad": 15000,
           "numerado": false,
           "asientos": []
         },

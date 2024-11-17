@@ -90,3 +90,7 @@
 .detalle-boton:active {
   transform: translateY(2px);
 }
+
+.vacio{
+  text-align: center;
+}

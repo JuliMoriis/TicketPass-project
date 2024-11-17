@@ -1,6 +1,8 @@
 <section class="fondo">
   <section class="usuarios-section">
-
+    @if(listaUsuarios.length==0){
+      <div class="vacio"><strong>No hay usuarios registrados</strong></div>
+    }
     <ul class="usuarios-list">
     @for (usuario of listaUsuarios; track $index) {
       @if(usuario.tipo === 2){

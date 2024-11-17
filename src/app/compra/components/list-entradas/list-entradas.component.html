@@ -1,5 +1,8 @@
 <section class="fondo">
   <section class="compras-section">
+    @if(listaCompras.length ==0){
+      <div class="vacio"><strong>Todavia no tenes entradas...</strong></div>
+    }
     <ul class="compras-list">
       @for (compra of listaCompras; track $index) {
         @if(compra.cliente.idCliente == idUsuario && compra.alta) {

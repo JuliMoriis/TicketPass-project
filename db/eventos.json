@@ -13,61 +13,21 @@
           "entradas": [
             {
               "nombreSector": "Campo delantero izquierdo",
-              "disponibles": 10000,
+              "disponibles": 9998,
               "precio": "120000",
               "asientos": []
             },
             {
               "nombreSector": "Campo delantero derecho",
-              "disponibles": 9996,
+              "disponibles": 10000,
               "precio": "120000",
               "asientos": []
             },
             {
               "nombreSector": "Platea Sivori Media",
-              "disponibles": 8,
+              "disponibles": 10,
               "precio": "58000",
               "asientos": [
-                {
-                  "butaca": 1,
-                  "disponibilidad": false
-                },
-                {
-                  "butaca": 2,
-                  "disponibilidad": false
-                },
-                {
-                  "butaca": 3,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 4,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 5,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 6,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 7,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 8,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 9,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 10,
-                  "disponibilidad": true
-                },
                 {
                   "butaca": 1,
                   "disponibilidad": true
@@ -154,51 +114,11 @@
                 {
                   "butaca": 10,
                   "disponibilidad": true
-                },
-                {
-                  "butaca": 1,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 2,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 3,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 4,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 5,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 6,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 7,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 8,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 9,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 10,
-                  "disponibilidad": true
                 }
               ]
             }
           ],
-          "disponibilidadTotal": 20014,
+          "disponibilidadTotal": 20018,
           "habilitado": 1
         }
       ],
@@ -218,32 +138,32 @@
           "entradas": [
             {
               "nombreSector": "Campo vip",
-              "disponibles": 14998,
+              "disponibles": 15000,
               "precio": "90000",
               "asientos": []
             },
             {
               "nombreSector": "Campo",
-              "disponibles": 21999,
+              "disponibles": 22000,
               "precio": "82000",
               "asientos": []
             },
             {
               "nombreSector": "Platea Alta Norte",
-              "disponibles": 10,
+              "disponibles": 7,
               "precio": "75000",
               "asientos": [
                 {
                   "butaca": 1,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 2,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 3,
-                  "disponibilidad": true
+                  "disponibilidad": false
                 },
                 {
                   "butaca": 4,
@@ -363,7 +283,7 @@
           "entradas": [
             {
               "nombreSector": "Campo Delantero",
-              "disponibles": 150000,
+              "disponibles": 15000,
               "precio": "110000",
               "asientos": []
             },
@@ -375,12 +295,12 @@
             },
             {
               "nombreSector": "102",
-              "disponibles": 4,
+              "disponibles": 5,
               "precio": "53000",
               "asientos": [
                 {
                   "butaca": 1,
-                  "disponibilidad": false
+                  "disponibilidad": true
                 },
                 {
                   "butaca": 2,
@@ -428,11 +348,11 @@
               ]
             }
           ],
-          "disponibilidadTotal": 165009,
+          "disponibilidadTotal": 30010,
           "habilitado": 1
         }
       ],
-      "alta": 1,
+      "alta": 0,
       "id": 3
     },
     {
@@ -502,46 +422,6 @@
                 {
                   "butaca": 10,
                   "disponibilidad": true
-                },
-                {
-                  "butaca": 1,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 2,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 3,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 4,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 5,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 6,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 7,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 8,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 9,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 10,
-                  "disponibilidad": true
                 }
               ]
             },
@@ -550,46 +430,6 @@
               "disponibles": 10,
               "precio": "46000",
               "asientos": [
-                {
-                  "butaca": 1,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 2,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 3,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 4,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 5,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 6,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 7,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 8,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 9,
-                  "disponibilidad": true
-                },
-                {
-                  "butaca": 10,
-                  "disponibilidad": true
-                },
                 {
                   "butaca": 1,
                   "disponibilidad": true

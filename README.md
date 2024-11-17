@@ -10,6 +10,7 @@ npm run recintosdb
 npm run eventosdb
 npm run usuariosdb
 npm run comprasdb
+npm run comprasdevueltasdb
 
 # Instalar extensiones
 npm i qrcode

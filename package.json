@@ -10,7 +10,8 @@
     "recintosdb": "json-server db/recintos.json",
     "eventosdb": "json-server db/eventos.json --port 3001",
     "usuariosdb": "json-server db/usuarios.json --port 3002",
-    "comprasdb": "json-server db/compras.json --port 3003"
+    "comprasdb": "json-server db/compras.json --port 3003",
+    "comprasdevueltasdb": "json-server db/comprasDevueltas.json --port 3004"
   },
   "private": true,
   "dependencies": {

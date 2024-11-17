@@ -41,7 +41,7 @@
     
           <!-- cuando pongamos mp en el click se pone realizar compra true -->
           <button
-          (click)="comprarEntrada()"
+          (click)="iniciarPago()"
           class="boton-comprar"
           [disabled]="sectorSeleccionado == '' || yaCompro">
           Pagar entrada
@@ -49,10 +49,7 @@
     
       </fieldset>
       </div>
-    
-      <!-- <div *ngIf="realizarCompra">
-        <app-mercado-pago [compra]="compra" (pagoExitoso)="pagoRealizado()"></app-mercado-pago>
-      </div> -->
+  
     
     </section>
     

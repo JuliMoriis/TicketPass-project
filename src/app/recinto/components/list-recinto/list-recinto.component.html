@@ -2,6 +2,9 @@
 <section class="recintos-section">
   <div class="wrapper">
     <h2>Recintos Cargados</h2>
+    @if(listaRecintos.length==0){
+      <div class="vacio"><strong>No hay recintos cargados</strong></div>
+    }
     <ul class="recintos-list">
         @for (item of listaRecintos; track $index) {
           <li class="recinto-item">

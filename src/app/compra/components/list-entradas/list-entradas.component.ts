@@ -4,6 +4,7 @@ import { CompraService } from '../../../services/compra.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Autenticacion } from '../../../services/autenticacion.service';
 import Swal from 'sweetalert2';
+import { ComprasDevueltasService } from '../../../services/compras-devueltas.service';
 
 @Component({
   selector: 'app-list-entradas',
@@ -19,7 +20,7 @@ export class ListEntradasComponent implements OnInit{
 
   idUsuario: string | null = null;
   private authService = inject(Autenticacion)
-
+  
   ngOnInit(): void {
     this.authService.userId.subscribe((id) => {
       this.idUsuario = id;
@@ -80,6 +81,7 @@ export class ListEntradasComponent implements OnInit{
       }
     })
   }
+
 
 }
 

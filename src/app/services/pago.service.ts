@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environmentMP } from '../../enviroments/environment.developments';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 export class PagoService {
 
   private mercadopagoUrl = 'https://api.mercadopago.com/checkout/preferences';
-  private accessToken = 'APP_USR-3345936516743982-103013-adb69433c7960f497be6c222b84b3a5c-2036055243';
+  private accessToken = environmentMP.token;
 
   constructor(private http: HttpClient) {}
 

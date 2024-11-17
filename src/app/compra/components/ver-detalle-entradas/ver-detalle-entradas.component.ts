@@ -12,7 +12,6 @@ import { EventoService } from '../../../services/evento.service';
 import { Evento } from '../../../evento/interfaces/evento.interface';
 import { Autenticacion } from '../../../services/autenticacion.service';
 
-
 @Component({
   selector: 'app-ver-detalle-entradas',
   standalone: true,
@@ -37,7 +36,6 @@ export class VerDetalleEntradasComponent {
   id: string | null = ''
   userId: string | null = ''
   urlBanner: string = ''
-
 
   constructor(private router: Router){}
 
@@ -110,5 +108,8 @@ export class VerDetalleEntradasComponent {
       pdf.save('entradaPdf');
     });
   }
+
+
+
 
 }

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of, throwError } from "rxjs";
 import { map, switchMap, catchError } from "rxjs/operators";
 import { Injectable } from '@angular/core';
+import { environmentSpotify } from "../../enviroments/environment.developments";
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Injectable } from '@angular/core';
 export class SpotifyService {
 
   private clientId: string = '73aa9d0997c34a3498d9b89d9559a6e0';
-  private clientSecret: string = '8a62a32938734c8299cbc4fbf51d4499';
+  private clientSecret: string = environmentSpotify.token;
   private tokenUrl: string = 'https://accounts.spotify.com/api/token';
   private baseURL: string = 'https://api.spotify.com/v1';
   private accessToken: string = '';
