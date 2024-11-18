@@ -12,6 +12,10 @@ npm run usuariosdb
 npm run comprasdb
 npm run comprasdevueltasdb
 
+# Cuenta de administrador
+usuario: administrador
+contraseña: utndmdp2024
+
 # Instalar extensiones
 npm i qrcode
 npm i jspdf html2canvas
