@@ -84,6 +84,7 @@
         </fieldset>
 
         <fieldset class="fieldRecinto"> <!-- SELECCIONE RECINTO -->
+          <!--muestra todos los recintos cargados en el json-->
           <div>
             <h4>Seleccione recinto</h4>
             <br>
@@ -103,6 +104,8 @@
             </select>
           </div>
 
+          <!--muestra los sectores de ese recinto para ingresar el precio (todas las fechas tienen
+          el mismo precio entonces se le asigna a la primera y despues se copia en todas)-->
           <div *ngIf="evento.fechas && evento.fechas[0] && evento.fechas[0].entradas && evento.fechas[0].entradas.length > 0">
             <ul>
               <li *ngFor="let entrada of evento.fechas[0].entradas">
@@ -155,9 +158,6 @@
 
 
     </div> <!--FIN DEL FIELDSER-CONTAINER-->
-
-
-    <!-- BOTON DE AGREGAR -->
   
   </form>
 

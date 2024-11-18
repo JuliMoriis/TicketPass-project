@@ -17,7 +17,6 @@ export class DisponibilidadComponent {
 
   @Output() cerrar = new EventEmitter<void>();
 
-
   cerrarVentana(): void {
     this.cerrar.emit();
   }

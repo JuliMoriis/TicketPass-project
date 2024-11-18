@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './filtrar-usuarios.component.html',
   styleUrl: './filtrar-usuarios.component.css'
 })
+
+//barra de buscar del admin
 export class FiltrarUsuariosComponent implements OnInit{
 
   usuarios: Usuario[] = [];

@@ -17,7 +17,10 @@
     </aside>
 
       <section class="compras-section">
+        <!--barra de busqueda-->
         <app-filtrar-compras></app-filtrar-compras> 
+
+        <!--devuelve el stock de todas las entradas deshabilitadas en ese filtro-->
         <button
           class="detalle-boton"
           *ngIf="filtro == 'show'"
@@ -52,6 +55,7 @@
                   {{ compra.alta ? 'Dar de baja' : 'Habilitar' }} compra
                 </button>
                 <div *ngIf="compra.alta == false">
+                  <!--repone el stock de la entrada deshabilitada que desee-->
                   <button
                     class="detalle-boton"
                     type="button"

@@ -41,9 +41,9 @@ export class FiltrarComprasComponent {
 
     const busq = this.busqueda.toLowerCase();
 
+    //busca compras por nombre de evento
     this.resultados = this.compras.filter((compra) => {
-      const eventoCoincide = compra.evento.nombreEvento.toLowerCase().includes(busq);
-
+      const eventoCoincide = compra.evento.nombreEvento.toLowerCase().includes(busq) 
       return eventoCoincide
     });
 

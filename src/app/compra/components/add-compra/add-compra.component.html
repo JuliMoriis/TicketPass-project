@@ -10,6 +10,7 @@
           <div *ngIf="fechaSeleccionada.entradas">
             <ul class="lista-sectores">
               <li *ngFor="let entrada of fechaSeleccionada.entradas" class="sector-item">
+                <!--deshabilita el sector si no tiene stock-->
                 <input
                   type="radio"
                   id="sectorSeleccionado"
@@ -27,6 +28,7 @@
           </div>
     
           <h4 class="titulo-cantidad">Cantidad de entradas</h4>
+          <!--la cantidad max para comprar es 4, pero valida si hay menos-->
           <select [(ngModel)]="compra.cantidad" (change)="actualizarTotalPrecio()" class="select-cantidad">
             <option value="" disabled selected>Seleccionar cantidad</option>
             <option value="1" *ngIf="asientosDisponibles >= 1">1</option>
@@ -39,7 +41,6 @@
             <p class="detalle-texto">{{sectorSeleccionado}} X{{compra.cantidad}} = ${{compra.precioTotal}}</p>
           </div>
     
-          <!-- cuando pongamos mp en el click se pone realizar compra true -->
           <button
           (click)="iniciarPago()"
           class="boton-comprar"

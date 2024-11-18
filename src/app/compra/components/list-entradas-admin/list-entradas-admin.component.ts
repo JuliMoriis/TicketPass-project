@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
 import { EventoService } from '../../../services/evento.service';
 import { Evento } from '../../../evento/interfaces/evento.interface';
 import { ComprasDevueltasService } from '../../../services/compras-devueltas.service';
-import { Observable } from 'rxjs';
 
 
 @Component({
@@ -23,7 +22,6 @@ export class ListEntradasAdminComponent implements OnInit {
   private compraService = inject(CompraService)
   private eventoService = inject(EventoService)
   private compraDevueltaService = inject(ComprasDevueltasService)
-  private router = inject(Router)
 
   filtro: string = 'todos'
 
@@ -121,6 +119,7 @@ export class ListEntradasAdminComponent implements OnInit {
     });
   }
 
+  //filtros
   filtrarComprasPorEstado(estado: string): void {
     this.filtro = estado;
     if (estado === 'habilitado') {
@@ -136,18 +135,17 @@ export class ListEntradasAdminComponent implements OnInit {
     this.filtro = "show"
     this.comprasFiltradas = this.compras?.filter(compra => compra.evento.idEvento === idEvento);
   }
-
+   /////////////////
 
 
   //las puse asincronicas porque sino se pisaban las actualizaciones
-
   async reponerStockTodas() {
 
     if (!this.comprasFiltradas || !this.eventos) {
       console.error('No hay compras o eventos');
       return;
     }
-  
+
     console.log(this.comprasFiltradas);
     
     for (const compra of this.comprasFiltradas) {
@@ -162,20 +160,26 @@ export class ListEntradasAdminComponent implements OnInit {
       return;
     }
   
+    //la compra tiene q estar deshabilitada para reponer el stock
     if (compra.alta === false) {
+      //busca el evento que pertenece la compra
       const eventoEncontrado = this.eventos.find(evento => evento.id === compra.evento.idEvento);
   
       if (eventoEncontrado) {
+        //busca la fecha especifica
         const fechaEvento = eventoEncontrado.fechas.find(fechaBuscada => fechaBuscada.fecha === compra.evento.fechaEvento);
   
         if (fechaEvento) {
+          //repone en la disponiblidad total de esa fecha la cantidad de entradas que compro
           fechaEvento.disponibilidadTotal = fechaEvento.disponibilidadTotal + Number(compra.cantidad);
 
           const entradaEncontrada = fechaEvento.entradas.find(entrada => entrada.nombreSector === compra.entrada.sector);
   
           if (entradaEncontrada) {
+            //repone en ese sector especifico la cantidad
              entradaEncontrada.disponibles += Number(compra.cantidad);
   
+             //si el sector tiene butacas repone la disponiblidad a true
             if (entradaEncontrada.asientos.length > 0) {
                 compra.entrada.butaca?.forEach(butacaComprada => {
                 const asiento = entradaEncontrada.asientos.find(asiento => asiento.butaca === butacaComprada);
@@ -186,6 +190,7 @@ export class ListEntradasAdminComponent implements OnInit {
             }
           }
   
+          //edita el evento con los cambios de stock
           this.eventoService.putEvento(eventoEncontrado.id, eventoEncontrado).subscribe({
             next: () => {
               console.log('Evento editado correctamente.');
@@ -202,6 +207,7 @@ export class ListEntradasAdminComponent implements OnInit {
   }
 
   
+  //guarda el id de las compras devueltas en un json (las compras devueltas no se pueden volver a habilitar)
   registrarCompraDevuelta(compra: Compra): Promise<void> {
     return new Promise((resolve, reject) => {
       this.compraDevueltaService.postCompraDevuelta(compra.id).subscribe({
@@ -220,15 +226,16 @@ export class ListEntradasAdminComponent implements OnInit {
     });
   }
   
-  
+  //verficia si ya se devolvio
   yaRespusoStock(id?: string): boolean {
     return id ? this.comprasDevueltas.includes(id) : false;
   }
 
 
+  //verifica si en las entradas que filtro hay alguna para reponer (es para el btn de devolver todas)
 encontroCompraParaReponer(): boolean {
   if (!this.comprasFiltradas || this.comprasFiltradas.length === 0) {
-    return false; // No hay compras filtradas, por lo tanto, no hay nada que validar.
+    return false; 
   }
 
   const hayParaReponer = this.comprasFiltradas.some(compra =>

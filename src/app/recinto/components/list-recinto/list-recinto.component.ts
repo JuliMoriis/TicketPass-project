@@ -34,10 +34,6 @@ export class ListRecintoComponent implements OnInit{
     )
   }
 
-  addListaRecinto (recinto: Recinto){
-    this.listaRecintos.push({...recinto});
-  }
-
   //si se deshabilita no aparece en el select de add evento
   habilitarDeshabilitar (recinto: Recinto)
   {

@@ -75,7 +75,6 @@ export class ManejoFilaComponent implements OnInit {
   fila: Cliente[] = [];
   turnoActual: number = 1;
 
-
   agregarCliente(nombre: string) {
     this.estaEnFila= true
     const nuevoCliente: Cliente = {
@@ -88,6 +87,7 @@ export class ManejoFilaComponent implements OnInit {
     this.fila.push(nuevoCliente);
     this.iniciarCompra(nuevoCliente);
   }
+
 
   //esta seria la pantalla de la fila
   iniciarCompra(cliente: Cliente) {
@@ -105,6 +105,7 @@ export class ManejoFilaComponent implements OnInit {
       cliente.haComprado = true;
       cliente.estado = 'Entro a comprar entrada';
       console.log(cliente.estado);
+      //cuando termina el tiempo va a la page de elegir la entrada
       this.router.navigate(["elegir-entrada", this.evento?.id, this.fecha]);
 
       clearInterval(this.progreso);
@@ -159,6 +160,7 @@ export class ManejoFilaComponent implements OnInit {
             this.seleccionarCancionAleatoria();
         };
     } else {
+      //hay varias canciones que tienen copyright y aparece esto
         console.error('No hay URL de previsualización disponible para esta canción.');
     }
 }

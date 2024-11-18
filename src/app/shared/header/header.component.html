@@ -7,7 +7,7 @@
     </div>
 
     <div *ngIf="tipoUsuario === 1">
-      <!-- Menú para el Administrador -->
+      <!-- menú para el Administrador -->
       <nav>
         <button (click)="menuDesplegable()" class="menu-button">&#9776;</button>
 
@@ -27,7 +27,7 @@
     </div>
 
     <div *ngIf="tipoUsuario === 2">
-      <!-- Menú para el Cliente -->
+      <!-- menú para el Cliente -->
       <nav>
         <a [routerLink]="['/perfil' , idUsuario]" >Mi perfil</a>
         <a [routerLink]="['/ver-mis-entradas']">Mis Entradas</a>
@@ -37,7 +37,7 @@
 
     <div *ngIf="tipoUsuario === null">
 
-      <!-- Menú para los usuarios no logueados -->
+      <!-- menú para los usuarios no logueados -->
       <nav>
         <a routerLink="/iniciar-sesion">Iniciar sesión</a>
         <a routerLink="/registrarse">Registrarse</a>

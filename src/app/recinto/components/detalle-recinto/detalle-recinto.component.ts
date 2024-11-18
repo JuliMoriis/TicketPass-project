@@ -12,6 +12,7 @@ import { AddRecintoComponent } from "../add-recinto/add-recinto.component";
   templateUrl: './detalle-recinto.component.html',
   styleUrl: './detalle-recinto.component.css'
 })
+
 export class DetalleRecintoComponent implements OnInit{
 
   idRecinto : number | null = null

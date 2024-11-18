@@ -29,8 +29,8 @@ export class PagoService {
       ],
       back_urls: {
         success: 'http://localhost:4200/ver-mis-entradas',
-        failure: 'http://localhost:4200/pagoFallido',
-        pending: 'http://localhost:4200/ver-mis-entradas'
+        failure: 'http://localhost:4200',
+        pending: 'http://localhost:4200'
       },
       auto_return: 'approved'
     };

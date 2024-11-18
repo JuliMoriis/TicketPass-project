@@ -4,7 +4,6 @@ import { CompraService } from '../../../services/compra.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Autenticacion } from '../../../services/autenticacion.service';
 import Swal from 'sweetalert2';
-import { ComprasDevueltasService } from '../../../services/compras-devueltas.service';
 
 @Component({
   selector: 'app-list-entradas',
@@ -15,11 +14,12 @@ import { ComprasDevueltasService } from '../../../services/compras-devueltas.ser
 })
 export class ListEntradasComponent implements OnInit{
 
-  compraService = inject(CompraService)
-  listaCompras: Compra [] = []
-
-  idUsuario: string | null = null;
+  private compraService = inject(CompraService)
   private authService = inject(Autenticacion)
+
+  listaCompras: Compra [] = []
+  idUsuario: string | null = null;
+
   
   ngOnInit(): void {
     this.authService.userId.subscribe((id) => {
@@ -43,6 +43,7 @@ export class ListEntradasComponent implements OnInit{
     )
   }
 
+  
   bajaEntrada(compra: Compra){
     compra.alta = false;
 

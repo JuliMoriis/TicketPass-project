@@ -23,6 +23,8 @@ import { Autenticacion } from '../../../services/autenticacion.service';
 export class AddEventoComponent implements OnInit {
 
   constructor(private router: Router, private authService: Autenticacion) {}
+  private recintosService = inject(RecintoService);
+  private eventosService = inject(EventoService);
 
   @Input()
   eventoIn?: Evento; // undefined si no pongo editar
@@ -34,9 +36,6 @@ export class AddEventoComponent implements OnInit {
 
   flag: boolean = false;
   fechaAgregada = false;
-
-  private recintosService = inject(RecintoService);
-  private eventosService = inject(EventoService);
 
   listadoRecintos: Recinto[] = [];
   sectoresRecinto: Sector[] = [];

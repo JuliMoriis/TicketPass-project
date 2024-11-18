@@ -77,7 +77,6 @@ export class AddCompraComponent implements OnInit {
   private authService = inject(Autenticacion);
 
   preferencia: any = {};
-  private mercadoPago: any;
   cantidad : number = 1
 
   ngOnInit(): void {
@@ -103,6 +102,7 @@ export class AddCompraComponent implements OnInit {
         }
       })
     }
+
 
     this.active.paramMap.subscribe(param => {
       const eventoId = param.get("idEvento");
@@ -136,6 +136,7 @@ export class AddCompraComponent implements OnInit {
 
   }
 
+  //va cambiando a medida que en el html selecciona sectores y cantidad
   asignarSectorYPrecio(entrada: Entrada) {
     this.compra.entrada.sector = entrada.nombreSector;
     this.compra.entrada.precioUnitario = entrada.precio;
@@ -143,6 +144,7 @@ export class AddCompraComponent implements OnInit {
     this.actualizarTotalPrecio()
   }
 
+  //se acualiza en base a los sectores y cantidad que pone
   actualizarTotalPrecio() {
     this.compra.precioTotal = this.compra.cantidad * this.compra.entrada.precioUnitario;
     console.log(this.compra);
@@ -151,8 +153,10 @@ export class AddCompraComponent implements OnInit {
   ////////////////////////////////////////////////////////////////
 
 
+  //levanta api de mercado pago
   iniciarPago() {
     this.cantidad = Number(this.compra.cantidad)
+    //ponemos de precio 1 para que sea una pruena (para hacerlo real deberia ir tihs.compra.precioTotal)
     this.pagoService.crearPreferencia(this.compra.evento.nombreEvento, this.cantidad, 1)
       .subscribe({
         next: (response: any) => {
@@ -185,14 +189,8 @@ export class AddCompraComponent implements OnInit {
     this.actualizarStockEntradas()
     this.editarEvento()
     this.postCompra()
-
-    // Swal.fire({
-    //   title: "Compra realizada con exito",
-    //   confirmButtonColor: "#36173d",
-    //   icon: "success"
-    // });
-
   }
+
 
   /////////////////////////////////////////////////////////////
 
@@ -210,7 +208,7 @@ export class AddCompraComponent implements OnInit {
           //restamos disponibilidad en fecha elegida en ese sector
           entrada.disponibles = entrada.disponibles - this.compra.cantidad;
 
-          //actualiza el stock total (nuevo) !!!!!!!!!!!!!!!
+          //actualiza el stock total
           this.fechaSeleccionada.disponibilidadTotal = this.fechaSeleccionada.disponibilidadTotal - this.compra.cantidad;
           console.log(this.evento);
 
@@ -292,8 +290,6 @@ export class AddCompraComponent implements OnInit {
         }
       })
     }
-
-
   }
 
 

@@ -37,8 +37,6 @@ export class VerDetalleEntradasComponent {
   userId: string | null = ''
   urlBanner: string = ''
 
-  constructor(private router: Router){}
-
   ngOnInit(): void {
     this.authService.userId.subscribe((id) => {
       this.userId = id;
@@ -98,18 +96,18 @@ export class VerDetalleEntradasComponent {
       const imagenPdf = canvas.toDataURL('image/png');
       const pdf = new jsPDF();
 
+      //agrega el qr
       if (this.compraSeleccionada?.qrEntrada) {
         const qrImagen = this.compraSeleccionada?.qrEntrada;
         pdf.addImage(qrImagen, 'PNG', 10, 10, 50, 50);
       }
 
+      //agrega los datos que estan en el html
       pdf.addImage(imagenPdf, 'PNG', 10, 70, 180, 130);
 
       pdf.save('entradaPdf');
     });
   }
-
-
 
 
 }

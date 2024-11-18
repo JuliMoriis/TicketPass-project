@@ -9,7 +9,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import Swal from 'sweetalert2';
 
 
-
 @Component({
   selector: 'app-add-usuario',
   standalone: true,
@@ -19,6 +18,7 @@ import Swal from 'sweetalert2';
 })
 export class AddUsuarioComponent implements OnInit{
 
+  //ocultar/mostrar contraseña
   faEye = faEye;
   faEyeSlash = faEyeSlash;
   showPassword: boolean = false;
@@ -26,10 +26,9 @@ export class AddUsuarioComponent implements OnInit{
   constructor(private router: Router){}
 
   usuarioRecibido?: Usuario
-
   nombresUsuario: string[] = [];
 
-  fb = inject(FormBuilder);
+  private fb = inject(FormBuilder);
   private usuariosService = inject(UsuarioService);
 
   ngOnInit(): void {

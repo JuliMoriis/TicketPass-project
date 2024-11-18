@@ -82,7 +82,6 @@ export class AddRecintoComponent implements OnInit {
 
   }
 
-
   agregarSectorEdit() {
       this.crearButacas(this.sector)
       this.recintoRecibido?.sectores.push(this.sector);

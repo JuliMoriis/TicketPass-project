@@ -1,5 +1,4 @@
-import { QRCode } from 'qrcode';
-import { Fecha } from './../../evento/interfaces/fecha.interface';
+
 export interface Compra {
   id?: string,
   fechaDeCompra: Date,

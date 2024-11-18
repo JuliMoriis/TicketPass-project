@@ -31,9 +31,7 @@ export class DetalleEventoComponent implements OnInit{
   userId: string | null = ''
   tipo : number | null = null
 
-  active = inject(ActivatedRoute)
-
-  constructor(private router: Router){}
+  private active = inject(ActivatedRoute)
 
   ngOnInit(): void {
 
@@ -70,6 +68,7 @@ export class DetalleEventoComponent implements OnInit{
     console.log(this.eventoSeleccionado?.alta);
   }
 
+  //edita el evento
   updateEventos(evento: Evento){
     this.eventosService.putEvento(evento?.id, evento).subscribe({
       next:()=>{

@@ -11,7 +11,7 @@
     <ul>
       <li *ngFor="let compra of resultados" [routerLink]="['/ver-detalle-entradas', compra.id]">
         <div class="divInfo">
-          Entrada: {{ compra.evento.nombreEvento }} - Alta:
+          Entrada: {{ compra.evento.nombreEvento }} - Estado:
           {{ compra.alta ? 'Habilitado' : 'Deshabilitado' }} - Usuario: {{compra.cliente.idCliente}}
         </div>
       </li>
