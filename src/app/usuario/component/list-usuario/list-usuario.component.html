@@ -1,28 +1,25 @@
 <section class="fondo">  
   <section class="usuarios-section">
-
-    @if(listaUsuarios.length==0){
+    @if(listaUsuarios.length == 0) {
       <div class="vacio"><strong>No hay usuarios registrados</strong></div>
     }
     <ul class="usuarios-list">
-    @for (usuario of listaUsuarios; track $index) {
-      @if(usuario.tipo === 2){
-        <li class="usuario-item">
-          <div class="usuario-content">
-          <h3 class="usuario-nombre"> Usuario: {{usuario.nombreUsuario}}</h3>
-          <div class="contenedor-botones">
-            <button class="detalle-boton" type="button" (click)="confirmarDHR(usuario)">
-              {{ usuario.alta ? 'Deshabilitar' : 'Habilitar' }} cuenta
-            </button>
-            <button class="detalle-boton" type="button" [routerLink]="['/ver-detalle-usuario', adminId, usuario.id]">Ver detalle</button>
-          </div>
-         
-        </div>
-        </li>
+      @for (usuario of listaUsuarios; track $index) {
+        @if(usuario.tipo === 2) {
+          <li class="usuario-item">
+            <div class="usuario-content">
+              <h3 class="usuario-nombre"> Usuario: {{usuario.nombreUsuario}}</h3>
+              <div class="contenedor-botones">
+                <button class="detalle-boton" type="button" (click)="confirmarDHR(usuario)">
+                  {{ usuario.alta ? 'Deshabilitar' : 'Habilitar' }} cuenta
+                </button>
+                <button class="detalle-boton" type="button" [routerLink]="['/ver-detalle-usuario', adminId, usuario.id]">Ver detalle</button>
+              </div>
+            </div>
+          </li>
+        }
       }
-    }
-  </ul>
+    </ul>
   </section>
 </section>
-
 

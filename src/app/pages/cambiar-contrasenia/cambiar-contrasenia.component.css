@@ -6,37 +6,40 @@
   font-family:Arial, Helvetica, sans-serif;
 }
 
-section{
+section {
   width: 100%;
   display: flex;
-  align-items:center;
-  justify-content: center;
-  min-height:100vh;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: flex-start; 
+  min-height: 100vh; 
   padding: 0 10px;
-  color:white;
+  color: white;
+  position: relative; 
 }
 
-section::before{
-  content:"";
+section::before {
+  content: "";
   position: absolute;
-  width:100%;
-  height:180%;
-  background:url('/img/audiencia-background.jpg')
-  #000;
+  width: 100%;
+  height: 100%;
+  background: url('/img/audiencia-background.jpg') #000;
   background-position: center;
-  background-size:auto;
-  z-index:-1 ;
+  background-size: cover; 
+  z-index: -1;
 }
-.wrapper{
-  margin-top:5%;
-  width:470px;
-  border-radius:8px;
+
+.wrapper {
+  margin-top: 5%;
+  margin-bottom: auto; 
+  width: 470px;
+  border-radius: 8px;
   padding: 30px;
   text-align: center;
   border: 1px solid #ffffff80;
   backdrop-filter: blur(8px);
-  margin-bottom:5%;
 }
+
 form{
   display: flex;
   flex-direction: column;
