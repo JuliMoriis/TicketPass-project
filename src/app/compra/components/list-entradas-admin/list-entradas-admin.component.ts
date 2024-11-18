@@ -261,7 +261,7 @@ confirmarReponerIndividual(compra: Compra){
 
 confirmarReponerTodas (){
   Swal.fire({
-    title: '¿Desea reponer el stock de todas las entradas disponibles?',
+    title: '¿Desea reponer el stock de todas las entradas deshabilitadas?',
     text: 'Esta acción no permitira habilitar las entradas',
     icon: 'warning',
     showCancelButton: true,
