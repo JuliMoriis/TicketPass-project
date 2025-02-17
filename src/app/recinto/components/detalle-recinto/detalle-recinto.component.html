@@ -3,30 +3,30 @@
     <div class="divreg">
       <h2>{{recinto.nombreRecinto}}</h2>
     </div>
-  
+
     <img class="containerImgRecinto" *ngIf="recinto.urlImg" [src]="recinto.urlImg" alt="Imagen del recinto">
-  
+
     <div class="wrapper datos-recinto">
       <h4 class="titulo-seccion">Dirección</h4>
       <div class="detalles">
         {{recinto.direccion.calle}}- {{recinto.direccion.numero}}, {{recinto.direccion.pais}}
       </div>
-  
+
       <h4 class="titulo-seccion">Sectores</h4>
       <div *ngFor="let sector of recinto.sectores" class="detalles">
         <h5>{{sector.nombreSector}}</h5>
-        Capacidad {{sector.capacidad}} - Numerado: {{sector.numerado}}
+        Capacidad {{sector.capacidad}} - Numerado: {{sector.numerado ? 'Si' : 'No'}}
       </div>
     </div>
-  
+
     <div class="botonContainer">
       <button (click)="mostrarForm()">Editar</button>
     </div>
-  
+
     <div *ngIf="mostrarEditar">
       <app-add-recinto [recintoRecibido]="recinto"></app-add-recinto>
     </div>
-  
-  } 
+
+  }
 </section>
 
