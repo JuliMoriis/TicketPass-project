@@ -4,11 +4,12 @@
   padding: 5%;
   width:300%;
   justify-self: center;
-  margin-bottom:5%;
+  margin-bottom:2%;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   color: #333;
   text-align: center;
   margin-top: 20%;
+  padding-bottom: 1rem;
 }
 
 .titulo-fila {
@@ -94,7 +95,7 @@ button:disabled:hover{
   padding:5%;
   border-radius: 8px;
   width:300%;
-  
+
   justify-self: center;
   margin-bottom:5%;
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -138,6 +139,7 @@ audio {
   border-radius: 8px;
   border: none;
 }
+
 .contenedor-flex-vertical {
   display: row;
 }
@@ -159,7 +161,6 @@ audio {
 }
 
 .fondo{
- 
   position: relative;
   width: 100%;
   box-sizing:border-box;
@@ -169,4 +170,40 @@ audio {
   background:url('/img/audiencia-background.jpg') ;
   background-position: center;
   background-size: auto;
+}
+
+.song-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Para posicionar los elementos dentro del contenedor */
+}
+
+.song-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Para posicionar los elementos dentro del contenedor */
+}
+
+.spotify-message {
+  margin-top: 30px; /* Aumentamos la distancia desde el reproductor */
+  font-size: 16px; /* Aumentamos el tamaño del texto */
+  color: #fff; /* Color blanco */
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.spotify-icon {
+  width: 50px; /* Hacemos el icono más grande */
+  height: 50px; /* Hacemos el icono más grande */
+  margin-top: 20px; /* Espaciado entre el reproductor y el icono */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.spotify-icon:hover {
+  transform: scale(1.2); /* Efecto de escala al pasar el mouse */
 }

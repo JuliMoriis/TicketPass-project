@@ -15,7 +15,6 @@ export class SpotifyService {
   private baseURL: string = 'https://api.spotify.com/v1';
   private accessToken: string = '';
 
-
   constructor(private http: HttpClient) {}
 
   private getAccessToken(): Observable<string> {
@@ -38,6 +37,8 @@ export class SpotifyService {
       })
     );
   }
+
+
 
   getCanciones(artista: string): Observable<any> {
     return this.getAccessToken().pipe(

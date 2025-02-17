@@ -1,0 +1,20 @@
+<div class="section-fondo">
+  <div class="detalle-entrada">
+    <div class="entrada-titulo">
+      <h2> Preguntas Frecuentes</h2>
+    </div>
+
+    <ul class="lista-fila">
+      <li *ngFor="let pregunta of preguntas" class="item-fila">
+        <!-- Al hacer click se alterna el estado "mostrar" -->
+        <div (click)="pregunta.mostrar = !pregunta.mostrar" class="pregunta">
+          <strong>{{ pregunta.pregunta }}</strong>
+        </div>
+        <!-- Siempre existe el elemento p, pero se le asigna la clase "visible" si pregunta.mostrar es true -->
+        <p class="respuesta" [ngClass]="{'visible': pregunta.mostrar}">
+          {{ pregunta.respuesta }}
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>

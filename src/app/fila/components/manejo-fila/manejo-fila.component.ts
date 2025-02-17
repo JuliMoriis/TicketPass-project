@@ -20,6 +20,7 @@ import { Autenticacion } from '../../../services/autenticacion.service';
 
 export class ManejoFilaComponent implements OnInit {
 
+  artistPlaylistUrl: string = ''
   canciones: any[] = [];
   cancionSeleccionada: any = null;
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>; //reproduccion automatica
@@ -134,11 +135,15 @@ export class ManejoFilaComponent implements OnInit {
           console.error('Error al obtener canciones de Spotify:', e);
         }
       });
+
+      console.log('Artista/Banda:', this.evento.artista_banda);
+      this.artistPlaylistUrl = 'https://open.spotify.com/search/' + encodeURIComponent(this.evento.artista_banda) + '?type=playlist';
+      console.log('URL generada:', this.artistPlaylistUrl);
+
     } else {
       console.log('El evento no tiene un artista asociado.');
     }
   }
-
 
   //reproduccion automatica apenas se abre la fila
   reproducir() {
@@ -162,6 +167,8 @@ export class ManejoFilaComponent implements OnInit {
     } else {
       //hay varias canciones que tienen copyright y aparece esto
         console.error('No hay URL de previsualización disponible para esta canción.');
+        console.log('URL de previsualización:', this.cancionSeleccionada?.preview_url);
+
     }
 }
 
@@ -176,5 +183,8 @@ seleccionarCancionAleatoria() {
         console.log('No hay canciones disponibles para reproducir.');
     }
 }
+
+
+
 
 }

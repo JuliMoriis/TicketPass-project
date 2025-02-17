@@ -1,0 +1,32 @@
+<div class="section-fondo">
+  <div class="detalle-entrada">
+    <div class="entrada-titulo">
+      <h2>Agregar Pregunta Frecuente</h2>
+    </div>
+    <form (ngSubmit)="agregarPregunta()">
+      <div class="form-group">
+        <label for="pregunta">Pregunta:</label>
+        <input
+          type="text"
+          id="pregunta"
+          [(ngModel)]="nuevaPregunta.pregunta"
+          name="pregunta"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="respuesta">Respuesta:</label>
+        <input
+          type="text"
+          id="respuesta"
+          [(ngModel)]="nuevaPregunta.respuesta"
+          name="respuesta"
+          required
+        />
+      </div>
+      <div class="boton-container">
+        <button type="submit">Agregar</button>
+      </div>
+    </form>
+  </div>
+</div>

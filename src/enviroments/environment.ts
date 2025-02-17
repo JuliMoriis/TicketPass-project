@@ -1,5 +1,5 @@
 export const environmentMP = {
-    token: 'APP_USR-3345936516743982-103013-adb69433c7960f497be6c222b84b3a5c-2036055243' 
+    token: 'APP_USR-3345936516743982-103013-adb69433c7960f497be6c222b84b3a5c-2036055243'
 }
 
 export const environmentSpotify = {

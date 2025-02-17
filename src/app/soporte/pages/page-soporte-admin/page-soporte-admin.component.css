@@ -1,0 +1,210 @@
+/* =====================
+   Estilos Generales
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =====================
+   Fondo y Contenedor Principal
+===================== */
+.section-fondo {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110vh;
+  padding: 0 10px;
+  color: white;
+  background: url('/img/audiencia-background.jpg');
+  background-position: center;
+  background-size: auto;
+}
+
+/* =====================
+   Tarjeta de Contenido
+===================== */
+.detalle-entrada {
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 2%;
+  background-color: #efefefc6;
+  border-radius: 8px;
+  color: #333;
+  overflow: hidden;
+  margin-bottom: 10%;
+}
+
+.detalle-entrada:hover {
+  background-color: white;
+}
+
+.entrada-titulo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.entrada-titulo h2 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #36173d;
+  margin: 0;
+}
+
+/* =====================
+   Botones y Contenedores Internos
+===================== */
+.boton-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* El botón usa tus estilos globales definidos más abajo */
+
+/* =====================
+   Lista de Preguntas Frecuentes
+===================== */
+.lista-fila {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.item-fila {
+  background-color: #fff;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+.item-fila .pregunta {
+  cursor: pointer;
+  font-weight: bold;
+  color: #36173d;
+}
+
+.item-fila .respuesta {
+  margin-top: 8px;
+  padding: 5px 10px;
+  background-color: #efefef;
+  border-left: 3px solid #36173d;
+}
+
+/* =====================
+   Estilos para Botones (ya los tienes definidos)
+===================== */
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #36173d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff48459f;
+  color: #36173d;
+  transform: translateY(-5px);
+}
+
+/* =====================
+   Footer (ajustado para que no se vea tan oscuro)
+===================== */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #efefef; /* Fondo claro para que no se vea "todo negro" */
+  color: #36173d;
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+  z-index: 100;
+}
+
+/* =====================
+   Otros estilos que ya tienes
+===================== */
+.banner-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.entrada-info {
+  padding: 20px;
+}
+
+.entrada-item {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.entrada-label {
+  font-weight: bold;
+  color: #36173d;
+}
+
+.butacas {
+  margin-top: 20px;
+}
+
+.butaca-lista {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.butaca-item {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 6px 14px;
+  background-color: #dfe4ea;
+  color: #2e3d49;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.btnDescargar {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.mensaje {
+  margin: 1rem;
+  font-size: smaller;
+}
+
+.respuesta {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  margin: 0;
+}
+
+.respuesta.visible {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 10px;
+}

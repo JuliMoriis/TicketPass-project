@@ -22,6 +22,9 @@ import { PageMisEntradasComponent } from './compra/pages/page-mis-entradas/page-
 import { PageComprasComponent } from './compra/pages/page-compras/page-compras.component';
 import { PageListUsuariosComponent } from './usuario/pages/page-list-usuarios/page-list-usuarios.component';
 import { CambiarContraseniaSinIdComponent } from './pages/cambiar-contrasenia-sin-id/cambiar-contrasenia-sin-id.component';
+import { AdminPreguntasComponent } from './soporte/pages/page-soporte-admin/page-soporte-admin.component';
+import { AddPreguntaComponent } from './soporte/components/add-pregunta/add-pregunta.component';
+import { SoporteFooterComponent } from './soporte/pages/soporte-footer/soporte-footer.component';
 
 
 export const routes: Routes = [
@@ -48,6 +51,9 @@ export const routes: Routes = [
   { path: 'cambiar-contrasenia/:id', component: CambiarContraseniaComponent},
   { path: 'cambiar-contrasenia', component: CambiarContraseniaSinIdComponent},
   { path: 'compras', component: PageComprasComponent},
+  { path: 'preguntas-frecuentes-administrador', component: AdminPreguntasComponent},
+  { path: 'agregar-pregunta', component: AddPreguntaComponent},
+  { path: 'soporte', component: SoporteFooterComponent},
   { path: '**', component: ClientePageComponent}
 
 ]
