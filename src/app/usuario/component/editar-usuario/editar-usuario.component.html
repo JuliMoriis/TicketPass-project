@@ -108,42 +108,9 @@
             <label for="usuarioDeUsuario">Nombre de Usuario</label>
         </div>
 
-        <div class="input-field">
-            <input [type]="showPassword ? 'text' : 'password'" id="contraseniaUsuario" formControlName = "contrasenia">
-            @if ((formularioUsuario.controls['contrasenia'].getError('required') || formularioUsuario.controls['contrasenia'].getError('minLength')) && formularioUsuario.controls['contrasenia'].touched){
-                <div class="divAvisos">
-                  La contraseña, debe contener mas de 8 caracteres
-                </div>
-            }
-            <fa-icon [icon]="showPassword ? faEye : faEyeSlash" (click)="showPassword = !showPassword" class="password"></fa-icon>
-            <label for="contraseniaUsuario">Contraseña</label>
+        <div class="color">
+        <a [routerLink]="['/cambiar-contrasenia', usuarioRecibido?.id]">Cambiar contraseña</a>
         </div>
-        <div class="input-field">
-          <select id="pregunta" formControlName="pregunta">
-              <option value="" disabled selected>Selecciona una pregunta de seguridad</option>
-              <option value="comida favorita">Comida favorita</option>
-              <option value="animal favorito">Animal favorito</option>
-              <option value="nombre de tu mascota">Nombre de tu mascota</option>
-          </select>
-          @if (formularioUsuario.controls['pregunta'].getError('required') && formularioUsuario.controls['pregunta'].touched) {
-              <div class="divAvisos">
-                  Debes seleccionar una pregunta de verificación.
-              </div>
-          }
-          <label for="verificacion">Pregunta de verificación</label>
-      </div>
-        <div class="input-field">
-          <input type="text" id="verificacionUsuario" formControlName="verificacion">
-          @if ((formularioUsuario.controls['verificacion'].getError('required') && formularioUsuario.controls['verificacion'].touched)) {
-              <div class="divAvisos">
-                  Debe ingresar una respuesta.
-              </div>
-          }
-          <label for="verificacionUsuario">Respuesta a la pregunta de verificación</label>
-      </div>
-
-        <button type="submit">Editar</button>
-
     </form>
 
     </div>

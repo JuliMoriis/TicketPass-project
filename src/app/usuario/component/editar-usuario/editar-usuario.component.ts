@@ -4,14 +4,15 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsuarioService } from '../../../services/usuario.service';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'; 
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-editar-usuario',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FontAwesomeModule],
+  imports: [ReactiveFormsModule, CommonModule, FontAwesomeModule, RouterModule],
   templateUrl: './editar-usuario.component.html',
   styleUrl: './editar-usuario.component.css'
 })
