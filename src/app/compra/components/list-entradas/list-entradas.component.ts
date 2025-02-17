@@ -20,7 +20,7 @@ export class ListEntradasComponent implements OnInit{
   listaCompras: Compra [] = []
   idUsuario: string | null = null;
 
-  
+
   ngOnInit(): void {
     this.authService.userId.subscribe((id) => {
       this.idUsuario = id;
@@ -34,7 +34,8 @@ export class ListEntradasComponent implements OnInit{
     this.compraService.getCompras().subscribe(
       {
         next: (compras: Compra[])=>{
-          this.listaCompras= compras;
+          this.listaCompras= compras.filter(compra => compra.cliente.idCliente == this.idUsuario);
+          console.log(this.listaCompras);
         },
         error: (err)=> {
           console.error('Error al levantar compras:', err);
@@ -43,7 +44,6 @@ export class ListEntradasComponent implements OnInit{
     )
   }
 
-  
   bajaEntrada(compra: Compra){
     compra.alta = false;
 
