@@ -27,7 +27,7 @@
                     </div>
                 }
                 <label for="nuevaContrasenia">Nueva Contraseña</label>
-                <fa-icon [icon]="showPassword ? faEye : faEyeSlash" (click)="showPassword = !showPassword" class="password"></fa-icon>
+                <fa-icon [icon]="showPassword ? faEyeSlash : faEye" (click)="showPassword = !showPassword" class="password"></fa-icon>
             </div>
             <button type="submit" (click)="cambiarContrasenia()">Cambiar Contraseña</button>
           </div>
