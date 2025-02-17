@@ -5,6 +5,7 @@
 }
 
 .compras-section {
+  margin-top: 1rem;
   padding: 3%;
   margin-left: 2%;
   margin-bottom:15%;
@@ -29,7 +30,7 @@
   background-size: cover;
 
 }
- 
+
 .compras-list {
   list-style: none;
   padding: 0;
