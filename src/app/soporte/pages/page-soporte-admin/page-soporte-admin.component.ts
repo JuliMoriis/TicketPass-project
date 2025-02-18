@@ -3,6 +3,7 @@ import { PreguntaFrecuente } from '../../interfaces/pregunta-frecuente';
 import { PreguntasfrecuentesService } from '../../../services/preguntasfrecuentes.service';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -25,8 +26,20 @@ export class AdminPreguntasComponent implements OnInit {
   }
 
   eliminarPregunta(id: number): void {
-    this.preguntaService.deletePregunta(id).subscribe(() => {
-      this.preguntas = this.preguntas.filter(p => p.id !== id);
+    Swal.fire({
+      title: `¿Desea eliminar la pregunta?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#36173d',
+      cancelButtonColor: "#ff4845",
+      confirmButtonText: `Si, eliminar`,
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.preguntaService.deletePregunta(id).subscribe(() => {
+          this.preguntas = this.preguntas.filter(p => p.id !== id);
+        });
+      }
     });
   }
 

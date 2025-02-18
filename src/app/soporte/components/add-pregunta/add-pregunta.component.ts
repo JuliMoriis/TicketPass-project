@@ -2,6 +2,8 @@ import { Component, NgModule } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { PreguntaFrecuente } from '../../interfaces/pregunta-frecuente';
 import { PreguntasfrecuentesService } from '../../../services/preguntasfrecuentes.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-pregunta',
@@ -12,7 +14,8 @@ import { PreguntasfrecuentesService } from '../../../services/preguntasfrecuente
 })
 export class AddPreguntaComponent {
 
-  constructor (private preguntasFrecuentesService: PreguntasfrecuentesService){}
+  constructor (private preguntasFrecuentesService: PreguntasfrecuentesService, private router: Router){}
+
 
   nuevaPregunta: PreguntaFrecuente = {
     id: 0,
@@ -24,7 +27,13 @@ export class AddPreguntaComponent {
     if (this.nuevaPregunta.pregunta.trim() && this.nuevaPregunta.respuesta.trim()) {
       this.nuevaPregunta.id = Date.now();
       this.preguntasFrecuentesService.postPregunta(this.nuevaPregunta).subscribe(() => {
-        alert('Pregunta agregada correctamente');
+        Swal.fire({
+                  title: 'Pregunta agregada correctamente',
+                  confirmButtonColor: "#36173d",
+                  icon: "success",
+                }).then(() => {
+                  this.router.navigate(['preguntas-frecuentes-administrador']);
+                })
         this.nuevaPregunta = { id: 0, pregunta: '', respuesta: '' };
       });
     }
