@@ -361,6 +361,34 @@
       "alta": true,
       "urlMapaSectores": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWM61siW93GqHnfmGnvys9JAapPXwZVFhCZ65pqRPl2mMYzJcp00Tg6PVDDU4R8NDBJ46wfplLLnrjoQGB_XZ8xkS2IHGWRBJn42wdcoRgFyHGJqbNFjMrRa-SC87-dYgaz2G5CFSgUQKw/s1600/lugares.jpg",
       "id": 3
+    },
+    {
+      "nombreRecinto": "RECINTO CHICO",
+      "direccion": {
+        "calle": "Calle inventada",
+        "numero": 120,
+        "ciudad": "Mar del Plata",
+        "codigoPostal": "7600",
+        "pais": "Argentina"
+      },
+      "urlImg": "https://tn.com.ar/resizer/v2/cuales-son-los-recitales-mas-esperados-para-febrero-2024-en-argentina-y-como-conseguir-entradas-foto-juli-garcia-fotografia-4MVB77J4OVDGMAVRS23REHN3MI.jpg?auth=8ca0424618a1d86159786d256b00ca41eb2e702109baeccf007df2197ec2b741&width=1440",
+      "capacidadTotal": 1,
+      "sectores": [
+        {
+          "nombreSector": "SECTOR PRUEBA",
+          "capacidad": 1,
+          "numerado": true,
+          "asientos": [
+            {
+              "butaca": 1,
+              "disponibilidad": true
+            }
+          ]
+        }
+      ],
+      "alta": true,
+      "urlMapaSectores": "aaa",
+      "id": 4
     }
   ]
 }

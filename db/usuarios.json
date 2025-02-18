@@ -39,6 +39,26 @@
       "tipo": 1,
       "alta": true,
       "id": 4610388041556482
+    },
+    {
+      "nombre": "user",
+      "apellido": "prueba",
+      "telefono": "2234556655",
+      "email": "userprueba@gmail.com",
+      "direccion": {
+        "calle": "calle",
+        "numero": 111,
+        "ciudad": "Mar del Plata",
+        "codigoPostal": "7600",
+        "pais": "Argentina"
+      },
+      "nombreUsuario": "userprueba",
+      "contrasenia": "utnmdp2025",
+      "pregunta": "comida favorita",
+      "verificacion": "milanesa",
+      "tipo": 2,
+      "alta": true,
+      "id": 4610388041556483
     }
   ]
 }
