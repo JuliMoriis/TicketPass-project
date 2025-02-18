@@ -144,7 +144,11 @@ export class AddRecintoComponent implements OnInit {
       for (let sector of this.recinto.sectores) {
 
         if (!sector.nombreSector || sector.capacidad <= 0) {
-          alert('Por favor, completa al menos un sector.');
+          Swal.fire({
+            title: "Por favor, completa al menos un sector",
+            confirmButtonColor: "#36173d",
+            icon: "warning"
+          });
           return;
         }
         console.log("encontro un sector");
